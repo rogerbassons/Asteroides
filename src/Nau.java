@@ -1,4 +1,6 @@
 import java.awt.geom.Path2D;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.PathIterator;
 
 public class Nau {
        	private Path2D triangle_;
@@ -15,11 +17,12 @@ public class Nau {
 	}
 
 	public void centrar(int amplada, int altura) {
-		float centrex, centrey;
+		float centrex = 0;
+		float centrey = 0;
 		obtenirCentreTriangle(centrex,centrey);
 		AffineTransform a = new AffineTransform();
-		int tx = 0;
-		int ty = 0;
+		float tx = 0;
+		float ty = 0;
 	
 		if (centrex != amplada/2) {
 			tx = amplada/2 - centrex;
@@ -52,4 +55,5 @@ public class Nau {
 		centrex = (puntsT[0]+puntsT[2]+puntsT[4])/3;
 		centrey = (puntsT[1]+puntsT[3]+puntsT[5])/3;
 	}
+}
 	
