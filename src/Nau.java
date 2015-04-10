@@ -9,10 +9,16 @@ import java.awt.geom.PathIterator;
 
 public class Nau {
 	
-       	private Path2D triangle_;
+       	private Path2D triangle_; // camí geometric amb forma de triangle isòceles que representa la Nau
+	private int nvides_; // nombre de vides que te la Nau
+	
+	// Distancia que la Nau es mou en sentit horitzontal i vertical, respectivament, quan es crida el metode moure()
 	private float dx_, dy_;
-	private int angleRotacio_;
-	private int nvides_;
+	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre quan es crida el metode moure()
+	
+	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure()
+	private distanciaMax_;
+	
 	
 	//Pre: l > 0 i a > 0
 	//Post: La Nau:
