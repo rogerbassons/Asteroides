@@ -16,11 +16,18 @@ public class Nau {
 	
 	// Distancia que la Nau es mou en sentit horitzontal i vertical, respectivament, quan es crida el metode moure()
 	private float dx_, dy_;
-	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre quan es crida el metode moure()
-	
 	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure()
 	private float distanciaMax_;
 	private float acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminuex
+	
+	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre
+	private int rotar_;// Defineix si en el metode moure() la Nau ha de rotar sobre els seu baricentre
+	// 0 -> no s'ha de rotar
+	// 1 -> rotar en el sentit esquerra
+	// 2 -> rotar en el sentit dret
+	
+	
+
 	
 	
 	//Pre: l > 0 i a > 0
@@ -40,6 +47,7 @@ public class Nau {
 		dx_ = dy_ = 0;
 		distanciaMax_ = l/10;
 		acceleracio_ = l/100;
+		rotar_ = 0;
 	}
 
 	//Pre: amplada > 0 i altura > 0
@@ -80,6 +88,24 @@ public class Nau {
 		} else {
 			dy_ = distanciaMax_;
 		}
+	}
+
+	//Pre: --
+	//Post: la velocitat rotacional de la Nau és màxima en el sentit contrari de les agulles del rellotge
+	public void rotarEsquerra() {
+		rotar_ = 1;
+	}
+
+	//Pre: --
+	//Post: la velocitat rotacional de la Nau és màxima en el sentit de les agulles del rellotge
+	public void rotarDreta() {
+		rotar_ = 2;
+	}
+
+	//Pre: --
+	//Post: la Nau no rota en cap sentit
+	public void pararRotacio() {
+		rotar_ = 0;
 	}
 
 	//Pre: --
