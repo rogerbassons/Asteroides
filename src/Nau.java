@@ -108,6 +108,22 @@ public class Nau {
 		rotar_ = 0;
 	}
 
+	//Pre: nombre de vides de la Nau>0
+	//Post: la Nau perd una vida
+	public void morir() {
+		if (nvides > 0) {
+			nvides_--;
+		} else {
+			throw new Exception("La Nau no te vides");
+		}
+	}
+
+	//Pre: --
+	//Post: retorna cert (diu) si el nombre de vides de la Nau >0
+	publoc boolean teVides() {
+		return nvides_ > 0;
+	}
+
 	//Pre: --
 	//Post: centrex i centrey són les coordenades x i y del baricentre del triangle que forma la nau, respectivament
 	private void obtenirCentreTriangle(float centrex, float centrey) {
