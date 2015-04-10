@@ -31,6 +31,9 @@ public class Nau {
 		triangle_.lineTo(0,l);
 		triangle_.lineTo(a,l);
 		triangle_.closePath();
+
+		nvides_ = 3;
+		distanciaMax_ = 2 * l // En una unica crida de moure() es pot desplaçar com a màxim una distancia de 2 cops la seva llargada
 	}
 
 	//Pre: amplada > 0 i altura > 0
