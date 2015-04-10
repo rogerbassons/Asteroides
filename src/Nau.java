@@ -15,10 +15,10 @@ public class Nau {
 	private int nvides_; // nombre de vides que te la Nau
 	
 	// Distancia que la Nau es mou en sentit horitzontal i vertical, respectivament, quan es crida el metode moure()
-	private float dx_, dy_;
+	private double dx_, dy_;
 	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure()
-	private float distanciaMax_;
-	private float acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminuex
+	private double distanciaMax_;
+	private double acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminuex
 	
 	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre
 	private int rotar_;// Defineix si en el metode moure() la Nau ha de rotar sobre els seu baricentre
@@ -36,7 +36,7 @@ public class Nau {
 	//          - te la punta superior a la coordenada (a/2)
 	//          - la part de darrera de la nau forma un angle de 90 graus amb l'eix vertical(la Nau apunta cap a dalt)
 	Nau(int l, int a) {
-		triangle_ = new Path2D.Float();
+		triangle_ = new Path2D.Double();
 		triangle_.moveTo(a/2,0);
 		triangle_.lineTo(0,l);
 		triangle_.lineTo(a,l);
@@ -53,12 +53,12 @@ public class Nau {
 	//Pre: amplada > 0 i altura > 0
 	//Post: s'ha centrat el triangle al pla de mida amplada*altura
 	public void centrar(int amplada, int altura) {
-		float centrex = 0;
-		float centrey = 0;
+		double centrex = 0;
+		double centrey = 0;
 		obtenirCentreTriangle(centrex,centrey);
 		AffineTransform a = new AffineTransform();
-		float tx = 0;
-		float ty = 0;
+		double tx = 0;
+		double ty = 0;
 	
 		if (centrex != amplada/2) {
 			tx = amplada/2 - centrex;
@@ -75,8 +75,8 @@ public class Nau {
 	//Pre: -- 
 	//Post: s'augmenta la velocitat de la Nau en el sentit en el que apunta
 	public void propulsarEndavant() {
-		float seguentdx = dx_ + Math.sin(Math.toRadians(angle_))*acceleracio_;
-		float seguentdy = dy_ + Math.cos(Math.toRadians(angle_))*acceleracio_;
+		double seguentdx = dx_ + Math.sin(Math.toRadians(angle_))*acceleracio_;
+		double seguentdy = dy_ + Math.cos(Math.toRadians(angle_))*acceleracio_;
 
 		if (seguentdx < distanciaMax_) {
 			dx_ = seguentdx;
@@ -110,8 +110,8 @@ public class Nau {
 
 	//Pre: nombre de vides de la Nau>0
 	//Post: la Nau perd una vida
-	public void morir() {
-		if (nvides > 0) {
+	public void morir() throws Exception {
+		if (nvides_ > 0) {
 			nvides_--;
 		} else {
 			throw new Exception("La Nau no te vides");
@@ -120,15 +120,15 @@ public class Nau {
 
 	//Pre: --
 	//Post: retorna cert (diu) si el nombre de vides de la Nau >0
-	publoc boolean teVides() {
+	public boolean teVides() {
 		return nvides_ > 0;
 	}
 
 	//Pre: --
 	//Post: centrex i centrey són les coordenades x i y del baricentre del triangle que forma la nau, respectivament
-	private void obtenirCentreTriangle(float centrex, float centrey) {
-		float [] puntsT = new float[6]; 
-		float [] coordenades = new float[6];
+	private void obtenirCentreTriangle(double centrex, double centrey) {
+		double [] puntsT = new double[6]; 
+		double [] coordenades = new double[6];
 	
 		PathIterator pi = triangle_.getPathIterator(null,0);
 		int i = 0;
@@ -144,9 +144,9 @@ public class Nau {
 	}
 
 	/* TEST */
-	public float [] obtenirPuntsTriangle() {
-		float [] puntsT = new float[6]; 
-		float [] coordenades = new float[6];
+	public double [] obtenirPuntsTriangle() {
+		double [] puntsT = new double[6]; 
+		double [] coordenades = new double[6];
 	
 		PathIterator pi = triangle_.getPathIterator(null,0);
 		int i = 0;
@@ -155,7 +155,7 @@ public class Nau {
 			puntsT[i] = coordenades[0];
 			puntsT[i+1] = coordenades[1];
 			i += 2;
-			for (float j : coordenades) {
+			for (double j : coordenades) {
 				System.out.println(j);
 			}
 			System.out.println("----------");
