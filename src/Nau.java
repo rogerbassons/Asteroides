@@ -1,6 +1,7 @@
 import java.awt.geom.Path2D;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
+import java.lang.Math;
 
 // És una nau espacial triangular isòsceles que pot rotar sobre si mateixa, es pot propulsar endavant i disparar rajos làser.
 // Quan la nau es propulsa endavant, s'accelera fins la seva velocitat màxima. Si la nau no és propulsada i està en moviment,
@@ -10,6 +11,7 @@ import java.awt.geom.PathIterator;
 public class Nau {
 	
        	private Path2D triangle_; // camí geometric amb forma de triangle isòceles que representa la Nau
+	private int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private int nvides_; // nombre de vides que te la Nau
 	
 	// Distancia que la Nau es mou en sentit horitzontal i vertical, respectivament, quan es crida el metode moure()
@@ -17,7 +19,8 @@ public class Nau {
 	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre quan es crida el metode moure()
 	
 	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure()
-	private distanciaMax_;
+	private float distanciaMax_;
+	private float acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminuex
 	
 	
 	//Pre: l > 0 i a > 0
@@ -31,9 +34,12 @@ public class Nau {
 		triangle_.lineTo(0,l);
 		triangle_.lineTo(a,l);
 		triangle_.closePath();
+		angle_ = -180;
 
 		nvides_ = 3;
-		distanciaMax_ = 2 * l // En una unica crida de moure() es pot desplaçar com a màxim una distancia de 2 cops la seva llargada
+		dx_ = dy_ = 0;
+		distanciaMax_ = l/10;
+		acceleracio_ = l/100;
 	}
 
 	//Pre: amplada > 0 i altura > 0
@@ -56,6 +62,24 @@ public class Nau {
 		
 		a.translate(tx, ty);
 		triangle_.transform(a);
+	}
+
+	//Pre: -- 
+	//Post: s'augmenta la velocitat de la Nau en el sentit en el que apunta
+	public void propulsarEndavant() {
+		float seguentdx = dx_ + Math.sin(Math.toRadians(angle_))*acceleracio_;
+		float seguentdy = dy_ + Math.cos(Math.toRadians(angle_))*acceleracio_;
+
+		if (seguentdx < distanciaMax_) {
+			dx_ = seguentdx;
+		} else {
+			dx_ = distanciaMax_;
+		}
+		if (seguentdy < distanciaMax_) {
+			dy_ = seguentdy;
+		} else {
+			dy_ = distanciaMax_;
+		}
 	}
 
 	//Pre: --
