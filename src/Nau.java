@@ -2,7 +2,13 @@ import java.awt.geom.Path2D;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 
+// És una nau espacial triangular isòsceles que pot rotar sobre si mateixa, es pot propulsar endavant i disparar rajos làser.
+// Quan la nau es propulsa endavant, s'accelera fins la seva velocitat màxima. Si la nau no és propulsada i està en moviment,
+// cada certa distància es desaccelera el seu moviment fins a parar-se.
+// La Nau té inicialment 3 vides, cada vegada que es destrueix(explota) perd una vida.
+
 public class Nau {
+	
        	private Path2D triangle_;
 	private float dx_, dy_;
 	private int angleRotacio_;
