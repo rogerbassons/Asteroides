@@ -42,8 +42,8 @@ public class Nau {
 	}
 
 	//Pre: --
-	//Post: centrex i centrey són les coordenades x i y del centre del triangle, respectivament
-	public void obtenirCentreTriangle(float centrex, float centrey) {
+	//Post: centrex i centrey són les coordenades x i y del baricentre del triangle que forma la nau, respectivament
+	private void obtenirCentreTriangle(float centrex, float centrey) {
 		float [] puntsT = new float[6]; 
 		float [] coordenades = new float[6];
 	
