@@ -47,15 +47,12 @@ public class Nau {
 		float [] coordenades = new float[6];
 	
 		PathIterator pi = triangle_.getPathIterator(null,0);
-		pi.currentSegment(coordenades);
-	
-		puntsT[0] = coordenades[0];
-		puntsT[1] = coordenades[1];
-		int i = 2;
-		while (!pi.isDone()) {
+		int i = 0;
+		while (!pi.isDone() && i < 5) {
 			pi.currentSegment(coordenades);
-			puntsT[i] = coordenades[2];
-			puntsT[i+1] = coordenades[3];
+			puntsT[i] = coordenades[0];
+			puntsT[i+1] = coordenades[1];
+			i += 2;
 			pi.next();
 		}
 		centrex = (puntsT[0]+puntsT[2]+puntsT[4])/3;
@@ -68,15 +65,16 @@ public class Nau {
 		float [] coordenades = new float[6];
 	
 		PathIterator pi = triangle_.getPathIterator(null,0);
-		pi.currentSegment(coordenades);
-	
-		puntsT[0] = coordenades[0];
-		puntsT[1] = coordenades[1];
-		int i = 2;
-		while (!pi.isDone()) {
+		int i = 0;
+		while (!pi.isDone() && i < 5) {
 			pi.currentSegment(coordenades);
-			puntsT[i] = coordenades[2];
-			puntsT[i+1] = coordenades[3];
+			puntsT[i] = coordenades[0];
+			puntsT[i+1] = coordenades[1];
+			i += 2;
+			for (float j : coordenades) {
+				System.out.println(j);
+			}
+			System.out.println("----------");
 			pi.next();
 		}
 		return puntsT;

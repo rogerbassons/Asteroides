@@ -4,9 +4,9 @@ public class Main {
 		Nau n = new Nau(8,4);
 		float [] punts = n.obtenirPuntsTriangle();
 
-		for (float i : punts) {
+		/*for (float i : punts) {
 			System.out.println(i);
-		}
+		  }*/
 	}
 
 }
