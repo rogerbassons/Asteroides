@@ -9,8 +9,9 @@ public class Nau {
 	private int nvides_;
 	
 	//Pre: l > 0 i a > 0
-	//Post: la Nau té una llargada l i una amplada màxima a. La posició del centre de la Nau és (x,y) i la seva velocitat és zero.
-	Nau(int l, int a) { //, int x, int y) {
+	//Post: la Nau té una llargada l i una amplada màxima a. La Nau te la punta superior a la coordenada (a/2,0), la seva velocitat és zero i
+	//      la part de darrera de la nau forma un angle de 90 graus amb l'eix vertical.
+	Nau(int l, int a) {
 		triangle_ = new Path2D.Float();
 		triangle_.moveTo(a/2,0);
 		triangle_.lineTo(0,l);
@@ -42,7 +43,7 @@ public class Nau {
 
 	//Pre: --
 	//Post: centrex i centrey són les coordenades x i y del centre del triangle, respectivament
-	private void obtenirCentreTriangle(float centrex, float centrey) {
+	public void obtenirCentreTriangle(float centrex, float centrey) {
 		float [] puntsT = new float[6]; 
 		float [] coordenades = new float[6];
 	
