@@ -8,6 +8,8 @@ public class Nau {
 	private int angleRotacio_;
 	private int nvides_;
 	
+	//Pre: l > 0 i a > 0
+	//Post: la Nau té una llargada l i una amplada màxima a. La posició del centre de la Nau és (x,y) i la seva velocitat és zero.
 	Nau(int l, int a, int x, int y) {
 		triangle_ = new Path2D.Float();
 		triangle_.moveTo(a/2,0);
@@ -16,6 +18,8 @@ public class Nau {
 		triangle_.closePath();
 	}
 
+	//Pre: amplada > 0 i altura > 0
+	//Post: s'ha centrat el triangle al pla de mida amplada*altura
 	public void centrar(int amplada, int altura) {
 		float centrex = 0;
 		float centrey = 0;
@@ -36,6 +40,8 @@ public class Nau {
 		triangle_.transform(a);
 	}
 
+	//Pre: --
+	//Post: centrex i centrey són les coordenades x i y del centre del triangle, respectivament
 	private void obtenirCentreTriangle(float centrex, float centrey) {
 		float [] puntsT = new float[6]; 
 		float [] coordenades = new float[6];
