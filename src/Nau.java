@@ -9,8 +9,10 @@ public class Nau {
 	private int nvides_;
 	
 	//Pre: l > 0 i a > 0
-	//Post: la Nau té una llargada l i una amplada màxima a. La Nau te la punta superior a la coordenada (a/2,0), la seva velocitat és zero i
-	//      la part de darrera de la nau forma un angle de 90 graus amb l'eix vertical.
+	//Post: La Nau:
+	//          - té una llargada l i una amplada màxima a. L
+	//          - te la punta superior a la coordenada (a/2)
+	//          - la part de darrera de la nau forma un angle de 90 graus amb l'eix vertical(la Nau apunta cap a dalt)
 	Nau(int l, int a) {
 		triangle_ = new Path2D.Float();
 		triangle_.moveTo(a/2,0);
