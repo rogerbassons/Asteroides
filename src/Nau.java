@@ -41,7 +41,7 @@ public class Nau {
 		triangle_.lineTo(0,l);
 		triangle_.lineTo(a,l);
 		triangle_.closePath();
-		angle_ = -180;
+		angle_ = 180;
 
 		nvides_ = 3;
 		dx_ = dy_ = 0;
