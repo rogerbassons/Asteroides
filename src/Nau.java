@@ -19,6 +19,7 @@ public class Nau {
 	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure()
 	private double distanciaMax_;
 	private double acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminueix
+	private double coefFrenada_; // La Nau es frena un coeficient coefFrenada_ de la velocitat que té
 	
 	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre
 	private int rotar_;// Defineix si en el metode moure() la Nau ha de rotar sobre els seu baricentre
@@ -48,6 +49,7 @@ public class Nau {
 		distanciaMax_ = l/10;
 		acceleracio_ = l/100;
 		rotar_ = 0;
+		angleRotacio_ = 5;
 	}
 
 	//Pre: amplada > 0 i altura > 0
@@ -76,7 +78,7 @@ public class Nau {
 	//Post: s'augmenta la velocitat de la Nau en el sentit en el que apunta
 	public void propulsarEndavant() {
 		double seguentdx = dx_ + Math.sin(Math.toRadians(angle_))*acceleracio_;
-		double seguentdy = dy_ + Math.cos(Math.toRadians(angle_))*acceleracio_;
+		double seguentdy = dy_ - Math.cos(Math.toRadians(angle_))*acceleracio_;
 
 		if (seguentdx < distanciaMax_) {
 			dx_ = seguentdx;
@@ -87,6 +89,22 @@ public class Nau {
 			dy_ = seguentdy;
 		} else {
 			dy_ = distanciaMax_;
+		}
+	}
+
+	//Pre: -- 
+	//Post: es disminueix la velocitat de la Nau en el sentit contrari al moviment
+	public void frenar() {
+		if (dx_ > 0) {
+		        dx_ -= dx_*coefFrenada_;
+		} else {
+			dx_ += dx_*coefFrenada_;
+		}
+
+		if (dy_ > 0) {
+			dy_ -= dy_*coefFrenada_;
+		} else {
+			dy_ += dy_*coefFrenada_;
 		}
 	}
 
@@ -110,31 +128,18 @@ public class Nau {
 	
 	//Pre: --
 	//Post: tenint en compte totes les velocitats actuals de la Nau, desplaça la nau a la posició determinada per aquestes velocitats. Altrament, si la nau està totalment parada, no fa res. 
-	public void moure(){
-		if (acceleracio_ != 0) {
-			AffineTransform m = new AffineTransform();
-			double dxmov = dx_;
-			double dymov = dy_;
-			if (dxmov > distanciaMax_) {
-				dxmov = distanciaMax_;
-			}
-			if (dymov > distanciaMax_) {
-				dymov = distanciaMax_;
-			}
-			m.translate(dxmov, dymov);
-			triangle_.transform(m);
+	public void moure() {
+		AffineTransform a = new AffineTransform();
+		a.translate(dx_, dy_);
+		
+		if (rotar_ == 1) {
+			a.setToRotation(Math.toRadians(angleRotacio_));
+			angle_ = angle_ + angleRotacio_;
+		} else if (rotar_ == 2) {
+			a.setToRotation(Math.toRadians(-angleRotacio_));
+			angle_ = angle_ - angleRotacio_;
 		}
-		if (rotar_ != 0) {
-			AffineTransform r = new AffineTransform();
-			if (rotar_ == 1) {
-				r.setToRotation(Math.toRadians(-angleRotacio_));
-				angle_ = angle_ - angleRotacio_;
-			} else {
-				r.setToRotation(Math.toRadians(angleRotacio_));
-				angle_ = angle_ + angleRotacio_;
-			}
-			triangle_.transform(r);
-		}
+		triangle_.transform(a);
 	}
 	
 	//Pre: nombre de vides de la Nau>0
