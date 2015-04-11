@@ -42,7 +42,7 @@ public class Nau {
 		triangle_.lineTo(0,l);
 		triangle_.lineTo(a,l);
 		triangle_.closePath();
-		angle_ = 180;
+		angle_ = 270;
 
 		nvides_ = 3;
 		dx_ = dy_ = 0;
@@ -126,9 +126,9 @@ public class Nau {
 		rotar_ = 0;
 	}
 	
-	//Pre: --
+	//Pre: amplada > 0 i altura > 0
 	//Post: tenint en compte totes les velocitats actuals de la Nau, desplaça la nau a la posició determinada per aquestes velocitats. Altrament, si la nau està totalment parada, no fa res. 
-	public void moure() {
+	public void moure(int amplada, int altura) {
 		AffineTransform a = new AffineTransform();
 		a.translate(dx_, dy_);
 		
@@ -139,6 +139,17 @@ public class Nau {
 			a.setToRotation(Math.toRadians(-angleRotacio_));
 			angle_ = angle_ - angleRotacio_;
 		}
+		
+		double [] puntsT = obtenirPuntsTriangle();
+		boolean trobat = false;
+	        int i = 0;
+		while (!trobat && i < 5) {
+			trobat = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
+		}
+		if (!trobat) {
+			//ha sortit a fora a pendre l'aire
+		}
+		
 		triangle_.transform(a);
 	}
 	
@@ -161,24 +172,14 @@ public class Nau {
 	//Pre: --
 	//Post: centrex i centrey són les coordenades x i y del baricentre del triangle que forma la nau, respectivament
 	private void obtenirCentreTriangle(double centrex, double centrey) {
-		double [] puntsT = new double[6]; 
-		double [] coordenades = new double[6];
-	
-		PathIterator pi = triangle_.getPathIterator(null,0);
-		int i = 0;
-		while (!pi.isDone() && i < 5) {
-			pi.currentSegment(coordenades);
-			puntsT[i] = coordenades[0];
-			puntsT[i+1] = coordenades[1];
-			i += 2;
-			pi.next();
-		}
+		double [] puntsT = obtenirPuntsTriangle();
 		centrex = (puntsT[0]+puntsT[2]+puntsT[4])/3;
 		centrey = (puntsT[1]+puntsT[3]+puntsT[5])/3;
 	}
 
-	/* TEST */
-	public double [] obtenirPuntsTriangle() {
+	//Pre: --
+	//Post: retorna una taula que conte els punts del triangle
+	private double [] obtenirPuntsTriangle() {
 		double [] puntsT = new double[6]; 
 		double [] coordenades = new double[6];
 	
