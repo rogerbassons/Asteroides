@@ -10,7 +10,7 @@ import java.lang.Math;
 
 public class Nau {
 	
-       	private Path2D triangle_; // camí geometric amb forma de triangle isòceles que representa la Nau
+       	private Path2D triangle_; // camí geomètric amb forma de triangle isòceles que representa la Nau
 	private int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private int nvides_; // nombre de vides que te la Nau
 	
@@ -18,7 +18,7 @@ public class Nau {
 	private double dx_, dy_;
 	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure()
 	private double distanciaMax_;
-	private double acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminuex
+	private double acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminueix
 	
 	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre
 	private int rotar_;// Defineix si en el metode moure() la Nau ha de rotar sobre els seu baricentre
@@ -107,7 +107,36 @@ public class Nau {
 	public void pararRotacio() {
 		rotar_ = 0;
 	}
-
+	
+	//Pre: --
+	//Post: tenint en compte totes les velocitats actuals de la Nau, desplaça la nau a la posició determinada per aquestes velocitats. Altrament, si la nau està totalment parada, no fa res. 
+	public void moure(){
+		if (acceleracio_ != 0) {
+			AffineTransform m = new AffineTransform();
+			double dxmov = dx_;
+			double dymov = dy_;
+			if (dxmov > distanciaMax_) {
+				dxmov = distanciaMax_;
+			}
+			if (dymov > distanciaMax_) {
+				dymov = distanciaMax_;
+			}
+			m.translate(dxmov, dymov);
+			triangle_.transform(m);
+		}
+		if (rotar_ != 0) {
+			AffineTransform r = new AffineTransform();
+			if (rotar_ == 1) {
+				r.setToRotation(Math.toRadians(-angleRotacio_));
+				angle_ = angle_ - angleRotacio_;
+			} else {
+				r.setToRotation(Math.toRadians(angleRotacio_));
+				angle_ = angle_ + angleRotacio_;
+			}
+			triangle_.transform(r);
+		}
+	}
+	
 	//Pre: nombre de vides de la Nau>0
 	//Post: la Nau perd una vida
 	public void morir() throws Exception {
