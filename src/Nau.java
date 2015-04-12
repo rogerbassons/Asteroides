@@ -122,7 +122,7 @@ public class Nau {
 
 	//Pre: Nau viva
 	//Post: es disminueix la velocitat de la Nau en el sentit contrari al moviment
-	public void frenar() {
+	private void frenar() {
 		if (dx_ > 0) {
 		        dx_ -= dx_*coefFrenada_;
 		} else {
@@ -160,6 +160,7 @@ public class Nau {
 	//      Si la Nau, situada a la posició p, està totalment fora de l'area amplada x altura llavors la Nau es teletransporta al
 	//      marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta)
 	public void moure(int amplada, int altura) {
+		frenar();
 		AffineTransform a = new AffineTransform();
 		a.translate(dx_, dy_);
 		
