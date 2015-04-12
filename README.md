@@ -36,4 +36,8 @@ Si s'acabés fent l'X ho ha de fer.
 ------------------------------------------------------------
 ------------------------------------------------------------
 Feina per fer:
-tot
+
+- Modificar documentació amb els metodes nous que no estaven previstos?
+- Fer Joc, Nau, Meteorit, Joc. Es a dir, fer-ho tot.
+- Recordatori: definir pre/post amb precisio (va molt bé quan tot falla)
+
