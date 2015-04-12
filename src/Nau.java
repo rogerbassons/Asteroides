@@ -120,7 +120,7 @@ public class Nau {
 		}
 	}
 
-	//Pre: Nau té vides
+	//Pre: Nau viva
 	//Post: es disminueix la velocitat de la Nau en el sentit contrari al moviment
 	public void frenar() {
 		if (dx_ > 0) {
