@@ -5,6 +5,10 @@ git pull origin master
 ## Pujar:
 git push origin master
 
+## Crear Versió (tag):
+git tag -a v1.1 -m 'version 1.1'
+
+git push origin v1.1
 ## Problemes:
 http://rogerdudler.github.io/git-guide/
 ------------------------------------------------------------
