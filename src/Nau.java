@@ -167,12 +167,15 @@ public class Nau {
 		frenar(); // frenar degut a la resistencia
 		a.translate(dx_, dy_); // desplaçar la Nau segons la velocitat horitzontal i vertical
 
+		double [] t = obtenirCentreTriangle();
+		double centrex = t[0];
+		double centrey = t[1];
 		//rotar la Nau
 		if (rotar_ == 1) {
-			a.rotate(Math.toRadians(angleRotacio_));
+			a.rotate(Math.toRadians(angleRotacio_),centrex,centrey);
 			angle_ = angle_ + angleRotacio_;
 		} else if (rotar_ == 2) {
-			a.rotate(Math.toRadians(-angleRotacio_));
+			a.rotate(Math.toRadians(-angleRotacio_),centrex,centrey);
 			angle_ = angle_ - angleRotacio_;
 		}
 		
