@@ -78,9 +78,10 @@ public class Nau {
 		// atributs de moviment
 		dx_ = dy_ = 0;
 		distanciaMax_ = l/10;
-		acceleracio_ = l/100;
+		acceleracio_ = l/50;
 		rotar_ = 0;
-		angleRotacio_ = 5;
+		angleRotacio_ = 1;
+		coefFrenada_ = 0;
 	}
 
 	//Pre: Nau viva, amplada > 0 i altura > 0
@@ -124,8 +125,8 @@ public class Nau {
 	}
 
 	//Pre: Nau viva
-	//Post: es disminueix la velocitat de la Nau en el sentit contrari al moviment
-	private void frenar() {
+	//Post: Es frena el moviment de la Nau determinat per una resistencia que és directament proporcional a la velocitat de la Nau.
+	public void frenar() {
 		if (dx_ > 0) {
 		        dx_ -= dx_*coefFrenada_;
 		} else {
@@ -159,12 +160,10 @@ public class Nau {
 	
 	//Pre: Nau viva, amplada > 0 i altura > 0
 	//Post: Desplaça la Nau a la posició(p) determinada per totes les velocitats de la Nau
-	//      Es frena el moviment de la Nau determinat per una resistencia que és directament proporcional a la velocitat de la Nau.
 	//      Si la Nau, situada a la posició p, està totalment fora de l'area amplada x altura llavors la Nau es teletransporta al
 	//      marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta)
 	public void moure(int amplada, int altura) {
 		AffineTransform a = new AffineTransform(); //Tots els moviments es concatenen
-		frenar(); // frenar degut a la resistencia
 		a.translate(dx_, dy_); // desplaçar la Nau segons la velocitat horitzontal i vertical
 
 		double [] t = obtenirCentreTriangle();
@@ -172,11 +171,11 @@ public class Nau {
 		double centrey = t[1];
 		//rotar la Nau
 		if (rotar_ == 1) {
-			a.rotate(Math.toRadians(angleRotacio_),centrex,centrey);
-			angle_ = angle_ + angleRotacio_;
-		} else if (rotar_ == 2) {
 			a.rotate(Math.toRadians(-angleRotacio_),centrex,centrey);
 			angle_ = angle_ - angleRotacio_;
+		} else if (rotar_ == 2) {
+			a.rotate(Math.toRadians(angleRotacio_),centrex,centrey);
+			angle_ = angle_ + angleRotacio_;
 		}
 		
 		triangle_.transform(a); //aplicar els moviments al triangle que representa la Nau
