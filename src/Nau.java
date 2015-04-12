@@ -71,7 +71,7 @@ public class Nau {
 		triangle_.lineTo(0,l);
 		triangle_.lineTo(a,l);
 		triangle_.closePath();
-		angle_ = 270; // l'eix Y està invertit respecte a l'eix Y tradicional
+		angle_ = 90;
 
 		viva_ = true;
 
@@ -81,7 +81,7 @@ public class Nau {
 		acceleracio_ = l/50;
 		rotar_ = 0;
 		angleRotacio_ = 1;
-		coefFrenada_ = 0;
+		coefFrenada_ = 1;
 	}
 
 	//Pre: Nau viva, amplada > 0 i altura > 0
@@ -109,35 +109,46 @@ public class Nau {
 	//Pre: Nau viva
 	//Post: s'augmenta la velocitat de la Nau en el sentit en el que apunta
 	public void propulsarEndavant() {
-		double seguentdx = dx_ + Math.sin(Math.toRadians(angle_))*acceleracio_;
-		double seguentdy = dy_ - Math.cos(Math.toRadians(angle_))*acceleracio_;
-
-		if (seguentdx < distanciaMax_) {
+		double seguentdx = dx_ + Math.cos(Math.toRadians(angle_))*acceleracio_;
+		double seguentdy = dy_ - Math.sin(Math.toRadians(angle_))*acceleracio_;
+		
+		if (seguentdx < distanciaMax_ || seguentdx > -distanciaMax_) {
+			if (seguentdx < 0) {
+				dx_ = -distanciaMax_;
+			} else {
+				dx_ = distanciaMax_;
+			}
+		} else {
 			dx_ = seguentdx;
-		} else {
-			dx_ = distanciaMax_;
 		}
-		if (seguentdy < distanciaMax_) {
-			dy_ = seguentdy;
+		if (seguentdy < distanciaMax_ || seguentdy > -distanciaMax_) {
+			if (seguentdy < 0) {
+				dy_ = -distanciaMax_;
+			} else {
+				dy_ = distanciaMax_;
+			}
 		} else {
-			dy_ = distanciaMax_;
+			dy_ = seguentdy;
 		}
 	}
 
 	//Pre: Nau viva
 	//Post: Es frena el moviment de la Nau determinat per una resistencia que és directament proporcional a la velocitat de la Nau.
 	public void frenar() {
+		/*
 		if (dx_ > 0) {
 		        dx_ -= dx_*coefFrenada_;
-		} else {
+		} else if (dx_ < 0) {
 			dx_ += dx_*coefFrenada_;
 		}
 
 		if (dy_ > 0) {
 			dy_ -= dy_*coefFrenada_;
-		} else {
+		} else if (dy_ < 0) {
 			dy_ += dy_*coefFrenada_;
 		}
+		*/
+		dx_ = dy_ = 0;
 	}
 
 	//Pre: Nau viva
@@ -170,14 +181,21 @@ public class Nau {
 		double centrex = t[0];
 		double centrey = t[1];
 		//rotar la Nau
+		
 		if (rotar_ == 1) {
 			a.rotate(Math.toRadians(-angleRotacio_),centrex,centrey);
-			angle_ = angle_ - angleRotacio_;
+			angle_ = angle_ + angleRotacio_;
+			if (angle_ >= 360) {
+				angle_ -= 360;
+			}
 		} else if (rotar_ == 2) {
 			a.rotate(Math.toRadians(angleRotacio_),centrex,centrey);
-			angle_ = angle_ + angleRotacio_;
+			angle_ = angle_ - angleRotacio_;
+			if (angle_ < 0) {
+				angle_ += 360;
+			}
 		}
-		
+
 		triangle_.transform(a); //aplicar els moviments al triangle que representa la Nau
 
 		// Comprovar si ha sortit de amplada x altura (a)
@@ -197,7 +215,7 @@ public class Nau {
 			//moviment de translació que s'aplicarà
 			double tx = 0;
 			double ty = 0;
-
+			System.out.println("(" + Double.toString(px) + "," + Double.toString(py) + ")");
 			//coordenades desti del punt més llunya
 			double xdesti = 0;
 			double ydesti = 0;
@@ -210,13 +228,13 @@ public class Nau {
 			} else if (px < 0) { // surt pel marge esquerra
 				xdesti = amplada;
 				ydesti = ly;
-			} else if (py > amplada) { // surt pel marge dret
+			} else if (px > amplada) { // surt pel marge dret
 				xdesti = 0;
 				ydesti = ly;
 			}
 			tx = xdesti - lx;
 			ty = ydesti - ly;
-
+			System.out.println("(" + Double.toString(xdesti) + "," + Double.toString(ydesti) + ")");
 			a = new AffineTransform();
 			a.translate(tx, ty);
 			triangle_.transform(a);
@@ -227,13 +245,13 @@ public class Nau {
 	//Post: diu si la Nau ha sortit de l'area amplada x altura
 	private boolean haSortit(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsTriangle();
-		boolean sortit = false;
+		boolean hiHaUnPuntDins = false;
 	        int i = 0;
-		while (!sortit && i < 5) {
-			sortit = !(puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura);
+		while (!hiHaUnPuntDins && i < 5) {
+			hiHaUnPuntDins = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
 			i++;
 		}
-		return sortit;
+		return !hiHaUnPuntDins;
 	}
 	
 	//Pre: amplada > 0 i altura > 0
@@ -248,7 +266,7 @@ public class Nau {
 			if (dist < distMin) {
 				distMin = dist;
 				x = puntsT[i];
-				y = puntsT[i];
+				y = puntsT[i+1];
 			}
 		}
 		return new double[] {x,y};
@@ -266,7 +284,7 @@ public class Nau {
 			if (dist > distMax) {
 				distMax = dist;
 				x = puntsT[i];
-				y = puntsT[i];
+				y = puntsT[i+1];
 			}
 		}
 		return new double[] {x,y};
