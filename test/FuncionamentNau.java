@@ -53,7 +53,36 @@ public class FuncionamentNau {
 		AudioInputStream a = AudioSystem.getAudioInputStream(so);
 		Clip c = AudioSystem.getClip();
 		c.open(a);
+
+		//Limitador de FPS
+		//http://www.java-gaming.org/index.php?topic=24220.0
+		long lastLoopTime = System.nanoTime();
+		final int TARGET_FPS = 60;
+		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+		int fps = 0;
+		int lastFpsTime = 0;
+		
 		while (!sortir_) {
+			// work out how long its been since the last update, this
+			// will be used to calculate how far the entities should
+			// move this loop
+			long now = System.nanoTime();
+			long updateLength = now - lastLoopTime;
+			lastLoopTime = now;
+			double delta = updateLength / ((double)OPTIMAL_TIME);
+
+			// update the frame counter
+			lastFpsTime += updateLength;
+			fps++;
+      
+			// update our FPS counter if a second has passed since
+			// we last recorded
+			if (lastFpsTime >= 1000000000) {
+					System.out.println("(FPS: "+fps+")");
+					lastFpsTime = 0;
+					fps = 0;
+			}
+			
 			if (rotarDreta_) {
 				n_.rotarDreta();
 			} else if (rotarEsquerra_) {
@@ -73,7 +102,7 @@ public class FuncionamentNau {
 				c.setFramePosition(0);
 				c.start();
 			}
-			Thread.sleep(10);
+			Thread.sleep( (lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000 );
 		}
 		f_.dispose();
 	}
