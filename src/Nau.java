@@ -3,6 +3,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.lang.Math;
 import java.awt.geom.Point2D; //calcular la distancia entre dos punts
+import java.awt.Graphics2D;
 
 // És una nau espacial triangular isòsceles que pot:
 //     - rotar sobre si mateixa
@@ -305,13 +306,14 @@ public class Nau {
 			puntsT[i] = coordenades[0];
 			puntsT[i+1] = coordenades[1];
 			i += 2;
-			for (double j : coordenades) {
-				System.out.println(j);
-			}
-			System.out.println("----------");
 			pi.next();
 		}
 		return puntsT;
+	}
+
+	/* TEST */
+	public void dibuixar(Graphics2D g2) {
+		g2.fill(triangle_);
 	}
 }
 	
