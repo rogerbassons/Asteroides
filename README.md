@@ -1,17 +1,14 @@
 # Git basics:
 
 ## Baixar:
-
 git pull origin master
 
 ## Pujar:
-
 git push origin master
 
 ## Problemes:
-
 http://rogerdudler.github.io/git-guide/
-------------------------------------------------------------
+
 ------------------------------------------------------------
 
 # Repartició de moduls:
@@ -21,6 +18,7 @@ X -> persona X (no definit)
 Y -> persona Y (no definit)
 
 * Nau.java: (Díficl)
+
   	Roger -> metodes simples
 	
 	Miquel -> part del metode moure()
@@ -39,12 +37,14 @@ Y -> persona Y (no definit)
 
 * Dibuixador -> (qui sap la dificultat d'aixo?)
 
-en principi està en perill d'extinció i ho cada objecte tindrà un metode propi
+  	     en principi està en perill d'extinció i ho cada objecte tindrà
 
-per ser dibuixat per pantalla. Si s'acabés fent l'X ho ha de fer.
+	     un metode propi per ser dibuixat per pantalla. Si s'acabés fent
+	     
+	     l'X ho ha de fer.
 
 ------------------------------------------------------------
-------------------------------------------------------------
+
 # Feina per fer:
 
 * Modificar documentació amb els metodes nous que no estaven previstos?
