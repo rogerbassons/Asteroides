@@ -1,26 +1,32 @@
-#Git basics:
+# Git basics:
 
-##Baixar:
+## Baixar:
+
 git pull origin master
 
-##Pujar:
+## Pujar:
+
 git push origin master
 
-##Problemes:
+## Problemes:
+
 http://rogerdudler.github.io/git-guide/
 ------------------------------------------------------------
 ------------------------------------------------------------
 
-#Repartició de moduls:
+# Repartició de moduls:
 
 X -> persona X (no definit)
 
 Y -> persona Y (no definit)
 
 * Nau.java: (Díficl)
-	Roger -> metodes simples
+  	Roger -> metodes simples
+	
 	Miquel -> part del metode moure()
+	
 	La resta esta fet entre els dos.
+	
 	En Roger ho acabarà sol com un mussol.
 
 * Naus controlades per la màquina -> X (Molt difícil)
@@ -31,13 +37,15 @@ Y -> persona Y (no definit)
 
 * Joc -> Y (potser l'X l'haurà de fer una part) (Molt difícil i part IMPORTANT)
 
-* Dibuixador -> (qui sap la dificultat d'aixo?) en principi està en perill d'extinció i ho cada objecte
-tindrà un metode propi per ser dibuixat per pantalla.
-Si s'acabés fent l'X ho ha de fer.
+* Dibuixador -> (qui sap la dificultat d'aixo?)
+
+en principi està en perill d'extinció i ho cada objecte tindrà un metode propi
+
+per ser dibuixat per pantalla. Si s'acabés fent l'X ho ha de fer.
 
 ------------------------------------------------------------
 ------------------------------------------------------------
-#Feina per fer:
+# Feina per fer:
 
 * Modificar documentació amb els metodes nous que no estaven previstos?
 * Fer Joc, Nau, Meteorit, Joc. Es a dir, fer-ho tot.
