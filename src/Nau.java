@@ -197,7 +197,7 @@ public class Nau {
 	//Pre: --
 	//Post: Diu si la Nau és viva
 	public boolean esViva() {
-		return nvides_ > 0;
+		return viva_;
 	}
 
 	//Pre: --
