@@ -4,6 +4,7 @@ import java.awt.geom.PathIterator;
 import java.lang.Math;
 import java.awt.geom.Point2D; //calcular la distancia entre dos punts
 import java.awt.Graphics2D;
+import java.awt.Color;
 
 // És una nau espacial triangular isòsceles que pot:
 //     - rotar sobre si mateixa
@@ -174,7 +175,7 @@ public class Nau {
 			a.setToRotation(Math.toRadians(-angleRotacio_));
 			angle_ = angle_ - angleRotacio_;
 		}
-
+		
 		triangle_.transform(a); //aplicar els moviments al triangle que representa la Nau
 
 		// Comprovar si ha sortit de amplada x altura (a)
@@ -190,7 +191,7 @@ public class Nau {
 			double [] l = puntLlunyaAlCentreDeArea(amplada,altura); //per teletransportar
 			double lx = l[0];
 			double ly = l[1];
-
+	
 			//moviment de translació que s'aplicarà
 			double tx = 0;
 			double ty = 0;
@@ -228,6 +229,7 @@ public class Nau {
 	        int i = 0;
 		while (!sortit && i < 5) {
 			sortit = !(puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura);
+			i++;
 		}
 		return sortit;
 	}
