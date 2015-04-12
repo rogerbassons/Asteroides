@@ -180,17 +180,21 @@ public class Nau {
 		// Si ha sortit:
 		//     Seleccionar el punt(p) del triangle_ més proper de a (últim de sortir)
 		//     Comprovar per quin marge(m) de a ha ha sortit la Nau mitjançant segons p
-		//     Desplaçar la Nau al marge invers(i) de m de manera que p està exactament a la coordenada del marge i 
+		//     Seleccionar el punt(l) del triangle_ més llunya de a (primer de sortir)
+		//     Desplaçar la Nau al marge invers(i) de m de manera que l està exactament a la coordenada del marge i 
 		if (haSortit(amplada,altura)) {
-			double [] p = puntProperAlCentreDeArea(amplada,altura);
+			double [] p = puntProperAlCentreDeArea(amplada,altura); //unicament per saber per quin marge ha sortit
 			double px = p[0];
 			double py = p[1];
-			double [] l = puntLlunyaAlCentreDeArea(amplada,altura);
+			double [] l = puntLlunyaAlCentreDeArea(amplada,altura); //per teletransportar
 			double lx = l[0];
 			double ly = l[1];
-			
+
+			//moviment de translació que s'aplicarà
 			double tx = 0;
 			double ty = 0;
+
+			//coordenades desti del punt més llunya
 			double xdesti = 0;
 			double ydesti = 0;
 			if (py < 0) { // surt pel marge superior
