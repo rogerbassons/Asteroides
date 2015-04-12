@@ -169,10 +169,10 @@ public class Nau {
 
 		//rotar la Nau
 		if (rotar_ == 1) {
-			a.setToRotation(Math.toRadians(angleRotacio_));
+			a.rotate(Math.toRadians(angleRotacio_));
 			angle_ = angle_ + angleRotacio_;
 		} else if (rotar_ == 2) {
-			a.setToRotation(Math.toRadians(-angleRotacio_));
+			a.rotate(Math.toRadians(-angleRotacio_));
 			angle_ = angle_ - angleRotacio_;
 		}
 		
