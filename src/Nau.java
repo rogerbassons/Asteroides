@@ -183,28 +183,31 @@ public class Nau {
 		//     Desplaçar la Nau al marge invers(i) de m de manera que p està exactament a la coordenada del marge i 
 		if (haSortit(amplada,altura)) {
 			double [] p = puntProperAlCentreDeArea(amplada,altura);
-			double x = p[0];
-			double y = p[1];
+			double px = p[0];
+			double py = p[1];
+			double [] l = puntLlunyaAlCentreDeArea(amplada,altura);
+			double lx = l[0];
+			double ly = l[1];
 			
 			double tx = 0;
 			double ty = 0;
 			double xdesti = 0;
 			double ydesti = 0;
-			if (y < 0) { // surt pel marge superior
-				xdesti = x;
+			if (py < 0) { // surt pel marge superior
+				xdesti = lx;
 				ydesti = altura;
-			} else if (y > altura) { // surt pel marge inferior
-				xdesti = x;
+			} else if (py > altura) { // surt pel marge inferior
+				xdesti = lx;
 				ydesti = 0;
-			} else if (x < 0) { // surt pel marge esquerra
+			} else if (px < 0) { // surt pel marge esquerra
 				xdesti = amplada;
-				ydesti = y;
-			} else if (y > amplada) { // surt pel marge dret
+				ydesti = ly;
+			} else if (py > amplada) { // surt pel marge dret
 				xdesti = 0;
-				ydesti = y;
+				ydesti = ly;
 			}
-			tx = xdesti - x;
-			ty = ydesti - y;
+			tx = xdesti - lx;
+			ty = ydesti - ly;
 
 			a = new AffineTransform();
 			a.translate(tx, ty);
@@ -223,6 +226,7 @@ public class Nau {
 		}
 		return sortit;
 	}
+	
 	//Pre: amplada > 0 i altura > 0
 	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del triangle(que forma la Nau) més proper al centre de l'area amplada x altura
 	private double [] puntProperAlCentreDeArea(int amplada, int altura) {
@@ -234,6 +238,24 @@ public class Nau {
 			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
 			if (dist < distMin) {
 				distMin = dist;
+				x = puntsT[i];
+				y = puntsT[i];
+			}
+		}
+		return new double[] {x,y};
+	}
+
+	//Pre: amplada > 0 i altura > 0
+	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del triangle(que forma la Nau) més llunya al centre de l'area amplada x altura
+	private double [] puntLlunyaAlCentreDeArea(int amplada, int altura) {
+		double [] puntsT = obtenirPuntsTriangle();
+		double x = puntsT[0];
+		double y = puntsT[1];
+		double distMax = Point2D.distance(x,y,amplada/2,altura/2);
+		for (int i = 2; i <= 4; i += 2) {
+			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
+			if (dist > distMax) {
+				distMax = dist;
 				x = puntsT[i];
 				y = puntsT[i];
 			}
