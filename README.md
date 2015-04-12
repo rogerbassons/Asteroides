@@ -1,5 +1,4 @@
 # Git basics:
-
 ## Baixar:
 git pull origin master
 
@@ -8,9 +7,7 @@ git push origin master
 
 ## Problemes:
 http://rogerdudler.github.io/git-guide/
-
 ------------------------------------------------------------
-
 # Repartició de moduls:
 
 X -> persona X (no definit)
@@ -19,13 +16,13 @@ Y -> persona Y (no definit)
 
 * Nau.java: (Díficl)
 
-  	Roger -> metodes simples
+		Roger -> metodes simples
 	
-	Miquel -> part del metode moure()
+		Miquel -> part del metode moure()
 	
-	La resta esta fet entre els dos.
+		La resta esta fet entre els dos.
 	
-	En Roger ho acabarà sol com un mussol.
+		En Roger ho acabarà sol com un mussol.
 
 * Naus controlades per la màquina -> X (Molt difícil)
 
@@ -42,11 +39,8 @@ Y -> persona Y (no definit)
 	     un metode propi per ser dibuixat per pantalla. Si s'acabés fent
 	     
 	     l'X ho ha de fer.
-
 ------------------------------------------------------------
-
 # Feina per fer:
-
 * Modificar documentació amb els metodes nous que no estaven previstos?
 * Fer Joc, Nau, Meteorit, Joc. Es a dir, fer-ho tot.
 * Recordatori: definir pre/post amb precisio (va molt bé quan tot falla)
