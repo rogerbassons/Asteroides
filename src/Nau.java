@@ -2,6 +2,7 @@ import java.awt.geom.Path2D;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.lang.Math;
+import java.awt.geom.Point2D; //calcular la distancia entre dos punts
 
 // És una nau espacial triangular isòsceles que pot:
 //     - rotar sobre si mateixa
@@ -70,7 +71,7 @@ public class Nau {
 		triangle_.closePath();
 		angle_ = 270; // l'eix Y està invertit respecte a l'eix Y tradicional
 
-		nvides_ = 3;
+		viva_ = true;
 
 		// atributs de moviment
 		dx_ = dy_ = 0;
@@ -83,9 +84,9 @@ public class Nau {
 	//Pre: Nau viva, amplada > 0 i altura > 0
 	//Post: s'ha centrat el triangle a l'area amplada*altura
 	public void centrar(int amplada, int altura) {
-		double centrex = 0;
-		double centrey = 0;
-		obtenirCentreTriangle(centrex,centrey);
+		double [] t = obtenirCentreTriangle();
+		double centrex = t[0];
+		double centrey = t[1];
 		AffineTransform a = new AffineTransform();
 		double tx = 0;
 		double ty = 0;
@@ -160,10 +161,11 @@ public class Nau {
 	//      Si la Nau, situada a la posició p, està totalment fora de l'area amplada x altura llavors la Nau es teletransporta al
 	//      marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta)
 	public void moure(int amplada, int altura) {
-		frenar();
-		AffineTransform a = new AffineTransform();
-		a.translate(dx_, dy_);
-		
+		AffineTransform a = new AffineTransform(); //Tots els moviments es concatenen
+		frenar(); // frenar degut a la resistencia
+		a.translate(dx_, dy_); // desplaçar la Nau segons la velocitat horitzontal i vertical
+
+		//rotar la Nau
 		if (rotar_ == 1) {
 			a.setToRotation(Math.toRadians(angleRotacio_));
 			angle_ = angle_ + angleRotacio_;
@@ -171,20 +173,74 @@ public class Nau {
 			a.setToRotation(Math.toRadians(-angleRotacio_));
 			angle_ = angle_ - angleRotacio_;
 		}
-		
-		double [] puntsT = obtenirPuntsTriangle();
-		boolean trobat = false;
-	        int i = 0;
-		while (!trobat && i < 5) {
-			trobat = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
+
+		triangle_.transform(a); //aplicar els moviments al triangle que representa la Nau
+
+		// Comprovar si ha sortit de amplada x altura (a)
+		// Si ha sortit:
+		//     Seleccionar el punt(p) del triangle_ més proper de a (últim de sortir)
+		//     Comprovar per quin marge(m) de a ha ha sortit la Nau mitjançant segons p
+		//     Desplaçar la Nau al marge invers(i) de m de manera que p està exactament a la coordenada del marge i 
+		if (haSortit(amplada,altura)) {
+			double [] p = puntProperAlCentreDeArea(amplada,altura);
+			double x = p[0];
+			double y = p[1];
+			
+			double tx = 0;
+			double ty = 0;
+			double xdesti = 0;
+			double ydesti = 0;
+			if (y < 0) { // surt pel marge superior
+				xdesti = x;
+				ydesti = altura;
+			} else if (y > altura) { // surt pel marge inferior
+				xdesti = x;
+				ydesti = 0;
+			} else if (x < 0) { // surt pel marge esquerra
+				xdesti = amplada;
+				ydesti = y;
+			} else if (y > amplada) { // surt pel marge dret
+				xdesti = 0;
+				ydesti = y;
+			}
+			tx = xdesti - x;
+			ty = ydesti - y;
+
+			a = new AffineTransform();
+			a.translate(tx, ty);
+			triangle_.transform(a);
 		}
-		if (!trobat) {
-			//ha sortit a fora a pendre l'aire
-		}
-		
-		triangle_.transform(a);
 	}
-	
+
+	//Pre: --
+	//Post: diu si la Nau ha sortit de l'area amplada x altura
+	private boolean haSortit(int amplada, int altura) {
+		double [] puntsT = obtenirPuntsTriangle();
+		boolean sortit = false;
+	        int i = 0;
+		while (!sortit && i < 5) {
+			sortit = !(puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura);
+		}
+		return sortit;
+	}
+	//Pre: amplada > 0 i altura > 0
+	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del triangle(que forma la Nau) més proper al centre de l'area amplada x altura
+	private double [] puntProperAlCentreDeArea(int amplada, int altura) {
+		double [] puntsT = obtenirPuntsTriangle();
+		double x = puntsT[0];
+		double y = puntsT[1];
+		double distMin = Point2D.distance(x,y,amplada/2,altura/2);
+		for (int i = 2; i <= 4; i += 2) {
+			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
+			if (dist < distMin) {
+				distMin = dist;
+				x = puntsT[i];
+				y = puntsT[i];
+			}
+		}
+		return new double[] {x,y};
+	}
+
 	//Pre: Nau viva
 	//Post: la Nau mort(RIP)
 	public void morir() throws Exception {
@@ -201,11 +257,12 @@ public class Nau {
 	}
 
 	//Pre: --
-	//Post: centrex i centrey són les coordenades x i y del baricentre del triangle que forma la Nau, respectivament
-	private void obtenirCentreTriangle(double centrex, double centrey) {
+	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del baricentre del triangle que forma la Nau, respectivament
+	private double [] obtenirCentreTriangle() {
 		double [] puntsT = obtenirPuntsTriangle();
-		centrex = (puntsT[0]+puntsT[2]+puntsT[4])/3;
-		centrey = (puntsT[1]+puntsT[3]+puntsT[5])/3;
+		double centrex = (puntsT[0]+puntsT[2]+puntsT[4])/3;
+		double centrey = (puntsT[1]+puntsT[3]+puntsT[5])/3;
+		return new double[] {centrex,centrey};
 	}
 
 	//Pre: --
