@@ -93,8 +93,6 @@ public class FuncionamentNau {
 
 			if (gas_) {
 				n_.propulsarEndavant();
-			} else {
-				n_.frenar();
 			}
 			n_.moure(1024,768);
 			nd_.repaint();

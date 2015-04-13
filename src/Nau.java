@@ -49,8 +49,7 @@ public class Nau {
 	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure(...)
 	private double distanciaMax_;
 	private double acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminueix
-	private double coefFrenada_; // La Nau es frena un coeficient coefFrenada_ de la velocitat de la Nau
-	
+		
 	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre(valor fix)
 	private int rotar_;// Defineix si en el metode moure() la Nau ha de rotar sobre els seu baricentre
 	// 0 -> no s'ha de rotar
@@ -77,11 +76,10 @@ public class Nau {
 
 		// atributs de moviment
 		dx_ = dy_ = 0;
-		distanciaMax_ = l/10;
+		distanciaMax_ = l/20;
 		acceleracio_ = l/50;
 		rotar_ = 0;
-		angleRotacio_ = 1;
-		coefFrenada_ = 1;
+		angleRotacio_ = 5;
 	}
 
 	//Pre: Nau viva, amplada > 0 i altura > 0
@@ -111,20 +109,21 @@ public class Nau {
 	public void propulsarEndavant() {
 		double seguentdx = dx_ + Math.cos(Math.toRadians(angle_))*acceleracio_;
 		double seguentdy = dy_ - Math.sin(Math.toRadians(angle_))*acceleracio_;
-		
-		if (seguentdx < distanciaMax_ || seguentdx > -distanciaMax_) {
+
+		if (Math.abs(seguentdx) > distanciaMax_) {
 			if (seguentdx < 0) {
 				dx_ = -distanciaMax_;
-			} else {
+			} else if (seguentdx > 0) {
 				dx_ = distanciaMax_;
 			}
 		} else {
 			dx_ = seguentdx;
 		}
-		if (seguentdy < distanciaMax_ || seguentdy > -distanciaMax_) {
+
+		if (Math.abs(seguentdy) > distanciaMax_) {
 			if (seguentdy < 0) {
 				dy_ = -distanciaMax_;
-			} else {
+			} else if (seguentdy > 0) {
 				dy_ = distanciaMax_;
 			}
 		} else {
@@ -134,21 +133,32 @@ public class Nau {
 
 	//Pre: Nau viva
 	//Post: Es frena el moviment de la Nau determinat per una resistencia que és directament proporcional a la velocitat de la Nau.
-	public void frenar() {
-		/*
+	private void frenar() {
+		double seguentdx = 0;
+		double seguentdy = 0;
+		
+		double frenar = acceleracio_ * 0.1;
 		if (dx_ > 0) {
-		        dx_ -= dx_*coefFrenada_;
+			if (frenar < dx_) {
+				seguentdx = dx_ - frenar;
+			}
 		} else if (dx_ < 0) {
-			dx_ += dx_*coefFrenada_;
+			if (-frenar > dx_) {
+				seguentdx = dx_ + frenar;
+			}
 		}
 
 		if (dy_ > 0) {
-			dy_ -= dy_*coefFrenada_;
+			if (frenar < dy_) {
+				seguentdy = dy_ - frenar;
+			}
 		} else if (dy_ < 0) {
-			dy_ += dy_*coefFrenada_;
+			if (-frenar > dy_) {
+				seguentdy = dy_ + frenar;
+			}
 		}
-		*/
-		dx_ = dy_ = 0;
+		dx_ = seguentdx;
+		dy_ = seguentdy;
 	}
 
 	//Pre: Nau viva
@@ -174,6 +184,7 @@ public class Nau {
 	//      Si la Nau, situada a la posició p, està totalment fora de l'area amplada x altura llavors la Nau es teletransporta al
 	//      marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta)
 	public void moure(int amplada, int altura) {
+		frenar();
 		AffineTransform a = new AffineTransform(); //Tots els moviments es concatenen
 		a.translate(dx_, dy_); // desplaçar la Nau segons la velocitat horitzontal i vertical
 
@@ -335,8 +346,8 @@ public class Nau {
 
 	/* TEST */
 	public void dibuixar(Graphics2D g2) {
-		g2.setColor(Color.WHITE);
-		g2.fill(triangle_);
+		g2.setColor(Color.BLUE);
+		g2.draw(triangle_);
 	}
 }
 	
