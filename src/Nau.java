@@ -107,8 +107,8 @@ public class Nau {
 	//Post: s'augmenta la velocitat de la Nau en el sentit en el que apunta
 	public void propulsarEndavant() {
 		double seguentVelocitat = velocitat_ + acceleracio_;
-		if (seguentVelocitat > distanciaMax_) {
-			seguentVelocitat = distanciaMax_;
+		if (seguentVelocitat > velocitatMax_) {
+			seguentVelocitat = velocitatMax_;
 		}
 		velocitat_ = seguentVelocitat;
 		angleVelocitat_ = angle_;
@@ -216,7 +216,6 @@ public class Nau {
 			a.translate(tx, ty);
 			triangle_.transform(a);
 		}
-		System.out.println("DX: " + Double.toString(dx_) + "     DY: " + Double.toString(dy_));
 	}
 
 	//Pre: --
