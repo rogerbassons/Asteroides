@@ -16,8 +16,7 @@ import java.awt.Color;
 //     La Nau rota un angle definit(sempre es el mateix).
 //
 //     Quan la Nau es propulsa endavant, la velocitat s'augmenta en la direcció i sentit que té (fins la seva velocitat màxima).
-//     Si la Nau està en moviment(alguna velocitat != 0), es frena el seu moviment degut a una resistencia que és directament proporcional
-//     a la velocitat de la Nau.
+//     Si la Nau està en moviment(alguna velocitat != 0), es frena el seu moviment degut a una resistencia.
 //
 //     La Nau té una vida, cada vegada que es destrueix(explota) mort. Es pot reanimar.
 //
@@ -39,15 +38,13 @@ import java.awt.Color;
 //     Excepte el constructor i el mètode esViva(), la Nau ha d'estar viva per poder utilitzar els altres mètodes.
 
 public class Nau {
-	
        	private Path2D triangle_; // camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
 	private int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private boolean viva_; // defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
-	
-	// Distancia que la Nau es mou en sentit horitzontal i vertical, respectivament, quan es crida el metode moure(...)
-	private double dx_, dy_;
-	// Distancia màxima que es pot moure la nau en qualsevol direccio amb una unica crida del metode moure(...)
-	private double distanciaMax_;
+
+	private double velocitat_; // Modul del vector velocitat de la Nau
+	private double angleVelocitat_; //angle_ que tenia la Nau a l'última propulsació
+	private double velocitatMax_; // Velocitat màxima de la Nau
 	private double acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminueix
 		
 	private int angleRotacio_; // Angle que rota la Nau sobre el seu baricentre(valor fix)
@@ -72,14 +69,16 @@ public class Nau {
 		triangle_.closePath();
 		angle_ = 90;
 
-		viva_ = true;
-
 		// atributs de moviment
-		dx_ = dy_ = 0;
-		distanciaMax_ = l/20;
+		velocitat_ = 0;
+		angleVelocitat_ = 0;
+		velocitatMax_ = l/20;
 		acceleracio_ = l/50;
 		rotar_ = 0;
 		angleRotacio_ = 5;
+
+		//La Nau està viva!
+		viva_ = true;
 	}
 
 	//Pre: Nau viva, amplada > 0 i altura > 0
@@ -107,58 +106,22 @@ public class Nau {
 	//Pre: Nau viva
 	//Post: s'augmenta la velocitat de la Nau en el sentit en el que apunta
 	public void propulsarEndavant() {
-		double seguentdx = dx_ + Math.cos(Math.toRadians(angle_))*acceleracio_;
-		double seguentdy = dy_ - Math.sin(Math.toRadians(angle_))*acceleracio_;
-
-		if (Math.abs(seguentdx) > distanciaMax_) {
-			if (seguentdx < 0) {
-				dx_ = -distanciaMax_;
-			} else if (seguentdx > 0) {
-				dx_ = distanciaMax_;
-			}
-		} else {
-			dx_ = seguentdx;
+		double seguentVelocitat = velocitat_ + acceleracio_;
+		if (seguentVelocitat > distanciaMax_) {
+			seguentVelocitat = distanciaMax_;
 		}
-
-		if (Math.abs(seguentdy) > distanciaMax_) {
-			if (seguentdy < 0) {
-				dy_ = -distanciaMax_;
-			} else if (seguentdy > 0) {
-				dy_ = distanciaMax_;
-			}
-		} else {
-			dy_ = seguentdy;
-		}
+		velocitat_ = seguentVelocitat;
+		angleVelocitat_ = angle_;
 	}
 
 	//Pre: Nau viva
 	//Post: Es frena el moviment de la Nau determinat per una resistencia que és directament proporcional a la velocitat de la Nau.
 	private void frenar() {
-		double seguentdx = 0;
-		double seguentdy = 0;
-		
-		double frenar = acceleracio_ * 0.1;
-		if (dx_ > 0) {
-			if (frenar < dx_) {
-				seguentdx = dx_ - frenar;
-			}
-		} else if (dx_ < 0) {
-			if (-frenar > dx_) {
-				seguentdx = dx_ + frenar;
-			}
+		double seguentVelocitat = velocitat_ - acceleracio_ * 0.01;
+		if (seguentVelocitat < 0) {
+			seguentVelocitat = 0;
 		}
-
-		if (dy_ > 0) {
-			if (frenar < dy_) {
-				seguentdy = dy_ - frenar;
-			}
-		} else if (dy_ < 0) {
-			if (-frenar > dy_) {
-				seguentdy = dy_ + frenar;
-			}
-		}
-		dx_ = seguentdx;
-		dy_ = seguentdy;
+		velocitat_ = seguentVelocitat;
 	}
 
 	//Pre: Nau viva
@@ -181,12 +144,16 @@ public class Nau {
 	
 	//Pre: Nau viva, amplada > 0 i altura > 0
 	//Post: Desplaça la Nau a la posició(p) determinada per totes les velocitats de la Nau
+	//      Es frena el seu moviment degut a una resistencia
 	//      Si la Nau, situada a la posició p, està totalment fora de l'area amplada x altura llavors la Nau es teletransporta al
 	//      marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta)
 	public void moure(int amplada, int altura) {
-		frenar();
 		AffineTransform a = new AffineTransform(); //Tots els moviments es concatenen
-		a.translate(dx_, dy_); // desplaçar la Nau segons la velocitat horitzontal i vertical
+
+		frenar();
+		double dx = velocitat_*Math.cos(Math.toRadians(angleVelocitat_));
+		double dy = velocitat_*-Math.sin(Math.toRadians(angleVelocitat_));
+		a.translate(dx,dy); // desplaçar la Nau segons la velocitat
 
 		double [] t = obtenirCentreTriangle();
 		double centrex = t[0];
@@ -226,7 +193,7 @@ public class Nau {
 			//moviment de translació que s'aplicarà
 			double tx = 0;
 			double ty = 0;
-			System.out.println("(" + Double.toString(px) + "," + Double.toString(py) + ")");
+			
 			//coordenades desti del punt més llunya
 			double xdesti = 0;
 			double ydesti = 0;
@@ -245,11 +212,11 @@ public class Nau {
 			}
 			tx = xdesti - lx;
 			ty = ydesti - ly;
-			System.out.println("(" + Double.toString(xdesti) + "," + Double.toString(ydesti) + ")");
 			a = new AffineTransform();
 			a.translate(tx, ty);
 			triangle_.transform(a);
 		}
+		System.out.println("DX: " + Double.toString(dx_) + "     DY: " + Double.toString(dy_));
 	}
 
 	//Pre: --
