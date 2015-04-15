@@ -54,18 +54,19 @@ public class Nau {
 	// 2 -> rotar en el sentit dret
 
 	
-	//Pre: l > 0 i a > 0
+	//Pre: l > 0
 	//Post: La Nau:
 	//          - està viva
-	//          - té una llargada l i una amplada màxima a
+	//          - té una llargada l i una amplada(a) màxima l/2
 	//          - te la punta superior a la coordenada (a/2)
-	//          - la part de darrera de la nau forma un angle de 90 graus amb l'eix vertical(la Nau apunta cap a dalt)
-	Nau(int l, int a) {
+	//          - La Nau apunta cap a dalt
+	Nau(int l) {
 		// Crear triangle
+		int ampladaBase = l / 2;
 		triangle_ = new Path2D.Double();
-		triangle_.moveTo(a/2,0);
+		triangle_.moveTo(ampladaBase/2,0);
 		triangle_.lineTo(0,l);
-		triangle_.lineTo(a,l);
+		triangle_.lineTo(ampladaBase,l);
 		triangle_.closePath();
 		angle_ = 90;
 
@@ -312,7 +313,7 @@ public class Nau {
 
 	/* TEST */
 	public void dibuixar(Graphics2D g2) {
-		g2.setColor(Color.BLUE);
+		g2.setColor(Color.GREEN);
 		g2.draw(triangle_);
 	}
 }
