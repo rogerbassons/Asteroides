@@ -36,7 +36,7 @@ public class FuncionamentNauActive {
 
 		int xcenter = 1024/2;
 		int ycenter = 768/2;
-		n_ = new Nau(50,20);
+		n_ = new Nau(50);//,20);
 		n_.centrar(1024,768);
 		
 		KeyListener listener = new MyKeyListener();
