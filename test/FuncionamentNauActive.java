@@ -28,7 +28,6 @@ public class FuncionamentNauActive {
 	FuncionamentNauActive() throws Exception
 	{
 		f_ = new JFrame("FuncionamentNau");
-		f_.setSize(1024,768);
 		f_.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f_.setResizable(false);
 		f_.getContentPane().setBackground(Color.BLACK);
@@ -43,6 +42,7 @@ public class FuncionamentNauActive {
 		f_.addKeyListener(listener);
 
 		c_ = new Canvas();
+		c_.setSize(1024,768);
 		c_.setIgnoreRepaint(true);
 		c_.setBackground(Color.BLACK);
 		
@@ -50,6 +50,7 @@ public class FuncionamentNauActive {
 		f_.setVisible(true);
 		
 		f_.add(c_);
+		f_.pack();
 
 		sortir_ = ferPiu_ = rotarEsquerra_ = rotarDreta_ = gas_ = false;
 	}
