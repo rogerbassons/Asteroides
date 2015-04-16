@@ -41,8 +41,16 @@ public class Meteorit {
 		dy_ = dy;
 		mida_ = m;
 		Random rand = new Random();
-		int forma = 1;//rand.nextInt(5);
-		establirForma(x, y, forma);
+		establirForma(x, y, rand.nextInt(5));
+		rotar(rand.nextInt(360));
+	}
+	
+	//Pre: --
+	//Post: rota el Meteorit l'angle rotacio
+	private void rotar(int rotacio){
+		AffineTransform a = new AffineTransform();
+		a.rotate(Math.toRadians(rotacio));
+		poligon_.transform(a);
 	}
 	
 	//Pre: mida_ val 1 o 2
