@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
+import java.util.Random;
 
 //És un meteorit amb forma de polígon irregular
 //Pot tenir dos tipus de formes diferents, sempre com a polígon irregular
@@ -29,25 +30,60 @@ public class Meteorit {
 	private Path2D poligon_;
 	double dx_;
 	double dy_;
-	int mida_; //Si és 1 és petit, si és 2 és gran
+	int mida_; //Si és 2 és petit, si és 1 és gran
+	int nPunts_; //Nombre de punts del polígon
 
 	//Pre: --
 	//Post: el Meteorit té una posició (x,y), una velocitat horitzontal dx i una velocitat vertical dy i una mida m
-	Meteorit(int x, int y, double dx, double dy, int m){
+	Meteorit(int x, int y, double dx, double dy, int m) {
 		//Crear polígon
-		poligon_ = new Path2D.Double();
-		poligon_.moveTo(x,y);
-		poligon_.lineTo(x,y);
-		poligon_.lineTo(x+100,y);
-		poligon_.lineTo(x+105,y+50);
-		poligon_.lineTo(x+90,y+20);
-		poligon_.lineTo(x+50,y+100);
-		poligon_.lineTo(x,y+100);
-		poligon_.lineTo(x-30,y+50);
-		poligon_.closePath();
 		dx_ = dx;
 		dy_ = dy;
 		mida_ = m;
+		Random rand = new Random();
+		int forma = 1;//rand.nextInt(5);
+		establirForma(x, y, forma);
+	}
+	
+	//Pre: mida_ val 1 o 2
+	//Post: poligon_ conté la forma sent gran si mida_=1 i petit si mida_=2
+	private void establirForma(int x, int y, int forma) {
+		poligon_ = new Path2D.Double();
+		poligon_.moveTo(x, y);
+		if ( forma == 1 ) {
+			poligon_.lineTo(x + (80/mida_), y + (10/mida_));
+			poligon_.lineTo(x + (80/mida_), y + (10/mida_));
+			poligon_.lineTo(x + (110/mida_), y + (50/mida_));
+			poligon_.lineTo(x + (110/mida_), y + (90/mida_));
+			poligon_.lineTo(x + (80/mida_), y + (120/mida_));
+			poligon_.lineTo(x, y + (120/mida_));
+			poligon_.lineTo(x - (30/mida_), y + (90/mida_));
+		} else if ( forma == 2 ) {
+			poligon_.lineTo(x + (50/mida_), y);
+			poligon_.lineTo(x + (60/mida_), y + (30/mida_));
+			poligon_.lineTo(x + (50/mida_), y + (40/mida_));
+			poligon_.lineTo(x + (70/mida_), y + (50/mida_));
+			poligon_.lineTo(x + (70/mida_), y + (60/mida_));
+			poligon_.lineTo(x + (30/mida_), y + (70/mida_));
+			poligon_.lineTo(x - (10/mida_), y + (60/mida_));
+		} else if ( forma == 3 ) {
+			poligon_.lineTo(x + (30/mida_), y - (10/mida_));
+			poligon_.lineTo(x + (40/mida_), y + (70/mida_));
+			poligon_.lineTo(x, y + (60/mida_));
+			poligon_.lineTo(x - (10/mida_), y + (80/mida_));
+			poligon_.lineTo(x - (30/mida_), y + (70/mida_));
+			poligon_.lineTo(x - (30/mida_), y + (30/mida_));
+			poligon_.lineTo(x - (10/mida_), y + (20/mida_));
+		} else {
+			poligon_.lineTo(x + (30/mida_), y);
+			poligon_.lineTo(x + (50/mida_), y + (30/mida_));
+			poligon_.lineTo(x + (50/mida_), y + (80/mida_));
+			poligon_.lineTo(x, y + (90/mida_));
+			poligon_.lineTo(x, y + (70/mida_));
+			poligon_.lineTo(x - (20/mida_), y + (40/mida_));
+			poligon_.lineTo(x - (20/mida_), y + (30/mida_));
+		}
+		poligon_.closePath();
 	}
 	
 	//Pre: amplada > 0 i altura > 0
