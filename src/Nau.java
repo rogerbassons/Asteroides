@@ -66,6 +66,7 @@ public class Nau {
 		triangle_ = new Path2D.Double();
 		triangle_.moveTo(ampladaBase/2,0);
 		triangle_.lineTo(0,l);
+		triangle_.lineTo(ampladaBase/2,l-l/5);
 		triangle_.lineTo(ampladaBase,l);
 		triangle_.closePath();
 		angle_ = 90;
@@ -225,7 +226,7 @@ public class Nau {
 		double [] puntsT = obtenirPuntsTriangle();
 		boolean hiHaUnPuntDins = false;
 	        int i = 0;
-		while (!hiHaUnPuntDins && i < 5) {
+		while (!hiHaUnPuntDins && i < 7) {
 			hiHaUnPuntDins = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
 			i++;
 		}
@@ -239,7 +240,7 @@ public class Nau {
 		double x = puntsT[0];
 		double y = puntsT[1];
 		double distMin = Point2D.distance(x,y,amplada/2,altura/2);
-		for (int i = 2; i <= 4; i += 2) {
+		for (int i = 2; i <= 6; i += 2) {
 			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
 			if (dist < distMin) {
 				distMin = dist;
@@ -257,7 +258,7 @@ public class Nau {
 		double x = puntsT[0];
 		double y = puntsT[1];
 		double distMax = Point2D.distance(x,y,amplada/2,altura/2);
-		for (int i = 2; i <= 4; i += 2) {
+		for (int i = 2; i <= 6; i += 2) {
 			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
 			if (dist > distMax) {
 				distMax = dist;
@@ -287,21 +288,21 @@ public class Nau {
 	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del baricentre del triangle que forma la Nau, respectivament
 	private double [] obtenirCentreTriangle() {
 		double [] puntsT = obtenirPuntsTriangle();
-		double centrex = (puntsT[0]+puntsT[2]+puntsT[4])/3;
-		double centrey = (puntsT[1]+puntsT[3]+puntsT[5])/3;
+		double centrex = (puntsT[0]+puntsT[2]+puntsT[6])/3;
+		double centrey = (puntsT[1]+puntsT[3]+puntsT[7])/3;
 		return new double[] {centrex,centrey};
 	}
 
 	//Pre: --
 	//Post: retorna una taula(t) que conte els punts del triangle
-	//      coordenada (t[i],t[i+1]) per i = 0 fins a 4 increment 2
+	//      coordenada (t[i],t[i+1]) per i = 0 fins a 6 increment 2
 	private double [] obtenirPuntsTriangle() {
-		double [] puntsT = new double[6]; 
+		double [] puntsT = new double[8];
 		double [] coordenades = new double[6];
 	
 		PathIterator pi = triangle_.getPathIterator(null,0);
 		int i = 0;
-		while (!pi.isDone() && i < 5) {
+		while (!pi.isDone() && i < 7) {
 			pi.currentSegment(coordenades);
 			puntsT[i] = coordenades[0];
 			puntsT[i+1] = coordenades[1];
