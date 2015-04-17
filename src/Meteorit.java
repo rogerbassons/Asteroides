@@ -28,9 +28,15 @@ import java.util.Random;
 public class Meteorit {
 
 	private Path2D poligon_;
-	int mida_; //Si és 2 és petit, si és 1 és gran
+	double mida_; //Si és 2 és petit, si és 1 és gran
 	double velocitat_; //Valor fix
 	double angleVelocitat_;
+	
+	Meteorit(){
+		Random rand = new Random();
+		velocitat_ = 0.8;
+		angleVelocitat_ = rand.nextInt(360);
+	}
 	
 	//Pre: --
 	//Post: el Meteorit té una posició (x,y), una velocitat horitzontal dx i una velocitat vertical dy i una mida m
@@ -38,7 +44,9 @@ public class Meteorit {
 		//Crear polígon
 		mida_ = mida;
 		angleVelocitat_ = angle;
-		velocitat_ = 0.8; 
+		velocitat_ = 0.8;
+		poligon_ = new Path2D.Double();
+		poligon_.moveTo(x, y);
 		Random rand = new Random();
 		establirForma(x, y, rand.nextInt(4)+1);
 		rotar(rand.nextInt(360));
@@ -56,61 +64,69 @@ public class Meteorit {
 	//Pre: mida_ val 1 o 2
 	//Post: poligon_ conté el dibuix 1,2,3 o 4 segons forma sent gran si mida_=1 i petit si mida_=2
 	private void establirForma(double x, double y, int forma) {
-		poligon_ = new Path2D.Double();
 		
+		poligon_ = new Path2D.Double();
 		poligon_.moveTo(x, y);
-
+		
 		//Hi ha quatre formes diferents de Meteorit
 
 		if ( forma == 1 ) {
-			poligon_.lineTo(x + (80/mida_), y + (10/mida_));
-			poligon_.lineTo(x + (80/mida_), y + (10/mida_));
-			poligon_.lineTo(x + (110/mida_), y + (50/mida_));
-			poligon_.lineTo(x + (110/mida_), y + (90/mida_));
-			poligon_.lineTo(x + (80/mida_), y + (120/mida_));
-			poligon_.lineTo(x, y + (120/mida_));
-			poligon_.lineTo(x - (30/mida_), y + (90/mida_));
+			poligon_.lineTo(x + 80, y + 10);
+			poligon_.lineTo(x + 80, y + 10);
+			poligon_.lineTo(x + 110, y + 50);
+			poligon_.lineTo(x + 110, y + 90);
+			poligon_.lineTo(x + 80, y + 120);
+			poligon_.lineTo(x, y + 120);
+			poligon_.lineTo(x - 30, y + 90);
 		} else if ( forma == 2 ) {
-			poligon_.lineTo(x + (75/mida_), y);
-			poligon_.lineTo(x + (90/mida_), y + (45/mida_));
-			poligon_.lineTo(x + (75/mida_), y + (60/mida_));
-			poligon_.lineTo(x + (105/mida_), y + (75/mida_));
-			poligon_.lineTo(x + (105/mida_), y + (90/mida_));
-			poligon_.lineTo(x + (45/mida_), y + (105/mida_));
-			poligon_.lineTo(x - (15/mida_), y + (90/mida_));
+			poligon_.lineTo(x + 75, y);
+			poligon_.lineTo(x + 90, y + 45);
+			poligon_.lineTo(x + 75, y + 60);
+			poligon_.lineTo(x + 105, y + 75);
+			poligon_.lineTo(x + 105, y + 90);
+			poligon_.lineTo(x + 45, y + 105);
+			poligon_.lineTo(x - 15, y + 90);
 		} else if ( forma == 3 ) {
-			poligon_.lineTo(x + (45/mida_), y - (25/mida_));
-			poligon_.lineTo(x + (60/mida_), y + (105/mida_));
-			poligon_.lineTo(x, y + (90/mida_));
-			poligon_.lineTo(x - (15/mida_), y + (120/mida_));
-			poligon_.lineTo(x - (45/mida_), y + (105/mida_));
-			poligon_.lineTo(x - (45/mida_), y + (45/mida_));
-			poligon_.lineTo(x - (15/mida_), y + (30/mida_));
+			poligon_.lineTo(x + 45, y - 25);
+			poligon_.lineTo(x + 60, y + 105);
+			poligon_.lineTo(x, y + 90);
+			poligon_.lineTo(x - 15, y + 120);
+			poligon_.lineTo(x - 45, y + 105);
+			poligon_.lineTo(x - 45, y + 45);
+			poligon_.lineTo(x - 15, y + 30);
 		} else {
-			poligon_.lineTo(x + (45/mida_), y);
-			poligon_.lineTo(x + (75/mida_), y + (45/mida_));
-			poligon_.lineTo(x + (75/mida_), y + (120/mida_));
-			poligon_.lineTo(x, y + (135/mida_));
-			poligon_.lineTo(x, y + (105/mida_));
-			poligon_.lineTo(x - (30/mida_), y + (60/mida_));
-			poligon_.lineTo(x - (30/mida_), y + (45/mida_));
+			poligon_.lineTo(x + 45, y);
+			poligon_.lineTo(x + 75, y + 45);
+			poligon_.lineTo(x + 75, y + 120);
+			poligon_.lineTo(x, y + 135);
+			poligon_.lineTo(x, y + 105);
+			poligon_.lineTo(x - 30, y + 60);
+			poligon_.lineTo(x - 30, y + 45);
 		}
+		
 		poligon_.closePath();
+		
+		if (mida_ == 2){
+			AffineTransform a = new AffineTransform();
+			a.scale(1/mida_, 1/mida_);
+			poligon_.transform(a);
+		}
 	}
 	
 	//Pre: mida_ == 1
 	//Post: el Meteorit s'ha reduit a mida_ = 2 i es retorna un altre Meteorit de mida_ = 2 amb forma i direcció aleatòries, 
 	//	situat al mateix punt de Meteorit
-	public Meteorit dividir() {
+	public Meteorit dividir(int amplada, int altura) {
 		mida_ = 2;
 
 		//Reduim la mida del Meteorit i li apliquem una altra forma
 		Random rand = new Random();
-		double [] puntIni = obtenirPrimerPuntPoligon();
-		establirForma(puntIni[0], puntIni[1], rand.nextInt(4)+1);
-		System.out.println(puntIni[0]+" "+puntIni[1]);
-		Meteorit m = new Meteorit(puntIni[0], puntIni[1], 50, 2);
-
+		//Point2D p = poligon_.getCurrentPoint(); PER ACABAR
+		establirForma(p.getX(), p.getY(), rand.nextInt(4)+1);
+		Meteorit m = new Meteorit();
+		m.poligon_= (Path2D)poligon_.clone();
+		m.mida_ = 2;
+		m.establirForma(p.getX(), p.getY(), rand.nextInt(4)+1);
 		return m;
 	}
 	
@@ -212,7 +228,7 @@ public class Meteorit {
 		double [] puntsT = obtenirPuntsPoligon();
 		double x = puntsT[0];
 		double y = puntsT[1];
-		double distMax = Point2D.distance(x,y,amplada/2,altura/2);
+		double distMax = Point2D.distance(x, y, amplada/2, altura/2);
 		for (int i = 2; i <= 12; i += 2) {
 			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
 			if (dist > distMax) {
@@ -240,20 +256,6 @@ public class Meteorit {
 			i += 2;
 			pi.next();
 		}
-		return puntsT;
-	}
-	
-	//Pre: --
-	//Post: retorna una taula(t) que conte el primer punt del poligon, coordenada (t[i],t[i+1])
-	private double [] obtenirPrimerPuntPoligon() {
-		double [] puntsT = new double[2];
-		double [] coordenades = new double[6];
-		
-		PathIterator pi = poligon_.getPathIterator(null,0);
-		
-		pi.currentSegment(coordenades);
-		puntsT[0] = coordenades[0];
-		puntsT[1] = coordenades[1];
 		return puntsT;
 	}
 	
