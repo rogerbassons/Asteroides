@@ -296,8 +296,7 @@ public class Nau {
 	}
 
 	//Pre: --
-	//Post: retorna una taula(t) que conte els punts del triangle
-	//      coordenada (t[i],t[i+1]) per i = 0 fins a 6 increment 2
+	//Post: retorna una taula(t[0..nombrePunts_*2-1) que conte els punts del triangle 
 	private double [] obtenirPuntsTriangle() {
 		double [] puntsT = new double[nombrePunts_*2];
 		double [] coordenades = new double[6];
