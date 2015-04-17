@@ -39,6 +39,7 @@ import java.awt.Color;
 
 public class Nau {
        	private Path2D triangle_; // camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
+	private int nombrePunts_; // nombre de punts que té el triangle_
 	private int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private boolean viva_; // defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
 
@@ -69,6 +70,7 @@ public class Nau {
 		triangle_.lineTo(ampladaBase/2,l-l/5);
 		triangle_.lineTo(ampladaBase,l);
 		triangle_.closePath();
+		nombrePunts_ = 4;
 		angle_ = 90;
 
 		// atributs de moviment
@@ -226,7 +228,7 @@ public class Nau {
 		double [] puntsT = obtenirPuntsTriangle();
 		boolean hiHaUnPuntDins = false;
 	        int i = 0;
-		while (!hiHaUnPuntDins && i < 7) {
+		while (!hiHaUnPuntDins && i < nombrePunts_ * 2 - 1) {
 			hiHaUnPuntDins = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
 			i++;
 		}
@@ -240,7 +242,7 @@ public class Nau {
 		double x = puntsT[0];
 		double y = puntsT[1];
 		double distMin = Point2D.distance(x,y,amplada/2,altura/2);
-		for (int i = 2; i <= 6; i += 2) {
+		for (int i = 2; i < nombrePunts_ * 2 - 1; i += 2) {
 			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
 			if (dist < distMin) {
 				distMin = dist;
@@ -258,7 +260,7 @@ public class Nau {
 		double x = puntsT[0];
 		double y = puntsT[1];
 		double distMax = Point2D.distance(x,y,amplada/2,altura/2);
-		for (int i = 2; i <= 6; i += 2) {
+		for (int i = 2; i < nombrePunts_ * 2 - 1; i += 2) {
 			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
 			if (dist > distMax) {
 				distMax = dist;
@@ -297,12 +299,12 @@ public class Nau {
 	//Post: retorna una taula(t) que conte els punts del triangle
 	//      coordenada (t[i],t[i+1]) per i = 0 fins a 6 increment 2
 	private double [] obtenirPuntsTriangle() {
-		double [] puntsT = new double[8];
+		double [] puntsT = new double[nombrePunts_*2];
 		double [] coordenades = new double[6];
 	
 		PathIterator pi = triangle_.getPathIterator(null,0);
 		int i = 0;
-		while (!pi.isDone() && i < 7) {
+		while (!pi.isDone() && i < nombrePunts_ * 2 - 1) {
 			pi.currentSegment(coordenades);
 			puntsT[i] = coordenades[0];
 			puntsT[i+1] = coordenades[1];
