@@ -5,7 +5,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.util.Random;
-import java.awt.geom.Rectangle2D;
 
 //És un meteorit amb forma de polígon irregular, de 8 vèrtexs
 //Pot tenir quatre tipus de formes diferents, sempre com a polígon irregular
