@@ -5,6 +5,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.util.Random;
+import java.awt.geom.Rectangle2D;
 
 //És un meteorit amb forma de polígon irregular, de 8 vèrtexs
 //Pot tenir quatre tipus de formes diferents, sempre com a polígon irregular
@@ -34,7 +35,6 @@ public class Meteorit {
 	
 	Meteorit(){
 		Random rand = new Random();
-		velocitat_ = 0.8;
 		angleVelocitat_ = rand.nextInt(360);
 	}
 	
@@ -106,11 +106,7 @@ public class Meteorit {
 		
 		poligon_.closePath();
 		
-		if (mida_ == 2){
-			AffineTransform a = new AffineTransform();
-			a.scale(1/mida_, 1/mida_);
-			poligon_.transform(a);
-		}
+		
 	}
 	
 	//Pre: mida_ == 1
@@ -118,15 +114,29 @@ public class Meteorit {
 	//	situat al mateix punt de Meteorit
 	public Meteorit dividir(int amplada, int altura) {
 		mida_ = 2;
-
-		//Reduim la mida del Meteorit i li apliquem una altra forma
+		
+		double [] puntProper = puntProperAlCentreDeArea(amplada, altura);
+		double [] puntLlunya = puntLlunyaAlCentreDeArea(amplada, altura);
+		
+		double [] punt = new double[2]; //Busquem el punt aproximat al centre del poligon_
+		punt[0] = (puntProper[0]+puntLlunya[0])/2;
+		punt[1] = (puntProper[1]+puntLlunya[1])/2;
+		
 		Random rand = new Random();
-		//Point2D p = poligon_.getCurrentPoint(); PER ACABAR
-		establirForma(p.getX(), p.getY(), rand.nextInt(4)+1);
-		Meteorit m = new Meteorit();
-		m.poligon_= (Path2D)poligon_.clone();
+		establirForma(punt[0], punt[1], rand.nextInt(4)+1); //Donem una forma aleatòria al poligon_
+		
+		AffineTransform a = new AffineTransform();
+		a.scale(0.5,0.5); //Reduim la mida a la meitat
+		a.translate(punt[0], punt[1]); //Necessari reposicionar degut al scale
+		poligon_.transform(a);
+		
+		//Creem el nou Meteorit
+		Meteorit m = new Meteorit(); 
 		m.mida_ = 2;
-		m.establirForma(p.getX(), p.getY(), rand.nextInt(4)+1);
+		m.velocitat_ = velocitat_;
+		m.establirForma(punt[0], punt[1], rand.nextInt(4)+1);
+		m.poligon_.transform(a);
+		
 		return m;
 	}
 	
@@ -238,6 +248,12 @@ public class Meteorit {
 			}
 		}
 		return new double[] {x,y};
+	}
+	
+	private double [] puntCentrePoligon(){
+		Rectangle2D voltant = poligon_.getBounds();
+		return new double [] {voltant.getX(), voltant.getY()};
+		
 	}
 	
 	//Pre: --
