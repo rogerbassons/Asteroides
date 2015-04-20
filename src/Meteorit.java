@@ -6,15 +6,16 @@ import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-//És un meteorit amb forma de polígon irregular, de 8 vèrtexs
-//Pot tenir quatre tipus de formes diferents, sempre com a polígon irregular
+//És un meteorit amb forma de polígon irregular
+//Pot tenir quatre tipus de formes diferents
 //També pot tenir dues mides, gran o petit
 //
 //Comportament bàsic:
 //	- Apareix en una posició donada al constructor
-// 	- Es mou en una direcció i velocitat fixes, donades també al constructor
+// 	- Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria
 // 	- És controlat per la màquina
-// 	- Segons la mida (1 o 2) serà petit o gran
+// 	- Segons la mida (1 o 2) serà gran o petit, respectivament
+// 	- Quan un meteorit es crea, té mida 1 (gran) i es rota el polígon un angle aleatori
 // 	- Si és un meteorit gran, pot ser destruit en dos meteorits de la mateixa forma, de mida petita
 //	- Si es destrueix un meteorit petit, desapareix
 //
@@ -28,47 +29,52 @@ import java.util.Random;
 public class Meteorit {
 
 	private Path2D poligon_;
-	double mida_; //Si és 2 és petit, si és 1 és gran
-	double velocitat_; //Valor fix
+	int mida_; //Si és 1 és gran, si és 2 és petit
+	double velocitat_;
 	double angleVelocitat_;
+	int nVertexs_;
 	
-	Meteorit(){
+	
+	//Pre: --
+	//Post: this conté una còpia de m, angleVelocitat_
+	Meteorit(Meteorit m) {
+		poligon_ = new Path2D.Double(m.poligon_);
+		mida_ = m.mida_;
+		velocitat_ = m.velocitat_;
+		nVertexs_ = m.nVertexs_;
 		Random rand = new Random();
-		angleVelocitat_ = rand.nextInt(360);
+ 		angleVelocitat_ = rand.nextInt(360);
 	}
 	
 	//Pre: --
-	//Post: el Meteorit té una posició (x,y), una velocitat horitzontal dx i una velocitat vertical dy i una mida m
-	Meteorit(double x, double y, double angle, int mida) {
+	//Post: el Meteorit té una posició (x,y), una velocitat v, una direcció angle i una mida m
+	Meteorit(double x, double y, double velocitat, double angle, int mida) {
 		//Crear polígon
 		mida_ = mida;
 		angleVelocitat_ = angle;
-		velocitat_ = 0.8;
-		poligon_ = new Path2D.Double();
-		poligon_.moveTo(x, y);
+		velocitat_ = velocitat;
+		nVertexs_ = 8;
 		Random rand = new Random();
 		establirForma(x, y, rand.nextInt(4)+1);
 		rotar(rand.nextInt(360));
 	}
-	
+
 	//Pre: --
-	//Post: rota el Meteorit l'angle graus
+	//Post: rota el Meteorit un angle graus
 	private void rotar(int graus) {
 		AffineTransform a = new AffineTransform();
-
 		a.rotate(Math.toRadians(graus));
 		poligon_.transform(a);
 	}
-	
+
 	//Pre: mida_ val 1 o 2
-	//Post: poligon_ conté el dibuix 1,2,3 o 4 segons forma sent gran si mida_=1 i petit si mida_=2
+	//Post: poligon_ conté el dibuix 1, 2, 3 o 4 segons forma sent gran si mida_=1 i petit si mida_=2
 	private void establirForma(double x, double y, int forma) {
-		
+
 		poligon_ = new Path2D.Double();
 		poligon_.moveTo(x, y);
-		
-		//Hi ha quatre formes diferents de Meteorit
 
+		//Hi ha quatre formes diferents de Meteorit
 		if ( forma == 1 ) {
 			poligon_.lineTo(x + 80, y + 10);
 			poligon_.lineTo(x + 80, y + 10);
@@ -102,57 +108,47 @@ public class Meteorit {
 			poligon_.lineTo(x - 30, y + 60);
 			poligon_.lineTo(x - 30, y + 45);
 		}
-		
+
 		poligon_.closePath();
 		
-		
+		if (mida_ == 2){
+			AffineTransform a = new AffineTransform();
+			a.scale(0.5, 0.5); //Reduim la mida a la meitat
+			a.translate(x,y); //Necessari reposicionar degut al scale
+			poligon_.transform(a);
+		}
+
 	}
-	
+
 	//Pre: mida_ == 1
 	//Post: el Meteorit s'ha reduit a mida_ = 2 i es retorna un altre Meteorit de mida_ = 2 amb forma i direcció aleatòries, 
 	//	situat al mateix punt de Meteorit
-	public Meteorit dividir(int amplada, int altura) {
+	public Meteorit dividir(int amplada, int altura){
 		mida_ = 2;
-		
-		double [] puntProper = puntProperAlCentreDeArea(amplada, altura);
-		double [] puntLlunya = puntLlunyaAlCentreDeArea(amplada, altura);
-		
-		double [] punt = new double[2]; //Busquem el punt aproximat al centre del poligon_
-		punt[0] = (puntProper[0]+puntLlunya[0])/2;
-		punt[1] = (puntProper[1]+puntLlunya[1])/2;
-		
+
+		double [] punt = puntCentrePoligon();
+
 		Random rand = new Random();
 		establirForma(punt[0], punt[1], rand.nextInt(4)+1); //Donem una forma aleatòria al poligon_
-		
-		AffineTransform a = new AffineTransform();
-		a.scale(0.5,0.5); //Reduim la mida a la meitat
-		a.translate(punt[0], punt[1]); //Necessari reposicionar degut al scale
-		poligon_.transform(a);
-		
-		//Creem el nou Meteorit
-		Meteorit m = new Meteorit(); 
-		m.mida_ = 2;
-		m.velocitat_ = velocitat_;
-		m.establirForma(punt[0], punt[1], rand.nextInt(4)+1);
-		m.poligon_.transform(a);
-		
+		Meteorit m = new Meteorit(this); //Creem una còpia de this
+		m.establirForma(punt[0], punt[1], rand.nextInt(4)+1); //Donem una forma aleatòria a m
 		return m;
 	}
-	
+
 	//Pre: --
 	//Post: retorna si el Meteorit és divisible
 	public boolean divisible() {
 		return mida_ == 1;
 	}
-	
+
 	//Pre: amplada > 0 i altura > 0
 	//Post: Desplaça el Meteorit a la posició(p) determinada per totes les velocitats del Meteorit
 	//      Si el Meteorit, situat a la posició p, està totalment fora de l'area amplada x altura llavors el Meteorit es teletransporta al
 	//      marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta)
 	public void moure(int amplada, int altura) {
 		AffineTransform a = new AffineTransform(); //Moviments concatenats
-		double dx = velocitat_*Math.cos(Math.toRadians(angleVelocitat_));
-		double dy = velocitat_*-Math.sin(Math.toRadians(angleVelocitat_));
+		double dx = velocitat_ * Math.cos(Math.toRadians(angleVelocitat_));
+		double dy = velocitat_ * -Math.sin(Math.toRadians(angleVelocitat_));
 		a.translate(dx, dy); //desplaçar Meteorit segons velocitat horitzontal i vertical
 
 		poligon_.transform(a); //aplicar els moviments al poligon que representa el Meteorit
@@ -164,10 +160,10 @@ public class Meteorit {
 		//     Seleccionar el punt(l) del poligon_ més llunya de a (primer de sortir)
 		//     Desplaçar el Meteorit al marge invers(i) de m de manera que l està exactament a la coordenada del marge i 
 		if (haSortit(amplada,altura)) {
-			double [] p = puntProperAlCentreDeArea(amplada,altura); //unicament per saber per quin marge ha sortit
+			double [] p = puntProperAlCentreDeArea(amplada, altura); //unicament per saber per quin marge ha sortit
 			double px = p[0];
 			double py = p[1];
-			double [] l = puntLlunyaAlCentreDeArea(amplada,altura); //per teletransportar
+			double [] l = puntLlunyaAlCentreDeArea(amplada, altura); //per teletransportar
 			double lx = l[0];
 			double ly = l[1];
 	
@@ -199,7 +195,7 @@ public class Meteorit {
 			poligon_.transform(a);
 		}
 	}
-	
+
 	//Pre: --
 	//Post: diu si el Meteorit ha sortit de l'area amplada x altura
 	private boolean haSortit(int amplada, int altura) {
@@ -212,16 +208,16 @@ public class Meteorit {
 		}
 		return !hiHaUnPuntDins;
 	}
-	
+
 	//Pre: amplada > 0 i altura > 0
 	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del poligon més proper al centre de l'area amplada x altura
 	private double [] puntProperAlCentreDeArea(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsPoligon();
 		double x = puntsT[0];
 		double y = puntsT[1];
-		double distMin = Point2D.distance(x,y,amplada/2,altura/2);
-		for (int i = 2; i <= 12; i += 2) {
-			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
+		double distMin = Point2D.distance(x, y, amplada/2, altura/2);
+		for (int i = 2; i < nVertexs_*2-1; i += 2) {
+			double dist = Point2D.distance(puntsT[i], puntsT[i+1], amplada/2, altura/2);
 			if (dist < distMin) {
 				distMin = dist;
 				x = puntsT[i];
@@ -238,8 +234,8 @@ public class Meteorit {
 		double x = puntsT[0];
 		double y = puntsT[1];
 		double distMax = Point2D.distance(x, y, amplada/2, altura/2);
-		for (int i = 2; i <= 12; i += 2) {
-			double dist = Point2D.distance(puntsT[i],puntsT[i+1],amplada/2,altura/2);
+		for (int i = 2; i < nVertexs_*2-1; i += 2) {
+			double dist = Point2D.distance(puntsT[i], puntsT[i+1], amplada/2, altura/2);
 			if (dist > distMax) {
 				distMax = dist;
 				x = puntsT[i];
@@ -248,23 +244,32 @@ public class Meteorit {
 		}
 		return new double[] {x,y};
 	}
-	
-	private double [] puntCentrePoligon(){
-		Rectangle2D voltant = poligon_.getBounds();
-		return new double [] {voltant.getX(), voltant.getY()};
+
+	private double [] puntCentrePoligon() {
+		double x = 0;
+		double y = 0;
+		double [] punts = obtenirPuntsPoligon();
+		for (int i = 0; i < nVertexs_*2-1; i+=2) {
+			x += punts[i];
+			y += punts[i+1];
+		}
 		
+		x = x/nVertexs_;
+		y = y/nVertexs_;
+		
+		return new double [] {x,y};
 	}
-	
+
 	//Pre: --
 	//Post: retorna una taula(t) que conte els punts del poligon
-	//      coordenada (t[i],t[i+1]) per i = 0 fins a 12 increment 2
+	//      coordenada (t[i],t[i+1]) per i = 0 fins a 14 increment 2
 	private double [] obtenirPuntsPoligon() {
-		double [] puntsT = new double[14]; 
+		double [] puntsT = new double[nVertexs_*2]; 
 		double [] coordenades = new double[6];
 	
 		PathIterator pi = poligon_.getPathIterator(null,0);
 		int i = 0;
-		while (!pi.isDone() && i < 13) {
+		while (!pi.isDone() && i < nVertexs_*2-1) {
 			pi.currentSegment(coordenades);
 			puntsT[i] = coordenades[0];
 			puntsT[i+1] = coordenades[1];
@@ -273,11 +278,11 @@ public class Meteorit {
 		}
 		return puntsT;
 	}
-	
+
 	/*TEST*/
 	public void dibuixar(Graphics2D g2) {
 		g2.setColor(Color.WHITE);
 		g2.draw(poligon_);
 	}
-	
+
 }
