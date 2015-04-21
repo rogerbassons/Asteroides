@@ -11,12 +11,12 @@ import java.util.Random;
 //També pot tenir dues mides, gran o petit
 //
 //Comportament bàsic:
-//	- Apareix en una posició donada al constructor
+//	- Apareix en la posició donada al mètode situar(), per defecte està a la coordenada (0,0)
 // 	- Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria
 // 	- És controlat per la màquina
 // 	- Segons la mida (1 o 2) serà gran o petit, respectivament
-// 	- Quan un meteorit es crea, té mida 1 (gran) i es rota el polígon un angle aleatori
-// 	- Si és un meteorit gran, pot ser destruit en dos meteorits de la mateixa forma, de mida petita
+// 	- Quan un Meteorit es crea, té mida 1 (gran) i es rota el polígon un angle aleatori
+// 	- Si és un Meteorit gran, pot ser destruit en dos Meteorits de forma i direcció aleatòries, de mida petita
 //	- Si es destrueix un meteorit petit, desapareix
 //
 // Supòsits sobre l'area(a) on es mou el Meteorit:
@@ -29,14 +29,14 @@ import java.util.Random;
 public class Meteorit {
 
 	private Path2D poligon_;
-	int mida_; //Si és 1 és gran, si és 2 és petit
-	double velocitat_;
-	double angleVelocitat_;
-	int nVertexs_;
+	private int mida_; //Si és 1 és gran, si és 2 és petit
+	private double velocitat_;
+	private double angleVelocitat_;
+	private int nVertexs_;
 	
 	
 	//Pre: --
-	//Post: this conté una còpia de m, angleVelocitat_
+	//Post: this conté una còpia de m, angleVelocitat_ és aleatori
 	Meteorit(Meteorit m) {
 		poligon_ = new Path2D.Double(m.poligon_);
 		mida_ = m.mida_;
@@ -47,18 +47,26 @@ public class Meteorit {
 	}
 	
 	//Pre: --
-	//Post: el Meteorit té una posició (x,y), una velocitat v, una direcció angle i una mida m
-	Meteorit(double x, double y, double velocitat, double angle, int mida) {
+	//Post: el Meteorit té el primer punt a la coordenada (0,0), una velocitat v, una direcció angle i una mida m
+	Meteorit(double velocitat, double angle, int mida) {
 		//Crear polígon
 		mida_ = mida;
 		angleVelocitat_ = angle;
 		velocitat_ = velocitat;
 		nVertexs_ = 8;
 		Random rand = new Random();
-		establirForma(x, y, rand.nextInt(4)+1);
+		establirForma(0, 0, rand.nextInt(4)+1);
 		rotar(rand.nextInt(360));
 	}
+	
+	public void situar(double x, double y) {
+		double [] centre = puntCentrePoligon();
 
+		AffineTransform a = new AffineTransform();
+		a.translate(x - centre[0], y - centre[1]);
+		poligon_.transform(a);
+	}
+		
 	//Pre: --
 	//Post: rota el Meteorit un angle graus
 	private void rotar(int graus) {
@@ -68,7 +76,7 @@ public class Meteorit {
 	}
 
 	//Pre: mida_ val 1 o 2
-	//Post: poligon_ conté el dibuix 1, 2, 3 o 4 segons forma sent gran si mida_=1 i petit si mida_=2
+	//Post: poligon_ conté el dibuix 1, 2, 3 o 4 segons forma, sent gran si mida_=1 i petit si mida_=2
 	private void establirForma(double x, double y, int forma) {
 
 		poligon_ = new Path2D.Double();
@@ -110,7 +118,7 @@ public class Meteorit {
 		}
 
 		poligon_.closePath();
-		
+
 		if (mida_ == 2){
 			AffineTransform a = new AffineTransform();
 			a.scale(0.5, 0.5); //Reduim la mida a la meitat
@@ -121,9 +129,9 @@ public class Meteorit {
 	}
 
 	//Pre: mida_ == 1
-	//Post: el Meteorit s'ha reduit a mida_ = 2 i es retorna un altre Meteorit de mida_ = 2 amb forma i direcció aleatòries, 
-	//	situat al mateix punt de Meteorit
-	public Meteorit dividir(int amplada, int altura){
+	//Post: el Meteorit s'ha reduit a mida_ = 2 i es situa al centre del Meteorit inicial, es retorna un altre Meteorit també de mida_ = 2 
+	//	amb forma i direcció aleatòries, situat també al centre del Meteorit inicial
+	public Meteorit dividir(int amplada, int altura) {
 		mida_ = 2;
 
 		double [] punt = puntCentrePoligon();
