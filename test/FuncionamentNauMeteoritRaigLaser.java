@@ -68,13 +68,13 @@ public class FuncionamentNauMeteoritRaigLaser {
 		BufferStrategy buffer = c_.getBufferStrategy();
 		m_ = new Meteorit(0.8,130,1);
 		m_.situar(500,500);
-		r_ = new RaigLaser(500, 500, 2, 50, 0.5);
+		r_ = new RaigLaser(500, 500, 2, 50, 5);
 		while (!sortir_) {
 			
 			update();
 		
 			if (ferPiu_ && !c.isRunning()) {
-				r_ = new RaigLaser(500, 500, 2, 50, 100);
+				r_ = new RaigLaser(500, 500, 2, 50, 5);
 				c.setFramePosition(0);
 				c.start();
 				m2_ = m_.dividir(1024,768);

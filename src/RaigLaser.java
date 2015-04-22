@@ -54,7 +54,8 @@ public class RaigLaser {
 	
 	/*TEST*/
 	public void dibuixar(Graphics2D g2) {
-		g2.setColor(Color.WHITE);
+		g2.setPaint(Color.WHITE);
+		g2.fill(cercle_);
 		g2.draw(cercle_);
 	}
 	
