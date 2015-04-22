@@ -9,6 +9,7 @@ import javax.sound.sampled.*;
 import java.awt.geom.Path2D;
 import java.awt.Canvas;
 import java.awt.image.BufferStrategy;
+import java.awt.RenderingHints;
 	
 public class FuncionamentNauActiveMeteorit {
 	JFrame f_;
@@ -29,7 +30,7 @@ public class FuncionamentNauActiveMeteorit {
 	
 	FuncionamentNauActiveMeteorit() throws Exception
 	{
-		f_ = new JFrame("FuncionamentNau");
+		f_ = new JFrame("FuncionamentNauMeteorit");
 		f_.setSize(1024,768);
 		f_.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f_.setResizable(false);
@@ -39,7 +40,7 @@ public class FuncionamentNauActiveMeteorit {
 		int xcenter = 1024/2;
 		int ycenter = 768/2;
 		n_ = new Nau(50);
-		n_.centrar(1024,768);		
+		n_.centrar(1024,768);
 		KeyListener listener = new MyKeyListener();
 		f_.addKeyListener(listener);
 
@@ -64,7 +65,8 @@ public class FuncionamentNauActiveMeteorit {
 
 		c_.createBufferStrategy(2);
 		BufferStrategy buffer = c_.getBufferStrategy();
-		m_ = new Meteorit(100,100,0.8,130,1);
+		m_ = new Meteorit(0.8,130,1);
+		m_.situar(500,500);
 		while (!sortir_) {
 			
 			update();
@@ -78,6 +80,7 @@ public class FuncionamentNauActiveMeteorit {
 			Graphics g = buffer.getDrawGraphics();
 			g.clearRect(0,0,1024,768);
 			Graphics2D g2 = (Graphics2D) g; 
+			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 			n_.dibuixar(g2);
 			m_.dibuixar(g2);
 			if ( m2_ != null)
