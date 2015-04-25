@@ -9,6 +9,7 @@ import javax.sound.sampled.*;
 import java.awt.geom.Path2D;
 import java.awt.Canvas;
 import java.awt.image.BufferStrategy;
+import java.awt.RenderingHints;
 	
 public class FuncionamentNauActive {
 	JFrame f_;
@@ -55,12 +56,23 @@ public class FuncionamentNauActive {
 		sortir_ = ferPiu_ = rotarEsquerra_ = rotarDreta_ = gas_ = false;
 	}
 
+	private Clip reprodueix(File f) throws Exception
+	{
+		AudioInputStream a = AudioSystem.getAudioInputStream(f);
+		Clip c = AudioSystem.getClip();
+		c.open(a);
+		c.setFramePosition(0);
+		return c;
+	}
+
 	public void jugar() throws Exception
 	{
 		File so = new File("../res/piu.wav");
-		AudioInputStream a = AudioSystem.getAudioInputStream(so);
-		Clip c = AudioSystem.getClip();
-		c.open(a);
+		Clip piu = reprodueix(so);
+		File background = new File("../res/soDeFons/background.wav");
+		Clip b = reprodueix(background);
+		b.loop(Clip.LOOP_CONTINUOUSLY);
+				
 
 		c_.createBufferStrategy(2);
 		BufferStrategy buffer = c_.getBufferStrategy();
@@ -69,14 +81,15 @@ public class FuncionamentNauActive {
 			
 			update();
 		
-			if (ferPiu_ && !c.isRunning()) {
-				c.setFramePosition(0);
-				c.start();
+			if (ferPiu_ && !piu.isRunning()) {
+				piu.setFramePosition(0);
+				piu.start();
 			}
 
 			Graphics g = buffer.getDrawGraphics();
 			g.clearRect(0,0,1024,768);
-			Graphics2D g2 = (Graphics2D) g; 
+			Graphics2D g2 = (Graphics2D) g;
+			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 			n_.dibuixar(g2);
 
 			if(!buffer.contentsLost()) {
