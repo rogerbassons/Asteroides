@@ -90,8 +90,9 @@ public class FuncionamentNauActive {
 			g.clearRect(0,0,1024,768);
 			Graphics2D g2 = (Graphics2D) g;
 			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
-			n_.dibuixar(g2);
 
+			n_.dibuixar(g2);
+			
 			if(!buffer.contentsLost()) {
 				buffer.show();
 			}
