@@ -14,38 +14,29 @@ http://rogerdudler.github.io/git-guide/
 ------------------------------------------------------------
 # Repartició de moduls:
 
-X -> persona X (no definit)
+* Nau -> Roger
 
-Y -> persona Y (no definit)
+* Naus controlades per la màquina -> Roger i potser en Miquel2222 també en farà una.
 
-* Nau.java: (Díficl)
+* RaigLaser -> Miquel
 
-		Roger -> metodes simples
-	
-		Miquel -> part del metode moure()
-	
-		La resta esta fet entre els dos.
-	
-		En Roger ho acabarà sol com un mussol.
+* Meteorit (totes les varietats que calgui desenvolupar) -> Miquel
 
-* Naus controlades per la màquina -> X (Molt difícil)
+* Joc -> Miquel (part IMPORTANT)
 
-* RaigLaser -> Y (fàcil)
+* Dibuixador -> Roger
 
-* Meteorit (totes les varietats que calgui desenvolupar) -> Y (Mitjà/Fàcil)
+* ObjecteJoc -> Roger
 
-* Joc -> Y (potser l'X l'haurà de fer una part) (Molt difícil i part IMPORTANT)
-
-* Dibuixador -> (qui sap la dificultat d'aixo?)
-
-  	     en principi està en perill d'extinció i ho cada objecte tindrà
-
-	     un metode propi per ser dibuixat per pantalla. Si s'acabés fent
-	     
-	     l'X ho ha de fer.
 ------------------------------------------------------------
-# Feina per fer:
-* Modificar documentació amb els metodes nous que no estaven previstos?
-* Fer Joc, Nau, Meteorit, Joc. Es a dir, fer-ho tot.
+# Feina per fer: (de més prioritat a menys prioritat
+* Bugs importants del que ja està fet
+* Joc principal
+* AI
+* DOCUMENTACIÓ
+* Bugs
+* Bugs
+* Més Bugs
+* Netejar codi (sense passar-se)
 * Recordatori: definir pre/post amb precisio (va molt bé quan tot falla)
 
