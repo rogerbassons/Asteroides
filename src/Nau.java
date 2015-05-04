@@ -37,7 +37,7 @@ import java.awt.Color;
 //
 //     Excepte el constructor i el mètode esViva(), la Nau ha d'estar viva per poder utilitzar els altres mètodes.
 
-public class Nau {
+public class Nau implements ObjecteJoc {
        	private Path2D triangle_; // camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
 	private int nombrePunts_; // nombre de punts que té el triangle_
 	private int angle_; // angle que forma la Nau respecte l'eix horitzontal
