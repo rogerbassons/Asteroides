@@ -312,7 +312,8 @@ public class Nau implements ObjecteJoc {
 		return puntsT;
 	}
 
-	/* TEST */
+	//Pre: --
+	//Post: s'ha dibuixat la Nau de color verd a g2
 	public void dibuixar(Graphics2D g2) {
 		g2.setColor(Color.GREEN);
 		g2.draw(triangle_);
