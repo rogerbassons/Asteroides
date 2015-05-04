@@ -194,28 +194,25 @@ public class Nau {
 			double lx = l[0];
 			double ly = l[1];
 	
-			//moviment de translació que s'aplicarà
-			double tx = 0;
-			double ty = 0;
-			
+
 			//coordenades desti del punt més llunya
-			double xdesti = 0;
-			double ydesti = 0;
+			double xdesti = lx;
+			double ydesti = ly;
 			if (py < 0) { // surt pel marge superior
-				xdesti = lx;
 				ydesti = altura;
 			} else if (py > altura) { // surt pel marge inferior
-				xdesti = lx;
 				ydesti = 0;
-			} else if (px < 0) { // surt pel marge esquerra
+			}
+
+			if (px < 0) { // surt pel marge esquerra
 				xdesti = amplada;
-				ydesti = ly;
 			} else if (px > amplada) { // surt pel marge dret
 				xdesti = 0;
-				ydesti = ly;
 			}
-			tx = xdesti - lx;
-			ty = ydesti - ly;
+
+			//moviment de translació que s'aplicarà
+			double tx = xdesti - lx;
+			double ty = ydesti - ly;
 			a = new AffineTransform();
 			a.translate(tx, ty);
 			triangle_.transform(a);
@@ -226,13 +223,15 @@ public class Nau {
 	//Post: diu si la Nau ha sortit de l'area amplada x altura
 	private boolean haSortit(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsTriangle();
-		boolean hiHaUnPuntDins = false;
+		boolean sortit = false;
 	        int i = 0;
-		while (!hiHaUnPuntDins && i < nombrePunts_ * 2 - 1) {
-			hiHaUnPuntDins = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
+		while (!sortit && i < nombrePunts_ * 2 - 1) {
+			double x = puntsT[i];
+			double y = puntsT[i+1];
+			sortit = x < 0 || x > (double)amplada || y < 0 || y > (double)altura;
 			i++;
 		}
-		return !hiHaUnPuntDins;
+		return sortit;
 	}
 	
 	//Pre: amplada > 0 i altura > 0
