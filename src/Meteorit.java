@@ -26,7 +26,7 @@ import java.util.Random;
 //         - un eix vertical Y que augmenta de dalt a baix (a baix és més)
 //
 
-public class Meteorit {
+public class Meteorit implements ObjecteJoc {
 
 	private Path2D poligon_;
 	private int mida_; //Si és 1 és gran, si és 2 és petit
@@ -36,14 +36,16 @@ public class Meteorit {
 	
 	
 	//Pre: --
-	//Post: this conté una còpia de m, angleVelocitat_ és aleatori
+	//Post: this conté una còpia de m, angleVelocitat_ és aleatori, diferent en 45 graus com a mínim respecte m.angleVelocitat_
 	Meteorit(Meteorit m) {
 		poligon_ = new Path2D.Double(m.poligon_);
 		mida_ = m.mida_;
 		velocitat_ = m.velocitat_;
 		nVertexs_ = m.nVertexs_;
 		Random rand = new Random();
- 		angleVelocitat_ = rand.nextInt(360);
+		angleVelocitat_ = rand.nextInt(360);
+		while ((180 - Math.abs(Math.abs(angleVelocitat_ - m.angleVelocitat_) - 180)) < 45)
+			angleVelocitat_ = rand.nextInt(360);
 	}
 	
 	//Pre: --
@@ -59,6 +61,8 @@ public class Meteorit {
 		rotar(rand.nextInt(360));
 	}
 	
+	//Pre: x >= 0 i y>=0
+	//Post: situa el centre del poligon_ a (x,y)
 	public void situar(double x, double y) {
 		double [] centre = puntCentrePoligon();
 
@@ -138,9 +142,16 @@ public class Meteorit {
 
 		Random rand = new Random();
 		angleVelocitat_ = rand.nextInt(360);
-		establirForma(punt[0], punt[1], rand.nextInt(4)+1); //Donem una forma aleatòria al poligon_
+
+		int forma1 = rand.nextInt(4)+1; //Desem la forma per a crear el segon meteorit amb una forma diferent
+		establirForma(punt[0], punt[1], forma1); //Donem una forma aleatòria al poligon_
+
 		Meteorit m = new Meteorit(this); //Creem una còpia de this
-		m.establirForma(punt[0], punt[1], rand.nextInt(4)+1); //Donem una forma aleatòria a m
+		int forma2 = rand.nextInt(4)+1;
+		while (forma2 == forma1) //Fem que la forma no sigui igual que el primer meteorit
+			forma2 = rand.nextInt(4)+1;
+		m.establirForma(punt[0], punt[1], forma2); //Donem una forma aleatòria a m
+		
 		return m;
 	}
 
@@ -189,7 +200,8 @@ public class Meteorit {
 			} else if (py > altura) { // surt pel marge inferior
 				xdesti = lx;
 				ydesti = 0;
-			} else if (px < 0) { // surt pel marge esquerra
+			}
+			if (px < 0) { // surt pel marge esquerra
 				xdesti = amplada;
 				ydesti = ly;
 			} else if (px > amplada) { // surt pel marge dret
@@ -205,7 +217,7 @@ public class Meteorit {
 		}
 	}
 
-	//Pre: --
+	//Pre: amplada > 0 i altura > 0
 	//Post: diu si el Meteorit ha sortit de l'area amplada x altura
 	private boolean haSortit(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsPoligon();
