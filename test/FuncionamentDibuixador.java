@@ -1,7 +1,10 @@
 import java.awt.Color;
-import java.awt.event.*;
-import java.io.*;
-import javax.sound.sampled.*;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioInputStream;
 	
 public class FuncionamentDibuixador {
 
@@ -32,7 +35,7 @@ public class FuncionamentDibuixador {
 		n_.centrar(amplada_,altura_);
 		
 		
-
+	
 		dib_ = new DibuixadorAsteroides();
 		dib_.crearFinestra(amplada_,altura_,Color.BLACK,"Funcionament Dibuixador");
 		
@@ -103,13 +106,13 @@ public class FuncionamentDibuixador {
 			case KeyEvent.VK_SPACE:
 				ferPiu_ = true;
 				break;
-			case KeyEvent.VK_UP:
+			case KeyEvent.VK_W:
 				gas_ = true;
 				break;
-			case KeyEvent.VK_RIGHT:
+			case KeyEvent.VK_D:
 				rotarDreta_ = true;
 				break;
-			case KeyEvent.VK_LEFT:
+			case KeyEvent.VK_A:
 				rotarEsquerra_ = true;
 				break;
 			}
@@ -123,13 +126,13 @@ public class FuncionamentDibuixador {
 			case KeyEvent.VK_ESCAPE:
 				sortir_ = true;
 				break;
-			case KeyEvent.VK_UP:
+			case KeyEvent.VK_W:
 				gas_ = false;
 				break;
-			case KeyEvent.VK_RIGHT:
+			case KeyEvent.VK_D:
 				rotarDreta_ = false;
 				break;
-			case KeyEvent.VK_LEFT:
+			case KeyEvent.VK_A:
 				rotarEsquerra_ = false;
 				break;
 			}
