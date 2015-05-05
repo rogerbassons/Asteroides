@@ -44,6 +44,7 @@ public class DibuixadorAsteroides {
 		altura_ = altura;
 		
 		f_ = new JFrame(t);
+		f_.setResizable(false);
 		f_.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f_.setIgnoreRepaint(true);
 
@@ -51,6 +52,7 @@ public class DibuixadorAsteroides {
 		c_.setPreferredSize(new Dimension(amplada_,altura_));
 		c_.setIgnoreRepaint(true);
 		c_.setBackground(fons);
+		c_.setFocusable(false);
 
 		f_.add(c_);
 		f_.pack();
