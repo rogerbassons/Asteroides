@@ -108,6 +108,16 @@ public class Nau implements ObjecteJoc {
 	}
 
 	//Pre: Nau viva
+	//Post: la Nau dispara un RaigLaser
+	public RaigLaser disparar() {
+		double [] puntsT = obtenirPuntsTriangle();
+		double x = puntsT[0];
+		double y = puntsT[1];
+		double midaRaig = llargadaNau()/20;
+		return new RaigLaser(x,y,velocitatMax_*1.5,angle_,midaRaig);
+	}
+
+	//Pre: Nau viva
 	//Post: s'augmenta la velocitat de la Nau en el sentit en el que apunta
 	public void propulsarEndavant() {
 		double seguentVelocitat = velocitat_ + acceleracio_;
@@ -292,6 +302,14 @@ public class Nau implements ObjecteJoc {
 		double centrex = (puntsT[0]+puntsT[2]+puntsT[6])/3;
 		double centrey = (puntsT[1]+puntsT[3]+puntsT[7])/3;
 		return new double[] {centrex,centrey};
+	}
+
+	//Pre: --
+	//Post: retorna la llargada de la Nau
+	private double llargadaNau() {
+		double [] puntsT = obtenirPuntsTriangle();
+		double llargada = Math.abs(puntsT[1] - puntsT[3]);
+		return llargada;
 	}
 
 	//Pre: --
