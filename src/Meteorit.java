@@ -36,7 +36,7 @@ public class Meteorit implements ObjecteJoc {
 	
 	
 	//Pre: --
-	//Post: this conté una còpia de m, angleVelocitat_ és aleatori, diferent en 45 graus com a mínim respecte m.angleVelocitat_
+	//Post: this conté una còpia de m, l'angle de velocitat és aleatori, diferent en 45 graus com a mínim respecte l'angle de velocitat de m
 	Meteorit(Meteorit m) {
 		poligon_ = new Path2D.Double(m.poligon_);
 		mida_ = m.mida_;
@@ -62,7 +62,7 @@ public class Meteorit implements ObjecteJoc {
 	}
 	
 	//Pre: x >= 0 i y>=0
-	//Post: situa el centre del poligon_ a (x,y)
+	//Post: situa el centre del Meteorit a (x,y)
 	public void situar(double x, double y) {
 		double [] centre = puntCentrePoligon();
 
@@ -80,7 +80,7 @@ public class Meteorit implements ObjecteJoc {
 	}
 
 	//Pre: mida_ val 1 o 2
-	//Post: poligon_ conté el dibuix 1, 2, 3 o 4 segons forma, sent gran si mida_=1 i petit si mida_=2
+	//Post: el Meteorit conté el dibuix 1, 2, 3 o 4 segons forma, aplicant-li la seva mida
 	private void establirForma(double x, double y, int forma) {
 
 		poligon_ = new Path2D.Double();
@@ -133,7 +133,7 @@ public class Meteorit implements ObjecteJoc {
 	}
 
 	//Pre: mida_ == 1
-	//Post: el Meteorit s'ha reduit a mida_ = 2 i es situa al centre del Meteorit inicial, es retorna un altre Meteorit també de mida_ = 2 
+	//Post: el Meteorit s'ha reduit a petit i es situa al centre del Meteorit inicial, es retorna un altre Meteorit també de mida petita 
 	//	amb forma i direcció aleatòries, situat també al centre del Meteorit inicial
 	public Meteorit dividir(int amplada, int altura) {
 		mida_ = 2;
@@ -300,7 +300,8 @@ public class Meteorit implements ObjecteJoc {
 		return puntsT;
 	}
 
-	/*TEST*/
+	//Pre: --
+	//Post: dibuixa el Meteorit de contorn blanc a g2
 	public void dibuixar(Graphics2D g2) {
 		g2.setColor(Color.WHITE);
 		g2.draw(poligon_);
