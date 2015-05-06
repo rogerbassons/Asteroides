@@ -40,7 +40,7 @@ import java.awt.Color;
 public class Nau implements ObjecteJoc {
        	private Path2D triangle_; // camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
 	private int nombrePunts_; // nombre de punts que té el triangle_
-	private int angle_; // angle que forma la Nau respecte l'eix horitzontal
+	protected int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private boolean viva_; // defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
 
 	private double velocitat_; // Modul del vector velocitat de la Nau
@@ -297,7 +297,7 @@ public class Nau implements ObjecteJoc {
 
 	//Pre: --
 	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del baricentre del triangle que forma la Nau, respectivament
-	private double [] obtenirCentreTriangle() {
+	protected double [] obtenirCentreTriangle() {
 		double [] puntsT = obtenirPuntsTriangle();
 		double centrex = (puntsT[0]+puntsT[2]+puntsT[6])/3;
 		double centrey = (puntsT[1]+puntsT[3]+puntsT[7])/3;

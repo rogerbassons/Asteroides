@@ -11,7 +11,7 @@ public class FuncionamentDibuixador {
 	int amplada_;
 	int altura_;
 	Nau n_;
-
+	NauEnemiga ne_;
 	DibuixadorAsteroides dib_;
 	
 	boolean sortir_;
@@ -28,20 +28,24 @@ public class FuncionamentDibuixador {
 	{
 		sortir_ = ferPiu_ = rotarEsquerra_ = rotarDreta_ = gas_ = false;
 		
-		amplada_ = 800;
-		altura_ = 600;
+		amplada_ = 1024;
+		altura_ = 768;
 		
 		n_ = new Nau(50);
 		n_.centrar(amplada_,altura_);
+		ne_ = new NauEnemiga(50);
+		ne_.centrar(amplada_,altura_);
 		
+
+
 		
-	
 		dib_ = new DibuixadorAsteroides();
 		dib_.crearFinestra(amplada_,altura_,Color.BLACK,"Funcionament Dibuixador");
 		
 		dib_.afegirKeyListener(new MyKeyListener());
 
 		dib_.afegir(n_);
+		dib_.afegir(ne_);
 	}
 
 	private Clip reprodueix(File f) throws Exception
@@ -91,7 +95,10 @@ public class FuncionamentDibuixador {
 		if (gas_) {
 			n_.propulsarEndavant();
 		}
+
 		n_.moure(amplada_,altura_);
+		ne_.atacarNau(n_);
+		ne_.moure(amplada_,altura_);
 	}
 
 
