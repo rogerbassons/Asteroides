@@ -8,16 +8,16 @@ import java.awt.geom.AffineTransform;
 //És disparat per una Nau
 //
 //Comportament bàsic:
-//	- Apareix en la posició (0,0), es pot posicionar amb situar()
+//	- Apareix en la posició (x,y) donada al constructor
 //	- Té una mida donada al constructor
 //	- Es mou en una direcció i velocitat fixes, donades al constructor
 //	- És controlat per la màquina
-//	- Si col·lisiona amb qualsevol objecte, el destrueix i desapareix
+//	- Si col·lisiona amb qualsevol objecte, destrueix l'objecte i es gasta
 //	- Si sobrepassa un dels marges de la pantalla apareix pel costat oposat en la mateixa velocitat i direcció
-//	- Si recorre més que la distància màxima establerta segons la mida de la pantalla, desapareix
+//	- Si recorre més que la distància màxima establerta segons la mida de la pantalla, es gasta
 //	
 // Supòsits sobre l'area(a) on es mou el RaigLaser:
-//     Té una mida i no canvia mentre existeix el RaigLaser
+//     Té una mida i no canvia mentre el RaigLaser no s'ha gastat
 //     És un pla amb:
 //         - un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)
 //         - un eix vertical Y que augmenta de dalt a baix (a baix és més)
@@ -33,16 +33,9 @@ public class RaigLaser implements ObjecteJoc {
 	private double maxDist_;
 
 	//Pre: mida > 0, velocitat >= 0
-	//Post: s'ha creat un RaigLaser amb mida_ = mida, velocitat_ = velocitat i angleVelocitat_ = angle,
-	//	també s'ha generat un cercle que representa el RaigLaser, el cercle_ està situat a (x,y)
-	//	maxDist_ és y - 2*llargadaNau per evitar que col·lisioni amb la Nau que ha disparat el RaigLaser
-	RaigLaser(double x, double y, double amplada, double altura, double velocitat, double angle, double mida, double llargadaNau) {
-		//Calculem la distància màxima que pot recòrrer el RaigLaser
-		if (altura < amplada) {
-			maxDist_ = altura - (2 * llargadaNau);
-		} else {
-			maxDist_ = amplada - (2 * llargadaNau);
-		}
+	//Post: s'ha creat un RaigLaser amb mida, velocitat i angle, també s'ha generat un cercle que representa el RaigLaser,
+	//	que està situat a (x,y). La distància recorreguda és 0
+	RaigLaser(double x, double y, double velocitat, double angle, double mida) {
 		
 		distRecorreguda_ = 0; //El raig no s'ha mogut
 		mida_ = mida;
@@ -53,9 +46,17 @@ public class RaigLaser implements ObjecteJoc {
 	}
 	
 	//Pre: --
-	//Post: el RaigLaser s'ha mogut a la seguent posició determinada per la velocitat_ i l'angleVelocitat_
+	//Post: el RaigLaser s'ha mogut a la seguent posició determinada per la velocitat i el seu angle
 	//	si surt fora de l'àrea apareix en el costat oposat del que ha sortit
 	public void moure(int amplada, int altura) {
+		
+		//Calculem la distància màxima que pot recòrrer el RaigLaser
+		if (altura < amplada) {
+			maxDist_ = altura*3/4;
+		} else {
+			maxDist_ = amplada*3/4;
+		}
+		
 		double dx = velocitat_ * Math.cos(Math.toRadians(angleVelocitat_));
 		double dy = velocitat_ * -Math.sin(Math.toRadians(angleVelocitat_));
 		
@@ -92,8 +93,8 @@ public class RaigLaser implements ObjecteJoc {
 	}
 	
 	//Pre: --
-	//Post: retorna si distRecorreguda_ < maxDist_
-	public boolean existeix() {
+	//Post: retorna si distància recorreguda < distància màxima que pot recòrrer el RaigLaser
+	public boolean gastat() {
 		return distRecorreguda_ < maxDist_;
 	}
 	
