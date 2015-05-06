@@ -11,7 +11,7 @@ import java.util.Random;
 //També pot tenir dues mides, gran o petit
 //
 //Comportament bàsic:
-//	- Apareix en la posició donada al mètode situar(), per defecte està a la coordenada (0,0)
+//	- Apareix en la posició donada al constructor, coordenada (x,y)
 // 	- Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria
 // 	- És controlat per la màquina
 // 	- Segons la mida (1 o 2) serà gran o petit, respectivament
@@ -34,23 +34,9 @@ public class Meteorit implements ObjecteJoc {
 	private double angleVelocitat_;
 	private int nVertexs_;
 	
-	
 	//Pre: --
-	//Post: this conté una còpia de m, l'angle de velocitat és aleatori, diferent en 45 graus com a mínim respecte l'angle de velocitat de m
-	Meteorit(Meteorit m) {
-		poligon_ = new Path2D.Double(m.poligon_);
-		mida_ = m.mida_;
-		velocitat_ = m.velocitat_;
-		nVertexs_ = m.nVertexs_;
-		Random rand = new Random();
-		angleVelocitat_ = rand.nextInt(360);
-		while ((180 - Math.abs(Math.abs(angleVelocitat_ - m.angleVelocitat_) - 180)) < 45)
-			angleVelocitat_ = rand.nextInt(360);
-	}
-	
-	//Pre: --
-	//Post: el Meteorit té el primer punt a la coordenada (0,0), una velocitat v, una direcció angle i una mida m
-	Meteorit(double velocitat, double angle, int mida) {
+	//Post: el Meteorit té una velocitat v, una direcció angle i una mida m, està situat a (x,y)
+	public Meteorit(double velocitat, double angle, int mida, double x, double y) {
 		//Crear polígon
 		mida_ = mida;
 		angleVelocitat_ = angle;
@@ -59,11 +45,7 @@ public class Meteorit implements ObjecteJoc {
 		Random rand = new Random();
 		establirForma(0, 0, rand.nextInt(4)+1);
 		rotar(rand.nextInt(360));
-	}
-	
-	//Pre: x >= 0 i y>=0
-	//Post: situa el centre del Meteorit a (x,y)
-	public void situar(double x, double y) {
+		
 		double [] centre = puntCentrePoligon();
 
 		AffineTransform a = new AffineTransform();
@@ -134,24 +116,25 @@ public class Meteorit implements ObjecteJoc {
 
 	//Pre: mida_ == 1
 	//Post: el Meteorit s'ha reduit a petit i es situa al centre del Meteorit inicial, es retorna un altre Meteorit també de mida petita 
-	//	amb forma i direcció aleatòries, situat també al centre del Meteorit inicial
+	//	amb forma i direcció aleatòries, situat també al centre del Meteorit inicial, l'angle de velocitat del Meteorit retornat és 
+	//	diferent en 45 graus com a mínim respecte l'angle de velocitat de m
 	public Meteorit dividir(int amplada, int altura) {
+		
 		mida_ = 2;
-
-		double [] punt = puntCentrePoligon();
+		double [] punt = puntCentrePoligon(); //Obtenim el punt del centre del polígon
 
 		Random rand = new Random();
-		angleVelocitat_ = rand.nextInt(360);
-
-		int forma1 = rand.nextInt(4)+1; //Desem la forma per a crear el segon meteorit amb una forma diferent
-		establirForma(punt[0], punt[1], forma1); //Donem una forma aleatòria al poligon_
-
-		Meteorit m = new Meteorit(this); //Creem una còpia de this
-		int forma2 = rand.nextInt(4)+1;
-		while (forma2 == forma1) //Fem que la forma no sigui igual que el primer meteorit
-			forma2 = rand.nextInt(4)+1;
-		m.establirForma(punt[0], punt[1], forma2); //Donem una forma aleatòria a m
+		establirForma(punt[0], punt[1], rand.nextInt(4)+1); //Canviem la mida i la forma del Meteorit
 		
+		angleVelocitat_ = rand.nextInt(360); //Canviem la direcció cap on va el Meteorit
+		
+		//Busquem un angle aleatori que tingui una diferència mínima de 45 graus respecte l'angle del Meteorit actual
+		int angle2 = rand.nextInt(360); 
+		while ((180 - Math.abs(Math.abs(angle2 - angleVelocitat_) - 180)) < 45)
+			angle2 = rand.nextInt(360);
+		
+		Meteorit m = new Meteorit(velocitat_, angle2, 2, punt[0], punt[1]); //Creem el nou meteorit de mida petita
+
 		return m;
 	}
 
@@ -266,6 +249,8 @@ public class Meteorit implements ObjecteJoc {
 		return new double[] {x,y};
 	}
 
+	//Pre: --
+	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del centre del polígon
 	private double [] puntCentrePoligon() {
 		double x = 0;
 		double y = 0;
