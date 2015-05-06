@@ -93,9 +93,9 @@ public class RaigLaser implements ObjecteJoc {
 	}
 	
 	//Pre: --
-	//Post: retorna si distància recorreguda < distància màxima que pot recòrrer el RaigLaser
+	//Post: retorna si distància recorreguda > distància màxima que pot recòrrer el RaigLaser
 	public boolean gastat() {
-		return distRecorreguda_ < maxDist_;
+		return distRecorreguda_ > maxDist_;
 	}
 	
 	//Pre: --
