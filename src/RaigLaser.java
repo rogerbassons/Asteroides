@@ -116,4 +116,10 @@ public class RaigLaser implements ObjecteJoc {
 		g2.draw(cercle_);
 	}
 	
+	//Pre: --
+	//Post: retorna la Shape del RaigLaser
+	public Shape obtenirShape() {
+		return cercle_;
+	}
+	
 }
