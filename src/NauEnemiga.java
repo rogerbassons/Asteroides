@@ -15,8 +15,8 @@ public class NauEnemiga extends Nau {
 	
 	RaigLaser atacarNau(Nau n) {
 		int angle = angleApuntar(n);
-		System.out.println(Double.toString(angle));
-		System.out.println(Double.toString(angle_));
+		//System.out.println(Double.toString(angle));
+		//System.out.println(Double.toString(angle_));
 		int dreta = angle_ - angle;
 		int esquerra = angle - angle_;
 		if (dreta > esquerra ) {

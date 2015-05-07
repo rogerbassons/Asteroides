@@ -76,7 +76,7 @@ public class Nau implements ObjecteJoc {
 		// atributs de moviment
 		velocitat_ = 0;
 		angleVelocitat_ = 0;
-		velocitatMax_ = l/20;
+		velocitatMax_ = l/15;
 		acceleracio_ = l/50;
 		rotar_ = 0;
 		angleRotacio_ = 5;
