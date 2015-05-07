@@ -14,19 +14,36 @@ public class NauEnemiga extends Nau {
 	}
 	
 	RaigLaser atacarNau(Nau n) {
-		double [] cn = n.obtenirCentreTriangle();
-		double [] ce = obtenirCentreTriangle();
-
-		double tangentAngle = (ce[1] - cn[1]) / (ce[0] - cn[0]);
-		double angle = Math.atan(Math.toRadians(tangentAngle));
-		if (angle_ < angle) {
+		int angle = angleApuntar(n);
+		System.out.println(Double.toString(angle));
+		System.out.println(Double.toString(angle_));
+		int dreta = angle_ - angle;
+		int esquerra = angle - angle_;
+		if (dreta > esquerra ) {
 			rotarDreta();
-		} else if (angle_ > angle) {
+		} else if (dreta < esquerra) {
 			rotarEsquerra();
 		} else {
 			pararRotacio();
 		}
-			
+
 		return null;
+	}
+
+
+	//Pre: --
+	//Post: retorna l'angle respecte l'eix horitzontal entre la NauEnemiga i n
+	private int angleApuntar(Nau n) {
+		double [] cn = n.obtenirCentreTriangle();
+		double [] ce = obtenirCentreTriangle();
+
+		double angle = 180 / Math.PI * Math.atan2(-(cn[1] - ce[1]), cn[0] - ce[0]);
+		// angle és l'angle respecte l'eix horitzontal que va de la Nau Enemiga a la Nau n
+		// -180 < angle <= 180
+		if (angle < 0) {
+			angle = 360 + angle;
+		}
+		// 0 <= angle < 360
+		return (int)angle;
 	}
 }
