@@ -1,19 +1,28 @@
 // Nau que té la capacitat d'atacar una Nau
 import java.awt.geom.Path2D;
+import java.lang.Math;
+import java.awt.geom.AffineTransform;
 
 public class NauEnemiga extends Nau {
 
-	//Pre: l > 0
+	//Pre: l > 0, x >= 0, y >= 0
 	//Post: La Nau:
 	//          - està viva
 	//          - té una llargada l i una amplada(a) màxima l/2
 	//          - te la punta superior a la coordenada (a/2)
-	//          - La Nau apunta cap a dalt
-	NauEnemiga(int l) {
+	//          - apunta cap a dalt
+	//          - esta situada al punt (x,y)
+	NauEnemiga(int l, double x, double y) {
 		super(l);
+		double [] c = obtenirCentreTriangle();
+		AffineTransform a = new AffineTransform();
+		a.translate(x - c[0], y - c[1]);
+		triangle_.transform(a);
 	}
-	
+
+	// De moment només apunta a n
 	RaigLaser atacarNau(Nau n) {
+		RaigLaser r = null;
 		int angle = angleApuntar(n);
 		//System.out.println(Double.toString(angle));
 		//System.out.println(Double.toString(angle_));
@@ -24,10 +33,11 @@ public class NauEnemiga extends Nau {
 		} else if (dreta < esquerra) {
 			rotarEsquerra();
 		} else {
+			r = disparar();
 			pararRotacio();
 		}
 
-		return null;
+		return r;
 	}
 
 

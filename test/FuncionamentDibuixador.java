@@ -33,8 +33,7 @@ public class FuncionamentDibuixador {
 		
 		n_ = new Nau(50);
 		n_.centrar(amplada_,altura_);
-		ne_ = new NauEnemiga(50);
-		ne_.centrar(amplada_,altura_);
+		ne_ = new NauEnemiga(50,100,100);
 		
 
 
