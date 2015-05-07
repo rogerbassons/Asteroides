@@ -1,4 +1,5 @@
 import java.awt.geom.Path2D;
+import java.awt.Shape;
 import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.geom.AffineTransform;
@@ -118,7 +119,7 @@ public class Meteorit implements ObjecteJoc {
 	//Post: el Meteorit s'ha reduit a petit i es situa al centre del Meteorit inicial, es retorna un altre Meteorit també de mida petita 
 	//	amb forma i direcció aleatòries, situat també al centre del Meteorit inicial, l'angle de velocitat del Meteorit retornat és 
 	//	diferent en 45 graus com a mínim respecte l'angle de velocitat de m
-	public Meteorit dividir(int amplada, int altura) {
+	public Meteorit dividir() {
 		
 		mida_ = 2;
 		double [] punt = puntCentrePoligon(); //Obtenim el punt del centre del polígon
@@ -163,37 +164,32 @@ public class Meteorit implements ObjecteJoc {
 		//     Seleccionar el punt(l) del poligon_ més llunya de a (primer de sortir)
 		//     Desplaçar el Meteorit al marge invers(i) de m de manera que l està exactament a la coordenada del marge i 
 		if (haSortit(amplada,altura)) {
-			double [] p = puntProperAlCentreDeArea(amplada, altura); //unicament per saber per quin marge ha sortit
+			double [] p = puntProperAlCentreDeArea(amplada,altura); //unicament per saber per quin marge ha sortit
 			double px = p[0];
 			double py = p[1];
-			double [] l = puntLlunyaAlCentreDeArea(amplada, altura); //per teletransportar
+			double [] l = puntLlunyaAlCentreDeArea(amplada,altura); //per teletransportar
 			double lx = l[0];
 			double ly = l[1];
 	
-			//moviment de translació que s'aplicarà
-			double tx = 0;
-			double ty = 0;
-			System.out.println("(" + Double.toString(px) + "," + Double.toString(py) + ")");
+
 			//coordenades desti del punt més llunya
-			double xdesti = 0;
-			double ydesti = 0;
+			double xdesti = lx;
+			double ydesti = ly;
 			if (py < 0) { // surt pel marge superior
-				xdesti = lx;
 				ydesti = altura;
 			} else if (py > altura) { // surt pel marge inferior
-				xdesti = lx;
 				ydesti = 0;
 			}
+
 			if (px < 0) { // surt pel marge esquerra
 				xdesti = amplada;
-				ydesti = ly;
 			} else if (px > amplada) { // surt pel marge dret
 				xdesti = 0;
-				ydesti = ly;
 			}
-			tx = xdesti - lx;
-			ty = ydesti - ly;
-			System.out.println("(" + Double.toString(xdesti) + "," + Double.toString(ydesti) + ")");
+
+			//moviment de translació que s'aplicarà
+			double tx = xdesti - lx;
+			double ty = ydesti - ly;
 			a = new AffineTransform();
 			a.translate(tx, ty);
 			poligon_.transform(a);
@@ -208,7 +204,7 @@ public class Meteorit implements ObjecteJoc {
 	        int i = 0;
 		while (!hiHaUnPuntDins && i < 13) {
 			hiHaUnPuntDins = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
-			i++;
+			i+=2;
 		}
 		return !hiHaUnPuntDins;
 	}
@@ -219,9 +215,9 @@ public class Meteorit implements ObjecteJoc {
 		double [] puntsT = obtenirPuntsPoligon();
 		double x = puntsT[0];
 		double y = puntsT[1];
-		double distMin = Point2D.distance(x, y, amplada/2, altura/2);
+		double distMin = Math.abs(Point2D.distance(x, y, amplada/2, altura/2));
 		for (int i = 2; i < nVertexs_*2-1; i += 2) {
-			double dist = Point2D.distance(puntsT[i], puntsT[i+1], amplada/2, altura/2);
+			double dist = Math.abs(Point2D.distance(puntsT[i], puntsT[i+1], amplada/2, altura/2));
 			if (dist < distMin) {
 				distMin = dist;
 				x = puntsT[i];
@@ -237,9 +233,9 @@ public class Meteorit implements ObjecteJoc {
 		double [] puntsT = obtenirPuntsPoligon();
 		double x = puntsT[0];
 		double y = puntsT[1];
-		double distMax = Point2D.distance(x, y, amplada/2, altura/2);
+		double distMax = Math.abs(Point2D.distance(x, y, amplada/2, altura/2));
 		for (int i = 2; i < nVertexs_*2-1; i += 2) {
-			double dist = Point2D.distance(puntsT[i], puntsT[i+1], amplada/2, altura/2);
+			double dist = Math.abs(Point2D.distance(puntsT[i], puntsT[i+1], amplada/2, altura/2));
 			if (dist > distMax) {
 				distMax = dist;
 				x = puntsT[i];
@@ -271,7 +267,7 @@ public class Meteorit implements ObjecteJoc {
 	//      coordenada (t[i],t[i+1]) per i = 0 fins a 14 increment 2
 	private double [] obtenirPuntsPoligon() {
 		double [] puntsT = new double[nVertexs_*2]; 
-		double [] coordenades = new double[6];
+		double [] coordenades = new double[6]; //Per obtenir el segment
 	
 		PathIterator pi = poligon_.getPathIterator(null,0);
 		int i = 0;
@@ -290,6 +286,12 @@ public class Meteorit implements ObjecteJoc {
 	public void dibuixar(Graphics2D g2) {
 		g2.setColor(Color.WHITE);
 		g2.draw(poligon_);
+	}
+	
+	//Pre: --
+	//Post: retorna el polígon en Shape del Meteorit
+	public Shape obtenirShape() {
+		return poligon_;
 	}
 
 }
