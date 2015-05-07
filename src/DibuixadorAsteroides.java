@@ -76,6 +76,17 @@ public class DibuixadorAsteroides {
 		}
 	}
 
+	//Pre: oj != null
+	//Post: Elimina oj del DibuixaAsteroides si hi era previament altrament no fa res
+	//      Excepcio: llança excepcio si oj == null
+	public void elimina(ObjecteJoc oj) throws Exception
+	{
+		if (oj == null) {
+			throw new Exception("l'objecte es null");
+		}
+		lo_.remove(oj);
+	}
+
 	//Pre: l != null
 	//Post: afageix l a la finestra del DibuixaAsteroides
 	public void afegirKeyListener(KeyListener l)
