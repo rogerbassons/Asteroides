@@ -13,7 +13,7 @@ import java.awt.Color;
 //     - disparar rajos làser
 //
 // Comportament bàsic:
-//a 
+//
 //     La Nau rota un angle definit(sempre es el mateix).
 //
 //     Quan la Nau es propulsa endavant, la velocitat s'augmenta en la direcció i sentit que té (fins la seva velocitat màxima).
