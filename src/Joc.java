@@ -3,18 +3,27 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Random;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import java.io.File;
+import java.awt.geom.Area;
+
+//Mòdul que gestiona la lògica, la física i la interfície del joc
+//El Joc conté quatre tipus d'elements:
+//	- Nau: Nau pròpia controlada per l'usuari
+//	- NauEnemiga: Nau controlada per la màquina (AI)
+//	- Meteorits: Objectes controlats per la màquina
+//	- RaigLasers: raig disparat per Nau i NauEnemiga, que destrueix Meteorits i Naus
 
 public class Joc {
 	
 	int amplada_;
 	int altura_;
 	Nau n_;
-	//NauEnemiga ne_;
+	NauEnemiga ne_;
 	DibuixadorAsteroides d_;
 	LinkedList<Meteorit> meteorits_;
 	LinkedList<RaigLaser> rajosLaser_;
@@ -22,6 +31,8 @@ public class Joc {
 	boolean sortir_;
 	boolean disparar_;
 	boolean rotarEsquerra_, rotarDreta_, accelerar_;
+	
+	Clip piu_;
 	
 	public static void main(String[] args) throws Exception {
 		Joc j = new Joc(1024, 768);
@@ -43,42 +54,27 @@ public class Joc {
 		n_ = new Nau(50);
 		n_.centrar(amplada_, altura_);
 		
-		//ne_ = new NauEnemiga(50);
-		//ne_.centrar(amplada_, altura_);
+		ne_ = new NauEnemiga(50, 200, 600);
 		
 		d_ = new DibuixadorAsteroides();
 		d_.crearFinestra(amplada_, altura_, Color.BLACK, "Joc");
 		d_.afegirKeyListener(new MyKeyListener());
 		d_.afegir(n_);
-		//d_.afegir(ne_);
+		d_.afegir(ne_);
 	}
 	
+	//Pre: --
+	//Post: es comença a jugar la partida
 	public void jugar() throws Exception {
 		
 		File so = new File("../res/piu.wav");
 		AudioInputStream a = AudioSystem.getAudioInputStream(so);
-		Clip c = AudioSystem.getClip();
-		c.open(a);
-		
-		while (meteorits_.size() < 10) 
-			generarMeteorit();
-		
+		piu_ = AudioSystem.getClip();
+		piu_.open(a);
+
 		while (!sortir_) {
 			actualitzar();
-			
-			if (disparar_ && !c.isRunning()) {
-				c.setFramePosition(0);
-				c.start();
-				RaigLaser r = n_.disparar();
-				rajosLaser_.add(r);
-				d_.afegir(r);
-				
-				if (meteorits_.size() < 10){
-					generarMeteorit();
-				}
-			}
 			d_.dibuixar();
-			
 			Thread.sleep(10);
 		}
 		
@@ -86,14 +82,24 @@ public class Joc {
 	
 	}
 	
-	private void generarMeteorit() throws Exception {
-		Random rand = new Random();
-		Meteorit m = new Meteorit(0.8, rand.nextInt(360), 1, rand.nextInt(amplada_), rand.nextInt(altura_));
-		meteorits_.add(m);
-		d_.afegir(m);
+	//Pre: --
+	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 10
+	private void generarMeteorits() throws Exception {
+		while (meteorits_.size() < 10) {
+			Random rand = new Random();
+			Meteorit m = new Meteorit(0.8, rand.nextInt(360), 1, rand.nextInt(amplada_), rand.nextInt(altura_));
+			meteorits_.add(m);
+			d_.afegir(m);
+		}
+		//Falta comprovar que no es col·loquin on hi ha la nau
 	}
 	
-	private void actualitzar() {
+	//Pre: --
+	//Post: actualitza l'estat del joc, generant meteorits, movent els elements i tractant les col·lisions
+	private void actualitzar() throws Exception {
+		
+		generarMeteorits();
+		
 		if (rotarDreta_) {
 			n_.rotarDreta();
 		} else if (rotarEsquerra_) {
@@ -106,19 +112,28 @@ public class Joc {
 			n_.propulsarEndavant();
 		}
 
+		if (disparar_ && !piu_.isRunning()) { //SOLUCIÓ TEMPORAL
+			piu_.setFramePosition(0);
+			piu_.start();
+			RaigLaser r = n_.disparar();
+			rajosLaser_.add(r);
+			d_.afegir(r);
+		}
+
 		n_.moure(amplada_,altura_);
 
-		//ne_.atacarNau(n_);
-		//ne_.moure(amplada_,altura_);
+		ne_.atacarNau(n_);
+		ne_.moure(amplada_,altura_);
 		
 		Iterator<RaigLaser> it = rajosLaser_.iterator();
+
 		while (it.hasNext()){
 			RaigLaser r = it.next();
 			if (!r.gastat())
 				r.moure(amplada_, altura_);
 			else{
 				it.remove();
-				//d_.eliminar(r);
+				d_.elimina(r);
 			}
 		}
 		
@@ -126,7 +141,53 @@ public class Joc {
 		while (it2.hasNext())
 			it2.next().moure(amplada_, altura_);
 		
+		tractarColisions();
+		
 	}
+	
+	private void tractarColisions() throws Exception {
+		
+		//CODI PER NETEJAR
+		//Col·lisions Nau - Meteorit
+		Area n = new Area(n_.obtenirShape());
+		tractarColisionsAmbMeteorits(n);
+		
+		//Col·lisions RaigLaser - Meteorit
+		for (RaigLaser r : rajosLaser_) {
+			Area rl = new Area(r.obtenirShape());
+			tractarColisionsAmbMeteorits(rl);
+		}
+		
+		
+		//Falten col·lisions NauEnemiga amb Meteorits i RaigLaser amb NauEnemiga
+		
+		
+	}
+	
+	private void tractarColisionsAmbMeteorits(Area a) throws Exception {
+		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
+		ListIterator<Meteorit> it = meteorits_.listIterator();
+		while (it.hasNext()){
+			Meteorit m = it.next();
+			Area am = new Area(m.obtenirShape());
+			am.intersect(a);
+			if (!am.isEmpty()) {
+				if (m.divisible()) {
+					Meteorit m2 = m.dividir();
+					it.add(m);
+					meteoritsNous_.add(m2);
+					d_.afegir(m2);
+				}
+				else {
+					it.remove();
+					d_.elimina(m);
+				}
+				
+			}
+		}
+		meteorits_.addAll(meteoritsNous_);
+	}
+	
 	
 	public class MyKeyListener implements KeyListener {
 		

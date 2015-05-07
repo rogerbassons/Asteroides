@@ -1,4 +1,5 @@
 import java.awt.geom.Path2D;
+import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.lang.Math;
@@ -12,7 +13,7 @@ import java.awt.Color;
 //     - disparar rajos làser
 //
 // Comportament bàsic:
-//
+//a 
 //     La Nau rota un angle definit(sempre es el mateix).
 //
 //     Quan la Nau es propulsa endavant, la velocitat s'augmenta en la direcció i sentit que té (fins la seva velocitat màxima).
@@ -335,6 +336,12 @@ public class Nau implements ObjecteJoc {
 	public void dibuixar(Graphics2D g2) {
 		g2.setColor(Color.GREEN);
 		g2.draw(triangle_);
+	}
+	
+	//Pre: --
+	//Post: retorna el polígon en Shape de la Nau
+	public Shape obtenirShape() {
+		return triangle_;
 	}
 }
 	
