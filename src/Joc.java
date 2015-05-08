@@ -150,12 +150,22 @@ public class Joc {
 		//CODI PER NETEJAR
 		//Col·lisions Nau - Meteorit
 		Area n = new Area(n_.obtenirShape());
-		tractarColisionsAmbMeteorits(n);
+		boolean haXocat = false;
+		haXocat = tractarColisionsAmbMeteorits(n);
+		
+		if (haXocat)
+			n_.centrar(amplada_, altura_);
 		
 		//Col·lisions RaigLaser - Meteorit
-		for (RaigLaser r : rajosLaser_) {
+		Iterator<RaigLaser> it = rajosLaser_.iterator();
+		while (it.hasNext()) {
+			RaigLaser r = it.next();
 			Area rl = new Area(r.obtenirShape());
-			tractarColisionsAmbMeteorits(rl);
+			haXocat = tractarColisionsAmbMeteorits(rl);
+			if (haXocat){
+				it.remove();
+				d_.elimina(r);
+			}
 		}
 		
 		
@@ -164,10 +174,11 @@ public class Joc {
 		
 	}
 	
-	private void tractarColisionsAmbMeteorits(Area a) throws Exception {
+	private boolean tractarColisionsAmbMeteorits(Area a) throws Exception {
+		boolean haXocat = false;
 		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
 		ListIterator<Meteorit> it = meteorits_.listIterator();
-		while (it.hasNext()){
+		while (it.hasNext()) {
 			Meteorit m = it.next();
 			Area am = new Area(m.obtenirShape());
 			am.intersect(a);
@@ -182,10 +193,12 @@ public class Joc {
 					it.remove();
 					d_.elimina(m);
 				}
+				haXocat = true;
 				
 			}
 		}
 		meteorits_.addAll(meteoritsNous_);
+		return haXocat;
 	}
 	
 	
