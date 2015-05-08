@@ -10,6 +10,8 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import java.io.File;
 import java.awt.geom.Area;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 //Mòdul que gestiona la lògica, la física i la interfície del joc
 //El Joc conté quatre tipus d'elements:
@@ -28,6 +30,8 @@ public class Joc {
 	LinkedList<Meteorit> meteorits_;
 	LinkedList<RaigLaser> rajosLaser_;
 	
+	Calendar tempsRaigEnemiga_;
+	Calendar tempsRaigJugador_;
 	boolean sortir_;
 	boolean disparar_;
 	boolean rotarEsquerra_, rotarDreta_, accelerar_;
@@ -61,6 +65,8 @@ public class Joc {
 		d_.afegirKeyListener(new MyKeyListener());
 		d_.afegir(n_);
 		d_.afegir(ne_);
+		tempsRaigEnemiga_ = new GregorianCalendar();
+		tempsRaigJugador_ = new GregorianCalendar();
 	}
 	
 	//Pre: --
@@ -112,17 +118,32 @@ public class Joc {
 			n_.propulsarEndavant();
 		}
 
-		if (disparar_ && !piu_.isRunning()) { //SOLUCIÓ TEMPORAL
-			piu_.setFramePosition(0);
-			piu_.start();
-			RaigLaser r = n_.disparar();
-			rajosLaser_.add(r);
-			d_.afegir(r);
+		if (disparar_) {
+			Calendar tempsActual = new GregorianCalendar();
+			if (tempsActual.getTimeInMillis() - tempsRaigJugador_.getTimeInMillis() > 441) {
+				tempsRaigJugador_ = new GregorianCalendar();
+				piu_.setFramePosition(0);
+				piu_.start();
+				RaigLaser r = n_.disparar();
+				rajosLaser_.add(r);
+				d_.afegir(r);
+			}
 		}
 
 		n_.moure(amplada_,altura_);
 
-		ne_.atacarNau(n_);
+		RaigLaser ra = ne_.atacarNau(n_);
+		if (ra!=null) {
+			Calendar tempsActual = new GregorianCalendar();
+			if (tempsActual.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 441) {
+				tempsRaigEnemiga_ = new GregorianCalendar();
+				piu_.setFramePosition(0);
+				piu_.start();
+				d_.afegir(ra);
+				rajosLaser_.add(ra);
+			}
+		}
+		
 		ne_.moure(amplada_,altura_);
 		
 		Iterator<RaigLaser> it = rajosLaser_.iterator();
