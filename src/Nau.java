@@ -114,7 +114,7 @@ public class Nau implements ObjecteJoc {
 		double [] puntsT = obtenirPuntsTriangle();
 		double x = puntsT[0];
 		double y = puntsT[1];
-		double midaRaig = llargadaNau()/20;
+		double midaRaig = llargadaNau()/15;
 		return new RaigLaser(x,y,velocitatMax_*1.5,angle_,midaRaig);
 	}
 
@@ -309,7 +309,7 @@ public class Nau implements ObjecteJoc {
 	//Post: retorna la llargada de la Nau
 	private double llargadaNau() {
 		double [] puntsT = obtenirPuntsTriangle();
-		double llargada = Math.abs(puntsT[1] - puntsT[3]);
+		double llargada = Math.hypot(puntsT[2] - puntsT[0], puntsT[3] - puntsT[1]);
 		return llargada;
 	}
 
@@ -339,7 +339,7 @@ public class Nau implements ObjecteJoc {
 	}
 	
 	//Pre: --
-	//Post: retorna el polígon en Shape de la Nau
+	//Post: retorna el polígon de la Nau
 	public Shape obtenirShape() {
 		return triangle_;
 	}
