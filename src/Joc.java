@@ -176,6 +176,8 @@ public class Joc {
 		
 	}
 	
+	//Pre: --
+	//Post: tracta les col·lisions entre els objectes del Joc
 	private void tractarColisions() throws Exception {
 		
 		//Col·lisions Nau - NauEnemiga
@@ -193,14 +195,20 @@ public class Joc {
 		
 	}
 	
+	//Pre: --
+	//Post: si la nau està viva es centra la nau i se li resta una vida, altrament no fa res (de moment). Si té 0 vides, mor.
 	private void xocarNauJugador() throws Exception {
-		n_.centrar(amplada_, altura_);
-		nVides_--;
-		if (nVides_ == 0) 
-			n_.morir();
+		if (n.viva()){
+			n_.centrar(amplada_, altura_);
+			nVides_--;
+			if (nVides_ == 0) 
+				n_.morir();
+		}
 		//FALTA TRACTAR MORT
 	}
 	
+	//Pre: --
+	//Post: posiciona la NauEnemiga en un lloc pseudoaleatori dins l'espai de joc. DE MOMENT NO MOR
 	private void xocarNauEnemiga() throws Exception {
 		//MORIR, REACCIÓ PROVISIONAL
 		//ne_.morir();
@@ -210,19 +218,20 @@ public class Joc {
 		d_.afegir(ne_);
 	}
 	
+	//Pre: --
+	//Post: si les naus colisionen la Nau del jugador es centra i la NauEnemiga es canvia de lloc altrament no fa res
 	private void tractarColisionsEntreNaus() throws Exception {
 		Area n = new Area(n_.obtenirShape());
 		Area ne = new Area(ne_.obtenirShape());
 		n.intersect(ne);
 		if (!n.isEmpty()) {
-			n_.centrar(amplada_, altura_);
-			d_.elimina(ne_);
-			Random rand = new Random();
-			ne_ = new NauEnemiga(50, rand.nextInt(amplada_-50)+50, rand.nextInt(altura_-50)+50);
-			d_.afegir(ne_);
+			xocarNauJugador();
+			xocarNauEnemiga();
 		}
 	}
 	
+	//Pre: --
+	//Post: els RaigLaser que hagin col·lisionat amb un Meteorit s'han eliminat i els Meteorits s'han dividit o bé eliminat segons la seva mida
 	private void tractarColisionsRaigLaserMeteorit() throws Exception {
 		Iterator<RaigLaser> it = rajosLaser_.iterator();
 		while (it.hasNext()) {
@@ -237,6 +246,8 @@ public class Joc {
 		}
 	}
 	
+	//Pre: --
+	//Post: retorna si l'Area a ha colisionat amb algun Meteorit, retorna cert
 	private boolean tractarColisionsAmbMeteorits(Area a) throws Exception {
 		boolean haXocat = false;
 		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
@@ -264,6 +275,9 @@ public class Joc {
 		return haXocat;
 	}
 	
+	//Pre: --
+	//Post: si la Nau del jugador ha xocat amb algun Meteorit, aquesta es centra i perd una vida, i el Meteorit es divideix o desapareix segons la mida
+	//	si la NauEnemiga ha xocat amb algun Meteorit, aquesta es canvia de lloc aleatòriament i el Meteorit es divideix o desapareix segons la mida
 	private void tractarColisionsNausMeteorit() throws Exception {
 		boolean haXocatNau = false;
 		boolean haXocatNE = false;
@@ -320,6 +334,9 @@ public class Joc {
 			xocarNauEnemiga();
 	}
 	
+	//Pre: --
+	//Post: si la Nau del jugador ha xocat amb algun RaigLaser, aquesta es centra i perd una vida, i el RaigLaser desapareix
+	//	si la NauEnemiga ha xocat amb algun RaigLaser, aquesta es canvia de lloc aleatòriament, i el RaigLaser desapareix
 	private void tractarColisionsNausRajosLaser() throws Exception {
 		boolean haXocatNau = false;
 		boolean haXocatNE = false;
