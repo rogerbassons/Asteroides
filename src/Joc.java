@@ -12,6 +12,7 @@ import java.io.File;
 import java.awt.geom.Area;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
+import java.awt.Shape;
 
 //Mòdul que gestiona la lògica, la física i la interfície del joc
 //El Joc conté quatre tipus d'elements:
@@ -32,6 +33,10 @@ public class Joc {
 	
 	Calendar tempsRaigEnemiga_;
 	Calendar tempsRaigJugador_;
+	
+	int nVides_;
+	int puntuacio_;
+	
 	boolean sortir_;
 	boolean disparar_;
 	boolean rotarEsquerra_, rotarDreta_, accelerar_;
@@ -57,16 +62,21 @@ public class Joc {
 		
 		n_ = new Nau(50);
 		n_.centrar(amplada_, altura_);
+		Random rand = new Random();
 		
-		ne_ = new NauEnemiga(50, 200, 600);
+		ne_ = new NauEnemiga(50, rand.nextInt(amplada_-30)+30, rand.nextInt(altura_-30)+30);
 		
 		d_ = new DibuixadorAsteroides();
 		d_.crearFinestra(amplada_, altura_, Color.BLACK, "Joc");
 		d_.afegirKeyListener(new MyKeyListener());
 		d_.afegir(n_);
 		d_.afegir(ne_);
+
 		tempsRaigEnemiga_ = new GregorianCalendar();
 		tempsRaigJugador_ = new GregorianCalendar();
+
+		nVides_ = 3;
+		puntuacio_ = 0; 
 	}
 	
 	//Pre: --
@@ -168,31 +178,63 @@ public class Joc {
 	
 	private void tractarColisions() throws Exception {
 		
-		//CODI PER NETEJAR
-		//Col·lisions Nau - Meteorit
-		Area n = new Area(n_.obtenirShape());
-		boolean haXocat = false;
-		haXocat = tractarColisionsAmbMeteorits(n);
+		//Col·lisions Nau - NauEnemiga
+		tractarColisionsEntreNaus();
 		
-		if (haXocat)
-			n_.centrar(amplada_, altura_);
+		//Col·lisions Nau i NauEnemiga amb RaigLaser
+		tractarColisionsNausRajosLaser();
+		
+		
+		//Col·lisions Nau i NauEnemiga amb Meteorit
+		tractarColisionsNausMeteorit();
 		
 		//Col·lisions RaigLaser - Meteorit
+		tractarColisionsRaigLaserMeteorit();
+		
+	}
+	
+	private void xocarNauJugador() throws Exception {
+		n_.centrar(amplada_, altura_);
+		nVides_--;
+		if (nVides_ == 0) 
+			n_.morir();
+		//FALTA TRACTAR MORT
+	}
+	
+	private void xocarNauEnemiga() throws Exception {
+		//MORIR, REACCIÓ PROVISIONAL
+		//ne_.morir();
+		d_.elimina(ne_);
+		Random rand = new Random();
+		ne_ = new NauEnemiga(50, rand.nextInt(amplada_-50)+50, rand.nextInt(altura_-50)+50);
+		d_.afegir(ne_);
+	}
+	
+	private void tractarColisionsEntreNaus() throws Exception {
+		Area n = new Area(n_.obtenirShape());
+		Area ne = new Area(ne_.obtenirShape());
+		n.intersect(ne);
+		if (!n.isEmpty()) {
+			n_.centrar(amplada_, altura_);
+			d_.elimina(ne_);
+			Random rand = new Random();
+			ne_ = new NauEnemiga(50, rand.nextInt(amplada_-50)+50, rand.nextInt(altura_-50)+50);
+			d_.afegir(ne_);
+		}
+	}
+	
+	private void tractarColisionsRaigLaserMeteorit() throws Exception {
 		Iterator<RaigLaser> it = rajosLaser_.iterator();
 		while (it.hasNext()) {
 			RaigLaser r = it.next();
 			Area rl = new Area(r.obtenirShape());
-			haXocat = tractarColisionsAmbMeteorits(rl);
-			if (haXocat){
+			boolean haXocat = tractarColisionsAmbMeteorits(rl);
+
+			if (haXocat) {
 				it.remove();
 				d_.elimina(r);
 			}
 		}
-		
-		
-		//Falten col·lisions NauEnemiga amb Meteorits i RaigLaser amb NauEnemiga
-		
-		
 	}
 	
 	private boolean tractarColisionsAmbMeteorits(Area a) throws Exception {
@@ -222,13 +264,105 @@ public class Joc {
 		return haXocat;
 	}
 	
+	private void tractarColisionsNausMeteorit() throws Exception {
+		boolean haXocatNau = false;
+		boolean haXocatNE = false;
+		
+		Area n = new Area(n_.obtenirShape());
+		Area ne = new Area(ne_.obtenirShape());
+		
+		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
+		ListIterator<Meteorit> it = meteorits_.listIterator();
+		while (it.hasNext()) {
+			Meteorit m = it.next();
+			Area am = new Area(m.obtenirShape());
+			am.intersect(n);
+			if (!am.isEmpty()) {
+				if (m.divisible()) {
+					Meteorit m2 = m.dividir();
+					it.add(m);
+					meteoritsNous_.add(m2);
+					d_.afegir(m2);
+					puntuacio_ += 50;
+				}
+				else {
+					it.remove();
+					d_.elimina(m);
+					puntuacio_ += 20;
+				}
+				haXocatNau = true;
+				
+			}
+			else {
+				am = new Area(m.obtenirShape());
+				am.intersect(ne);
+				if (!am.isEmpty()) {
+				    if (m.divisible()) {
+					Meteorit m2 = m.dividir();
+					it.add(m);
+					meteoritsNous_.add(m2);
+					d_.afegir(m2);
+				    }
+				    else {
+					it.remove();
+					d_.elimina(m);
+				    }
+				    haXocatNE = true;
+				}
+			}
+		}
+		meteorits_.addAll(meteoritsNous_);
+		
+		if (haXocatNau) 
+			xocarNauJugador();
+		
+		if (haXocatNE) 
+			xocarNauEnemiga();
+	}
+	
+	private void tractarColisionsNausRajosLaser() throws Exception {
+		boolean haXocatNau = false;
+		boolean haXocatNE = false;
+		
+		Area n = new Area(n_.obtenirShape());
+		Area ne = new Area(ne_.obtenirShape());
+		
+		Iterator<RaigLaser> it = rajosLaser_.listIterator();
+		while (it.hasNext()) {
+			RaigLaser r = it.next();
+			Shape s = r.obtenirShape();
+			Area ar = new Area(s);
+			ar.intersect(n);
+			if (!ar.isEmpty()) {
+				it.remove();
+				d_.elimina(r);
+				haXocatNau = true;
+			}
+			else {
+				ar = new Area(s);
+				ar.intersect(ne);
+				if (!ar.isEmpty()) {
+					it.remove();
+					d_.elimina(r);
+					haXocatNE = true;
+					puntuacio_ += 100;
+				}
+			}
+			
+		}
+		
+		if (haXocatNau) 
+			xocarNauJugador();
+		
+		if (haXocatNE) 
+			xocarNauEnemiga();
+	}
 	
 	public class MyKeyListener implements KeyListener {
 		
 		public void keyTyped(KeyEvent e) {}
 
-		public void keyPressed(KeyEvent e) 
-		{
+		public void keyPressed(KeyEvent e) {
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_SPACE:
 				disparar_ = true;
