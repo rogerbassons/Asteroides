@@ -23,18 +23,29 @@ public class NauEnemiga extends Nau {
 	// De moment només apunta a n
 	RaigLaser atacarNau(Nau n) {
 		RaigLaser r = null;
+
+		r = apuntaDispara(n);
+		
+		return r;
+	}
+
+	//Pre: NauEnemiga Viva
+	//Post: la NauEnemiga apunta a n i si està ben apuntada llavors dispara
+	RaigLaser apuntaDispara(Nau n) {
+		RaigLaser r = null;
+
 		int angle = angleApuntar(n);
-		//System.out.println(Double.toString(angle));
-		//System.out.println(Double.toString(angle_));
-		int dreta = angle_ - angle;
-		int esquerra = angle - angle_;
-		if (dreta > esquerra ) {
+		int dif = angle_ - angle;
+		if ((angle > 270 && angle_ < 90) || dif > 0) {
 			rotarDreta();
-		} else if (dreta < esquerra) {
+		} else if (dif < 0) {
 			rotarEsquerra();
 		} else {
-			r = disparar();
 			pararRotacio();
+		}
+
+		if (Math.abs(dif) <= 0.1) {
+			r = disparar();
 		}
 
 		return r;
