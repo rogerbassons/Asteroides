@@ -87,7 +87,9 @@ public class Joc {
 		AudioInputStream a = AudioSystem.getAudioInputStream(so);
 		piu_ = AudioSystem.getClip();
 		piu_.open(a);
-
+		
+		generarMeteoritsInicials();
+		
 		while (!sortir_) {
 			actualitzar();
 			d_.dibuixar();
@@ -100,7 +102,7 @@ public class Joc {
 	
 	//Pre: --
 	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 10
-	private void generarMeteorits() throws Exception {
+	private void generarMeteoritsInicials() throws Exception {
 		while (meteorits_.size() < 10) {
 			Random rand = new Random();
 			Meteorit m = new Meteorit(0.8, rand.nextInt(360), 1, rand.nextInt(amplada_), rand.nextInt(altura_));
@@ -108,6 +110,18 @@ public class Joc {
 			d_.afegir(m);
 		}
 		//Falta comprovar que no es col·loquin on hi ha la nau
+	}
+	
+	//Pre: --
+	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 10, i els fa sortir per les bandes de la pantalla
+	private void generarMeteorits() throws Exception {
+		while (meteorits_.size() < 10) {
+			Random rand = new Random();
+			Meteorit m = new Meteorit(0.8, rand.nextInt(360), 1, rand.nextInt(amplada_), rand.nextInt(altura_));
+			m.situarAlCostatMesProper(amplada_, altura_);
+			meteorits_.add(m);
+			d_.afegir(m);
+		}
 	}
 	
 	//Pre: --
@@ -128,6 +142,8 @@ public class Joc {
 			n_.propulsarEndavant();
 		}
 
+		n_.moure(amplada_,altura_);
+
 		if (disparar_) {
 			Calendar tempsActual = new GregorianCalendar();
 			if (tempsActual.getTimeInMillis() - tempsRaigJugador_.getTimeInMillis() > 441) {
@@ -139,13 +155,11 @@ public class Joc {
 				d_.afegir(r);
 			}
 		}
-
-		n_.moure(amplada_,altura_);
-
+		
 		RaigLaser ra = ne_.atacarNau(n_);
 		if (ra!=null) {
 			Calendar tempsActual = new GregorianCalendar();
-			if (tempsActual.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 441) {
+			if (tempsActual.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
 				tempsRaigEnemiga_ = new GregorianCalendar();
 				piu_.setFramePosition(0);
 				piu_.start();
@@ -198,12 +212,12 @@ public class Joc {
 	//Pre: --
 	//Post: si la nau està viva es centra la nau i se li resta una vida, altrament no fa res (de moment). Si té 0 vides, mor.
 	private void xocarNauJugador() throws Exception {
-		if (n_.esViva()){
+		//if (n_.esViva()){
 			n_.centrar(amplada_, altura_);
 			nVides_--;
-			if (nVides_ == 0) 
-				n_.morir();
-		}
+			//if (nVides_ == 0) 
+				//n_.morir();
+		//}
 		//FALTA TRACTAR MORT
 	}
 	
@@ -305,7 +319,6 @@ public class Joc {
 					puntuacio_ += 20;
 				}
 				haXocatNau = true;
-				
 			}
 			else {
 				am = new Area(m.obtenirShape());
