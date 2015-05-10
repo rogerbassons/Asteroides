@@ -198,7 +198,7 @@ public class Joc {
 	//Pre: --
 	//Post: si la nau està viva es centra la nau i se li resta una vida, altrament no fa res (de moment). Si té 0 vides, mor.
 	private void xocarNauJugador() throws Exception {
-		if (n.viva()){
+		if (n_.esViva()){
 			n_.centrar(amplada_, altura_);
 			nVides_--;
 			if (nVides_ == 0) 
