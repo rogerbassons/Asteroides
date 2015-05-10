@@ -34,9 +34,14 @@ public class NauEnemiga extends Nau {
 	RaigLaser apuntaDispara(Nau n) {
 		RaigLaser r = null;
 
-		int angle = angleApuntar(n);
+		int angle = angleApuntarMoviment(n);
 		int dif = angle_ - angle;
-		if ((angle > 270 && angle_ < 90) || dif > 0) {
+
+		if (angle > 270 && angle_ < 90) {
+			rotarDreta();
+		} else if (angle_ > 270 && angle < 90) {
+			rotarEsquerra();
+		} else if (dif > 0) {
 			rotarDreta();
 		} else if (dif < 0) {
 			rotarEsquerra();
@@ -53,12 +58,11 @@ public class NauEnemiga extends Nau {
 
 
 	//Pre: --
-	//Post: retorna l'angle respecte l'eix horitzontal entre la NauEnemiga i n
-	private int angleApuntar(Nau n) {
-		double [] cn = n.obtenirCentreTriangle();
+	//Post: retorna l'angle perque la NauEnemiga apunti al punt (p[0],p[1])
+	private int angleApuntar(double [] p) {
 		double [] ce = obtenirCentreTriangle();
 
-		double angle = 180 / Math.PI * Math.atan2(-(cn[1] - ce[1]), cn[0] - ce[0]);
+		double angle = 180 / Math.PI * Math.atan2(-(p[1] - ce[1]), p[0] - ce[0]);
 		// angle és l'angle respecte l'eix horitzontal que va de la Nau Enemiga a la Nau n
 		// -180 < angle <= 180
 		if (angle < 0) {
@@ -66,5 +70,34 @@ public class NauEnemiga extends Nau {
 		}
 		// 0 <= angle < 360
 		return (int)angle;
+	}
+
+	//Pre: --
+	//Post: retorna l'angle que ha d'apuntar la NauEnemiga(e) per aconseguir que un RaigLaser disparat per e
+	//      colisioni amb n
+	private int angleApuntarMoviment(Nau n) {
+		double [] cn = n.obtenirCentreTriangle();
+		double [] ce = obtenirCentreTriangle();
+
+		double dist = Math.hypot(Math.abs(cn[0] - ce[0]), Math.abs(cn[1] - ce[1]));
+		double temps = dist / velocitatRaig_;
+		double [] previsio = preveurePosicio(n, temps);
+		
+		double angle = angleApuntar(previsio);
+		return (int)angle;
+	}
+
+	//Pre: temps > 0
+	//Post: Retorna una taula(t). t[0] i t[1] són les coordenades de n despres de que hagui passat temps iteracions
+	double [] preveurePosicio(Nau n, double temps) {
+		double dx = temps * n.velocitat_*Math.cos(Math.toRadians(n.angleVelocitat_));
+		double dy = temps * n.velocitat_*-Math.sin(Math.toRadians(n.angleVelocitat_));
+
+		double [] t = n.obtenirCentreTriangle();
+		double centrex = t[0];
+		double centrey = t[1];
+
+		double [] previsio = {centrex + dx, centrey + dy};
+		return previsio;
 	}
 }

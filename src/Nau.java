@@ -44,8 +44,8 @@ public class Nau implements ObjecteJoc {
 	protected int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private boolean viva_; // defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
 
-	private double velocitat_; // Modul del vector velocitat de la Nau
-	private double angleVelocitat_; //angle_ que tenia la Nau a l'última propulsació
+	protected double velocitat_; // Modul del vector velocitat de la Nau
+	protected double angleVelocitat_; //angle_ que tenia la Nau a l'última propulsació
 	private double velocitatMax_; // Velocitat màxima de la Nau
 	private double acceleracio_; // Acceleracio amb la qual la velocitat de la nau augmenta o disminueix
 		
@@ -54,6 +54,8 @@ public class Nau implements ObjecteJoc {
 	// 0 -> no s'ha de rotar
 	// 1 -> rotar en el sentit esquerra
 	// 2 -> rotar en el sentit dret
+
+	protected double velocitatRaig_; // velocitat amb la qual es mouen els Raigos Laser que dispara la Nau
 
 	
 	//Pre: l > 0
@@ -84,6 +86,8 @@ public class Nau implements ObjecteJoc {
 
 		//La Nau està viva!
 		viva_ = true;
+
+		velocitatRaig_ = velocitatMax_*1.5;
 	}
 
 	//Pre: Nau viva, amplada > 0 i altura > 0
@@ -115,7 +119,7 @@ public class Nau implements ObjecteJoc {
 		double x = puntsT[0];
 		double y = puntsT[1];
 		double midaRaig = llargadaNau()/15;
-		return new RaigLaser(x,y,velocitatMax_*1.5,angle_,midaRaig);
+		return new RaigLaser(x,y,velocitatRaig_,angle_,midaRaig);
 	}
 
 	//Pre: Nau viva
