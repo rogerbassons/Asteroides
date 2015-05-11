@@ -117,10 +117,7 @@ public class NauEnemiga extends Nau {
 	//       a la posicio (pos[0],pos[1])
 	private void movimentObjectiu(double [] pos) {
 		int angle = angleApuntar(pos);
-		if (angle_ - angle >= 5) {
-			alinearse(angle);
-		} else {
-			propulsarEndavant();
-		}
+		alinearse(angle);
+		propulsarEndavant();
 	}
 }
