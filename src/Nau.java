@@ -338,6 +338,13 @@ public class Nau implements ObjecteJoc {
 		return puntsT;
 	}
 
+	//Pre: x >= 0 i y >= 0
+	//Post: retorna la distancia entre el centre de la Nau i el punt (x,y)
+	protected double distancia(double x, double y) {
+		double [] c = obtenirCentreTriangle();
+		return Math.hypot(Math.abs(c[0] - x), Math.abs(c[1] -y));
+	}
+
 	//Pre: --
 	//Post: s'ha dibuixat la Nau de color verd a g2
 	public void dibuixar(Graphics2D g2) {

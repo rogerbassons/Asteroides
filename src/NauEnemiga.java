@@ -25,8 +25,12 @@ public class NauEnemiga extends Nau {
 	// De moment només apunta a n
 	RaigLaser atacarNau(Nau n) {
 		RaigLaser r = null;
-
-		r = apuntaDispara(n);
+		double [] pos = n.obtenirCentreTriangle();
+		if (distancia(pos[0],pos[1]) <= 200) {
+			r = apuntaDispara(n);
+		} else {
+			movimentObjectiu(pos);
+		}
 		
 		return r;
 	}
@@ -106,5 +110,17 @@ public class NauEnemiga extends Nau {
 
 		double [] previsio = {centrex + dx, centrey + dy};
 		return previsio;
+	}
+
+	//Pre: --
+	//Post: la NauEnemiga realitza un moviment que tendeix a aproparse
+	//       a la posicio (pos[0],pos[1])
+	private void movimentObjectiu(double [] pos) {
+		int angle = angleApuntar(pos);
+		if (angle_ - angle >= 5) {
+			alinearse(angle);
+		} else {
+			propulsarEndavant();
+		}
 	}
 }
