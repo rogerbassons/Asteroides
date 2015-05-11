@@ -26,7 +26,7 @@ public class NauEnemiga extends Nau {
 	RaigLaser atacarNau(Nau n) {
 		RaigLaser r = null;
 		double [] pos = n.obtenirCentreTriangle();
-		if (distancia(pos[0],pos[1]) <= 200) {
+		if (distancia(pos[0],pos[1]) <= 500) {
 			r = apuntaDispara(n);
 		} else {
 			movimentObjectiu(pos);
