@@ -53,7 +53,58 @@ public class Meteorit implements ObjecteJoc {
 		a.translate(x - centre[0], y - centre[1]);
 		poligon_.transform(a);
 	}
+	
+	//Pre: --
+	//Post: situa el Meteorit a la banda de la pantalla més propera d'on es troba el Meteorit. L'àrea de la pantalla és amplada*altura
+	public void situarAlCostatMesProper(int amplada, int altura) {
+		double [] puntCentre = puntCentrePoligon();
+		double distMinX, distMinY;
+		double [] puntCostat, puntAllunyat;
+		if ( puntCentre[0] > amplada - puntCentre[0] ) //Costat esquerra
+			puntCostat = new double [] {0, puntCentre[1]};
+		else  //Costat dret
+			puntCostat = new double [] {amplada, puntCentre[1]};
+
+		puntAllunyat = puntMesAllunyat(puntCostat);
+		distMinX = Point2D.distance(puntCostat[0], puntCostat[1], puntAllunyat[0], puntAllunyat[1]);
 		
+		if ( puntCentre[1] > altura - puntCentre[1] ) //Costat baix
+			puntCostat = new double [] {puntCentre[0], 0};
+		else //Costat dalt
+			puntCostat = new double [] {puntCentre[0], altura};
+
+		puntAllunyat = puntMesAllunyat(puntCostat);
+		distMinY = Point2D.distance(puntCostat[0], puntCostat[1], puntAllunyat[0], puntAllunyat[1]);
+
+		AffineTransform a = new AffineTransform();
+
+		if ( distMinX < distMinY )
+			a.translate(distMinX, 0);
+		else
+			a.translate(0, distMinY);
+
+		poligon_.transform(a);
+		
+	}
+	
+	//Pre: --
+	//Post: retorna el punt més allunyat del Meteorit respecte punt
+	private double [] puntMesAllunyat(double [] punt) {
+		double [] puntsT = obtenirPuntsPoligon();
+		double x = puntsT[0];
+		double y = puntsT[1];
+		double distMax = Math.abs(Point2D.distance(x, y, punt[0], punt[1]));
+		for (int i = 2; i < nVertexs_*2-1; i += 2) {
+			double dist = Math.abs(Point2D.distance(puntsT[i], puntsT[i+1], punt[0], punt[1]));
+			if (dist > distMax) {
+				distMax = dist;
+				x = puntsT[i];
+				y = puntsT[i+1];
+			}
+		}
+		return new double[] {x,y};
+	}
+	
 	//Pre: --
 	//Post: rota el Meteorit un angle graus
 	private void rotar(int graus) {
@@ -201,7 +252,7 @@ public class Meteorit implements ObjecteJoc {
 	private boolean haSortit(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsPoligon();
 		boolean hiHaUnPuntDins = false;
-	        int i = 0;
+		int i = 0;
 		while (!hiHaUnPuntDins && i < 13) {
 			hiHaUnPuntDins = puntsT[i] >= 0 && puntsT[i] <= amplada && puntsT[i+1] >= 0 && puntsT[i+1] <= altura;
 			i+=2;
