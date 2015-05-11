@@ -60,11 +60,11 @@ public class Joc {
 		amplada_ = amplada;
 		altura_ = altura;
 		
-		n_ = new Nau(50);
+		n_ = new Nau(50,Color.GREEN);
 		n_.centrar(amplada_, altura_);
 		Random rand = new Random();
 		
-		ne_ = new NauEnemiga(50, rand.nextInt(amplada_-30)+30, rand.nextInt(altura_-30)+30);
+		ne_ = new NauEnemiga(50, Color.RED, rand.nextInt(amplada_-30)+30, rand.nextInt(altura_-30)+30);
 		
 		d_ = new DibuixadorAsteroides();
 		d_.crearFinestra(amplada_, altura_, Color.BLACK, "Joc");
@@ -228,7 +228,7 @@ public class Joc {
 		//ne_.morir();
 		d_.elimina(ne_);
 		Random rand = new Random();
-		ne_ = new NauEnemiga(50, rand.nextInt(amplada_-50)+50, rand.nextInt(altura_-50)+50);
+		ne_ = new NauEnemiga(50, Color.RED,rand.nextInt(amplada_-50)+50, rand.nextInt(altura_-50)+50);
 		d_.afegir(ne_);
 	}
 	

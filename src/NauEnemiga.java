@@ -2,6 +2,7 @@
 import java.awt.geom.Path2D;
 import java.lang.Math;
 import java.awt.geom.AffineTransform;
+import java.awt.Color;
 
 public class NauEnemiga extends Nau {
 
@@ -12,11 +13,12 @@ public class NauEnemiga extends Nau {
 	//          - te la punta superior a la coordenada (a/2)
 	//          - apunta cap a dalt
 	//          - esta situada al punt (x,y)
-	NauEnemiga(int l, double x, double y) {
-		super(l);
-		double [] c = obtenirCentreTriangle();
+	//          - és de color c
+	NauEnemiga(int l, Color c, double x, double y) {
+		super(l,c);
+		double [] centre = obtenirCentreTriangle();
 		AffineTransform a = new AffineTransform();
-		a.translate(x - c[0], y - c[1]);
+		a.translate(x - centre[0], y - centre[1]);
 		triangle_.transform(a);
 	}
 
@@ -35,11 +37,23 @@ public class NauEnemiga extends Nau {
 		RaigLaser r = null;
 
 		int angle = angleApuntarMoviment(n);
-		int dif = angle_ - angle;
 
-		if (angle > 270 && angle_ < 90) {
+		alinearse(angle);
+
+		if (Math.abs(angle_ - angle) <= 1) {
+			r = disparar();
+		}
+
+		return r;
+	}
+
+	//Pre: 0 <= a < 360
+	//Post: la NauEnemiga realitza un moviment de manera que tendeix a tenir un angle a
+	private void alinearse(int a) {
+		int dif = angle_ - a;
+		if (a > 270 && angle_ < 90) {
 			rotarDreta();
-		} else if (angle_ > 270 && angle < 90) {
+		} else if (angle_ > 270 && a < 90) {
 			rotarEsquerra();
 		} else if (dif > 0) {
 			rotarDreta();
@@ -48,14 +62,7 @@ public class NauEnemiga extends Nau {
 		} else {
 			pararRotacio();
 		}
-
-		if (Math.abs(dif) <= 0.1) {
-			r = disparar();
-		}
-
-		return r;
 	}
-
 
 	//Pre: --
 	//Post: retorna l'angle perque la NauEnemiga apunti al punt (p[0],p[1])

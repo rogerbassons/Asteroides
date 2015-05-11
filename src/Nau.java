@@ -40,6 +40,7 @@ import java.awt.Color;
 
 public class Nau implements ObjecteJoc {
        	protected Path2D triangle_; // camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
+	private Color c_; //Color de la Nau
 	private int nombrePunts_; // nombre de punts que té el triangle_
 	protected int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private boolean viva_; // defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
@@ -64,7 +65,8 @@ public class Nau implements ObjecteJoc {
 	//          - té una llargada l i una amplada(a) màxima l/2
 	//          - te la punta superior a la coordenada (a/2)
 	//          - apunta cap a dalt
-	Nau(int l) {
+	//          - és de color c
+	Nau(int l, Color c) {
 		// Crear triangle
 		int ampladaBase = l / 2;
 		triangle_ = new Path2D.Double();
@@ -75,6 +77,7 @@ public class Nau implements ObjecteJoc {
 		triangle_.closePath();
 		nombrePunts_ = 4;
 		angle_ = 90;
+		c_ = c;
 
 		// atributs de moviment
 		velocitat_ = 0;
@@ -338,7 +341,7 @@ public class Nau implements ObjecteJoc {
 	//Pre: --
 	//Post: s'ha dibuixat la Nau de color verd a g2
 	public void dibuixar(Graphics2D g2) {
-		g2.setColor(Color.GREEN);
+		g2.setColor(c_);
 		g2.draw(triangle_);
 	}
 	
