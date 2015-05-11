@@ -105,11 +105,17 @@ public class Joc {
 	private void generarMeteoritsInicials() throws Exception {
 		while (meteorits_.size() < 10) {
 			Random rand = new Random();
-			Meteorit m = new Meteorit(0.8, rand.nextInt(360), 1, rand.nextInt(amplada_), rand.nextInt(altura_));
+			Meteorit m;
+			Area am, an;
+			do {
+				m = new Meteorit(0.8, rand.nextInt(360), 1, rand.nextInt(amplada_), rand.nextInt(altura_));
+				am = new Area(m.obtenirShape());
+				an = new Area(n_.obtenirShape());
+				am.intersect(an);
+			} while (!am.isEmpty()); //Comprovem que al col·locar els Meteorits inicials no estiguin sobre la Nau
 			meteorits_.add(m);
 			d_.afegir(m);
 		}
-		//Falta comprovar que no es col·loquin on hi ha la nau
 	}
 	
 	//Pre: --
@@ -226,6 +232,7 @@ public class Joc {
 	private void xocarNauEnemiga() throws Exception {
 		//MORIR, REACCIÓ PROVISIONAL
 		//ne_.morir();
+		puntuacio_ += 100;
 		d_.elimina(ne_);
 		Random rand = new Random();
 		ne_ = new NauEnemiga(50, Color.RED,rand.nextInt(amplada_-50)+50, rand.nextInt(altura_-50)+50);
@@ -261,7 +268,7 @@ public class Joc {
 	}
 	
 	//Pre: --
-	//Post: retorna si l'Area a ha colisionat amb algun Meteorit, retorna cert
+	//Post: retorna si l'Area a ha colisionat amb algun Meteorit
 	private boolean tractarColisionsAmbMeteorits(Area a) throws Exception {
 		boolean haXocat = false;
 		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
@@ -276,13 +283,14 @@ public class Joc {
 					it.add(m);
 					meteoritsNous_.add(m2);
 					d_.afegir(m2);
+					puntuacio_ += 50;
 				}
 				else {
 					it.remove();
 					d_.elimina(m);
+					puntuacio_ += 20;
 				}
 				haXocat = true;
-				
 			}
 		}
 		meteorits_.addAll(meteoritsNous_);
@@ -293,53 +301,13 @@ public class Joc {
 	//Post: si la Nau del jugador ha xocat amb algun Meteorit, aquesta es centra i perd una vida, i el Meteorit es divideix o desapareix segons la mida
 	//	si la NauEnemiga ha xocat amb algun Meteorit, aquesta es canvia de lloc aleatòriament i el Meteorit es divideix o desapareix segons la mida
 	private void tractarColisionsNausMeteorit() throws Exception {
-		boolean haXocatNau = false;
-		boolean haXocatNE = false;
 		
 		Area n = new Area(n_.obtenirShape());
 		Area ne = new Area(ne_.obtenirShape());
 		
-		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
-		ListIterator<Meteorit> it = meteorits_.listIterator();
-		while (it.hasNext()) {
-			Meteorit m = it.next();
-			Area am = new Area(m.obtenirShape());
-			am.intersect(n);
-			if (!am.isEmpty()) {
-				if (m.divisible()) {
-					Meteorit m2 = m.dividir();
-					it.add(m);
-					meteoritsNous_.add(m2);
-					d_.afegir(m2);
-					puntuacio_ += 50;
-				}
-				else {
-					it.remove();
-					d_.elimina(m);
-					puntuacio_ += 20;
-				}
-				haXocatNau = true;
-			}
-			else {
-				am = new Area(m.obtenirShape());
-				am.intersect(ne);
-				if (!am.isEmpty()) {
-				    if (m.divisible()) {
-					Meteorit m2 = m.dividir();
-					it.add(m);
-					meteoritsNous_.add(m2);
-					d_.afegir(m2);
-				    }
-				    else {
-					it.remove();
-					d_.elimina(m);
-				    }
-				    haXocatNE = true;
-				}
-			}
-		}
-		meteorits_.addAll(meteoritsNous_);
-		
+		boolean haXocatNau = tractarColisionsAmbMeteorits(n);
+		boolean haXocatNE = tractarColisionsAmbMeteorits(ne);
+
 		if (haXocatNau) 
 			xocarNauJugador();
 		
@@ -375,10 +343,8 @@ public class Joc {
 					it.remove();
 					d_.elimina(r);
 					haXocatNE = true;
-					puntuacio_ += 100;
 				}
 			}
-			
 		}
 		
 		if (haXocatNau) 
