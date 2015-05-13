@@ -3,6 +3,9 @@ import java.awt.geom.Path2D;
 import java.lang.Math;
 import java.awt.geom.AffineTransform;
 import java.awt.Color;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class NauEnemiga extends Nau {
 
@@ -23,15 +26,17 @@ public class NauEnemiga extends Nau {
 	}
 
 	// De moment només apunta a n
-	RaigLaser atacarNau(Nau n) {
+	RaigLaser atacarNau(Nau n, LinkedList<Meteorit> lm) {
 		RaigLaser r = null;
+
+		//if (!evitarMeteorits(lm) {
 		double [] pos = n.obtenirCentreTriangle();
 		if (distancia(pos[0],pos[1]) <= 500) {
 			r = apuntaDispara(n);
 		} else {
 			movimentObjectiu(pos);
 		}
-		
+		//}
 		return r;
 	}
 
@@ -119,5 +124,36 @@ public class NauEnemiga extends Nau {
 		int angle = angleApuntar(pos);
 		alinearse(angle);
 		propulsarEndavant();
+	}
+
+	//Pre: --
+	//Post: Si NauEnemiga està aprop d'algun Meteorit de lm llavors l'evita i retorna cert altrament no fa res i retorna fals
+	private boolean evitarMeteorits(LinkedList<Meteorit> lm) {
+		double [] c = obtenirCentreTriangle();
+
+		double [] v = null;
+		double distMin = 0;
+		
+		Iterator<Meteorit> it = lm.iterator();
+		while (it.hasNext()) {
+			double [] aux = it.next().puntVertexMesProper(c[0],c[1]);
+			double distAct = distancia(v[0],v[1]);
+				
+			if (distMin == 0 || distAct < distMin) {
+				v = aux;
+				distMin = distAct;
+			}
+		}
+		if (v != null) {
+			int angle = angleApuntar(v);
+			angle += 180;
+			if (angle >= 360) {
+				angle -= 360;
+			}
+			alinearse(angle);
+			propulsarEndavant();
+		}
+
+		return v != null;
 	}
 }

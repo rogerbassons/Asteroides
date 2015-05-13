@@ -203,7 +203,7 @@ public class Joc {
 			}
 		}
 		
-		RaigLaser ra = ne_.atacarNau(n_);
+		RaigLaser ra = ne_.atacarNau(n_,meteorits_);
 		if (ra!=null) {
 			Calendar tempsActual = new GregorianCalendar();
 			if (tempsActual.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
