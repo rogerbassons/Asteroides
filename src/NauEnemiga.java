@@ -29,14 +29,14 @@ public class NauEnemiga extends Nau {
 	RaigLaser atacarNau(Nau n, LinkedList<Meteorit> lm) {
 		RaigLaser r = null;
 
-		//if (!evitarMeteorits(lm) {
-		double [] pos = n.obtenirCentreTriangle();
-		if (distancia(pos[0],pos[1]) <= 500) {
-			r = apuntaDispara(n);
-		} else {
-			movimentObjectiu(pos);
+		if (!evitarMeteorits(lm)) {
+			double [] pos = n.obtenirCentreTriangle();
+			if (distancia(pos[0],pos[1]) <= 500) {
+				r = apuntaDispara(n);
+			} else {
+				movimentObjectiu(pos);
+			}
 		}
-		//}
 		return r;
 	}
 
@@ -132,14 +132,14 @@ public class NauEnemiga extends Nau {
 		double [] c = obtenirCentreTriangle();
 
 		double [] v = null;
-		double distMin = 0;
+		double distMin = 100;
 		
 		Iterator<Meteorit> it = lm.iterator();
 		while (it.hasNext()) {
 			double [] aux = it.next().puntVertexMesProper(c[0],c[1]);
-			double distAct = distancia(v[0],v[1]);
+			double distAct = distancia(aux[0],aux[1]);
 				
-			if (distMin == 0 || distAct < distMin) {
+			if (distAct < distMin) {
 				v = aux;
 				distMin = distAct;
 			}
