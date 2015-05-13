@@ -315,15 +315,20 @@ public class Meteorit implements ObjecteJoc {
 	
 	//Pre: --
 	//Post: retorna la distància entre el punt (x,y) i el punt més proper del Meteorit
-	public double distanciaVertexMesProper(double x, double y) {
+	public double [] puntVertexMesProper(double x, double y) {
 		double [] puntsP = obtenirPuntsPoligon();
+		double xMin = puntsP[0];
+		double yMin = puntsP[1];
 		double distMin = Math.abs(Point2D.distance(puntsP[0], puntsP[1], x, y));
 		for (int i = 2; i < nVertexs_*2-1; i += 2) {
 			double dist = Math.abs(Point2D.distance(puntsP[i], puntsP[i+1], x, y));
-			if (dist < distMin)
+			if (dist < distMin){
+				xMin = puntsP[i];
+				yMin = puntsP[i+1];
 				distMin = dist;
+			}
 		}
-		return distMin;
+		return new double [] {xMin,yMin};
 	}
 	
 	//Pre: --
