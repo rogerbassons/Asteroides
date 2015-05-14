@@ -77,6 +77,7 @@ public class Joc {
 	
 	Calendar tempsRaigEnemiga_;
 	Calendar tempsRaigJugador_;
+	Calendar tempsNauEnemiga_;
 	
 	int nVides_;
 	int puntuacio_;
@@ -108,16 +109,17 @@ public class Joc {
 		n_.centrar(amplada_, altura_);
 		Random rand = new Random();
 		
-		ne_ = new NauEnemiga(50, Color.RED, rand.nextInt(amplada_-30)+30, rand.nextInt(altura_-30)+30);
+		ne_ = null; 
 		
 		d_ = new DibuixadorAsteroides();
 		d_.crearFinestra(amplada_, altura_, Color.BLACK, "Joc");
 		d_.afegirKeyListener(new MyKeyListener());
 		d_.afegir(n_);
-		d_.afegir(ne_);
+		
 		
 		tempsRaigEnemiga_ = new GregorianCalendar();
 		tempsRaigJugador_ = new GregorianCalendar();
+		tempsNauEnemiga_ = new GregorianCalendar();
 		
 		nVides_ = 3;
 		puntuacio_ = 0; 
@@ -147,7 +149,7 @@ public class Joc {
 	//Pre: --
 	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 10, evitant que estiguin sobre la Nau
 	private void generarMeteoritsInicials() throws Exception {
-		while (meteorits_.size() < 10) {
+		while (meteorits_.size() < 8) {
 			Random rand = new Random();
 			Meteorit m;
 			Area am, an;
@@ -165,7 +167,7 @@ public class Joc {
 	//Pre: --
 	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 10, i els fa sortir per les bandes de la pantalla
 	private void generarMeteorits() throws Exception {
-		while (meteorits_.size() < 10) {
+		while (meteorits_.size() < 8) {
 			Random rand = new Random();
 			Meteorit m = new Meteorit(0.8, rand.nextInt(360), 1, rand.nextInt(amplada_), rand.nextInt(altura_));
 			m.situarAlCostatMesProper(amplada_, altura_);
@@ -177,6 +179,7 @@ public class Joc {
 	//Pre: --
 	//Post: actualitza l'estat del joc, generant meteorits, movent els elements i tractant les col·lisions
 	private void actualitzar() throws Exception {
+		
 		generarMeteorits(); //Generem Meteorits
 		
 		moureNaus(); //Movem tots els objectes
@@ -203,22 +206,24 @@ public class Joc {
 			}
 		}
 		
-		RaigLaser ra = ne_.atacarNau(n_,meteorits_);
-		if (ra!=null) {
-			Calendar tempsActual = new GregorianCalendar();
-			if (tempsActual.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
-				tempsRaigEnemiga_ = new GregorianCalendar();
-				piu_.setFramePosition(0);
-				piu_.start();
-				d_.afegir(ra);
-				rajosLaser_.add(ra);
+		if (ne_ != null) {
+			RaigLaser ra = ne_.atacarNau(n_,meteorits_);
+			if (ra!=null) {
+				Calendar tempsActual = new GregorianCalendar();
+				if (tempsActual.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
+					tempsRaigEnemiga_ = new GregorianCalendar();
+					piu_.setFramePosition(0);
+					piu_.start();
+					d_.afegir(ra);
+					rajosLaser_.add(ra);
+				}
 			}
 		}
 	}
 	
 	//Pre: --
 	//Post: mou les Naus del Joc
-	private void moureNaus() {
+	private void moureNaus() throws Exception {
 		
 		//Tractem el moviment de la Nau
 		if (rotarDreta_)
@@ -232,8 +237,16 @@ public class Joc {
 			n_.propulsarEndavant();
 		
 		n_.moure(amplada_,altura_); //Movem la Nau
-		ne_.moure(amplada_,altura_); //Movem la NauEnemiga
-		
+		if (ne_ != null)
+			ne_.moure(amplada_,altura_); //Movem la NauEnemiga
+			else { //Si no existeix
+				Calendar tempsActual = new GregorianCalendar();
+				if (tempsActual.getTimeInMillis() - tempsNauEnemiga_.getTimeInMillis() > 10000) { //Mirem si han passat 10 segons des de la última mort
+					Random rand = new Random();
+					ne_ = new NauEnemiga(50, Color.RED, rand.nextInt(amplada_-30)+30, rand.nextInt(altura_-30)+30);
+					d_.afegir(ne_);
+				}
+			}
 	}
 	
 	//Pre: --
@@ -293,20 +306,21 @@ public class Joc {
 		//ne_.morir();
 		puntuacio_ += 100;
 		d_.elimina(ne_);
-		Random rand = new Random();
-		ne_ = new NauEnemiga(50, Color.RED,rand.nextInt(amplada_-50)+50, rand.nextInt(altura_-50)+50);
-		d_.afegir(ne_);
+		ne_ = null;
+		tempsNauEnemiga_ = new GregorianCalendar();
 	}
 	
 	//Pre: --
 	//Post: si les naus colisionen la Nau del jugador es centra i la NauEnemiga es canvia de lloc altrament no fa res
 	private void tractarColisionsEntreNaus() throws Exception {
-		Area n = new Area(n_.obtenirShape());
-		Area ne = new Area(ne_.obtenirShape());
-		n.intersect(ne);
-		if (!n.isEmpty()) {
-			xocarNauJugador();
-			xocarNauEnemiga();
+		if (ne_!=null) {
+			Area n = new Area(n_.obtenirShape());
+			Area ne = new Area(ne_.obtenirShape());
+			n.intersect(ne);
+			if (!n.isEmpty()) {
+				xocarNauJugador();
+				xocarNauEnemiga();
+			}
 		}
 	}
 	
@@ -360,57 +374,56 @@ public class Joc {
 	//Post: si la Nau del jugador ha xocat amb algun Meteorit, aquesta es centra i perd una vida, i el Meteorit es divideix o desapareix segons la mida
 	//	si la NauEnemiga ha xocat amb algun Meteorit, aquesta es canvia de lloc aleatòriament i el Meteorit es divideix o desapareix segons la mida
 	private void tractarColisionsNausMeteorit() throws Exception {
-		
 		Area n = new Area(n_.obtenirShape());
-		Area ne = new Area(ne_.obtenirShape());
-		
 		boolean haXocatNau = tractarColisionsAmbMeteorits(n);
-		boolean haXocatNE = tractarColisionsAmbMeteorits(ne);
-		
 		if (haXocatNau) 
 			xocarNauJugador();
 		
-		if (haXocatNE) 
-			xocarNauEnemiga();
+		if (ne_ != null) {
+			Area ne = new Area(ne_.obtenirShape());
+			boolean haXocatNE = tractarColisionsAmbMeteorits(ne);
+			if (haXocatNE) 
+				xocarNauEnemiga();
+		}
+	}
+	
+	//Pre: --
+	//Post: si la Nau del jugador ha xocat amb algun RaigLaser, aquesta es centra i perd una vida, i el RaigLaser desapareix
+	//	si la NauEnemiga ha xocat amb algun RaigLaser, aquesta desapareix i torna a aparèixer al cap de 10 segons, i el RaigLaser desapareix
+	private void tractarColisionsNausRajosLaser() throws Exception {
+		Area n = new Area(n_.obtenirShape());
+		boolean haXocatNau = tractarColisionsAmbRajosLaser(n);
+		if (haXocatNau)
+			xocarNauJugador();
+		
+		if (ne_ != null) { //Si la nau enemiga existeix
+			Area ne = new Area(ne_.obtenirShape());
+			boolean haXocatNE = tractarColisionsAmbRajosLaser(ne);
+			if (haXocatNE) 
+				xocarNauEnemiga();
+		}
 	}
 	
 	//Pre: --
 	//Post: si la Nau del jugador ha xocat amb algun RaigLaser, aquesta es centra i perd una vida, i el RaigLaser desapareix
 	//	si la NauEnemiga ha xocat amb algun RaigLaser, aquesta es canvia de lloc aleatòriament, i el RaigLaser desapareix
-	private void tractarColisionsNausRajosLaser() throws Exception {
-		boolean haXocatNau = false;
-		boolean haXocatNE = false;
-		
-		Area n = new Area(n_.obtenirShape());
-		Area ne = new Area(ne_.obtenirShape());
+	private boolean tractarColisionsAmbRajosLaser(Area a) throws Exception {
+		boolean haXocat = false;
 		
 		Iterator<RaigLaser> it = rajosLaser_.listIterator();
 		while (it.hasNext()) {
 			RaigLaser r = it.next();
 			Shape s = r.obtenirShape();
 			Area ar = new Area(s);
-			ar.intersect(n);
+			ar.intersect(a);
 			if (!ar.isEmpty()) {
 				it.remove();
 				d_.elimina(r);
-				haXocatNau = true;
-			}
-			else {
-				ar = new Area(s);
-				ar.intersect(ne);
-				if (!ar.isEmpty()) {
-					it.remove();
-					d_.elimina(r);
-					haXocatNE = true;
-				}
+				haXocat = true;
 			}
 		}
 		
-		if (haXocatNau) 
-			xocarNauJugador();
-		
-		if (haXocatNE) 
-			xocarNauEnemiga();
+		return haXocat;
 	}
 	
 	public class MyKeyListener implements KeyListener {
