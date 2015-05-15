@@ -74,7 +74,8 @@ public class Joc {
 	NauEnemiga ne_;
 	DibuixadorAsteroides d_;
 	LinkedList<Meteorit> meteorits_;
-	LinkedList<RaigLaser> rajosLaser_;
+	LinkedList<RaigLaser> rajosLaserNau_;
+	LinkedList<RaigLaser> rajosLaserNE_;
 	
 	Calendar tempsRaigEnemiga_;
 	Calendar tempsRaigJugador_;
@@ -101,7 +102,8 @@ public class Joc {
 		sortir_ = disparar_ = rotarEsquerra_ = rotarDreta_ = accelerar_ = false;
 		
 		meteorits_ = new LinkedList<Meteorit>();
-		rajosLaser_ = new LinkedList<RaigLaser>();
+		rajosLaserNau_ = new LinkedList<RaigLaser>();
+		rajosLaserNE_ = new LinkedList<RaigLaser>();
 		
 		amplada_ = amplada;
 		altura_ = altura;
@@ -202,7 +204,7 @@ public class Joc {
 				piu_.setFramePosition(0);
 				piu_.start();
 				RaigLaser r = n_.disparar();
-				rajosLaser_.add(r);
+				rajosLaserNau_.add(r);
 				d_.afegir(r);
 			}
 		}
@@ -216,7 +218,7 @@ public class Joc {
 					piu_.setFramePosition(0);
 					piu_.start();
 					d_.afegir(ra);
-					rajosLaser_.add(ra);
+					rajosLaserNE_.add(ra);
 				}
 			}
 		}
@@ -249,7 +251,7 @@ public class Joc {
 				do {
 					ne_ = new NauEnemiga(50, Color.RED, rand.nextInt(amplada_-30)+30, rand.nextInt(altura_-30)+30);
 					Area a = new Area(ne_.obtenirShape());
-					haXocat = tractarColisionsAmbMeteorits(a);
+					haXocat = tractarColisionsAmbMeteorits(a, false);
 				} while (haXocat);
 				d_.afegir(ne_);
 			}
@@ -259,9 +261,21 @@ public class Joc {
 	//Pre: --
 	//Post: mou els Meteorits i els RajosLaser del Joc
 	private void moureMeteoritsIRajosLaser() throws Exception {
-		Iterator<RaigLaser> it = rajosLaser_.iterator();
+		Iterator<RaigLaser> it = rajosLaserNau_.iterator();
 		
-		while (it.hasNext()){ //Iterem per tots els RajosLaser per a moure'ls
+		while (it.hasNext()){ //Iterem per tots els RajosLaser de la Nau per a moure'ls
+			RaigLaser r = it.next();
+			if (!r.gastat())
+				r.moure(amplada_, altura_);
+			else{
+				it.remove();
+				d_.elimina(r);
+			}
+		}
+		
+		it = rajosLaserNE_.iterator();
+		
+		while (it.hasNext()){ //Iterem per tots els RajosLaser de la NauEnemiga per a moure'ls
 			RaigLaser r = it.next();
 			if (!r.gastat())
 				r.moure(amplada_, altura_);
@@ -289,8 +303,12 @@ public class Joc {
 		//Col·lisions Nau i NauEnemiga amb Meteorit
 		tractarColisionsNausMeteorit();
 		
+		
 		//Col·lisions RaigLaser - Meteorit
-		tractarColisionsRaigLaserMeteorit();
+		tractarColisionsRaigLaserNauMeteorit();
+		
+		//Col·lisions RaigLaser - Meteorit
+		tractarColisionsRaigLaserNEMeteorit();
 		
 	}
 	
@@ -331,13 +349,14 @@ public class Joc {
 	}
 	
 	//Pre: --
-	//Post: els RaigLaser que hagin col·lisionat amb un Meteorit s'han eliminat i els Meteorits s'han dividit o bé eliminat segons la seva mida
-	private void tractarColisionsRaigLaserMeteorit() throws Exception {
-		Iterator<RaigLaser> it = rajosLaser_.iterator();
+	//Post: els RaigLaser de la Nau que hagin col·lisionat amb un Meteorit s'han eliminat i 
+	//	els Meteorits s'han dividit o bé eliminat segons la seva mida, s'ha actualitzat la puntuació
+	private void tractarColisionsRaigLaserNauMeteorit() throws Exception {
+		Iterator<RaigLaser> it = rajosLaserNau_.iterator();
 		while (it.hasNext()) {
 			RaigLaser r = it.next();
 			Area rl = new Area(r.obtenirShape());
-			boolean haXocat = tractarColisionsAmbMeteorits(rl);
+			boolean haXocat = tractarColisionsAmbMeteorits(rl, true);
 			
 			if (haXocat) {
 				it.remove();
@@ -347,8 +366,26 @@ public class Joc {
 	}
 	
 	//Pre: --
+	//Post: els RaigLaser que hagin col·lisionat amb un Meteorit s'han eliminat i els Meteorits 
+	// 	s'han dividit o bé eliminat segons la seva mida
+	private void tractarColisionsRaigLaserNEMeteorit() throws Exception {
+		Iterator<RaigLaser> it = rajosLaserNE_.iterator();
+		while (it.hasNext()) {
+			RaigLaser r = it.next();
+			Area rl = new Area(r.obtenirShape());
+			boolean haXocat = tractarColisionsAmbMeteorits(rl, false);
+			
+			if (haXocat) {
+				it.remove();
+				d_.elimina(r);
+			}
+		}
+	}
+	
+	
+	//Pre: --
 	//Post: retorna si l'Area a ha colisionat amb algun Meteorit
-	private boolean tractarColisionsAmbMeteorits(Area a) throws Exception {
+	private boolean tractarColisionsAmbMeteorits(Area a, boolean puntuar) throws Exception {
 		boolean haXocat = false;
 		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
 		ListIterator<Meteorit> it = meteorits_.listIterator();
@@ -362,12 +399,16 @@ public class Joc {
 					it.add(m);
 					meteoritsNous_.add(m2);
 					d_.afegir(m2);
-					puntuacio_ += 50;
+					if (puntuar) {
+						puntuacio_ += 50;
+					}
 				}
 				else {
 					it.remove();
 					d_.elimina(m);
-					puntuacio_ += 20;
+					if (puntuar) {
+						puntuacio_ += 20;
+					}
 				}
 				haXocat = true;
 			}
@@ -381,13 +422,13 @@ public class Joc {
 	//	si la NauEnemiga ha xocat amb algun Meteorit, aquesta es canvia de lloc aleatòriament i el Meteorit es divideix o desapareix segons la mida
 	private void tractarColisionsNausMeteorit() throws Exception {
 		Area n = new Area(n_.obtenirShape());
-		boolean haXocatNau = tractarColisionsAmbMeteorits(n);
+		boolean haXocatNau = tractarColisionsAmbMeteorits(n, true);
 		if (haXocatNau) 
 			xocarNauJugador();
 		
 		if (ne_ != null) {
 			Area ne = new Area(ne_.obtenirShape());
-			boolean haXocatNE = tractarColisionsAmbMeteorits(ne);
+			boolean haXocatNE = tractarColisionsAmbMeteorits(ne, false);
 			if (haXocatNE) 
 				xocarNauEnemiga();
 		}
@@ -411,12 +452,24 @@ public class Joc {
 	}
 	
 	//Pre: --
-	//Post: si la Nau del jugador ha xocat amb algun RaigLaser, aquesta es centra i perd una vida, i el RaigLaser desapareix
-	//	si la NauEnemiga ha xocat amb algun RaigLaser, aquesta es canvia de lloc aleatòriament, i el RaigLaser desapareix
+	//Post: si a ha xocat amb algun RaigLaser, retorna cert i elimina el RaigLaser, altrament retorna fals
 	private boolean tractarColisionsAmbRajosLaser(Area a) throws Exception {
 		boolean haXocat = false;
 		
-		Iterator<RaigLaser> it = rajosLaser_.listIterator();
+		Iterator<RaigLaser> it = rajosLaserNau_.listIterator();
+		while (it.hasNext()) {
+			RaigLaser r = it.next();
+			Shape s = r.obtenirShape();
+			Area ar = new Area(s);
+			ar.intersect(a);
+			if (!ar.isEmpty()) {
+				it.remove();
+				d_.elimina(r);
+				haXocat = true;
+			}
+		}
+		
+		it = rajosLaserNE_.listIterator();
 		while (it.hasNext()) {
 			RaigLaser r = it.next();
 			Shape s = r.obtenirShape();
