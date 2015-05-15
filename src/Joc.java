@@ -139,7 +139,7 @@ public class Joc {
 		
 		while (!sortir_) {
 			actualitzar();
-			d_.dibuixar();
+			d_.dibuixar(puntuacio_);
 			Thread.sleep(10);
 		}
 		
