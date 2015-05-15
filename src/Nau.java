@@ -304,6 +304,15 @@ public class Nau implements ObjecteJoc {
 	}
 
 	//Pre: --
+	//Post: La Nau és viva, i està parada
+	public void reanimar() {
+		viva_ = true;
+		velocitat_ = 0;
+		angleVelocitat_ = 0;
+		rotar_ = 0;
+	}
+
+	//Pre: --
 	//Post: retorna una taula t on t[0] i t[1] són les coordenades x i y del baricentre del triangle que forma la Nau, respectivament
 	protected double [] obtenirCentreTriangle() {
 		double [] puntsT = obtenirPuntsTriangle();
