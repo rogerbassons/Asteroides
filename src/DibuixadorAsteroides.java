@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.util.LinkedList;
 import java.util.Iterator;
 import java.awt.event.KeyListener;
+import java.awt.Font;
 
 // DibuixadorAsteroides dibuixa multiples ObjecteJoc a una finestra(f)
 // f té una mida, un color de fons(c) i un titol determinat. Es pot afegir un KeyListener a f
@@ -98,11 +99,14 @@ public class DibuixadorAsteroides {
 	//Pre: finestra creada
 	//Post: pinta a la superficie de la finestra del DibuixaAsteroides amb el color de fons i pinta tots els ObjecteJoc
 	//      que s'han afegit al DibuixaAsteroides
-	public void dibuixar()
+	public void dibuixar(int puntuacio)
 	{
 		BufferStrategy buff = c_.getBufferStrategy();
 		Graphics g = buff.getDrawGraphics();
 		g.clearRect(0,0,amplada_,altura_);
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 20)); 
+		g.drawString(Integer.toString(puntuacio),amplada_ / 34,altura_ / 15);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		
