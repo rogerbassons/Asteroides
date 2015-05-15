@@ -312,6 +312,7 @@ public class Nau implements ObjecteJoc {
 		velocitat_ = 0;
 		angleVelocitat_ = 0;
 		rotar_ = 0;
+		angle_ = 90;
 		int ampladaBase = l_ / 2;
 		triangle_ = new Path2D.Double();
 		triangle_.moveTo(ampladaBase/2,0);
