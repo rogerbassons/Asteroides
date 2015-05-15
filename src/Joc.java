@@ -64,6 +64,7 @@ import java.awt.Shape;
 //	- A: rotar cap a l'esquerra
 //	- D: rotar cap a la dreta
 //	- Espai: disparar rajos làser
+//	- ESC: sortir del joc
 
 public class Joc {
 	
@@ -239,14 +240,20 @@ public class Joc {
 		n_.moure(amplada_,altura_); //Movem la Nau
 		if (ne_ != null)
 			ne_.moure(amplada_,altura_); //Movem la NauEnemiga
-			else { //Si no existeix
-				Calendar tempsActual = new GregorianCalendar();
-				if (tempsActual.getTimeInMillis() - tempsNauEnemiga_.getTimeInMillis() > 10000) { //Mirem si han passat 10 segons des de la última mort
-					Random rand = new Random();
+
+		else { //Si no és viva
+			Calendar tempsActual = new GregorianCalendar();
+			if (tempsActual.getTimeInMillis() - tempsNauEnemiga_.getTimeInMillis() > 5000) { //Mirem si han passat 5 segons des de la última mort
+				Random rand = new Random();
+				boolean haXocat;
+				do {
 					ne_ = new NauEnemiga(50, Color.RED, rand.nextInt(amplada_-30)+30, rand.nextInt(altura_-30)+30);
-					d_.afegir(ne_);
-				}
+					Area a = new Area(ne_.obtenirShape());
+					haXocat = tractarColisionsAmbMeteorits(a);
+				} while (haXocat);
+				d_.afegir(ne_);
 			}
+		}
 	}
 	
 	//Pre: --
@@ -290,20 +297,19 @@ public class Joc {
 	//Pre: --
 	//Post: si la nau està viva es centra la nau i se li resta una vida, altrament no fa res (de moment). Si té 0 vides, mor.
 	private void xocarNauJugador() throws Exception {
-		//if (n_.esViva()){
-		n_.centrar(amplada_, altura_);
-		nVides_--;
+		if (n_.esViva()){
+			n_.reanimar();
+			n_.centrar(amplada_, altura_);
+			nVides_--;
+		}
 		//if (nVides_ == 0) 
-		//n_.morir();
-		//}
-		//FALTA TRACTAR MORT
+		//	n_.morir();
+		//FALTA MOSTRAR ALGUN MISSATGE AL MORIR I ACABAR LA PARTIDA
 	}
 	
 	//Pre: --
-	//Post: posiciona la NauEnemiga en un lloc pseudoaleatori dins l'espai de joc. DE MOMENT NO MOR
+	//Post: posiciona la NauEnemiga en un lloc pseudoaleatori dins l'espai de joc.
 	private void xocarNauEnemiga() throws Exception {
-		//MORIR, REACCIÓ PROVISIONAL
-		//ne_.morir();
 		puntuacio_ += 100;
 		d_.elimina(ne_);
 		ne_ = null;
