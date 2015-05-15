@@ -42,6 +42,7 @@ public class Nau implements ObjecteJoc {
        	protected Path2D triangle_; // camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
 	private Color c_; //Color de la Nau
 	private int nombrePunts_; // nombre de punts que té el triangle_
+	protected int l_; // llargada de la Nau
 	protected int angle_; // angle que forma la Nau respecte l'eix horitzontal
 	private boolean viva_; // defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
 
@@ -78,6 +79,7 @@ public class Nau implements ObjecteJoc {
 		nombrePunts_ = 4;
 		angle_ = 90;
 		c_ = c;
+		l_ = l;
 
 		// atributs de moviment
 		velocitat_ = 0;
@@ -304,12 +306,19 @@ public class Nau implements ObjecteJoc {
 	}
 
 	//Pre: --
-	//Post: La Nau és viva, i està parada
+	//Post: La Nau és viva, apunta cap a dalt, està parada i te la punta superior a la coordenada (a/2)
 	public void reanimar() {
 		viva_ = true;
 		velocitat_ = 0;
 		angleVelocitat_ = 0;
 		rotar_ = 0;
+		int ampladaBase = l_ / 2;
+		triangle_ = new Path2D.Double();
+		triangle_.moveTo(ampladaBase/2,0);
+		triangle_.lineTo(0,l_);
+		triangle_.lineTo(ampladaBase/2,l_-l_/5);
+		triangle_.lineTo(ampladaBase,l_);
+		triangle_.closePath();
 	}
 
 	//Pre: --
