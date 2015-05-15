@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['maxdist_5f',['maxDist_',['../class_raig_laser.html#af0f554292aa21db0721ed27ef67f81dc',1,'RaigLaser']]],
-  ['mida_5f',['mida_',['../class_meteorit.html#a7041d52c0df04f993a84cddfc80718c8',1,'Meteorit.mida_()'],['../class_raig_laser.html#a1a7bafcac85edd40992edd71450168de',1,'RaigLaser.mida_()']]]
+  ['l_5f',['l_',['../class_nau.html#a67c5417119c7e520e1876a919119867d',1,'Nau']]],
+  ['lo_5f',['lo_',['../class_dibuixador_asteroides.html#aafc049ca18d07bf9cf5f61b7e8e1e06f',1,'DibuixadorAsteroides']]]
 ];

@@ -2,6 +2,11 @@
 \label{class_dibuixador_asteroides}\index{Dibuixador\+Asteroides@{Dibuixador\+Asteroides}}
 
 
+Dibuixa multiples \hyperlink{interface_objecte_joc}{Objecte\+Joc} a una finestra.  
+
+
+
+
 Collaboration diagram for Dibuixador\+Asteroides\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -14,9 +19,9 @@ Collaboration diagram for Dibuixador\+Asteroides\+:\nopagebreak
 \item 
 void \hyperlink{class_dibuixador_asteroides_a54a43290703d14aee21e5c87a5e6fc5b}{crear\+Finestra} (int amplada, int altura, Color fons, String t)
 \item 
-void \hyperlink{class_dibuixador_asteroides_ac70561df846258437f4145a41117e9ef}{afegir} (\hyperlink{interface_objecte_joc}{Objecte\+Joc} oj)  throws Exception 	
+void \hyperlink{class_dibuixador_asteroides_ac70561df846258437f4145a41117e9ef}{afegir} (\hyperlink{interface_objecte_joc}{Objecte\+Joc} oj)
 \item 
-void \hyperlink{class_dibuixador_asteroides_a22269129b517ba0da55bc16e19e24b57}{elimina} (\hyperlink{interface_objecte_joc}{Objecte\+Joc} oj)  throws Exception 	
+void \hyperlink{class_dibuixador_asteroides_a22269129b517ba0da55bc16e19e24b57}{elimina} (\hyperlink{interface_objecte_joc}{Objecte\+Joc} oj)
 \item 
 void \hyperlink{class_dibuixador_asteroides_a9add2702a95cbe7e68100c97a63b297f}{afegir\+Key\+Listener} (Key\+Listener l)
 \item 
@@ -24,12 +29,31 @@ void \hyperlink{class_dibuixador_asteroides_af2138b89d2a5fe31697b2f206cbc2df4}{d
 \item 
 void \hyperlink{class_dibuixador_asteroides_a14186d7acd8ca135252848f916416575}{tancar\+Finestra} ()
 \end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+J\+Frame \hyperlink{class_dibuixador_asteroides_acd1dc7eee6ddda629759fc422566b11b}{f\+\_\+}
+\begin{DoxyCompactList}\small\item\em finestra principal \end{DoxyCompactList}\item 
+Canvas \hyperlink{class_dibuixador_asteroides_a634f3d95d02d08c9d21d2eef2c3bb410}{c\+\_\+}
+\begin{DoxyCompactList}\small\item\em superficie on es dibuixa \end{DoxyCompactList}\item 
+Linked\+List$<$ \hyperlink{interface_objecte_joc}{Objecte\+Joc} $>$ \hyperlink{class_dibuixador_asteroides_aafc049ca18d07bf9cf5f61b7e8e1e06f}{lo\+\_\+}
+\begin{DoxyCompactList}\small\item\em llista d\textquotesingle{}\hyperlink{interface_objecte_joc}{Objecte\+Joc} \end{DoxyCompactList}\item 
+int \hyperlink{class_dibuixador_asteroides_ac5680a5fd826ac9a412b9739f5f64a12}{amplada\+\_\+}
+\begin{DoxyCompactList}\small\item\em amplada de c\+\_\+ \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Dibuixa multiples \hyperlink{interface_objecte_joc}{Objecte\+Joc} a una finestra. 
 
+La finestra(f) s\textquotesingle{}ha de crear amb \hyperlink{class_dibuixador_asteroides_a54a43290703d14aee21e5c87a5e6fc5b}{crear\+Finestra()}. f té una mida, un color de fons i un titol determinat.
 
-Definition at line 22 of file Dibuixador\+Asteroides.\+java.
+Es pot afegir un Key\+Listener a f
+
+Es poden afegir \hyperlink{interface_objecte_joc}{Objecte\+Joc} a \hyperlink{class_dibuixador_asteroides}{Dibuixador\+Asteroides}. Aquests \hyperlink{interface_objecte_joc}{Objecte\+Joc} es dibuixaran a f
+
+La finestra es pot tornar a crear tantes vegades com es desitji, pero nomes s\textquotesingle{}utilitza la ultima que s\textquotesingle{}ha creat. La finestra es pot tancar en qualsevol moment. 
+
+Definition at line 25 of file Dibuixador\+Asteroides.\+java.
 
 
 
@@ -40,10 +64,16 @@ Definition at line 22 of file Dibuixador\+Asteroides.\+java.
 \begin{DoxyParamCaption}
 \item[{{\bf Objecte\+Joc}}]{oj}
 \end{DoxyParamCaption}
-) throws Exception}\label{class_dibuixador_asteroides_ac70561df846258437f4145a41117e9ef}
+)}\label{class_dibuixador_asteroides_ac70561df846258437f4145a41117e9ef}
+\begin{DoxyPrecond}{Precondition}
+--- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Si oj no era al \hyperlink{class_dibuixador_asteroides}{Dibuixador\+Asteroides} llavors l\textquotesingle{}afageix altrament no fa res 
+\end{DoxyPostcond}
 
 
-Definition at line 70 of file Dibuixador\+Asteroides.\+java.
+Definition at line 84 of file Dibuixador\+Asteroides.\+java.
 
 
 
@@ -63,9 +93,15 @@ Here is the caller graph for this function\+:\nopagebreak
 \item[{Key\+Listener}]{l}
 \end{DoxyParamCaption}
 )}\label{class_dibuixador_asteroides_a9add2702a95cbe7e68100c97a63b297f}
+\begin{DoxyPrecond}{Precondition}
+--- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+afageix l a la finestra del Dibuixa\+Asteroides 
+\end{DoxyPostcond}
 
 
-Definition at line 93 of file Dibuixador\+Asteroides.\+java.
+Definition at line 100 of file Dibuixador\+Asteroides.\+java.
 
 \hypertarget{class_dibuixador_asteroides_a54a43290703d14aee21e5c87a5e6fc5b}{}\index{Dibuixador\+Asteroides@{Dibuixador\+Asteroides}!crear\+Finestra@{crear\+Finestra}}
 \index{crear\+Finestra@{crear\+Finestra}!Dibuixador\+Asteroides@{Dibuixador\+Asteroides}}
@@ -77,9 +113,15 @@ Definition at line 93 of file Dibuixador\+Asteroides.\+java.
 \item[{String}]{t}
 \end{DoxyParamCaption}
 )}\label{class_dibuixador_asteroides_a54a43290703d14aee21e5c87a5e6fc5b}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+crea una finestra per al Dibuixa\+Asteroides amb una superficie amplada x altura, el color de fons es {\itshape fons} i el titol és t 
+\end{DoxyPostcond}
 
 
-Definition at line 42 of file Dibuixador\+Asteroides.\+java.
+Definition at line 58 of file Dibuixador\+Asteroides.\+java.
 
 \hypertarget{class_dibuixador_asteroides_af2138b89d2a5fe31697b2f206cbc2df4}{}\index{Dibuixador\+Asteroides@{Dibuixador\+Asteroides}!dibuixar@{dibuixar}}
 \index{dibuixar@{dibuixar}!Dibuixador\+Asteroides@{Dibuixador\+Asteroides}}
@@ -88,9 +130,15 @@ Definition at line 42 of file Dibuixador\+Asteroides.\+java.
 \item[{int}]{puntuacio}
 \end{DoxyParamCaption}
 )}\label{class_dibuixador_asteroides_af2138b89d2a5fe31697b2f206cbc2df4}
+\begin{DoxyPrecond}{Precondition}
+finestra creada 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+pinta a la superficie de la finestra del Dibuixa\+Asteroides amb el color de fons i pinta tots els \hyperlink{interface_objecte_joc}{Objecte\+Joc} que s\textquotesingle{}han afegit al Dibuixa\+Asteroides 
+\end{DoxyPostcond}
 
 
-Definition at line 102 of file Dibuixador\+Asteroides.\+java.
+Definition at line 108 of file Dibuixador\+Asteroides.\+java.
 
 
 
@@ -109,10 +157,16 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{DoxyParamCaption}
 \item[{{\bf Objecte\+Joc}}]{oj}
 \end{DoxyParamCaption}
-) throws Exception}\label{class_dibuixador_asteroides_a22269129b517ba0da55bc16e19e24b57}
+)}\label{class_dibuixador_asteroides_a22269129b517ba0da55bc16e19e24b57}
+\begin{DoxyPrecond}{Precondition}
+--- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Si oj era al \hyperlink{class_dibuixador_asteroides}{Dibuixador\+Asteroides} llavors l\textquotesingle{}elimina altrament no fa res 
+\end{DoxyPostcond}
 
 
-Definition at line 83 of file Dibuixador\+Asteroides.\+java.
+Definition at line 92 of file Dibuixador\+Asteroides.\+java.
 
 
 
@@ -132,9 +186,15 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )}\label{class_dibuixador_asteroides_a14186d7acd8ca135252848f916416575}
+\begin{DoxyPrecond}{Precondition}
+el Dibuixa\+Asteroides té finestra 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha tancat la finestra del Dibuixa\+Asteroides 
+\end{DoxyPostcond}
 
 
-Definition at line 126 of file Dibuixador\+Asteroides.\+java.
+Definition at line 131 of file Dibuixador\+Asteroides.\+java.
 
 
 
@@ -146,6 +206,53 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_dibuixador_asteroides_ac5680a5fd826ac9a412b9739f5f64a12}{}\index{Dibuixador\+Asteroides@{Dibuixador\+Asteroides}!amplada\+\_\+@{amplada\+\_\+}}
+\index{amplada\+\_\+@{amplada\+\_\+}!Dibuixador\+Asteroides@{Dibuixador\+Asteroides}}
+\subsubsection[{amplada\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Dibuixador\+Asteroides.\+amplada\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_dibuixador_asteroides_ac5680a5fd826ac9a412b9739f5f64a12}
+
+
+amplada de c\+\_\+ 
+
+
+
+Definition at line 44 of file Dibuixador\+Asteroides.\+java.
+
+\hypertarget{class_dibuixador_asteroides_a634f3d95d02d08c9d21d2eef2c3bb410}{}\index{Dibuixador\+Asteroides@{Dibuixador\+Asteroides}!c\+\_\+@{c\+\_\+}}
+\index{c\+\_\+@{c\+\_\+}!Dibuixador\+Asteroides@{Dibuixador\+Asteroides}}
+\subsubsection[{c\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}Canvas Dibuixador\+Asteroides.\+c\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_dibuixador_asteroides_a634f3d95d02d08c9d21d2eef2c3bb410}
+
+
+superficie on es dibuixa 
+
+
+
+Definition at line 42 of file Dibuixador\+Asteroides.\+java.
+
+\hypertarget{class_dibuixador_asteroides_acd1dc7eee6ddda629759fc422566b11b}{}\index{Dibuixador\+Asteroides@{Dibuixador\+Asteroides}!f\+\_\+@{f\+\_\+}}
+\index{f\+\_\+@{f\+\_\+}!Dibuixador\+Asteroides@{Dibuixador\+Asteroides}}
+\subsubsection[{f\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}J\+Frame Dibuixador\+Asteroides.\+f\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_dibuixador_asteroides_acd1dc7eee6ddda629759fc422566b11b}
+
+
+finestra principal 
+
+
+
+Definition at line 41 of file Dibuixador\+Asteroides.\+java.
+
+\hypertarget{class_dibuixador_asteroides_aafc049ca18d07bf9cf5f61b7e8e1e06f}{}\index{Dibuixador\+Asteroides@{Dibuixador\+Asteroides}!lo\+\_\+@{lo\+\_\+}}
+\index{lo\+\_\+@{lo\+\_\+}!Dibuixador\+Asteroides@{Dibuixador\+Asteroides}}
+\subsubsection[{lo\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}Linked\+List$<$ {\bf Objecte\+Joc} $>$ Dibuixador\+Asteroides.\+lo\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_dibuixador_asteroides_aafc049ca18d07bf9cf5f61b7e8e1e06f}
+
+
+llista d\textquotesingle{}\hyperlink{interface_objecte_joc}{Objecte\+Joc} 
+
+
+
+Definition at line 43 of file Dibuixador\+Asteroides.\+java.
 
 
 
