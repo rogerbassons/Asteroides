@@ -29,7 +29,7 @@ http://rogerdudler.github.io/git-guide/
 * ObjecteJoc -> Roger
 
 ------------------------------------------------------------
-# Feina per fer: (de més prioritat a menys prioritat
+# Feina per fer: (de més prioritat a menys prioritat)
 * Bugs importants del que ja està fet
 * Joc principal
 * AI
