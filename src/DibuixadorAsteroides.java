@@ -104,7 +104,7 @@ public class DibuixadorAsteroides {
 
 	/// @pre finestra creada
 	/// @post pinta a la superficie de la finestra del DibuixaAsteroides amb el color de fons i pinta tots els ObjecteJoc
-	///       que s'han afegit al DibuixaAsteroides
+	///       que s'han afegit al DibuixaAsteroides. També mostra puntuacio al costat esquerre superior.
 	public void dibuixar(int puntuacio) {
 		BufferStrategy buff = c_.getBufferStrategy();
 		Graphics g = buff.getDrawGraphics();
