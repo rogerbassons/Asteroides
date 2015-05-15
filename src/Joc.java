@@ -148,7 +148,7 @@ public class Joc {
 	}
 	
 	//Pre: --
-	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 10, evitant que estiguin sobre la Nau
+	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 8, evitant que estiguin sobre la Nau
 	private void generarMeteoritsInicials() throws Exception {
 		while (meteorits_.size() < 8) {
 			Random rand = new Random();
