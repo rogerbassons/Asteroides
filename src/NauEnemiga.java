@@ -18,7 +18,7 @@ import java.util.ListIterator;
 ///
 /// _lluny_ >= llargada de NauEnemiga * 2
 ///
-/// _aprop_ >= llargada de NauEnemiga * 10
+/// _aprop_ <= llargada de NauEnemiga * 10
 
 public class NauEnemiga extends Nau {
 
