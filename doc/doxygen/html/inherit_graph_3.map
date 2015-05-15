@@ -3,5 +3,5 @@
 <area shape="rect" id="node2" href="$class_meteorit.html" title="Meteorit" alt="" coords="147,5,222,32"/>
 <area shape="rect" id="node3" href="$class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. " alt="" coords="161,56,209,83"/>
 <area shape="rect" id="node5" href="$class_raig_laser.html" title="RaigLaser" alt="" coords="143,107,227,133"/>
-<area shape="rect" id="node4" href="$class_nau_enemiga.html" title="NauEnemiga" alt="" coords="275,56,379,83"/>
+<area shape="rect" id="node4" href="$class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. " alt="" coords="275,56,379,83"/>
 </map>

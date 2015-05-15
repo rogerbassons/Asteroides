@@ -2,6 +2,11 @@
 \label{class_nau_enemiga}\index{Nau\+Enemiga@{Nau\+Enemiga}}
 
 
+\hyperlink{class_nau}{Nau} que té la capacitat d\textquotesingle{}atacar a una \hyperlink{class_nau}{Nau} i evitar \hyperlink{class_meteorit}{Meteorit}.  
+
+
+
+
 Inheritance diagram for Nau\+Enemiga\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -18,8 +23,15 @@ Collaboration diagram for Nau\+Enemiga\+:\nopagebreak
 \includegraphics[width=275pt]{class_nau_enemiga__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_raig_laser}{Raig\+Laser} \hyperlink{class_nau_enemiga_a2a5186aec773bd4015427a92b073e7e7}{atacar\+Nau} (\hyperlink{class_nau}{Nau} n, Linked\+List$<$ \hyperlink{class_meteorit}{Meteorit} $>$ lm)
+\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_raig_laser}{Raig\+Laser} \hyperlink{class_nau_enemiga_a645365e0a3c5eb29cf31d56dcb76120f}{apunta\+Dispara} (\hyperlink{class_nau}{Nau} n)
 \item 
 void \hyperlink{class_nau_enemiga_a1ffe6a0da4d399be284a7901a9c5d99f}{alinearse} (int a)
 \item 
@@ -35,9 +47,21 @@ boolean \hyperlink{class_nau_enemiga_ac93ff33b14f809511681cc190a74158a}{evitar\+
 
 
 \subsection{Detailed Description}
+\hyperlink{class_nau}{Nau} que té la capacitat d\textquotesingle{}atacar a una \hyperlink{class_nau}{Nau} i evitar \hyperlink{class_meteorit}{Meteorit}. 
 
+\subsubsection*{Comportament\+: }
 
-Definition at line 10 of file Nau\+Enemiga.\+java.
+La \hyperlink{class_nau_enemiga}{Nau\+Enemiga}, per defecte, està parada i apunta i dispara a una \hyperlink{class_nau}{Nau(n)}.
+\begin{DoxyItemize}
+\item Si n es troba {\itshape lluny} de la \hyperlink{class_nau_enemiga}{Nau\+Enemiga}\+: la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} s\textquotesingle{}apropa a n
+\item Si n es troba {\itshape aprop} d\textquotesingle{}algun \hyperlink{class_meteorit}{Meteorit(m)}\+: es desplaça en direcció contraria a m
+\end{DoxyItemize}
+
+{\itshape lluny} $>$= llargada de \hyperlink{class_nau_enemiga}{Nau\+Enemiga} $\ast$ 2
+
+{\itshape aprop} $>$= llargada de \hyperlink{class_nau_enemiga}{Nau\+Enemiga} $\ast$ 10 
+
+Definition at line 23 of file Nau\+Enemiga.\+java.
 
 
 
@@ -49,9 +73,15 @@ Definition at line 10 of file Nau\+Enemiga.\+java.
 \item[{int}]{a}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_enemiga_a1ffe6a0da4d399be284a7901a9c5d99f}
+\begin{DoxyPrecond}{Precondition}
+0 $<$= a $<$ 360, -- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} realitza un moviment de manera que tendeix a tenir un angle a 
+\end{DoxyPostcond}
 
 
-Definition at line 61 of file Nau\+Enemiga.\+java.
+Definition at line 75 of file Nau\+Enemiga.\+java.
 
 
 
@@ -82,9 +112,15 @@ Here is the caller graph for this function\+:\nopagebreak
 \item[{double\mbox{[}$\,$\mbox{]}}]{p}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_enemiga_a02842fe904d67a4ff7b55d5606a30f91}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna l\textquotesingle{}angle perque la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} apunti al punt (p\mbox{[}0\mbox{]},p\mbox{[}1\mbox{]}) 
+\end{DoxyPostcond}
 
 
-Definition at line 78 of file Nau\+Enemiga.\+java.
+Definition at line 92 of file Nau\+Enemiga.\+java.
 
 
 
@@ -115,9 +151,15 @@ Here is the caller graph for this function\+:\nopagebreak
 \item[{{\bf Nau}}]{n}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_enemiga_a2c21f20dc2290a11315bdd16328815c7}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna l\textquotesingle{}angle que ha d\textquotesingle{}apuntar la \hyperlink{class_nau_enemiga}{Nau\+Enemiga(e)} per aconseguir que un \hyperlink{class_raig_laser}{Raig\+Laser} disparat per e colisioni amb n 
+\end{DoxyPostcond}
 
 
-Definition at line 94 of file Nau\+Enemiga.\+java.
+Definition at line 108 of file Nau\+Enemiga.\+java.
 
 
 
@@ -130,6 +172,96 @@ Here is the call graph for this function\+:\nopagebreak
 \end{figure}
 
 
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_enemiga_a2c21f20dc2290a11315bdd16328815c7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_enemiga_a645365e0a3c5eb29cf31d56dcb76120f}{}\index{Nau\+Enemiga@{Nau\+Enemiga}!apunta\+Dispara@{apunta\+Dispara}}
+\index{apunta\+Dispara@{apunta\+Dispara}!Nau\+Enemiga@{Nau\+Enemiga}}
+\subsubsection[{apunta\+Dispara}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raig\+Laser} Nau\+Enemiga.\+apunta\+Dispara (
+\begin{DoxyParamCaption}
+\item[{{\bf Nau}}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_enemiga_a645365e0a3c5eb29cf31d56dcb76120f}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} apunta a n i si està ben apuntada llavors dispara 
+\end{DoxyPostcond}
+
+
+Definition at line 59 of file Nau\+Enemiga.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_enemiga_a645365e0a3c5eb29cf31d56dcb76120f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_enemiga_a645365e0a3c5eb29cf31d56dcb76120f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_enemiga_a2a5186aec773bd4015427a92b073e7e7}{}\index{Nau\+Enemiga@{Nau\+Enemiga}!atacar\+Nau@{atacar\+Nau}}
+\index{atacar\+Nau@{atacar\+Nau}!Nau\+Enemiga@{Nau\+Enemiga}}
+\subsubsection[{atacar\+Nau}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raig\+Laser} Nau\+Enemiga.\+atacar\+Nau (
+\begin{DoxyParamCaption}
+\item[{{\bf Nau}}]{n, }
+\item[{Linked\+List$<$ {\bf Meteorit} $>$}]{lm}
+\end{DoxyParamCaption}
+)}\label{class_nau_enemiga_a2a5186aec773bd4015427a92b073e7e7}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau_enemiga}{Nau\+Enemiga} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} evita el meteorit més proper de lm o ataca a n 
+\end{DoxyPostcond}
+
+
+Definition at line 43 of file Nau\+Enemiga.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_enemiga_a2a5186aec773bd4015427a92b073e7e7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_enemiga_a2a5186aec773bd4015427a92b073e7e7_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_nau_enemiga_ac93ff33b14f809511681cc190a74158a}{}\index{Nau\+Enemiga@{Nau\+Enemiga}!evitar\+Meteorits@{evitar\+Meteorits}}
 \index{evitar\+Meteorits@{evitar\+Meteorits}!Nau\+Enemiga@{Nau\+Enemiga}}
 \subsubsection[{evitar\+Meteorits}]{\setlength{\rightskip}{0pt plus 5cm}boolean Nau\+Enemiga.\+evitar\+Meteorits (
@@ -137,9 +269,15 @@ Here is the call graph for this function\+:\nopagebreak
 \item[{Linked\+List$<$ {\bf Meteorit} $>$}]{lm}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_enemiga_ac93ff33b14f809511681cc190a74158a}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Si \hyperlink{class_nau_enemiga}{Nau\+Enemiga} està aprop d\textquotesingle{}algun \hyperlink{class_meteorit}{Meteorit} de lm llavors l\textquotesingle{}evita i retorna cert altrament no fa res i retorna fals 
+\end{DoxyPostcond}
 
 
-Definition at line 131 of file Nau\+Enemiga.\+java.
+Definition at line 145 of file Nau\+Enemiga.\+java.
 
 
 
@@ -152,6 +290,17 @@ Here is the call graph for this function\+:\nopagebreak
 \end{figure}
 
 
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_enemiga_ac93ff33b14f809511681cc190a74158a_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_nau_enemiga_a293dc01f263e42b1b0125e30bf634a18}{}\index{Nau\+Enemiga@{Nau\+Enemiga}!moviment\+Objectiu@{moviment\+Objectiu}}
 \index{moviment\+Objectiu@{moviment\+Objectiu}!Nau\+Enemiga@{Nau\+Enemiga}}
 \subsubsection[{moviment\+Objectiu}]{\setlength{\rightskip}{0pt plus 5cm}void Nau\+Enemiga.\+moviment\+Objectiu (
@@ -159,9 +308,15 @@ Here is the call graph for this function\+:\nopagebreak
 \item[{double\mbox{[}$\,$\mbox{]}}]{pos}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_enemiga_a293dc01f263e42b1b0125e30bf634a18}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} realitza un moviment que tendeix a aproparse a la posicio (pos\mbox{[}0\mbox{]},pos\mbox{[}1\mbox{]}) 
+\end{DoxyPostcond}
 
 
-Definition at line 123 of file Nau\+Enemiga.\+java.
+Definition at line 137 of file Nau\+Enemiga.\+java.
 
 
 
@@ -170,6 +325,17 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_nau_enemiga_a293dc01f263e42b1b0125e30bf634a18_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_enemiga_a293dc01f263e42b1b0125e30bf634a18_icgraph}
 \end{center}
 \end{figure}
 

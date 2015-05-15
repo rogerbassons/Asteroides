@@ -1,5 +1,5 @@
 <map id="Joc" name="Joc">
-<area shape="rect" id="node4" href="$class_nau_enemiga.html" title="NauEnemiga" alt="" coords="493,180,597,207"/>
+<area shape="rect" id="node4" href="$class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. " alt="" coords="493,180,597,207"/>
 <area shape="rect" id="node5" href="$class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. " alt="" coords="270,149,318,176"/>
 <area shape="rect" id="node6" href="$interface_objecte_joc.html" title="ObjecteJoc" alt="" coords="5,99,95,125"/>
 <area shape="rect" id="node10" href="$class_dibuixador_asteroides.html" title="DibuixadorAsteroides" alt="" coords="465,281,624,308"/>

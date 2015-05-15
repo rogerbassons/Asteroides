@@ -1,0 +1,12 @@
+<map id="NauEnemiga.apuntaDispara" name="NauEnemiga.apuntaDispara">
+<area shape="rect" id="node2" href="$class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7" title="NauEnemiga.angleApuntarMoviment" alt="" coords="256,23,513,49"/>
+<area shape="rect" id="node6" href="$class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f" title="NauEnemiga.alinearse" alt="" coords="301,124,468,151"/>
+<area shape="rect" id="node10" href="$class_nau.html#a7449b7bf128a70e305bc85781ee833f2" title="Nau.disparar" alt="" coords="607,225,711,252"/>
+<area shape="rect" id="node3" href="$class_nau.html#af8082681fcfd3613ee23597b9c525a7f" title="Nau.obtenirCentreTriangle" alt="" coords="804,23,992,49"/>
+<area shape="rect" id="node5" href="$class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91" title="NauEnemiga.angleApuntar" alt="" coords="561,23,756,49"/>
+<area shape="rect" id="node4" href="$class_nau.html#ab233b5358060d6fb3985e645441043ac" title="Nau.obtenirPuntsTriangle" alt="" coords="1040,175,1221,201"/>
+<area shape="rect" id="node7" href="$class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46" title="Nau.rotarDreta" alt="" coords="599,73,718,100"/>
+<area shape="rect" id="node8" href="$class_nau.html#ae4f82160603f5b5c2108c34adcd781ab" title="Nau.rotarEsquerra" alt="" coords="589,124,729,151"/>
+<area shape="rect" id="node9" href="$class_nau.html#a5f603c39df04907891d3e56467df0cf0" title="Nau.pararRotacio" alt="" coords="593,175,725,201"/>
+<area shape="rect" id="node11" href="$class_nau.html#a00fed622eb3d4d3823e140a87e164724" title="Nau.llargadaNau" alt="" coords="833,225,963,252"/>
+</map>

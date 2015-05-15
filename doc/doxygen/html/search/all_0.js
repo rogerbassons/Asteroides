@@ -9,5 +9,7 @@ var searchData=
   ['angleapuntar',['angleApuntar',['../class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91',1,'NauEnemiga']]],
   ['angleapuntarmoviment',['angleApuntarMoviment',['../class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7',1,'NauEnemiga']]],
   ['anglerotacio_5f',['angleRotacio_',['../class_nau.html#a4a3defe435bcea8864ff9025c740695a',1,'Nau']]],
-  ['anglevelocitat_5f',['angleVelocitat_',['../class_meteorit.html#aac671cdd1a62add36c52e0bbacea02a7',1,'Meteorit.angleVelocitat_()'],['../class_nau.html#aa2ee3693a5f2a95449e0310f34d9fad4',1,'Nau.angleVelocitat_()'],['../class_raig_laser.html#ab6872c5a75472d96ee3295c13fe47c31',1,'RaigLaser.angleVelocitat_()']]]
+  ['anglevelocitat_5f',['angleVelocitat_',['../class_meteorit.html#aac671cdd1a62add36c52e0bbacea02a7',1,'Meteorit.angleVelocitat_()'],['../class_nau.html#aa2ee3693a5f2a95449e0310f34d9fad4',1,'Nau.angleVelocitat_()'],['../class_raig_laser.html#ab6872c5a75472d96ee3295c13fe47c31',1,'RaigLaser.angleVelocitat_()']]],
+  ['apuntadispara',['apuntaDispara',['../class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f',1,'NauEnemiga']]],
+  ['atacarnau',['atacarNau',['../class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7',1,'NauEnemiga']]]
 ];
