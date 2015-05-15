@@ -1,0 +1,7 @@
+<map id="Nau.puntLlunyaAlCentreDeArea" name="Nau.puntLlunyaAlCentreDeArea">
+<area shape="rect" id="node2" href="$class_nau.html#a8dc46f91e02910b92bfad9b798f6552c" title="Nau.moure" alt="" coords="279,5,373,32"/>
+<area shape="rect" id="node3" href="$class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="421,5,540,32"/>
+<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="588,5,699,32"/>
+<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="747,5,823,32"/>
+<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="871,5,947,32"/>
+</map>

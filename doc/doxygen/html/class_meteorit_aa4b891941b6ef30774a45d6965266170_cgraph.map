@@ -1,0 +1,7 @@
+<map id="Meteorit.dividir" name="Meteorit.dividir">
+<area shape="rect" id="node2" href="$class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="349,5,547,32"/>
+<area shape="rect" id="node4" href="$class_meteorit.html#a0bc8468013d85caed1efe51b98397069" title="Meteorit.establirForma" alt="" coords="365,107,531,133"/>
+<area shape="rect" id="node5" href="$class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="169,56,301,83"/>
+<area shape="rect" id="node3" href="$class_meteorit.html#a237af5bb28238c5e76d1cea55b4457b6" title="Meteorit.obtenirPuntsPoligon" alt="" coords="595,5,801,32"/>
+<area shape="rect" id="node6" href="$class_meteorit.html#a429daccf37f941ac0395a1838f0991a2" title="Meteorit.rotar" alt="" coords="393,56,503,83"/>
+</map>

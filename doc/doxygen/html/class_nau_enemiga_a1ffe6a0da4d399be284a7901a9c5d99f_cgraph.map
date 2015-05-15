@@ -1,0 +1,5 @@
+<map id="NauEnemiga.alinearse" name="NauEnemiga.alinearse">
+<area shape="rect" id="node2" href="$class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46" title="Nau.rotarDreta" alt="" coords="231,5,349,32"/>
+<area shape="rect" id="node3" href="$class_nau.html#ae4f82160603f5b5c2108c34adcd781ab" title="Nau.rotarEsquerra" alt="" coords="220,56,360,83"/>
+<area shape="rect" id="node4" href="$class_nau.html#a5f603c39df04907891d3e56467df0cf0" title="Nau.pararRotacio" alt="" coords="224,107,356,133"/>
+</map>

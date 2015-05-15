@@ -1,0 +1,943 @@
+\hypertarget{class_nau}{}\section{Nau Class Reference}
+\label{class_nau}\index{Nau@{Nau}}
+
+
+És una nau espacial triangular isòsceles que es mou dins d\textquotesingle{}un espai definit.  
+
+
+
+
+Inheritance diagram for Nau\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{class_nau__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Nau\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{class_nau__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_nau_a973eef3d7c7996553002b538481eadd6}{centrar} (int amplada, int altura)
+\item 
+\hyperlink{class_raig_laser}{Raig\+Laser} \hyperlink{class_nau_a7449b7bf128a70e305bc85781ee833f2}{disparar} ()
+\item 
+void \hyperlink{class_nau_af1f11339142c177a9a48990349fdf801}{propulsar\+Endavant} ()
+\item 
+void \hyperlink{class_nau_ae4f82160603f5b5c2108c34adcd781ab}{rotar\+Esquerra} ()
+\item 
+void \hyperlink{class_nau_a2ef947c89a39ad2e5593c9b63aefda46}{rotar\+Dreta} ()
+\item 
+void \hyperlink{class_nau_a5f603c39df04907891d3e56467df0cf0}{parar\+Rotacio} ()
+\item 
+void \hyperlink{class_nau_a8dc46f91e02910b92bfad9b798f6552c}{moure} (int amplada, int altura)
+\item 
+void \hyperlink{class_nau_a988c429432b7913e54522c0ab456a7ff}{morir} ()  throws Exception 
+\item 
+boolean \hyperlink{class_nau_ab7c4afa8c53657cf189d3f013dcf5ab5}{es\+Viva} ()
+\item 
+void \hyperlink{class_nau_a2d241e1fecd51c6b70f59144d11c1792}{reanimar} ()
+\item 
+void \hyperlink{class_nau_ad3456201f663473f3af9f17889708783}{dibuixar} (Graphics2\+D g2)
+\item 
+Shape \hyperlink{class_nau_a7a14f0feca0033e562a42816a42b4241}{obtenir\+Shape} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_nau_af8082681fcfd3613ee23597b9c525a7f}{obtenir\+Centre\+Triangle} ()
+\item 
+double \hyperlink{class_nau_a53690b8a1f0ceb5e0b4573d1c81314c3}{distancia} (double x, double y)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Path2\+D \hyperlink{class_nau_ad397487e3dc0062cc71fdfc4c562e347}{triangle\+\_\+}
+\begin{DoxyCompactList}\small\item\em camí geomètric que sempre forma un triangle isòceles(representa gràficament la \hyperlink{class_nau}{Nau}) \end{DoxyCompactList}\item 
+int \hyperlink{class_nau_a67c5417119c7e520e1876a919119867d}{l\+\_\+}
+\begin{DoxyCompactList}\small\item\em llargada de la \hyperlink{class_nau}{Nau} \end{DoxyCompactList}\item 
+int \hyperlink{class_nau_a7bdee12f00bd2087872ff3018144799e}{angle\+\_\+}
+\begin{DoxyCompactList}\small\item\em angle que forma la \hyperlink{class_nau}{Nau} respecte l\textquotesingle{}eix horitzontal \end{DoxyCompactList}\item 
+double \hyperlink{class_nau_ac1151817b8deaed7c77ceba3141b86e5}{velocitat\+\_\+}
+\begin{DoxyCompactList}\small\item\em Modul del vector velocitat de la \hyperlink{class_nau}{Nau}. \end{DoxyCompactList}\item 
+double \hyperlink{class_nau_aa2ee3693a5f2a95449e0310f34d9fad4}{angle\+Velocitat\+\_\+}
+\begin{DoxyCompactList}\small\item\em angle\+\_\+ que tenia la \hyperlink{class_nau}{Nau} a l\textquotesingle{}última propulsació \end{DoxyCompactList}\item 
+double \hyperlink{class_nau_a1400505da3bafa2056c8e542a7811b33}{velocitat\+Raig\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_nau_abd79eb596434088da284245e34e87237}{frenar} ()
+\item 
+boolean \hyperlink{class_nau_ac3225453d5db00bb2e6c9ba8f410bd6e}{ha\+Sortit} (int amplada, int altura)
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_nau_a2f5e6461665ecc9d63adf5c77d6410b5}{punt\+Proper\+Al\+Centre\+De\+Area} (int amplada, int altura)
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_nau_aabe7e7191b704130b10b64ddc04a1e87}{punt\+Llunya\+Al\+Centre\+De\+Area} (int amplada, int altura)
+\item 
+double \hyperlink{class_nau_a00fed622eb3d4d3823e140a87e164724}{llargada\+Nau} ()
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_nau_ab233b5358060d6fb3985e645441043ac}{obtenir\+Punts\+Triangle} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_nau_adaf4948df660e9cfcac14a3fb75de454}{nombre\+Punts\+\_\+}
+\begin{DoxyCompactList}\small\item\em nombre de punts que té el triangle\+\_\+ \end{DoxyCompactList}\item 
+Color \hyperlink{class_nau_a5447088ba94469c8f4285650b25211fa}{c\+\_\+}
+\begin{DoxyCompactList}\small\item\em Color de la \hyperlink{class_nau}{Nau}. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_nau_a165d7613744bb71f472d6bc56aa65540}{viva\+\_\+}
+\begin{DoxyCompactList}\small\item\em defineix l\textquotesingle{}estat de la \hyperlink{class_nau}{Nau}. Cert -\/$>$ \hyperlink{class_nau}{Nau} viva, Fals-\/$>$ \hyperlink{class_nau}{Nau} morta \end{DoxyCompactList}\item 
+double \hyperlink{class_nau_a6a18449674ed5d2317a6795bd56f7dd0}{velocitat\+Max\+\_\+}
+\begin{DoxyCompactList}\small\item\em Velocitat màxima de la \hyperlink{class_nau}{Nau}. \end{DoxyCompactList}\item 
+double \hyperlink{class_nau_a03ae6d8631e7668bb556e93e83dbcffd}{acceleracio\+\_\+}
+\begin{DoxyCompactList}\small\item\em Acceleracio amb la qual la velocitat de la nau augmenta o disminueix. \end{DoxyCompactList}\item 
+int \hyperlink{class_nau_a4a3defe435bcea8864ff9025c740695a}{angle\+Rotacio\+\_\+}
+\begin{DoxyCompactList}\small\item\em Angle que rota la \hyperlink{class_nau}{Nau} sobre el seu baricentre(valor fix) \end{DoxyCompactList}\item 
+int \hyperlink{class_nau_a128a1860c49ef16bfd63406f4ef0db75}{rotar\+\_\+}
+\begin{DoxyCompactList}\small\item\em Defineix si en el metode \hyperlink{class_nau_a8dc46f91e02910b92bfad9b798f6552c}{moure()} la \hyperlink{class_nau}{Nau} ha de rotar sobre els seu baricentre 0 -\/$>$ no s\textquotesingle{}ha de rotar 1 -\/$>$ rotar en el sentit esquerra 2 -\/$>$ rotar en el sentit dret. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+És una nau espacial triangular isòsceles que es mou dins d\textquotesingle{}un espai definit. 
+
+La \hyperlink{class_nau}{Nau} és capaç de\+:
+\begin{DoxyItemize}
+\item rotar sobre si mateixa
+\item propulsar-\/se endavant
+\item disparar rajos làser
+\end{DoxyItemize}
+
+\subsubsection*{Comportament bàsic\+: }
+
+La \hyperlink{class_nau}{Nau} rota un angle definit(sempre es el mateix).
+
+Quan la \hyperlink{class_nau}{Nau} es propulsa endavant, la velocitat s\textquotesingle{}augmenta en la direcció i sentit que té (fins la seva velocitat màxima). Si la \hyperlink{class_nau}{Nau} està en moviment(alguna velocitat != 0), es frena el seu moviment degut a una resistencia.
+
+La \hyperlink{class_nau}{Nau} té una vida, cada vegada que es destrueix(explota) mort. Es pot reanimar.
+
+Degut a que la \hyperlink{class_nau}{Nau} es mou pot sortir d\textquotesingle{}una area(a) definida. Als parametres del mètode \hyperlink{class_nau_a8dc46f91e02910b92bfad9b798f6552c}{moure(int amplada, int altura)} queda definida a. En el cas que la \hyperlink{class_nau}{Nau} es mogui totalment fora de a, la \hyperlink{class_nau}{Nau} es teletransporta al marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta).
+
+\subsubsection*{Supòsits sobre l\textquotesingle{}area(a) on es mou la \hyperlink{class_nau}{Nau}\+: }
+
+Té mida fixa i no canvia durant la vida de la \hyperlink{class_nau}{Nau}
+
+És un pla amb\+:
+\begin{DoxyItemize}
+\item un eix horitzontal X que augmenta d\textquotesingle{}esquerra a dreta (dreta és més)
+\item un eix vertical Y que augmenta de dalt a baix (a baix és més)
+\end{DoxyItemize}
+
+\subsubsection*{Altres\+: }
+
+Els mètodes \hyperlink{class_nau_af1f11339142c177a9a48990349fdf801}{propulsar\+Endavant()}, \hyperlink{class_nau_ae4f82160603f5b5c2108c34adcd781ab}{rotar\+Esquerra()}, \hyperlink{class_nau_a2ef947c89a39ad2e5593c9b63aefda46}{rotar\+Dreta()}, \hyperlink{class_nau_a5f603c39df04907891d3e56467df0cf0}{parar\+Rotacio()} no mouen la \hyperlink{class_nau}{Nau} per si sols. Són com els comandaments de la \hyperlink{class_nau}{Nau} amb la difrencia que despres d\textquotesingle{}actuar sobre aquests comandaments s\textquotesingle{}ha de cridar el metode \hyperlink{class_nau_a8dc46f91e02910b92bfad9b798f6552c}{moure(int amplada, int altura)} per a desplaçar la \hyperlink{class_nau}{Nau} segons les modificacions/actuacions sobre els comandaments.
+
+Excepte el constructor i el mètode \hyperlink{class_nau_ab7c4afa8c53657cf189d3f013dcf5ab5}{es\+Viva()}, la \hyperlink{class_nau}{Nau} ha d\textquotesingle{}estar viva per poder utilitzar els altres mètodes. 
+
+Definition at line 46 of file Nau.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_nau_a973eef3d7c7996553002b538481eadd6}{}\index{Nau@{Nau}!centrar@{centrar}}
+\index{centrar@{centrar}!Nau@{Nau}}
+\subsubsection[{centrar}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+centrar (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)}\label{class_nau_a973eef3d7c7996553002b538481eadd6}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva, amplada $>$ 0 i altura $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha centrat el triangle a l\textquotesingle{}area amplada$\ast$altura 
+\end{DoxyPostcond}
+
+
+Definition at line 144 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a973eef3d7c7996553002b538481eadd6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a973eef3d7c7996553002b538481eadd6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_ad3456201f663473f3af9f17889708783}{}\index{Nau@{Nau}!dibuixar@{dibuixar}}
+\index{dibuixar@{dibuixar}!Nau@{Nau}}
+\subsubsection[{dibuixar}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+dibuixar (
+\begin{DoxyParamCaption}
+\item[{Graphics2\+D}]{g2}
+\end{DoxyParamCaption}
+)}\label{class_nau_ad3456201f663473f3af9f17889708783}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha dibuixat la \hyperlink{class_nau}{Nau} de color verd a g2 
+\end{DoxyPostcond}
+
+
+Implements \hyperlink{interface_objecte_joc_a0d472e898df5faf145a2480ab51e3ef8}{Objecte\+Joc}.
+
+
+
+Definition at line 413 of file Nau.\+java.
+
+\hypertarget{class_nau_a7449b7bf128a70e305bc85781ee833f2}{}\index{Nau@{Nau}!disparar@{disparar}}
+\index{disparar@{disparar}!Nau@{Nau}}
+\subsubsection[{disparar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raig\+Laser} Nau.\+disparar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_a7449b7bf128a70e305bc85781ee833f2}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la \hyperlink{class_nau}{Nau} dispara un \hyperlink{class_raig_laser}{Raig\+Laser} 
+\end{DoxyPostcond}
+
+
+Definition at line 166 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a7449b7bf128a70e305bc85781ee833f2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a7449b7bf128a70e305bc85781ee833f2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a53690b8a1f0ceb5e0b4573d1c81314c3}{}\index{Nau@{Nau}!distancia@{distancia}}
+\index{distancia@{distancia}!Nau@{Nau}}
+\subsubsection[{distancia}]{\setlength{\rightskip}{0pt plus 5cm}double Nau.\+distancia (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_a53690b8a1f0ceb5e0b4573d1c81314c3}
+\begin{DoxyPrecond}{Precondition}
+x $>$= 0 i y $>$= 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna la distancia entre el centre de la \hyperlink{class_nau}{Nau} i el punt (x,y) 
+\end{DoxyPostcond}
+
+
+Definition at line 406 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a53690b8a1f0ceb5e0b4573d1c81314c3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a53690b8a1f0ceb5e0b4573d1c81314c3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_ab7c4afa8c53657cf189d3f013dcf5ab5}{}\index{Nau@{Nau}!es\+Viva@{es\+Viva}}
+\index{es\+Viva@{es\+Viva}!Nau@{Nau}}
+\subsubsection[{es\+Viva}]{\setlength{\rightskip}{0pt plus 5cm}boolean Nau.\+es\+Viva (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_ab7c4afa8c53657cf189d3f013dcf5ab5}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Diu si la \hyperlink{class_nau}{Nau} és viva 
+\end{DoxyPostcond}
+
+
+Definition at line 348 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_ab7c4afa8c53657cf189d3f013dcf5ab5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_abd79eb596434088da284245e34e87237}{}\index{Nau@{Nau}!frenar@{frenar}}
+\index{frenar@{frenar}!Nau@{Nau}}
+\subsubsection[{frenar}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+frenar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_abd79eb596434088da284245e34e87237}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Es frena el moviment de la \hyperlink{class_nau}{Nau} determinat per una resistencia que és directament proporcional a la velocitat de la \hyperlink{class_nau}{Nau}. 
+\end{DoxyPostcond}
+
+
+Definition at line 187 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_abd79eb596434088da284245e34e87237_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_ac3225453d5db00bb2e6c9ba8f410bd6e}{}\index{Nau@{Nau}!ha\+Sortit@{ha\+Sortit}}
+\index{ha\+Sortit@{ha\+Sortit}!Nau@{Nau}}
+\subsubsection[{ha\+Sortit}]{\setlength{\rightskip}{0pt plus 5cm}boolean Nau.\+ha\+Sortit (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_ac3225453d5db00bb2e6c9ba8f410bd6e}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+diu si la \hyperlink{class_nau}{Nau} ha sortit de l\textquotesingle{}area amplada x altura 
+\end{DoxyPostcond}
+
+
+Definition at line 288 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{class_nau_ac3225453d5db00bb2e6c9ba8f410bd6e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_ac3225453d5db00bb2e6c9ba8f410bd6e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a00fed622eb3d4d3823e140a87e164724}{}\index{Nau@{Nau}!llargada\+Nau@{llargada\+Nau}}
+\index{llargada\+Nau@{llargada\+Nau}!Nau@{Nau}}
+\subsubsection[{llargada\+Nau}]{\setlength{\rightskip}{0pt plus 5cm}double Nau.\+llargada\+Nau (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a00fed622eb3d4d3823e140a87e164724}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna la llargada de la \hyperlink{class_nau}{Nau} 
+\end{DoxyPostcond}
+
+
+Definition at line 380 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_nau_a00fed622eb3d4d3823e140a87e164724_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a00fed622eb3d4d3823e140a87e164724_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a988c429432b7913e54522c0ab456a7ff}{}\index{Nau@{Nau}!morir@{morir}}
+\index{morir@{morir}!Nau@{Nau}}
+\subsubsection[{morir}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+morir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Exception}\label{class_nau_a988c429432b7913e54522c0ab456a7ff}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la \hyperlink{class_nau}{Nau} mort(\+R\+I\+P) 
+\end{DoxyPostcond}
+
+
+Definition at line 339 of file Nau.\+java.
+
+\hypertarget{class_nau_a8dc46f91e02910b92bfad9b798f6552c}{}\index{Nau@{Nau}!moure@{moure}}
+\index{moure@{moure}!Nau@{Nau}}
+\subsubsection[{moure}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+moure (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)}\label{class_nau_a8dc46f91e02910b92bfad9b798f6552c}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva, amplada $>$ 0 i altura $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Desplaça la \hyperlink{class_nau}{Nau} a la posició(p) determinada per totes les velocitats de la \hyperlink{class_nau}{Nau} Es frena el seu moviment degut a una resistencia Si la \hyperlink{class_nau}{Nau}, situada a la posició p, està totalment fora de l\textquotesingle{}area amplada x altura llavors la \hyperlink{class_nau}{Nau} es teletransporta al marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta) 
+\end{DoxyPostcond}
+
+
+Definition at line 218 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a8dc46f91e02910b92bfad9b798f6552c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a8dc46f91e02910b92bfad9b798f6552c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_af8082681fcfd3613ee23597b9c525a7f}{}\index{Nau@{Nau}!obtenir\+Centre\+Triangle@{obtenir\+Centre\+Triangle}}
+\index{obtenir\+Centre\+Triangle@{obtenir\+Centre\+Triangle}!Nau@{Nau}}
+\subsubsection[{obtenir\+Centre\+Triangle}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Nau.\+obtenir\+Centre\+Triangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_af8082681fcfd3613ee23597b9c525a7f}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordenades x i y del baricentre del triangle que forma la \hyperlink{class_nau}{Nau}, respectivament 
+\end{DoxyPostcond}
+
+
+Definition at line 371 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_af8082681fcfd3613ee23597b9c525a7f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_af8082681fcfd3613ee23597b9c525a7f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_ab233b5358060d6fb3985e645441043ac}{}\index{Nau@{Nau}!obtenir\+Punts\+Triangle@{obtenir\+Punts\+Triangle}}
+\index{obtenir\+Punts\+Triangle@{obtenir\+Punts\+Triangle}!Nau@{Nau}}
+\subsubsection[{obtenir\+Punts\+Triangle}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Nau.\+obtenir\+Punts\+Triangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_ab233b5358060d6fb3985e645441043ac}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna una taula(t\mbox{[}0..nombre\+Punts\+\_\+$\ast$2-\/1) que conte els punts del triangle 
+\end{DoxyPostcond}
+
+
+Definition at line 388 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_ab233b5358060d6fb3985e645441043ac_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a7a14f0feca0033e562a42816a42b4241}{}\index{Nau@{Nau}!obtenir\+Shape@{obtenir\+Shape}}
+\index{obtenir\+Shape@{obtenir\+Shape}!Nau@{Nau}}
+\subsubsection[{obtenir\+Shape}]{\setlength{\rightskip}{0pt plus 5cm}Shape Nau.\+obtenir\+Shape (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_a7a14f0feca0033e562a42816a42b4241}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna el polígon de la \hyperlink{class_nau}{Nau} 
+\end{DoxyPostcond}
+
+
+Definition at line 420 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a7a14f0feca0033e562a42816a42b4241_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a5f603c39df04907891d3e56467df0cf0}{}\index{Nau@{Nau}!parar\+Rotacio@{parar\+Rotacio}}
+\index{parar\+Rotacio@{parar\+Rotacio}!Nau@{Nau}}
+\subsubsection[{parar\+Rotacio}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+parar\+Rotacio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_a5f603c39df04907891d3e56467df0cf0}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la velocitat rotaciona de la \hyperlink{class_nau}{Nau} és 0 (no rota en cap sentit) 
+\end{DoxyPostcond}
+
+
+Definition at line 209 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a5f603c39df04907891d3e56467df0cf0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_af1f11339142c177a9a48990349fdf801}{}\index{Nau@{Nau}!propulsar\+Endavant@{propulsar\+Endavant}}
+\index{propulsar\+Endavant@{propulsar\+Endavant}!Nau@{Nau}}
+\subsubsection[{propulsar\+Endavant}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+propulsar\+Endavant (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_af1f11339142c177a9a48990349fdf801}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}augmenta la velocitat de la \hyperlink{class_nau}{Nau} en el sentit en el que apunta 
+\end{DoxyPostcond}
+
+
+Definition at line 176 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_af1f11339142c177a9a48990349fdf801_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_aabe7e7191b704130b10b64ddc04a1e87}{}\index{Nau@{Nau}!punt\+Llunya\+Al\+Centre\+De\+Area@{punt\+Llunya\+Al\+Centre\+De\+Area}}
+\index{punt\+Llunya\+Al\+Centre\+De\+Area@{punt\+Llunya\+Al\+Centre\+De\+Area}!Nau@{Nau}}
+\subsubsection[{punt\+Llunya\+Al\+Centre\+De\+Area}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Nau.\+punt\+Llunya\+Al\+Centre\+De\+Area (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_aabe7e7191b704130b10b64ddc04a1e87}
+\begin{DoxyPrecond}{Precondition}
+amplada $>$ 0 i altura $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordenades x i y del punt del triangle(que forma la Nau) més llunya al centre de l\textquotesingle{}area amplada x altura 
+\end{DoxyPostcond}
+
+
+Definition at line 321 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_aabe7e7191b704130b10b64ddc04a1e87_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_aabe7e7191b704130b10b64ddc04a1e87_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a2f5e6461665ecc9d63adf5c77d6410b5}{}\index{Nau@{Nau}!punt\+Proper\+Al\+Centre\+De\+Area@{punt\+Proper\+Al\+Centre\+De\+Area}}
+\index{punt\+Proper\+Al\+Centre\+De\+Area@{punt\+Proper\+Al\+Centre\+De\+Area}!Nau@{Nau}}
+\subsubsection[{punt\+Proper\+Al\+Centre\+De\+Area}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Nau.\+punt\+Proper\+Al\+Centre\+De\+Area (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a2f5e6461665ecc9d63adf5c77d6410b5}
+\begin{DoxyPrecond}{Precondition}
+amplada $>$ 0 i altura $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordenades x i y del punt del triangle(que forma la Nau) més proper al centre de l\textquotesingle{}area amplada x altura 
+\end{DoxyPostcond}
+
+
+Definition at line 303 of file Nau.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a2f5e6461665ecc9d63adf5c77d6410b5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a2f5e6461665ecc9d63adf5c77d6410b5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a2d241e1fecd51c6b70f59144d11c1792}{}\index{Nau@{Nau}!reanimar@{reanimar}}
+\index{reanimar@{reanimar}!Nau@{Nau}}
+\subsubsection[{reanimar}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+reanimar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_a2d241e1fecd51c6b70f59144d11c1792}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+La \hyperlink{class_nau}{Nau} és viva, apunta cap a dalt, està parada i te la punta superior a la coordenada (a/2) 
+\end{DoxyPostcond}
+
+
+Definition at line 354 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a2d241e1fecd51c6b70f59144d11c1792_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_a2ef947c89a39ad2e5593c9b63aefda46}{}\index{Nau@{Nau}!rotar\+Dreta@{rotar\+Dreta}}
+\index{rotar\+Dreta@{rotar\+Dreta}!Nau@{Nau}}
+\subsubsection[{rotar\+Dreta}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+rotar\+Dreta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_a2ef947c89a39ad2e5593c9b63aefda46}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la velocitat rotacional de la \hyperlink{class_nau}{Nau} és màxima en el sentit de les agulles del rellotge 
+\end{DoxyPostcond}
+
+
+Definition at line 203 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_a2ef947c89a39ad2e5593c9b63aefda46_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_nau_ae4f82160603f5b5c2108c34adcd781ab}{}\index{Nau@{Nau}!rotar\+Esquerra@{rotar\+Esquerra}}
+\index{rotar\+Esquerra@{rotar\+Esquerra}!Nau@{Nau}}
+\subsubsection[{rotar\+Esquerra}]{\setlength{\rightskip}{0pt plus 5cm}void Nau.\+rotar\+Esquerra (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_nau_ae4f82160603f5b5c2108c34adcd781ab}
+\begin{DoxyPrecond}{Precondition}
+\hyperlink{class_nau}{Nau} viva 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la velocitat rotacional de la \hyperlink{class_nau}{Nau} és màxima en el sentit contrari de les agulles del rellotge 
+\end{DoxyPostcond}
+
+
+Definition at line 197 of file Nau.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_nau_ae4f82160603f5b5c2108c34adcd781ab_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_nau_a03ae6d8631e7668bb556e93e83dbcffd}{}\index{Nau@{Nau}!acceleracio\+\_\+@{acceleracio\+\_\+}}
+\index{acceleracio\+\_\+@{acceleracio\+\_\+}!Nau@{Nau}}
+\subsubsection[{acceleracio\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Nau.\+acceleracio\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a03ae6d8631e7668bb556e93e83dbcffd}
+
+
+Acceleracio amb la qual la velocitat de la nau augmenta o disminueix. 
+
+
+
+Definition at line 100 of file Nau.\+java.
+
+\hypertarget{class_nau_a7bdee12f00bd2087872ff3018144799e}{}\index{Nau@{Nau}!angle\+\_\+@{angle\+\_\+}}
+\index{angle\+\_\+@{angle\+\_\+}!Nau@{Nau}}
+\subsubsection[{angle\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Nau.\+angle\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_a7bdee12f00bd2087872ff3018144799e}
+
+
+angle que forma la \hyperlink{class_nau}{Nau} respecte l\textquotesingle{}eix horitzontal 
+
+
+
+Definition at line 94 of file Nau.\+java.
+
+\hypertarget{class_nau_a4a3defe435bcea8864ff9025c740695a}{}\index{Nau@{Nau}!angle\+Rotacio\+\_\+@{angle\+Rotacio\+\_\+}}
+\index{angle\+Rotacio\+\_\+@{angle\+Rotacio\+\_\+}!Nau@{Nau}}
+\subsubsection[{angle\+Rotacio\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Nau.\+angle\+Rotacio\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a4a3defe435bcea8864ff9025c740695a}
+
+
+Angle que rota la \hyperlink{class_nau}{Nau} sobre el seu baricentre(valor fix) 
+
+
+
+Definition at line 101 of file Nau.\+java.
+
+\hypertarget{class_nau_aa2ee3693a5f2a95449e0310f34d9fad4}{}\index{Nau@{Nau}!angle\+Velocitat\+\_\+@{angle\+Velocitat\+\_\+}}
+\index{angle\+Velocitat\+\_\+@{angle\+Velocitat\+\_\+}!Nau@{Nau}}
+\subsubsection[{angle\+Velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Nau.\+angle\+Velocitat\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_aa2ee3693a5f2a95449e0310f34d9fad4}
+
+
+angle\+\_\+ que tenia la \hyperlink{class_nau}{Nau} a l\textquotesingle{}última propulsació 
+
+
+
+Definition at line 98 of file Nau.\+java.
+
+\hypertarget{class_nau_a5447088ba94469c8f4285650b25211fa}{}\index{Nau@{Nau}!c\+\_\+@{c\+\_\+}}
+\index{c\+\_\+@{c\+\_\+}!Nau@{Nau}}
+\subsubsection[{c\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}Color Nau.\+c\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a5447088ba94469c8f4285650b25211fa}
+
+
+Color de la \hyperlink{class_nau}{Nau}. 
+
+
+
+Definition at line 93 of file Nau.\+java.
+
+\hypertarget{class_nau_a67c5417119c7e520e1876a919119867d}{}\index{Nau@{Nau}!l\+\_\+@{l\+\_\+}}
+\index{l\+\_\+@{l\+\_\+}!Nau@{Nau}}
+\subsubsection[{l\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Nau.\+l\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_a67c5417119c7e520e1876a919119867d}
+
+
+llargada de la \hyperlink{class_nau}{Nau} 
+
+
+
+Definition at line 92 of file Nau.\+java.
+
+\hypertarget{class_nau_adaf4948df660e9cfcac14a3fb75de454}{}\index{Nau@{Nau}!nombre\+Punts\+\_\+@{nombre\+Punts\+\_\+}}
+\index{nombre\+Punts\+\_\+@{nombre\+Punts\+\_\+}!Nau@{Nau}}
+\subsubsection[{nombre\+Punts\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Nau.\+nombre\+Punts\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_adaf4948df660e9cfcac14a3fb75de454}
+
+
+nombre de punts que té el triangle\+\_\+ 
+
+
+
+Definition at line 91 of file Nau.\+java.
+
+\hypertarget{class_nau_a128a1860c49ef16bfd63406f4ef0db75}{}\index{Nau@{Nau}!rotar\+\_\+@{rotar\+\_\+}}
+\index{rotar\+\_\+@{rotar\+\_\+}!Nau@{Nau}}
+\subsubsection[{rotar\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Nau.\+rotar\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a128a1860c49ef16bfd63406f4ef0db75}
+
+
+Defineix si en el metode \hyperlink{class_nau_a8dc46f91e02910b92bfad9b798f6552c}{moure()} la \hyperlink{class_nau}{Nau} ha de rotar sobre els seu baricentre 0 -\/$>$ no s\textquotesingle{}ha de rotar 1 -\/$>$ rotar en el sentit esquerra 2 -\/$>$ rotar en el sentit dret. 
+
+
+
+Definition at line 102 of file Nau.\+java.
+
+\hypertarget{class_nau_ad397487e3dc0062cc71fdfc4c562e347}{}\index{Nau@{Nau}!triangle\+\_\+@{triangle\+\_\+}}
+\index{triangle\+\_\+@{triangle\+\_\+}!Nau@{Nau}}
+\subsubsection[{triangle\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}Path2\+D Nau.\+triangle\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_ad397487e3dc0062cc71fdfc4c562e347}
+
+
+camí geomètric que sempre forma un triangle isòceles(representa gràficament la \hyperlink{class_nau}{Nau}) 
+
+
+
+Definition at line 90 of file Nau.\+java.
+
+\hypertarget{class_nau_ac1151817b8deaed7c77ceba3141b86e5}{}\index{Nau@{Nau}!velocitat\+\_\+@{velocitat\+\_\+}}
+\index{velocitat\+\_\+@{velocitat\+\_\+}!Nau@{Nau}}
+\subsubsection[{velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Nau.\+velocitat\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_ac1151817b8deaed7c77ceba3141b86e5}
+
+
+Modul del vector velocitat de la \hyperlink{class_nau}{Nau}. 
+
+
+
+Definition at line 97 of file Nau.\+java.
+
+\hypertarget{class_nau_a6a18449674ed5d2317a6795bd56f7dd0}{}\index{Nau@{Nau}!velocitat\+Max\+\_\+@{velocitat\+Max\+\_\+}}
+\index{velocitat\+Max\+\_\+@{velocitat\+Max\+\_\+}!Nau@{Nau}}
+\subsubsection[{velocitat\+Max\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Nau.\+velocitat\+Max\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a6a18449674ed5d2317a6795bd56f7dd0}
+
+
+Velocitat màxima de la \hyperlink{class_nau}{Nau}. 
+
+
+
+Definition at line 99 of file Nau.\+java.
+
+\hypertarget{class_nau_a1400505da3bafa2056c8e542a7811b33}{}\index{Nau@{Nau}!velocitat\+Raig\+\_\+@{velocitat\+Raig\+\_\+}}
+\index{velocitat\+Raig\+\_\+@{velocitat\+Raig\+\_\+}!Nau@{Nau}}
+\subsubsection[{velocitat\+Raig\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Nau.\+velocitat\+Raig\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{class_nau_a1400505da3bafa2056c8e542a7811b33}
+
+
+Definition at line 104 of file Nau.\+java.
+
+\hypertarget{class_nau_a165d7613744bb71f472d6bc56aa65540}{}\index{Nau@{Nau}!viva\+\_\+@{viva\+\_\+}}
+\index{viva\+\_\+@{viva\+\_\+}!Nau@{Nau}}
+\subsubsection[{viva\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}boolean Nau.\+viva\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_nau_a165d7613744bb71f472d6bc56aa65540}
+
+
+defineix l\textquotesingle{}estat de la \hyperlink{class_nau}{Nau}. Cert -\/$>$ \hyperlink{class_nau}{Nau} viva, Fals-\/$>$ \hyperlink{class_nau}{Nau} morta 
+
+
+
+Definition at line 95 of file Nau.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/\+Dades/\+Documents/uni/\+Pro\+P/asteroides/src/\hyperlink{_nau_8java}{Nau.\+java}\end{DoxyCompactItemize}

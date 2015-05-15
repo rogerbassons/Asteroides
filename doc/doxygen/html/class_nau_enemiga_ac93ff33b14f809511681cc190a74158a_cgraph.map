@@ -1,0 +1,11 @@
+<map id="NauEnemiga.evitarMeteorits" name="NauEnemiga.evitarMeteorits">
+<area shape="rect" id="node2" href="$class_nau.html#af8082681fcfd3613ee23597b9c525a7f" title="Nau.obtenirCentreTriangle" alt="" coords="500,29,688,55"/>
+<area shape="rect" id="node4" href="$class_nau.html#a53690b8a1f0ceb5e0b4573d1c81314c3" title="Nau.distancia" alt="" coords="300,29,409,55"/>
+<area shape="rect" id="node5" href="$class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91" title="NauEnemiga.angleApuntar" alt="" coords="257,79,452,106"/>
+<area shape="rect" id="node6" href="$class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f" title="NauEnemiga.alinearse" alt="" coords="271,130,438,157"/>
+<area shape="rect" id="node10" href="$class_nau.html#af1f11339142c177a9a48990349fdf801" title="Nau.propulsarEndavant" alt="" coords="269,181,441,207"/>
+<area shape="rect" id="node3" href="$class_nau.html#ab233b5358060d6fb3985e645441043ac" title="Nau.obtenirPuntsTriangle" alt="" coords="736,29,917,55"/>
+<area shape="rect" id="node7" href="$class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46" title="Nau.rotarDreta" alt="" coords="535,79,653,106"/>
+<area shape="rect" id="node8" href="$class_nau.html#ae4f82160603f5b5c2108c34adcd781ab" title="Nau.rotarEsquerra" alt="" coords="524,130,664,157"/>
+<area shape="rect" id="node9" href="$class_nau.html#a5f603c39df04907891d3e56467df0cf0" title="Nau.pararRotacio" alt="" coords="528,181,660,207"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="Joc.tractarColisionsRaigLaserMeteorit" name="Joc.tractarColisionsRaigLaserMeteorit">
+<area shape="rect" id="node2" href="$class_raig_laser.html#abcf16e8249b1e7562d6fbcc6d408e7f4" title="RaigLaser.obtenirShape" alt="" coords="254,69,427,96"/>
+<area shape="rect" id="node3" href="$class_joc.html#ae0497743329d920a47ed01f96e02a04f" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="224,120,457,147"/>
+<area shape="rect" id="node13" href="$class_dibuixador_asteroides.html#a22269129b517ba0da55bc16e19e24b57" title="DibuixadorAsteroides.elimina" alt="" coords="505,208,713,235"/>
+<area shape="rect" id="node4" href="$class_meteorit.html#a31192464dbdc8e1bac9ae57c87ac6e2b" title="Meteorit.obtenirShape" alt="" coords="527,56,692,83"/>
+<area shape="rect" id="node5" href="$class_meteorit.html#ab7f4539dc26a5026d8978918620db253" title="Meteorit.divisible" alt="" coords="545,107,674,133"/>
+<area shape="rect" id="node6" href="$class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="551,157,667,184"/>
+<area shape="rect" id="node12" href="$class_dibuixador_asteroides.html#ac70561df846258437f4145a41117e9ef" title="DibuixadorAsteroides.afegir" alt="" coords="510,5,709,32"/>
+<area shape="rect" id="node7" href="$class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="941,107,1139,133"/>
+<area shape="rect" id="node9" href="$class_meteorit.html#a0bc8468013d85caed1efe51b98397069" title="Meteorit.establirForma" alt="" coords="957,208,1123,235"/>
+<area shape="rect" id="node10" href="$class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="761,157,893,184"/>
+<area shape="rect" id="node8" href="$class_meteorit.html#a237af5bb28238c5e76d1cea55b4457b6" title="Meteorit.obtenirPuntsPoligon" alt="" coords="1187,107,1393,133"/>
+<area shape="rect" id="node11" href="$class_meteorit.html#a429daccf37f941ac0395a1838f0991a2" title="Meteorit.rotar" alt="" coords="985,157,1095,184"/>
+</map>

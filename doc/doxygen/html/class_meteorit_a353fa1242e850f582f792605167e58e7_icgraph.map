@@ -1,0 +1,7 @@
+<map id="Meteorit.puntMesAllunyat" name="Meteorit.puntMesAllunyat">
+<area shape="rect" id="node2" href="$class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="239,5,433,47"/>
+<area shape="rect" id="node3" href="$class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="481,13,636,39"/>
+<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="684,13,795,39"/>
+<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="843,13,919,39"/>
+<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="967,13,1043,39"/>
+</map>

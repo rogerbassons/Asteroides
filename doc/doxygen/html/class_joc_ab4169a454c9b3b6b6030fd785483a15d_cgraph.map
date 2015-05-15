@@ -1,0 +1,5 @@
+<map id="Joc.generarMeteoritsInicials" name="Joc.generarMeteoritsInicials">
+<area shape="rect" id="node2" href="$class_meteorit.html#a31192464dbdc8e1bac9ae57c87ac6e2b" title="Meteorit.obtenirShape" alt="" coords="266,5,431,32"/>
+<area shape="rect" id="node3" href="$class_nau.html#a7a14f0feca0033e562a42816a42b4241" title="Nau.obtenirShape" alt="" coords="279,56,418,83"/>
+<area shape="rect" id="node4" href="$class_dibuixador_asteroides.html#ac70561df846258437f4145a41117e9ef" title="DibuixadorAsteroides.afegir" alt="" coords="249,107,448,133"/>
+</map>

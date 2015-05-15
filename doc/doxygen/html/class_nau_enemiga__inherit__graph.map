@@ -1,0 +1,4 @@
+<map id="NauEnemiga" name="NauEnemiga">
+<area shape="rect" id="node2" href="$class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. " alt="" coords="33,80,81,107"/>
+<area shape="rect" id="node3" href="$interface_objecte_joc.html" title="ObjecteJoc" alt="" coords="13,5,102,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Joc.dispararNaus" name="Joc.dispararNaus">
+<area shape="rect" id="node2" href="$class_nau.html#a7449b7bf128a70e305bc85781ee833f2" title="Nau.disparar" alt="" coords="230,5,334,32"/>
+<area shape="rect" id="node5" href="$class_dibuixador_asteroides.html#ac70561df846258437f4145a41117e9ef" title="DibuixadorAsteroides.afegir" alt="" coords="183,56,381,83"/>
+<area shape="rect" id="node3" href="$class_nau.html#ab233b5358060d6fb3985e645441043ac" title="Nau.obtenirPuntsTriangle" alt="" coords="607,5,788,32"/>
+<area shape="rect" id="node4" href="$class_nau.html#a00fed622eb3d4d3823e140a87e164724" title="Nau.llargadaNau" alt="" coords="429,31,559,57"/>
+</map>
