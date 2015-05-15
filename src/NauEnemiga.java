@@ -31,7 +31,7 @@ public class NauEnemiga extends Nau {
 
 		if (!evitarMeteorits(lm)) {
 			double [] pos = n.obtenirCentreTriangle();
-			if (distancia(pos[0],pos[1]) <= 500) {
+			if (distancia(pos[0],pos[1]) <= l_ * 10) {
 				r = apuntaDispara(n);
 			} else {
 				movimentObjectiu(pos);
@@ -132,7 +132,7 @@ public class NauEnemiga extends Nau {
 		double [] c = obtenirCentreTriangle();
 
 		double [] v = null;
-		double distMin = 100;
+		double distMin = l_ * 2;
 		
 		Iterator<Meteorit> it = lm.iterator();
 		while (it.hasNext()) {
