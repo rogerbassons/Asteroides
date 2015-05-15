@@ -1,0 +1,7 @@
+<map id="Joc.xocarNauJugador" name="Joc.xocarNauJugador">
+<area shape="rect" id="node2" href="$class_nau.html#ab7c4afa8c53657cf189d3f013dcf5ab5" title="Nau.esViva" alt="" coords="215,5,309,32"/>
+<area shape="rect" id="node3" href="$class_nau.html#a2d241e1fecd51c6b70f59144d11c1792" title="Nau.reanimar" alt="" coords="207,56,317,83"/>
+<area shape="rect" id="node4" href="$class_nau.html#a973eef3d7c7996553002b538481eadd6" title="Nau.centrar" alt="" coords="213,107,311,133"/>
+<area shape="rect" id="node5" href="$class_nau.html#af8082681fcfd3613ee23597b9c525a7f" title="Nau.obtenirCentreTriangle" alt="" coords="365,107,553,133"/>
+<area shape="rect" id="node6" href="$class_nau.html#ab233b5358060d6fb3985e645441043ac" title="Nau.obtenirPuntsTriangle" alt="" coords="601,107,783,133"/>
+</map>

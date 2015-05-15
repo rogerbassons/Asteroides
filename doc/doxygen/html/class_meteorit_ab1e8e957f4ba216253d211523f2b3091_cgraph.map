@@ -1,0 +1,5 @@
+<map id="Meteorit.situarAlCostatMesProper" name="Meteorit.situarAlCostatMesProper">
+<area shape="rect" id="node2" href="$class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="248,5,445,32"/>
+<area shape="rect" id="node4" href="$class_meteorit.html#a353fa1242e850f582f792605167e58e7" title="Meteorit.puntMesAllunyat" alt="" coords="254,56,439,83"/>
+<area shape="rect" id="node3" href="$class_meteorit.html#a237af5bb28238c5e76d1cea55b4457b6" title="Meteorit.obtenirPuntsPoligon" alt="" coords="493,31,700,57"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="Joc.tractarColisionsAmbMeteorits" name="Joc.tractarColisionsAmbMeteorits">
+<area shape="rect" id="node2" href="$class_meteorit.html#a31192464dbdc8e1bac9ae57c87ac6e2b" title="Meteorit.obtenirShape" alt="" coords="308,5,473,32"/>
+<area shape="rect" id="node3" href="$class_meteorit.html#ab7f4539dc26a5026d8978918620db253" title="Meteorit.divisible" alt="" coords="326,56,455,83"/>
+<area shape="rect" id="node4" href="$class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="333,107,449,133"/>
+<area shape="rect" id="node10" href="$class_dibuixador_asteroides.html#ac70561df846258437f4145a41117e9ef" title="DibuixadorAsteroides.afegir" alt="" coords="291,157,490,184"/>
+<area shape="rect" id="node11" href="$class_dibuixador_asteroides.html#a22269129b517ba0da55bc16e19e24b57" title="DibuixadorAsteroides.elimina" alt="" coords="287,208,495,235"/>
+<area shape="rect" id="node5" href="$class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="723,56,920,83"/>
+<area shape="rect" id="node7" href="$class_meteorit.html#a0bc8468013d85caed1efe51b98397069" title="Meteorit.establirForma" alt="" coords="738,157,905,184"/>
+<area shape="rect" id="node8" href="$class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="543,107,675,133"/>
+<area shape="rect" id="node6" href="$class_meteorit.html#a237af5bb28238c5e76d1cea55b4457b6" title="Meteorit.obtenirPuntsPoligon" alt="" coords="968,56,1175,83"/>
+<area shape="rect" id="node9" href="$class_meteorit.html#a429daccf37f941ac0395a1838f0991a2" title="Meteorit.rotar" alt="" coords="766,107,877,133"/>
+</map>

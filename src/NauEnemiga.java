@@ -1,4 +1,3 @@
-// Nau que té la capacitat d'atacar una Nau
 import java.awt.geom.Path2D;
 import java.lang.Math;
 import java.awt.geom.AffineTransform;
@@ -7,16 +6,30 @@ import java.util.LinkedList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
+/// @brief Nau que té la capacitat d'atacar a una Nau i evitar Meteorit
+///
+/// Comportament:
+/// -------------
+/// La NauEnemiga, per defecte, està parada i apunta i dispara a una Nau(n).
+/// - Si n es troba _lluny_ de la NauEnemiga:
+///       la NauEnemiga s'apropa a n
+/// - Si n es troba _aprop_ d'algun Meteorit(m):
+///       es desplaça en direcció contraria a m
+///
+/// _lluny_ >= llargada de NauEnemiga * 2
+///
+/// _aprop_ <= llargada de NauEnemiga * 10
+
 public class NauEnemiga extends Nau {
 
-	//Pre: l > 0, x >= 0, y >= 0
-	//Post: La Nau:
-	//          - està viva
-	//          - té una llargada l i una amplada(a) màxima l/2
-	//          - te la punta superior a la coordenada (a/2)
-	//          - apunta cap a dalt
-	//          - esta situada al punt (x,y)
-	//          - és de color c
+	/// @pre l > 0, x >= 0, y >= 0
+	/// @post La Nau:
+	///         - està viva
+	///         - té una llargada l i una amplada(a) màxima l/2
+	///         - te la punta superior a la coordenada (a/2)
+	///         - apunta cap a dalt
+	///         - esta situada al punt (x,y)
+	///         - és de color c
 	NauEnemiga(int l, Color c, double x, double y) {
 		super(l,c);
 		double [] centre = obtenirCentreTriangle();
@@ -25,8 +38,9 @@ public class NauEnemiga extends Nau {
 		triangle_.transform(a);
 	}
 
-	// De moment només apunta a n
-	RaigLaser atacarNau(Nau n, LinkedList<Meteorit> lm) {
+	/// @pre NauEnemiga viva
+	/// @post la NauEnemiga evita el meteorit més proper de lm o ataca a n
+	public RaigLaser atacarNau(Nau n, LinkedList<Meteorit> lm) {
 		RaigLaser r = null;
 
 		if (!evitarMeteorits(lm)) {
@@ -40,9 +54,9 @@ public class NauEnemiga extends Nau {
 		return r;
 	}
 
-	//Pre: NauEnemiga Viva
-	//Post: la NauEnemiga apunta a n i si està ben apuntada llavors dispara
-	RaigLaser apuntaDispara(Nau n) {
+	/// @pre --
+	/// @post la NauEnemiga apunta a n i si està ben apuntada llavors dispara
+	private RaigLaser apuntaDispara(Nau n) {
 		RaigLaser r = null;
 
 		int angle = angleApuntarMoviment(n);
@@ -56,8 +70,8 @@ public class NauEnemiga extends Nau {
 		return r;
 	}
 
-	//Pre: 0 <= a < 360
-	//Post: la NauEnemiga realitza un moviment de manera que tendeix a tenir un angle a
+	/// @pre 0 <= a < 360, --
+	/// @post la NauEnemiga realitza un moviment de manera que tendeix a tenir un angle a
 	private void alinearse(int a) {
 		int dif = angle_ - a;
 		if (a > 270 && angle_ < 90) {
@@ -73,8 +87,8 @@ public class NauEnemiga extends Nau {
 		}
 	}
 
-	//Pre: --
-	//Post: retorna l'angle perque la NauEnemiga apunti al punt (p[0],p[1])
+	/// @pre --
+	/// @post retorna l'angle perque la NauEnemiga apunti al punt (p[0],p[1])
 	private int angleApuntar(double [] p) {
 		double [] ce = obtenirCentreTriangle();
 
@@ -88,9 +102,9 @@ public class NauEnemiga extends Nau {
 		return (int)angle;
 	}
 
-	//Pre: --
-	//Post: retorna l'angle que ha d'apuntar la NauEnemiga(e) per aconseguir que un RaigLaser disparat per e
-	//      colisioni amb n
+	/// @pre --
+	/// @post retorna l'angle que ha d'apuntar la NauEnemiga(e) per aconseguir que un RaigLaser disparat per e
+	///     colisioni amb n
 	private int angleApuntarMoviment(Nau n) {
 		double [] cn = n.obtenirCentreTriangle();
 		double [] ce = obtenirCentreTriangle();
@@ -103,8 +117,8 @@ public class NauEnemiga extends Nau {
 		return (int)angle;
 	}
 
-	//Pre: temps > 0
-	//Post: Retorna una taula(t). t[0] i t[1] són les coordenades de n despres de que hagui passat temps iteracions
+	/// @pre temps > 0
+	/// @post Retorna una taula(t). t[0] i t[1] són les coordenades de n despres de que hagui passat temps iteracions
 	double [] preveurePosicio(Nau n, double temps) {
 		double dx = temps * n.velocitat_*Math.cos(Math.toRadians(n.angleVelocitat_));
 		double dy = temps * n.velocitat_*-Math.sin(Math.toRadians(n.angleVelocitat_));
@@ -117,17 +131,17 @@ public class NauEnemiga extends Nau {
 		return previsio;
 	}
 
-	//Pre: --
-	//Post: la NauEnemiga realitza un moviment que tendeix a aproparse
-	//       a la posicio (pos[0],pos[1])
+	/// @pre --
+	/// @post la NauEnemiga realitza un moviment que tendeix a aproparse
+	///      a la posicio (pos[0],pos[1])
 	private void movimentObjectiu(double [] pos) {
 		int angle = angleApuntar(pos);
 		alinearse(angle);
 		propulsarEndavant();
 	}
 
-	//Pre: --
-	//Post: Si NauEnemiga està aprop d'algun Meteorit de lm llavors l'evita i retorna cert altrament no fa res i retorna fals
+	/// @pre --
+	/// @post Si NauEnemiga està aprop d'algun Meteorit de lm llavors l'evita i retorna cert altrament no fa res i retorna fals
 	private boolean evitarMeteorits(LinkedList<Meteorit> lm) {
 		double [] c = obtenirCentreTriangle();
 

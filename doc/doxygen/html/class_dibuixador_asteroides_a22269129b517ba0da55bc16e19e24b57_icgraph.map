@@ -1,0 +1,15 @@
+<map id="DibuixadorAsteroides.elimina" name="DibuixadorAsteroides.elimina">
+<area shape="rect" id="node2" href="$class_joc.html#af9e0ddcc5b82db8ff4d07bbd443c7f8d" title="Joc.moureMeteoritsIRajos\lLaser" alt="" coords="801,5,984,47"/>
+<area shape="rect" id="node6" href="$class_joc.html#a84da80994a7dd370b3772cf962500617" title="Joc.xocarNauEnemiga" alt="" coords="297,229,459,255"/>
+<area shape="rect" id="node11" href="$class_joc.html#af98e590d50e512af30830099af4f6173" title="Joc.tractarColisionsRaig\lLaserMeteorit" alt="" coords="563,115,733,156"/>
+<area shape="rect" id="node12" href="$class_joc.html#ae0497743329d920a47ed01f96e02a04f" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="261,122,495,149"/>
+<area shape="rect" id="node14" href="$class_joc.html#ac94f4a327797f506171f0db74b3feaee" title="Joc.tractarColisionsAmbRajos\lLaser" alt="" coords="275,291,481,332"/>
+<area shape="rect" id="node3" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1032,71,1143,98"/>
+<area shape="rect" id="node4" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1191,71,1267,98"/>
+<area shape="rect" id="node5" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1315,71,1391,98"/>
+<area shape="rect" id="node7" href="$class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="543,246,753,273"/>
+<area shape="rect" id="node9" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="560,180,736,221"/>
+<area shape="rect" id="node10" href="$class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="560,297,736,339"/>
+<area shape="rect" id="node8" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="821,187,964,214"/>
+<area shape="rect" id="node13" href="$class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="833,71,952,98"/>
+</map>

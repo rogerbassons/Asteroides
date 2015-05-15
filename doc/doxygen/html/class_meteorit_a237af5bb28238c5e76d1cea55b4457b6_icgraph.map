@@ -1,0 +1,21 @@
+<map id="Meteorit.obtenirPuntsPoligon" name="Meteorit.obtenirPuntsPoligon">
+<area shape="rect" id="node2" href="$class_meteorit.html#a353fa1242e850f582f792605167e58e7" title="Meteorit.puntMesAllunyat" alt="" coords="276,188,461,215"/>
+<area shape="rect" id="node8" href="$class_meteorit.html#ac447d4590c8de8fd6153402a512adee2" title="Meteorit.haSortit" alt="" coords="303,5,434,32"/>
+<area shape="rect" id="node10" href="$class_meteorit.html#ab63300b6281833f51f228bf8fb49c035" title="Meteorit.puntProperAlCentre\lDeArea" alt="" coords="266,57,471,98"/>
+<area shape="rect" id="node11" href="$class_meteorit.html#aec4418bf83baf51641639ef97407b03f" title="Meteorit.puntLlunyaAlCentre\lDeArea" alt="" coords="267,122,471,163"/>
+<area shape="rect" id="node12" href="$class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="270,239,467,265"/>
+<area shape="rect" id="node20" href="$class_meteorit.html#a685d6a89435a2fb03f1d8ebdeb70cb14" title="Meteorit.puntVertexMesProper" alt="" coords="260,289,477,316"/>
+<area shape="rect" id="node3" href="$class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="525,177,720,218"/>
+<area shape="rect" id="node4" href="$class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="971,179,1126,205"/>
+<area shape="rect" id="node5" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1628,269,1739,296"/>
+<area shape="rect" id="node6" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1787,269,1863,296"/>
+<area shape="rect" id="node7" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1911,269,1987,296"/>
+<area shape="rect" id="node9" href="$class_meteorit.html#af23ae6e1b16f750542711547cbe4957c" title="Meteorit.moure" alt="" coords="562,64,683,91"/>
+<area shape="rect" id="node13" href="$class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="557,243,689,269"/>
+<area shape="rect" id="node14" href="$class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="768,293,884,320"/>
+<area shape="rect" id="node15" href="$class_joc.html#ae0497743329d920a47ed01f96e02a04f" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="932,300,1165,327"/>
+<area shape="rect" id="node16" href="$class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="1449,324,1568,351"/>
+<area shape="rect" id="node17" href="$class_joc.html#af98e590d50e512af30830099af4f6173" title="Joc.tractarColisionsRaig\lLaserMeteorit" alt="" coords="1216,294,1387,335"/>
+<area shape="rect" id="node19" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1213,229,1389,270"/>
+<area shape="rect" id="node18" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1437,269,1580,296"/>
+</map>

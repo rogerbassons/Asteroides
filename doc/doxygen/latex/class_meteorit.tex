@@ -1,0 +1,578 @@
+\hypertarget{class_meteorit}{}\section{Meteorit Class Reference}
+\label{class_meteorit}\index{Meteorit@{Meteorit}}
+
+
+Inheritance diagram for Meteorit\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{class_meteorit__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Meteorit\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_meteorit__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5}{Meteorit} (double velocitat, double angle, int mida, double x, double y)
+\item 
+void \hyperlink{class_meteorit_ab1e8e957f4ba216253d211523f2b3091}{situar\+Al\+Costat\+Mes\+Proper} (int amplada, int altura)
+\item 
+\hyperlink{class_meteorit}{Meteorit} \hyperlink{class_meteorit_aa4b891941b6ef30774a45d6965266170}{dividir} ()
+\item 
+boolean \hyperlink{class_meteorit_ab7f4539dc26a5026d8978918620db253}{divisible} ()
+\item 
+void \hyperlink{class_meteorit_af23ae6e1b16f750542711547cbe4957c}{moure} (int amplada, int altura)
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_meteorit_a685d6a89435a2fb03f1d8ebdeb70cb14}{punt\+Vertex\+Mes\+Proper} (double x, double y)
+\item 
+void \hyperlink{class_meteorit_a28f9530c5db8c8a192b272b8bd1114d2}{dibuixar} (Graphics2\+D g2)
+\item 
+Shape \hyperlink{class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b}{obtenir\+Shape} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_meteorit_a353fa1242e850f582f792605167e58e7}{punt\+Mes\+Allunyat} (double\mbox{[}$\,$\mbox{]} punt)
+\item 
+void \hyperlink{class_meteorit_a429daccf37f941ac0395a1838f0991a2}{rotar} (int graus)
+\item 
+void \hyperlink{class_meteorit_a0bc8468013d85caed1efe51b98397069}{establir\+Forma} (double x, double y, int forma)
+\item 
+boolean \hyperlink{class_meteorit_ac447d4590c8de8fd6153402a512adee2}{ha\+Sortit} (int amplada, int altura)
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_meteorit_ab63300b6281833f51f228bf8fb49c035}{punt\+Proper\+Al\+Centre\+De\+Area} (int amplada, int altura)
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_meteorit_aec4418bf83baf51641639ef97407b03f}{punt\+Llunya\+Al\+Centre\+De\+Area} (int amplada, int altura)
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc}{punt\+Centre\+Poligon} ()
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_meteorit_a237af5bb28238c5e76d1cea55b4457b6}{obtenir\+Punts\+Poligon} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Path2\+D \hyperlink{class_meteorit_ac3feb84c72de283df0167b858f9eceef}{poligon\+\_\+}
+\item 
+int \hyperlink{class_meteorit_a7041d52c0df04f993a84cddfc80718c8}{mida\+\_\+}
+\item 
+double \hyperlink{class_meteorit_a216cca6026aa22f55aa162311b1e6530}{velocitat\+\_\+}
+\item 
+double \hyperlink{class_meteorit_aac671cdd1a62add36c52e0bbacea02a7}{angle\+Velocitat\+\_\+}
+\item 
+int \hyperlink{class_meteorit_a06345b40c0fb7045c79252b686040295}{n\+Vertexs\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 30 of file Meteorit.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5}{}\index{Meteorit@{Meteorit}!Meteorit@{Meteorit}}
+\index{Meteorit@{Meteorit}!Meteorit@{Meteorit}}
+\subsubsection[{Meteorit}]{\setlength{\rightskip}{0pt plus 5cm}Meteorit.\+Meteorit (
+\begin{DoxyParamCaption}
+\item[{double}]{velocitat, }
+\item[{double}]{angle, }
+\item[{int}]{mida, }
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5}
+
+
+Definition at line 40 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_meteorit_a28f9530c5db8c8a192b272b8bd1114d2}{}\index{Meteorit@{Meteorit}!dibuixar@{dibuixar}}
+\index{dibuixar@{dibuixar}!Meteorit@{Meteorit}}
+\subsubsection[{dibuixar}]{\setlength{\rightskip}{0pt plus 5cm}void Meteorit.\+dibuixar (
+\begin{DoxyParamCaption}
+\item[{Graphics2\+D}]{g2}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_a28f9530c5db8c8a192b272b8bd1114d2}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha dibuixat l\textquotesingle{}\hyperlink{interface_objecte_joc}{Objecte\+Joc} a g2 
+\end{DoxyPostcond}
+
+
+Implements \hyperlink{interface_objecte_joc_a0d472e898df5faf145a2480ab51e3ef8}{Objecte\+Joc}.
+
+
+
+Definition at line 355 of file Meteorit.\+java.
+
+\hypertarget{class_meteorit_aa4b891941b6ef30774a45d6965266170}{}\index{Meteorit@{Meteorit}!dividir@{dividir}}
+\index{dividir@{dividir}!Meteorit@{Meteorit}}
+\subsubsection[{dividir}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Meteorit} Meteorit.\+dividir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_aa4b891941b6ef30774a45d6965266170}
+
+
+Definition at line 173 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_aa4b891941b6ef30774a45d6965266170_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_aa4b891941b6ef30774a45d6965266170_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_ab7f4539dc26a5026d8978918620db253}{}\index{Meteorit@{Meteorit}!divisible@{divisible}}
+\index{divisible@{divisible}!Meteorit@{Meteorit}}
+\subsubsection[{divisible}]{\setlength{\rightskip}{0pt plus 5cm}boolean Meteorit.\+divisible (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_ab7f4539dc26a5026d8978918620db253}
+
+
+Definition at line 195 of file Meteorit.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_ab7f4539dc26a5026d8978918620db253_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_a0bc8468013d85caed1efe51b98397069}{}\index{Meteorit@{Meteorit}!establir\+Forma@{establir\+Forma}}
+\index{establir\+Forma@{establir\+Forma}!Meteorit@{Meteorit}}
+\subsubsection[{establir\+Forma}]{\setlength{\rightskip}{0pt plus 5cm}void Meteorit.\+establir\+Forma (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{int}]{forma}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a0bc8468013d85caed1efe51b98397069}
+
+
+Definition at line 118 of file Meteorit.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a0bc8468013d85caed1efe51b98397069_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_ac447d4590c8de8fd6153402a512adee2}{}\index{Meteorit@{Meteorit}!ha\+Sortit@{ha\+Sortit}}
+\index{ha\+Sortit@{ha\+Sortit}!Meteorit@{Meteorit}}
+\subsubsection[{ha\+Sortit}]{\setlength{\rightskip}{0pt plus 5cm}boolean Meteorit.\+ha\+Sortit (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_ac447d4590c8de8fd6153402a512adee2}
+
+
+Definition at line 252 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_ac447d4590c8de8fd6153402a512adee2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{class_meteorit_ac447d4590c8de8fd6153402a512adee2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_af23ae6e1b16f750542711547cbe4957c}{}\index{Meteorit@{Meteorit}!moure@{moure}}
+\index{moure@{moure}!Meteorit@{Meteorit}}
+\subsubsection[{moure}]{\setlength{\rightskip}{0pt plus 5cm}void Meteorit.\+moure (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_af23ae6e1b16f750542711547cbe4957c}
+
+
+Definition at line 203 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_af23ae6e1b16f750542711547cbe4957c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_a237af5bb28238c5e76d1cea55b4457b6}{}\index{Meteorit@{Meteorit}!obtenir\+Punts\+Poligon@{obtenir\+Punts\+Poligon}}
+\index{obtenir\+Punts\+Poligon@{obtenir\+Punts\+Poligon}!Meteorit@{Meteorit}}
+\subsubsection[{obtenir\+Punts\+Poligon}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Meteorit.\+obtenir\+Punts\+Poligon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a237af5bb28238c5e76d1cea55b4457b6}
+
+
+Definition at line 337 of file Meteorit.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a237af5bb28238c5e76d1cea55b4457b6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b}{}\index{Meteorit@{Meteorit}!obtenir\+Shape@{obtenir\+Shape}}
+\index{obtenir\+Shape@{obtenir\+Shape}!Meteorit@{Meteorit}}
+\subsubsection[{obtenir\+Shape}]{\setlength{\rightskip}{0pt plus 5cm}Shape Meteorit.\+obtenir\+Shape (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b}
+
+
+Definition at line 362 of file Meteorit.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc}{}\index{Meteorit@{Meteorit}!punt\+Centre\+Poligon@{punt\+Centre\+Poligon}}
+\index{punt\+Centre\+Poligon@{punt\+Centre\+Poligon}!Meteorit@{Meteorit}}
+\subsubsection[{punt\+Centre\+Poligon}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Meteorit.\+punt\+Centre\+Poligon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc}
+
+
+Definition at line 301 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_aec4418bf83baf51641639ef97407b03f}{}\index{Meteorit@{Meteorit}!punt\+Llunya\+Al\+Centre\+De\+Area@{punt\+Llunya\+Al\+Centre\+De\+Area}}
+\index{punt\+Llunya\+Al\+Centre\+De\+Area@{punt\+Llunya\+Al\+Centre\+De\+Area}!Meteorit@{Meteorit}}
+\subsubsection[{punt\+Llunya\+Al\+Centre\+De\+Area}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Meteorit.\+punt\+Llunya\+Al\+Centre\+De\+Area (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_aec4418bf83baf51641639ef97407b03f}
+
+
+Definition at line 283 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_aec4418bf83baf51641639ef97407b03f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_aec4418bf83baf51641639ef97407b03f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_a353fa1242e850f582f792605167e58e7}{}\index{Meteorit@{Meteorit}!punt\+Mes\+Allunyat@{punt\+Mes\+Allunyat}}
+\index{punt\+Mes\+Allunyat@{punt\+Mes\+Allunyat}!Meteorit@{Meteorit}}
+\subsubsection[{punt\+Mes\+Allunyat}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Meteorit.\+punt\+Mes\+Allunyat (
+\begin{DoxyParamCaption}
+\item[{double\mbox{[}$\,$\mbox{]}}]{punt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a353fa1242e850f582f792605167e58e7}
+
+
+Definition at line 92 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a353fa1242e850f582f792605167e58e7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a353fa1242e850f582f792605167e58e7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_ab63300b6281833f51f228bf8fb49c035}{}\index{Meteorit@{Meteorit}!punt\+Proper\+Al\+Centre\+De\+Area@{punt\+Proper\+Al\+Centre\+De\+Area}}
+\index{punt\+Proper\+Al\+Centre\+De\+Area@{punt\+Proper\+Al\+Centre\+De\+Area}!Meteorit@{Meteorit}}
+\subsubsection[{punt\+Proper\+Al\+Centre\+De\+Area}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Meteorit.\+punt\+Proper\+Al\+Centre\+De\+Area (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_ab63300b6281833f51f228bf8fb49c035}
+
+
+Definition at line 265 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_ab63300b6281833f51f228bf8fb49c035_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_ab63300b6281833f51f228bf8fb49c035_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_a685d6a89435a2fb03f1d8ebdeb70cb14}{}\index{Meteorit@{Meteorit}!punt\+Vertex\+Mes\+Proper@{punt\+Vertex\+Mes\+Proper}}
+\index{punt\+Vertex\+Mes\+Proper@{punt\+Vertex\+Mes\+Proper}!Meteorit@{Meteorit}}
+\subsubsection[{punt\+Vertex\+Mes\+Proper}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Meteorit.\+punt\+Vertex\+Mes\+Proper (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_a685d6a89435a2fb03f1d8ebdeb70cb14}
+
+
+Definition at line 318 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a685d6a89435a2fb03f1d8ebdeb70cb14_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_a429daccf37f941ac0395a1838f0991a2}{}\index{Meteorit@{Meteorit}!rotar@{rotar}}
+\index{rotar@{rotar}!Meteorit@{Meteorit}}
+\subsubsection[{rotar}]{\setlength{\rightskip}{0pt plus 5cm}void Meteorit.\+rotar (
+\begin{DoxyParamCaption}
+\item[{int}]{graus}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a429daccf37f941ac0395a1838f0991a2}
+
+
+Definition at line 110 of file Meteorit.\+java.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_a429daccf37f941ac0395a1838f0991a2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_meteorit_ab1e8e957f4ba216253d211523f2b3091}{}\index{Meteorit@{Meteorit}!situar\+Al\+Costat\+Mes\+Proper@{situar\+Al\+Costat\+Mes\+Proper}}
+\index{situar\+Al\+Costat\+Mes\+Proper@{situar\+Al\+Costat\+Mes\+Proper}!Meteorit@{Meteorit}}
+\subsubsection[{situar\+Al\+Costat\+Mes\+Proper}]{\setlength{\rightskip}{0pt plus 5cm}void Meteorit.\+situar\+Al\+Costat\+Mes\+Proper (
+\begin{DoxyParamCaption}
+\item[{int}]{amplada, }
+\item[{int}]{altura}
+\end{DoxyParamCaption}
+)}\label{class_meteorit_ab1e8e957f4ba216253d211523f2b3091}
+
+
+Definition at line 59 of file Meteorit.\+java.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_ab1e8e957f4ba216253d211523f2b3091_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_meteorit_ab1e8e957f4ba216253d211523f2b3091_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_meteorit_aac671cdd1a62add36c52e0bbacea02a7}{}\index{Meteorit@{Meteorit}!angle\+Velocitat\+\_\+@{angle\+Velocitat\+\_\+}}
+\index{angle\+Velocitat\+\_\+@{angle\+Velocitat\+\_\+}!Meteorit@{Meteorit}}
+\subsubsection[{angle\+Velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Meteorit.\+angle\+Velocitat\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_aac671cdd1a62add36c52e0bbacea02a7}
+
+
+Definition at line 35 of file Meteorit.\+java.
+
+\hypertarget{class_meteorit_a7041d52c0df04f993a84cddfc80718c8}{}\index{Meteorit@{Meteorit}!mida\+\_\+@{mida\+\_\+}}
+\index{mida\+\_\+@{mida\+\_\+}!Meteorit@{Meteorit}}
+\subsubsection[{mida\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Meteorit.\+mida\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a7041d52c0df04f993a84cddfc80718c8}
+
+
+Definition at line 33 of file Meteorit.\+java.
+
+\hypertarget{class_meteorit_a06345b40c0fb7045c79252b686040295}{}\index{Meteorit@{Meteorit}!n\+Vertexs\+\_\+@{n\+Vertexs\+\_\+}}
+\index{n\+Vertexs\+\_\+@{n\+Vertexs\+\_\+}!Meteorit@{Meteorit}}
+\subsubsection[{n\+Vertexs\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Meteorit.\+n\+Vertexs\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a06345b40c0fb7045c79252b686040295}
+
+
+Definition at line 36 of file Meteorit.\+java.
+
+\hypertarget{class_meteorit_ac3feb84c72de283df0167b858f9eceef}{}\index{Meteorit@{Meteorit}!poligon\+\_\+@{poligon\+\_\+}}
+\index{poligon\+\_\+@{poligon\+\_\+}!Meteorit@{Meteorit}}
+\subsubsection[{poligon\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}Path2\+D Meteorit.\+poligon\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_ac3feb84c72de283df0167b858f9eceef}
+
+
+Definition at line 32 of file Meteorit.\+java.
+
+\hypertarget{class_meteorit_a216cca6026aa22f55aa162311b1e6530}{}\index{Meteorit@{Meteorit}!velocitat\+\_\+@{velocitat\+\_\+}}
+\index{velocitat\+\_\+@{velocitat\+\_\+}!Meteorit@{Meteorit}}
+\subsubsection[{velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Meteorit.\+velocitat\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a216cca6026aa22f55aa162311b1e6530}
+
+
+Definition at line 34 of file Meteorit.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/\+Dades/\+Documents/uni/\+Pro\+P/asteroides/src/\hyperlink{_meteorit_8java}{Meteorit.\+java}\end{DoxyCompactItemize}

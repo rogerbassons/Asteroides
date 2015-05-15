@@ -1,0 +1,7 @@
+<map id="Joc.generarMeteorits" name="Joc.generarMeteorits">
+<area shape="rect" id="node2" href="$class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="210,23,405,65"/>
+<area shape="rect" id="node6" href="$class_dibuixador_asteroides.html#ac70561df846258437f4145a41117e9ef" title="DibuixadorAsteroides.afegir" alt="" coords="208,89,407,116"/>
+<area shape="rect" id="node3" href="$class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="455,5,652,32"/>
+<area shape="rect" id="node5" href="$class_meteorit.html#a353fa1242e850f582f792605167e58e7" title="Meteorit.puntMesAllunyat" alt="" coords="461,56,646,83"/>
+<area shape="rect" id="node4" href="$class_meteorit.html#a237af5bb28238c5e76d1cea55b4457b6" title="Meteorit.obtenirPuntsPoligon" alt="" coords="700,31,907,57"/>
+</map>
