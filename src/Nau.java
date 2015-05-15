@@ -7,13 +7,15 @@ import java.awt.geom.Point2D; //calcular la distancia entre dos punts
 import java.awt.Graphics2D;
 import java.awt.Color;
 
-/// @brief És una nau espacial triangular isòsceles que pot:
-///     - rotar sobre si mateixa
-///     - propulsar-se endavant
-///     - disparar rajos làser
+/// @brief És una nau espacial triangular isòsceles que  es mou dins d'un espai definit
+///
+/// La Nau és capaç de:
+///    - rotar sobre si mateixa
+///    - propulsar-se endavant
+///    - disparar rajos làser
 ///
 /// Comportament bàsic:
-///
+/// ------------------
 ///     La Nau rota un angle definit(sempre es el mateix).
 ///
 ///     Quan la Nau es propulsa endavant, la velocitat s'augmenta en la direcció i sentit que té (fins la seva velocitat màxima).
@@ -21,20 +23,23 @@ import java.awt.Color;
 ///
 ///     La Nau té una vida, cada vegada que es destrueix(explota) mort. Es pot reanimar.
 ///
-///     Degut a que la Nau es mou pot sortir d'una area(a) definida. Als parametres del mètode moure(..) queda definida a. En el cas
-///     de que la Nau es mogui totalment fora de a, la Nau es teletransporta al marge/costat invers del qual ha sortit(superior, inferior,
+///     Degut a que la Nau es mou pot sortir d'una area(a) definida. Als parametres del mètode moure(int amplada, int altura) queda definida a.
+///     En el cas que la Nau es mogui totalment fora de a, la Nau es teletransporta al marge/costat invers del qual ha sortit(superior, inferior,
 ///     esquerra, dreta).
 ///
 /// Supòsits sobre l'area(a) on es mou la Nau:
+/// -----------------------------------------
 ///     Té mida fixa i no canvia durant la vida de la Nau
+///
 ///     És un pla amb:
 ///         - un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)
 ///         - un eix vertical Y que augmenta de dalt a baix (a baix és més)
 ///
 /// Altres:
-///     Els mètodes propulsarEndavant(), rotarEsquerra(), rotarDreta(), paraRotacio() no mouen la Nau per si sols. Són com els comandaments
-///     de la Nau amb la difrencia que despres d'actuar sobre aquests comandaments s'ha de cridar el metode moure(..) per a desplaçar la Nau
-///     segons les modificacions/actuacions sobre els comandaments.
+/// -------
+///     Els mètodes propulsarEndavant(), rotarEsquerra(), rotarDreta(), pararRotacio() no mouen la Nau per si sols. Són com els comandaments
+///     de la Nau amb la difrencia que despres d'actuar sobre aquests comandaments s'ha de cridar el metode moure(int amplada, int altura)
+///     per a desplaçar la Nau segons les modificacions/actuacions sobre els comandaments.
 ///
 ///     Excepte el constructor i el mètode esViva(), la Nau ha d'estar viva per poder utilitzar els altres mètodes.
 
