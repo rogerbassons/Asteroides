@@ -17,14 +17,15 @@ import java.util.concurrent.TimeUnit;
 
 /// @brief Mòdul que gestiona la lògica, la física i la interfície del joc.
 ///
-///El Joc conté quatre tipus d'elements:
+/// El Joc conté quatre tipus d'elements:
 ///	- Nau: Nau pròpia controlada per l'usuari.
 ///	- NauEnemiga: Nau controlada per la màquina (AI).
 ///	- Meteorits: Objectes controlats per la màquina, que van a la deriva.
 ///	- RaigLasers: raig disparat per Nau i NauEnemiga, que destrueix Meteorits i Naus.
 //
-///Funcionament general del Joc:
-///Nau:
+/// Funcionament general del Joc:
+/// ----------------------------
+/// Nau:
 ///	- Rota sobre si mateixa. Té un coet propulsor que l'impulsa endavant.
 ///	- Quan abandoni l'espai visible per l'usuari, per algun dels costats de la finestra, apareixerà pel costat invers, conservant el moviment que portava.
 ///	- Té forma de triangle isòsceles.
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 ///	- Un cop s'ha començat a moure en una direcció, es continua movent en aquesta direcció durant un temps determinat mentre l'usuari no intervingui, simulant 
 ///	  la ingravidesa de l'espai, i al mateix temps, facilitant el control de la nau.
 ///
-///NauEnemiga:
+/// NauEnemiga:
 ///	- Hi ha una NauEnemiga que intenta, per qualsevol mitjà (disparant i col·lisionant), destruir la nau de l'usuari. 
 ///	- Té el mateix comportament que la Nau espacial controlada per l'usuari.
 ///	- Excepte: 
@@ -41,10 +42,10 @@ import java.util.concurrent.TimeUnit;
 ///
 ///	- La Nau i la NauEnemiga poden disparar RajosLaser.
 ///
-///RaigLaser:
+/// RaigLaser:
 ///	- Els RaigLaser poden col·lisionar amb Meteorits o amb les Naus.
 ///
-///Meteorit:
+/// Meteorit:
 ///	- És un objecte que es mou amb una velocitat i direcció pseudoaleatòries (entre un rang determinat)
 ///	- Té una forma d'un polígon irregular, pseudoaleatòria
 ///	- Els Meteorits no col·lisionen entre si, s'atravessen.
@@ -52,16 +53,17 @@ import java.util.concurrent.TimeUnit;
 ///	- Si xoca contra una nau, destrueix la nau amb la qual ha xocat.
 ///	- Quan un Meteorit petit col·lisiona amb un RaigLaser o una Nau, aquest desapareix.
 ///
-///Descripció general:
-///Inicialment, hi ha meteorits grans dispersats per tot l'espai i la nau enemiga a prop d'algun extrem de l'espai. La nau controlada per l'usuari està al centre
-///i cap meteorit està a sobre seu. Hi ha un límit definit de meteorits que poden estar dins l'espai del joc. Quan es comença, hi ha un número determinat de meteorits grans, 
-///que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou. 
+/// Descripció general:
+/// ------------------
+/// Inicialment, hi ha meteorits grans dispersats per tot l'espai i la nau enemiga a prop d'algun extrem de l'espai. La nau controlada per l'usuari està al centre
+/// i cap meteorit està a sobre seu. Hi ha un límit definit de meteorits que poden estar dins l'espai del joc. Quan es comença, hi ha un número determinat de meteorits grans, 
+/// que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou. 
 ///
-///Només hi ha una nau enemiga a l'espai. Cada vegada que sigui destruïda, n'apareix una de nova. 
+/// Només hi ha una nau enemiga a l'espai. Cada vegada que sigui destruïda, n'apareix una de nova. 
 ///
-///El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, 
-///segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts. 
-///Els controls són els següents:
+/// El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, 
+/// segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts. 
+/// Els controls són els següents:
 ///	- W: impulsar cap endavant
 ///	- A: rotar cap a l'esquerra
 ///	- D: rotar cap a la dreta
