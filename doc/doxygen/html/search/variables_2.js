@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['distrecorreguda_5f',['distRecorreguda_',['../class_raig_laser.html#aa0abe5fa3762a4e65133e1ae227b1cc9',1,'RaigLaser']]]
+  ['distrecorreguda_5f',['distRecorreguda_',['../class_raig_laser.html#aecdc87070f24e6116db8f89d61d75b3a',1,'RaigLaser']]]
 ];

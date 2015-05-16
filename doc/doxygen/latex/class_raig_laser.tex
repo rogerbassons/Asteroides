@@ -2,6 +2,11 @@
 \label{class_raig_laser}\index{Raig\+Laser@{Raig\+Laser}}
 
 
+És un raig làser amb forma circular disparat per una \hyperlink{class_nau}{Nau}, que es mou dins un espai definit.  
+
+
+
+
 Inheritance diagram for Raig\+Laser\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -37,24 +42,47 @@ boolean \hyperlink{class_raig_laser_a5789bd849e81d44087c74c909cdf03a0}{ha\+Sorti
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Ellipse2\+D \hyperlink{class_raig_laser_a6dcd860c4c10753459396a1172285e4a}{cercle\+\_\+}
-\item 
-double \hyperlink{class_raig_laser_a1a7bafcac85edd40992edd71450168de}{mida\+\_\+}
-\item 
-double \hyperlink{class_raig_laser_a825787d7b0ce038d9ad4c9ef6013f7b9}{velocitat\+\_\+}
-\item 
-double \hyperlink{class_raig_laser_ab6872c5a75472d96ee3295c13fe47c31}{angle\+Velocitat\+\_\+}
-\item 
-double \hyperlink{class_raig_laser_aa0abe5fa3762a4e65133e1ae227b1cc9}{dist\+Recorreguda\+\_\+}
-\item 
-double \hyperlink{class_raig_laser_af0f554292aa21db0721ed27ef67f81dc}{max\+Dist\+\_\+}
-\end{DoxyCompactItemize}
+Ellipse2\+D \hyperlink{class_raig_laser_a48b0b5a92a7424862bf6ebe59c498577}{cercle\+\_\+}
+\begin{DoxyCompactList}\small\item\em el·lipse amb una amplada sempre igual que l\textquotesingle{}altura que representa el \hyperlink{class_raig_laser}{Raig\+Laser} \end{DoxyCompactList}\item 
+double \hyperlink{class_raig_laser_ac18a272d02d6d090eebee561f05c1a0a}{mida\+\_\+}
+\begin{DoxyCompactList}\small\item\em mida del \hyperlink{class_raig_laser}{Raig\+Laser} \end{DoxyCompactList}\item 
+double \hyperlink{class_raig_laser_af4bf8a2a716caaa467e7a01ca1566924}{velocitat\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mòdul del vector velocitat del \hyperlink{class_raig_laser}{Raig\+Laser}. \end{DoxyCompactList}\item 
+double \hyperlink{class_raig_laser_a2a0e32ff8599a77e2d1f315924c0da14}{angle\+Velocitat\+\_\+}
+\begin{DoxyCompactList}\small\item\em Angle del vector velocitat del \hyperlink{class_raig_laser}{Raig\+Laser}. \end{DoxyCompactList}\item 
+double \hyperlink{class_raig_laser_aecdc87070f24e6116db8f89d61d75b3a}{dist\+Recorreguda\+\_\+}
+\begin{DoxyCompactList}\small\item\em Distància recorreguda des de la creació del \hyperlink{class_raig_laser}{Raig\+Laser}. \end{DoxyCompactList}\item 
+double \hyperlink{class_raig_laser_a950579f9b8aec21d629287044a7a65e7}{max\+Dist\+\_\+}
+\begin{DoxyCompactList}\small\item\em Distància màxima que pot recòrrer el \hyperlink{class_raig_laser}{Raig\+Laser}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+És un raig làser amb forma circular disparat per una \hyperlink{class_nau}{Nau}, que es mou dins un espai definit. 
+
+\subsubsection*{Comportament bàsic\+: }
 
 
-Definition at line 26 of file Raig\+Laser.\+java.
+\begin{DoxyItemize}
+\item Apareix en la posició (x,y) donada al constructor
+\item Té una mida donada al constructor
+\item Es mou en una direcció i velocitat fixes, donades al constructor
+\item És controlat per la màquina
+\item Si col·lisiona amb qualsevol objecte, destrueix l\textquotesingle{}objecte i es gasta
+\item Si sobrepassa un dels marges de la pantalla apareix pel costat oposat en la mateixa velocitat i direcció
+\item Si recorre més que la distància màxima establerta segons la mida de la pantalla, es gasta
+\end{DoxyItemize}
+
+\subsubsection*{Supòsits sobre l\textquotesingle{}area(a) on es mou el \hyperlink{class_raig_laser}{Raig\+Laser}\+: }
+
+Té una mida i no canvia mentre el \hyperlink{class_raig_laser}{Raig\+Laser} no s\textquotesingle{}ha gastat
+
+És un pla amb\+:
+\begin{DoxyItemize}
+\item un eix horitzontal X que augmenta d\textquotesingle{}esquerra a dreta (dreta és més)
+\item un eix vertical Y que augmenta de dalt a baix (a baix és més) 
+\end{DoxyItemize}
+
+Definition at line 28 of file Raig\+Laser.\+java.
 
 
 
@@ -70,7 +98,7 @@ Definition at line 26 of file Raig\+Laser.\+java.
 -- 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-s\textquotesingle{}ha dibuixat l\textquotesingle{}\hyperlink{interface_objecte_joc}{Objecte\+Joc} a g2 
+dibuixa el \hyperlink{class_raig_laser}{Raig\+Laser} blanc a g2 
 \end{DoxyPostcond}
 
 
@@ -78,7 +106,7 @@ Implements \hyperlink{interface_objecte_joc_a0d472e898df5faf145a2480ab51e3ef8}{O
 
 
 
-Definition at line 113 of file Raig\+Laser.\+java.
+Definition at line 132 of file Raig\+Laser.\+java.
 
 \hypertarget{class_raig_laser_a66023f2dfc49d5b4ff859804736c090e}{}\index{Raig\+Laser@{Raig\+Laser}!gastat@{gastat}}
 \index{gastat@{gastat}!Raig\+Laser@{Raig\+Laser}}
@@ -87,13 +115,20 @@ Definition at line 113 of file Raig\+Laser.\+java.
 {}
 \end{DoxyParamCaption}
 )}\label{class_raig_laser_a66023f2dfc49d5b4ff859804736c090e}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna si distància recorreguda $>$ distància màxima que pot recòrrer el \hyperlink{class_raig_laser}{Raig\+Laser} 
+\end{DoxyPostcond}
 
 
-Definition at line 97 of file Raig\+Laser.\+java.
+Definition at line 116 of file Raig\+Laser.\+java.
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -110,13 +145,20 @@ Here is the caller graph for this function\+:\nopagebreak
 \item[{double}]{altura}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_a5789bd849e81d44087c74c909cdf03a0}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna si el \hyperlink{class_raig_laser}{Raig\+Laser} ha sortit de l\textquotesingle{}àrea on es mou 
+\end{DoxyPostcond}
 
 
-Definition at line 103 of file Raig\+Laser.\+java.
+Definition at line 122 of file Raig\+Laser.\+java.
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -133,9 +175,15 @@ Here is the caller graph for this function\+:\nopagebreak
 \item[{int}]{altura}
 \end{DoxyParamCaption}
 )}\label{class_raig_laser_af35092ef77217fb1aa4ff956cc5dfa55}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+el \hyperlink{class_raig_laser}{Raig\+Laser} s\textquotesingle{}ha mogut a la seguent posició determinada per la velocitat i el seu angle si surt fora de l\textquotesingle{}àrea apareix en el costat oposat del que ha sortit 
+\end{DoxyPostcond}
 
 
-Definition at line 51 of file Raig\+Laser.\+java.
+Definition at line 70 of file Raig\+Laser.\+java.
 
 
 
@@ -150,7 +198,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -166,13 +215,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )}\label{class_raig_laser_abcf16e8249b1e7562d6fbcc6d408e7f4}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna la Shape del \hyperlink{class_raig_laser}{Raig\+Laser} 
+\end{DoxyPostcond}
 
 
-Definition at line 121 of file Raig\+Laser.\+java.
+Definition at line 140 of file Raig\+Laser.\+java.
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -184,47 +240,71 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 \subsection{Member Data Documentation}
-\hypertarget{class_raig_laser_ab6872c5a75472d96ee3295c13fe47c31}{}\index{Raig\+Laser@{Raig\+Laser}!angle\+Velocitat\+\_\+@{angle\+Velocitat\+\_\+}}
+\hypertarget{class_raig_laser_a2a0e32ff8599a77e2d1f315924c0da14}{}\index{Raig\+Laser@{Raig\+Laser}!angle\+Velocitat\+\_\+@{angle\+Velocitat\+\_\+}}
 \index{angle\+Velocitat\+\_\+@{angle\+Velocitat\+\_\+}!Raig\+Laser@{Raig\+Laser}}
-\subsubsection[{angle\+Velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+angle\+Velocitat\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_ab6872c5a75472d96ee3295c13fe47c31}
+\subsubsection[{angle\+Velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+angle\+Velocitat\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_a2a0e32ff8599a77e2d1f315924c0da14}
 
 
-Definition at line 31 of file Raig\+Laser.\+java.
+Angle del vector velocitat del \hyperlink{class_raig_laser}{Raig\+Laser}. 
 
-\hypertarget{class_raig_laser_a6dcd860c4c10753459396a1172285e4a}{}\index{Raig\+Laser@{Raig\+Laser}!cercle\+\_\+@{cercle\+\_\+}}
+
+
+Definition at line 50 of file Raig\+Laser.\+java.
+
+\hypertarget{class_raig_laser_a48b0b5a92a7424862bf6ebe59c498577}{}\index{Raig\+Laser@{Raig\+Laser}!cercle\+\_\+@{cercle\+\_\+}}
 \index{cercle\+\_\+@{cercle\+\_\+}!Raig\+Laser@{Raig\+Laser}}
-\subsubsection[{cercle\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}Ellipse2\+D Raig\+Laser.\+cercle\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_a6dcd860c4c10753459396a1172285e4a}
+\subsubsection[{cercle\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}Ellipse2\+D Raig\+Laser.\+cercle\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_a48b0b5a92a7424862bf6ebe59c498577}
 
 
-Definition at line 28 of file Raig\+Laser.\+java.
+el·lipse amb una amplada sempre igual que l\textquotesingle{}altura que representa el \hyperlink{class_raig_laser}{Raig\+Laser} 
 
-\hypertarget{class_raig_laser_aa0abe5fa3762a4e65133e1ae227b1cc9}{}\index{Raig\+Laser@{Raig\+Laser}!dist\+Recorreguda\+\_\+@{dist\+Recorreguda\+\_\+}}
+
+
+Definition at line 47 of file Raig\+Laser.\+java.
+
+\hypertarget{class_raig_laser_aecdc87070f24e6116db8f89d61d75b3a}{}\index{Raig\+Laser@{Raig\+Laser}!dist\+Recorreguda\+\_\+@{dist\+Recorreguda\+\_\+}}
 \index{dist\+Recorreguda\+\_\+@{dist\+Recorreguda\+\_\+}!Raig\+Laser@{Raig\+Laser}}
-\subsubsection[{dist\+Recorreguda\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+dist\+Recorreguda\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_aa0abe5fa3762a4e65133e1ae227b1cc9}
+\subsubsection[{dist\+Recorreguda\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+dist\+Recorreguda\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_aecdc87070f24e6116db8f89d61d75b3a}
 
 
-Definition at line 32 of file Raig\+Laser.\+java.
+Distància recorreguda des de la creació del \hyperlink{class_raig_laser}{Raig\+Laser}. 
 
-\hypertarget{class_raig_laser_af0f554292aa21db0721ed27ef67f81dc}{}\index{Raig\+Laser@{Raig\+Laser}!max\+Dist\+\_\+@{max\+Dist\+\_\+}}
+
+
+Definition at line 51 of file Raig\+Laser.\+java.
+
+\hypertarget{class_raig_laser_a950579f9b8aec21d629287044a7a65e7}{}\index{Raig\+Laser@{Raig\+Laser}!max\+Dist\+\_\+@{max\+Dist\+\_\+}}
 \index{max\+Dist\+\_\+@{max\+Dist\+\_\+}!Raig\+Laser@{Raig\+Laser}}
-\subsubsection[{max\+Dist\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+max\+Dist\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_af0f554292aa21db0721ed27ef67f81dc}
+\subsubsection[{max\+Dist\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+max\+Dist\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_a950579f9b8aec21d629287044a7a65e7}
 
 
-Definition at line 33 of file Raig\+Laser.\+java.
+Distància màxima que pot recòrrer el \hyperlink{class_raig_laser}{Raig\+Laser}. 
 
-\hypertarget{class_raig_laser_a1a7bafcac85edd40992edd71450168de}{}\index{Raig\+Laser@{Raig\+Laser}!mida\+\_\+@{mida\+\_\+}}
+
+
+Definition at line 52 of file Raig\+Laser.\+java.
+
+\hypertarget{class_raig_laser_ac18a272d02d6d090eebee561f05c1a0a}{}\index{Raig\+Laser@{Raig\+Laser}!mida\+\_\+@{mida\+\_\+}}
 \index{mida\+\_\+@{mida\+\_\+}!Raig\+Laser@{Raig\+Laser}}
-\subsubsection[{mida\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+mida\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_a1a7bafcac85edd40992edd71450168de}
+\subsubsection[{mida\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+mida\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_ac18a272d02d6d090eebee561f05c1a0a}
 
 
-Definition at line 29 of file Raig\+Laser.\+java.
+mida del \hyperlink{class_raig_laser}{Raig\+Laser} 
 
-\hypertarget{class_raig_laser_a825787d7b0ce038d9ad4c9ef6013f7b9}{}\index{Raig\+Laser@{Raig\+Laser}!velocitat\+\_\+@{velocitat\+\_\+}}
+
+
+Definition at line 48 of file Raig\+Laser.\+java.
+
+\hypertarget{class_raig_laser_af4bf8a2a716caaa467e7a01ca1566924}{}\index{Raig\+Laser@{Raig\+Laser}!velocitat\+\_\+@{velocitat\+\_\+}}
 \index{velocitat\+\_\+@{velocitat\+\_\+}!Raig\+Laser@{Raig\+Laser}}
-\subsubsection[{velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+velocitat\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_a825787d7b0ce038d9ad4c9ef6013f7b9}
+\subsubsection[{velocitat\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Raig\+Laser.\+velocitat\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_raig_laser_af4bf8a2a716caaa467e7a01ca1566924}
 
 
-Definition at line 30 of file Raig\+Laser.\+java.
+Mòdul del vector velocitat del \hyperlink{class_raig_laser}{Raig\+Laser}. 
+
+
+
+Definition at line 49 of file Raig\+Laser.\+java.
 
 
 

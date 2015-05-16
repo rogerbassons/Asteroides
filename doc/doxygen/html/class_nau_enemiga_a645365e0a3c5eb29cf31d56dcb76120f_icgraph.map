@@ -1,7 +1,12 @@
 <map id="NauEnemiga.apuntaDispara" name="NauEnemiga.apuntaDispara">
-<area shape="rect" id="node2" href="$class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7" title="NauEnemiga.atacarNau" alt="" coords="256,5,431,32"/>
-<area shape="rect" id="node3" href="$class_joc.html#a82b3c98f504183b2ade08ae6f7fbbdce" title="Joc.dispararNaus" alt="" coords="479,5,608,32"/>
-<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="656,5,767,32"/>
-<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="815,5,891,32"/>
-<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="939,5,1015,32"/>
+<area shape="rect" id="node2" href="$class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7" title="NauEnemiga.atacarNau" alt="" coords="256,115,431,141"/>
+<area shape="rect" id="node3" href="$class_joc.html#a82b3c98f504183b2ade08ae6f7fbbdce" title="Joc.dispararNaus" alt="" coords="479,115,608,141"/>
+<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="656,115,767,141"/>
+<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="853,35,929,61"/>
+<area shape="rect" id="node7" href="$class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="815,115,968,141"/>
+<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1083,5,1159,32"/>
+<area shape="rect" id="node8" href="$class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1016,56,1227,83"/>
+<area shape="rect" id="node10" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1033,107,1209,149"/>
+<area shape="rect" id="node11" href="$class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1033,173,1209,214"/>
+<area shape="rect" id="node9" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1275,148,1417,175"/>
 </map>

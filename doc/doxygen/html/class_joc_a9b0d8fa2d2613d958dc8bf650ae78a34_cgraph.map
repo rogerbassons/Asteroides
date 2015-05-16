@@ -5,7 +5,7 @@
 <area shape="rect" id="node5" href="$class_nau.html#af1f11339142c177a9a48990349fdf801" title="Nau.propulsarEndavant" alt="" coords="203,157,375,184"/>
 <area shape="rect" id="node6" href="$class_nau.html#a8dc46f91e02910b92bfad9b798f6552c" title="Nau.moure" alt="" coords="241,208,336,235"/>
 <area shape="rect" id="node13" href="$class_nau.html#a7a14f0feca0033e562a42816a42b4241" title="Nau.obtenirShape" alt="" coords="219,259,358,285"/>
-<area shape="rect" id="node14" href="$class_joc.html#ae0497743329d920a47ed01f96e02a04f" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="172,385,405,412"/>
+<area shape="rect" id="node14" href="$class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="172,385,405,412"/>
 <area shape="rect" id="node23" href="$class_dibuixador_asteroides.html#ac70561df846258437f4145a41117e9ef" title="DibuixadorAsteroides.afegir" alt="" coords="467,512,666,539"/>
 <area shape="rect" id="node7" href="$class_nau.html#abd79eb596434088da284245e34e87237" title="Nau.frenar" alt="" coords="521,56,612,83"/>
 <area shape="rect" id="node8" href="$class_nau.html#af8082681fcfd3613ee23597b9c525a7f" title="Nau.obtenirCentreTriangle" alt="" coords="473,208,661,235"/>

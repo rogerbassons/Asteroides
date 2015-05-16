@@ -1,6 +1,6 @@
 <map id="Joc" name="Joc">
-<area shape="rect" id="node4" href="$class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. " alt="" coords="493,180,597,207"/>
-<area shape="rect" id="node5" href="$class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. " alt="" coords="270,149,318,176"/>
-<area shape="rect" id="node6" href="$interface_objecte_joc.html" title="Un Objecte del joc que es dibuixa a un Graphics2D. " alt="" coords="5,99,95,125"/>
-<area shape="rect" id="node10" href="$class_dibuixador_asteroides.html" title="Dibuixa multiples ObjecteJoc a una finestra. " alt="" coords="465,281,624,308"/>
+<area shape="rect" id="node4" href="$class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. " alt="" coords="493,195,597,221"/>
+<area shape="rect" id="node5" href="$class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. " alt="" coords="270,164,318,191"/>
+<area shape="rect" id="node6" href="$interface_objecte_joc.html" title="Un Objecte del joc que es dibuixa a un Graphics2D. " alt="" coords="5,113,95,140"/>
+<area shape="rect" id="node10" href="$class_dibuixador_asteroides.html" title="Dibuixa multiples ObjecteJoc a una finestra. " alt="" coords="465,296,624,323"/>
 </map>

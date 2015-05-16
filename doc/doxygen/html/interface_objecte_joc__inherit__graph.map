@@ -1,6 +1,6 @@
 <map id="ObjecteJoc" name="ObjecteJoc">
-<area shape="rect" id="node2" href="$class_meteorit.html" title="Meteorit" alt="" coords="5,80,80,107"/>
+<area shape="rect" id="node2" href="$class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents..." alt="" coords="5,80,80,107"/>
 <area shape="rect" id="node3" href="$class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. " alt="" coords="104,80,152,107"/>
-<area shape="rect" id="node5" href="$class_raig_laser.html" title="RaigLaser" alt="" coords="177,80,261,107"/>
+<area shape="rect" id="node5" href="$class_raig_laser.html" title="És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit..." alt="" coords="177,80,261,107"/>
 <area shape="rect" id="node4" href="$class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. " alt="" coords="76,155,180,181"/>
 </map>

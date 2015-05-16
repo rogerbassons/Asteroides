@@ -2,7 +2,13 @@
 \label{class_joc}\index{Joc@{Joc}}
 
 
-Collaboration diagram for Joc\+:\nopagebreak
+Mòdul que gestiona la lògica, la física i la interfície del joc.  
+
+
+
+
+Collaboration diagram for Joc\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,7 +19,7 @@ Collaboration diagram for Joc\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_joc_1_1_my_key_listener}{My\+Key\+Listener}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Key\+Listener per a actualitzar els booleans segons les pulsacions del teclat. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,9 +53,11 @@ void \hyperlink{class_joc_a84da80994a7dd370b3772cf962500617}{xocar\+Nau\+Enemiga
 \item 
 void \hyperlink{class_joc_abc5db47ede50ddeccb50b2872d05cb6c}{tractar\+Colisions\+Entre\+Naus} ()  throws Exception 
 \item 
-void \hyperlink{class_joc_af98e590d50e512af30830099af4f6173}{tractar\+Colisions\+Raig\+Laser\+Meteorit} ()  throws Exception 
+void \hyperlink{class_joc_a9a3116242cc69985726f4825be70a9b5}{tractar\+Colisions\+Raig\+Laser\+Nau\+Meteorit} ()  throws Exception 
 \item 
-boolean \hyperlink{class_joc_ae0497743329d920a47ed01f96e02a04f}{tractar\+Colisions\+Amb\+Meteorits} (Area a)  throws Exception 
+void \hyperlink{class_joc_af717aa44d1134343a67fc08374c3af45}{tractar\+Colisions\+Raig\+Laser\+N\+E\+Meteorit} ()  throws Exception 
+\item 
+boolean \hyperlink{class_joc_a16b0be1ee6298106946df8150044f667}{tractar\+Colisions\+Amb\+Meteorits} (Area a, boolean puntuar)  throws Exception 
 \item 
 void \hyperlink{class_joc_acf31c665e8f734f15f40f8e6792e8bba}{tractar\+Colisions\+Naus\+Meteorit} ()  throws Exception 
 \item 
@@ -60,9 +68,67 @@ boolean \hyperlink{class_joc_ac94f4a327797f506171f0db74b3feaee}{tractar\+Colisio
 
 
 \subsection{Detailed Description}
+Mòdul que gestiona la lògica, la física i la interfície del joc. 
 
+El \hyperlink{class_joc}{Joc} conté quatre tipus d\textquotesingle{}elements\+:
+\begin{DoxyItemize}
+\item \hyperlink{class_nau}{Nau}\+: \hyperlink{class_nau}{Nau} pròpia controlada per l\textquotesingle{}usuari.
+\item \hyperlink{class_nau_enemiga}{Nau\+Enemiga}\+: \hyperlink{class_nau}{Nau} controlada per la màquina (A\+I).
+\item Meteorits\+: Objectes controlats per la màquina, que van a la deriva. \subsubsection*{-\/ Raig\+Lasers\+: raig disparat per \hyperlink{class_nau}{Nau} i \hyperlink{class_nau_enemiga}{Nau\+Enemiga}, que destrueix Meteorits i Naus. Funcionament general del \hyperlink{class_joc}{Joc}\+: }
+\end{DoxyItemize}
 
-Definition at line 69 of file Joc.\+java.
+\hyperlink{class_nau}{Nau}\+:
+\begin{DoxyItemize}
+\item Rota sobre si mateixa. Té un coet propulsor que l\textquotesingle{}impulsa endavant.
+\item Quan abandoni l\textquotesingle{}espai visible per l\textquotesingle{}usuari, per algun dels costats de la finestra, apareixerà pel costat invers, conservant el moviment que portava.
+\item Té forma de triangle isòsceles.
+\item Si s\textquotesingle{}acaben les vides de la \hyperlink{class_nau}{Nau}, la partida s\textquotesingle{}ha acabat.
+\item Un cop s\textquotesingle{}ha començat a moure en una direcció, es continua movent en aquesta direcció durant un temps determinat mentre l\textquotesingle{}usuari no intervingui, simulant la ingravidesa de l\textquotesingle{}espai, i al mateix temps, facilitant el control de la nau.
+\end{DoxyItemize}
+
+\hyperlink{class_nau_enemiga}{Nau\+Enemiga}\+:
+\begin{DoxyItemize}
+\item Hi ha una \hyperlink{class_nau_enemiga}{Nau\+Enemiga} que intenta, per qualsevol mitjà (disparant i col·lisionant), destruir la nau de l\textquotesingle{}usuari.
+\item Té el mateix comportament que la \hyperlink{class_nau}{Nau} espacial controlada per l\textquotesingle{}usuari.
+\item Excepte\+:
+\begin{DoxyItemize}
+\item L\textquotesingle{}objectiu d\textquotesingle{}aquesta nau és destruir la nau de l\textquotesingle{}usuari.
+\item Per a destruir la nau de l\textquotesingle{}usuari dispara rajos làser i la persegueix.
+\end{DoxyItemize}
+\item La \hyperlink{class_nau}{Nau} i la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} poden disparar Rajos\+Laser.
+\end{DoxyItemize}
+
+\hyperlink{class_raig_laser}{Raig\+Laser}\+:
+\begin{DoxyItemize}
+\item Els \hyperlink{class_raig_laser}{Raig\+Laser} poden col·lisionar amb Meteorits o amb les Naus.
+\end{DoxyItemize}
+
+\hyperlink{class_meteorit}{Meteorit}\+:
+\begin{DoxyItemize}
+\item És un objecte que es mou amb una velocitat i direcció pseudoaleatòries (entre un rang determinat)
+\item Té una forma d\textquotesingle{}un polígon irregular, pseudoaleatòria
+\item Els Meteorits no col·lisionen entre si, s\textquotesingle{}atravessen.
+\item Quan un \hyperlink{class_meteorit}{Meteorit} gran col·lisiona amb un \hyperlink{class_raig_laser}{Raig\+Laser} o una \hyperlink{class_nau}{Nau}, es divideix en dos Meteorits petits.
+\item Si xoca contra una nau, destrueix la nau amb la qual ha xocat.
+\item Quan un \hyperlink{class_meteorit}{Meteorit} petit col·lisiona amb un \hyperlink{class_raig_laser}{Raig\+Laser} o una \hyperlink{class_nau}{Nau}, aquest desapareix.
+\end{DoxyItemize}
+
+\subsubsection*{Descripció general\+: }
+
+Inicialment, hi ha meteorits grans dispersats per tot l\textquotesingle{}espai i la nau enemiga a prop d\textquotesingle{}algun extrem de l\textquotesingle{}espai. La nau controlada per l\textquotesingle{}usuari està al centre i cap meteorit està a sobre seu. Hi ha un límit definit de meteorits que poden estar dins l\textquotesingle{}espai del joc. Quan es comença, hi ha un número determinat de meteorits grans, que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n\textquotesingle{}apareix un de nou.
+
+Només hi ha una nau enemiga a l\textquotesingle{}espai. Cada vegada que sigui destruïda, n\textquotesingle{}apareix una de nova.
+
+El joc té un sistema de puntuació i de vides. L\textquotesingle{}usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, segons aquestes ponderacions\+: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts. Els controls són els següents\+:
+\begin{DoxyItemize}
+\item W\+: impulsar cap endavant
+\item A\+: rotar cap a l\textquotesingle{}esquerra
+\item D\+: rotar cap a la dreta
+\item Espai\+: disparar rajos làser
+\item E\+S\+C\+: sortir del joc 
+\end{DoxyItemize}
+
+Definition at line 73 of file Joc.\+java.
 
 
 
@@ -74,13 +140,20 @@ Definition at line 69 of file Joc.\+java.
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_aafe85787281ae19be9ee44aabc5c116c}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+actualitza l\textquotesingle{}estat del joc, generant meteorits, movent els elements i tractant les col·lisions 
+\end{DoxyPostcond}
 
 
-Definition at line 182 of file Joc.\+java.
+Definition at line 252 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -91,11 +164,12 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=349pt]{class_joc_aafe85787281ae19be9ee44aabc5c116c_icgraph}
+\includegraphics[width=350pt]{class_joc_aafe85787281ae19be9ee44aabc5c116c_icgraph}
 \end{center}
 \end{figure}
 
@@ -107,9 +181,15 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a82b3c98f504183b2ade08ae6f7fbbdce}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+si la \hyperlink{class_nau}{Nau} ha de disparar, dispara i afegeix el \hyperlink{class_raig_laser}{Raig\+Laser} a la llista de \hyperlink{class_raig_laser}{Raig\+Laser} del \hyperlink{class_joc}{Joc}, fent el mateix amb la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} 
+\end{DoxyPostcond}
 
 
-Definition at line 197 of file Joc.\+java.
+Definition at line 267 of file Joc.\+java.
 
 
 
@@ -124,7 +204,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -140,9 +221,15 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_afb711913c78395c05839c3f775792beb}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+afegeix Meteorits al \hyperlink{class_dibuixador_asteroides}{Dibuixador\+Asteroides} i al \hyperlink{class_joc}{Joc}, fins a un màxim de 8, i els fa sortir per les bandes de la pantalla 
+\end{DoxyPostcond}
 
 
-Definition at line 170 of file Joc.\+java.
+Definition at line 240 of file Joc.\+java.
 
 
 
@@ -157,7 +244,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -173,9 +261,15 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_ab4169a454c9b3b6b6030fd785483a15d}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+afegeix Meteorits al \hyperlink{class_dibuixador_asteroides}{Dibuixador\+Asteroides} i al \hyperlink{class_joc}{Joc}, fins a un màxim de 8, evitant que estiguin sobre la \hyperlink{class_nau}{Nau} 
+\end{DoxyPostcond}
 
 
-Definition at line 152 of file Joc.\+java.
+Definition at line 222 of file Joc.\+java.
 
 
 
@@ -206,13 +300,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception}\label{class_joc_aa5da4464cac2dc81f26430ac16fa7029}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+es comença a jugar la partida 
+\end{DoxyPostcond}
 
 
-Definition at line 131 of file Joc.\+java.
+Definition at line 199 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -241,11 +342,12 @@ Here is the caller graph for this function\+:\nopagebreak
 ) throws Exception\hspace{0.3cm}{\ttfamily [static]}}\label{class_joc_a54cbe41c97ce7489f7b0cc62217a7d29}
 
 
-Definition at line 92 of file Joc.\+java.
+Definition at line 159 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -261,9 +363,15 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_af9e0ddcc5b82db8ff4d07bbd443c7f8d}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+mou els Meteorits i els Rajos\+Laser del \hyperlink{class_joc}{Joc} 
+\end{DoxyPostcond}
 
 
-Definition at line 261 of file Joc.\+java.
+Definition at line 330 of file Joc.\+java.
 
 
 
@@ -278,7 +386,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -294,13 +403,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a9b0d8fa2d2613d958dc8bf650ae78a34}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+mou les Naus del \hyperlink{class_joc}{Joc} 
+\end{DoxyPostcond}
 
 
-Definition at line 227 of file Joc.\+java.
+Definition at line 297 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -311,7 +427,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -327,13 +444,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a1be330c10f1e2ee06f696e0a0bdec7c7}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+tracta les col·lisions entre els objectes del \hyperlink{class_joc}{Joc} 
+\end{DoxyPostcond}
 
 
-Definition at line 280 of file Joc.\+java.
+Definition at line 361 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -344,7 +468,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -353,35 +478,44 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_joc_ae0497743329d920a47ed01f96e02a04f}{}\index{Joc@{Joc}!tractar\+Colisions\+Amb\+Meteorits@{tractar\+Colisions\+Amb\+Meteorits}}
+\hypertarget{class_joc_a16b0be1ee6298106946df8150044f667}{}\index{Joc@{Joc}!tractar\+Colisions\+Amb\+Meteorits@{tractar\+Colisions\+Amb\+Meteorits}}
 \index{tractar\+Colisions\+Amb\+Meteorits@{tractar\+Colisions\+Amb\+Meteorits}!Joc@{Joc}}
 \subsubsection[{tractar\+Colisions\+Amb\+Meteorits}]{\setlength{\rightskip}{0pt plus 5cm}boolean Joc.\+tractar\+Colisions\+Amb\+Meteorits (
 \begin{DoxyParamCaption}
-\item[{Area}]{a}
+\item[{Area}]{a, }
+\item[{boolean}]{puntuar}
 \end{DoxyParamCaption}
-) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_ae0497743329d920a47ed01f96e02a04f}
+) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a16b0be1ee6298106946df8150044f667}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna si l\textquotesingle{}Area a ha colisionat amb algun \hyperlink{class_meteorit}{Meteorit} i actualitza la puntuació 
+\end{DoxyPostcond}
 
 
-Definition at line 351 of file Joc.\+java.
+Definition at line 470 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_joc_ae0497743329d920a47ed01f96e02a04f_cgraph}
+\includegraphics[width=350pt]{class_joc_a16b0be1ee6298106946df8150044f667_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_joc_ae0497743329d920a47ed01f96e02a04f_icgraph}
+\includegraphics[width=350pt]{class_joc_a16b0be1ee6298106946df8150044f667_icgraph}
 \end{center}
 \end{figure}
 
@@ -393,9 +527,15 @@ Here is the caller graph for this function\+:\nopagebreak
 \item[{Area}]{a}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_ac94f4a327797f506171f0db74b3feaee}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+si a ha xocat amb algun \hyperlink{class_raig_laser}{Raig\+Laser}, retorna cert i elimina el \hyperlink{class_raig_laser}{Raig\+Laser}, altrament retorna fals 
+\end{DoxyPostcond}
 
 
-Definition at line 416 of file Joc.\+java.
+Definition at line 541 of file Joc.\+java.
 
 
 
@@ -410,7 +550,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -426,13 +567,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_abc5db47ede50ddeccb50b2872d05cb6c}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+si les naus colisionen la \hyperlink{class_nau}{Nau} del jugador es centra, la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} desapareix durant 5 segons i s\textquotesingle{}actualitza la puntuació, altrament no fa res 
+\end{DoxyPostcond}
 
 
-Definition at line 321 of file Joc.\+java.
+Definition at line 421 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -443,7 +591,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -459,13 +608,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_acf31c665e8f734f15f40f8e6792e8bba}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+si la \hyperlink{class_nau}{Nau} del jugador ha xocat amb algun \hyperlink{class_meteorit}{Meteorit}, aquesta es centra i perd una vida, i el \hyperlink{class_meteorit}{Meteorit} es divideix o desapareix segons la mida si la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} ha xocat amb algun \hyperlink{class_meteorit}{Meteorit}, aquesta es canvia de lloc aleatòriament i el \hyperlink{class_meteorit}{Meteorit} es divideix o desapareix segons la mida 
+\end{DoxyPostcond}
 
 
-Definition at line 382 of file Joc.\+java.
+Definition at line 505 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -476,7 +632,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -492,13 +649,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a9ccc5adec1e7efdd6c01ba393d3686c6}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+si la \hyperlink{class_nau}{Nau} del jugador ha xocat amb algun \hyperlink{class_raig_laser}{Raig\+Laser}, aquesta es centra i perd una vida, i el \hyperlink{class_raig_laser}{Raig\+Laser} desapareix si la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} ha xocat amb algun \hyperlink{class_raig_laser}{Raig\+Laser}, aquesta desapareix i torna a aparèixer al cap de 10 segons, i el \hyperlink{class_raig_laser}{Raig\+Laser} desapareix 
+\end{DoxyPostcond}
 
 
-Definition at line 399 of file Joc.\+java.
+Definition at line 524 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -509,7 +673,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -518,35 +683,84 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_joc_af98e590d50e512af30830099af4f6173}{}\index{Joc@{Joc}!tractar\+Colisions\+Raig\+Laser\+Meteorit@{tractar\+Colisions\+Raig\+Laser\+Meteorit}}
-\index{tractar\+Colisions\+Raig\+Laser\+Meteorit@{tractar\+Colisions\+Raig\+Laser\+Meteorit}!Joc@{Joc}}
-\subsubsection[{tractar\+Colisions\+Raig\+Laser\+Meteorit}]{\setlength{\rightskip}{0pt plus 5cm}void Joc.\+tractar\+Colisions\+Raig\+Laser\+Meteorit (
+\hypertarget{class_joc_a9a3116242cc69985726f4825be70a9b5}{}\index{Joc@{Joc}!tractar\+Colisions\+Raig\+Laser\+Nau\+Meteorit@{tractar\+Colisions\+Raig\+Laser\+Nau\+Meteorit}}
+\index{tractar\+Colisions\+Raig\+Laser\+Nau\+Meteorit@{tractar\+Colisions\+Raig\+Laser\+Nau\+Meteorit}!Joc@{Joc}}
+\subsubsection[{tractar\+Colisions\+Raig\+Laser\+Nau\+Meteorit}]{\setlength{\rightskip}{0pt plus 5cm}void Joc.\+tractar\+Colisions\+Raig\+Laser\+Nau\+Meteorit (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_af98e590d50e512af30830099af4f6173}
+) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a9a3116242cc69985726f4825be70a9b5}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+els \hyperlink{class_raig_laser}{Raig\+Laser} de la \hyperlink{class_nau}{Nau} que hagin col·lisionat amb un \hyperlink{class_meteorit}{Meteorit} s\textquotesingle{}han eliminat i els Meteorits s\textquotesingle{}han dividit o bé eliminat segons la seva mida, s\textquotesingle{}ha actualitzat la puntuació 
+\end{DoxyPostcond}
 
 
-Definition at line 335 of file Joc.\+java.
+Definition at line 436 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_joc_af98e590d50e512af30830099af4f6173_cgraph}
+\includegraphics[width=350pt]{class_joc_a9a3116242cc69985726f4825be70a9b5_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_joc_af98e590d50e512af30830099af4f6173_icgraph}
+\includegraphics[width=350pt]{class_joc_a9a3116242cc69985726f4825be70a9b5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_joc_af717aa44d1134343a67fc08374c3af45}{}\index{Joc@{Joc}!tractar\+Colisions\+Raig\+Laser\+N\+E\+Meteorit@{tractar\+Colisions\+Raig\+Laser\+N\+E\+Meteorit}}
+\index{tractar\+Colisions\+Raig\+Laser\+N\+E\+Meteorit@{tractar\+Colisions\+Raig\+Laser\+N\+E\+Meteorit}!Joc@{Joc}}
+\subsubsection[{tractar\+Colisions\+Raig\+Laser\+N\+E\+Meteorit}]{\setlength{\rightskip}{0pt plus 5cm}void Joc.\+tractar\+Colisions\+Raig\+Laser\+N\+E\+Meteorit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_af717aa44d1134343a67fc08374c3af45}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+els \hyperlink{class_raig_laser}{Raig\+Laser} que hagin col·lisionat amb un \hyperlink{class_meteorit}{Meteorit} s\textquotesingle{}han eliminat i els Meteorits 
+\end{DoxyPostcond}
+
+
+Definition at line 453 of file Joc.\+java.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_joc_af717aa44d1134343a67fc08374c3af45_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_joc_af717aa44d1134343a67fc08374c3af45_icgraph}
 \end{center}
 \end{figure}
 
@@ -558,9 +772,15 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a84da80994a7dd370b3772cf962500617}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} desapareix del \hyperlink{class_joc}{Joc} durant 5 segons, la puntuació incrementa 100 punts 
+\end{DoxyPostcond}
 
 
-Definition at line 312 of file Joc.\+java.
+Definition at line 412 of file Joc.\+java.
 
 
 
@@ -575,7 +795,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -591,13 +812,20 @@ Here is the caller graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) throws Exception\hspace{0.3cm}{\ttfamily [private]}}\label{class_joc_a471c58ad94b7a8732a6b3e4695f2a691}
+\begin{DoxyPrecond}{Precondition}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+si la nau està viva es centra la nau i se li resta una vida, altrament s\textquotesingle{}acaba la partida i es mostra un missatge. Si té 0 vides, mor. 
+\end{DoxyPostcond}
 
 
-Definition at line 299 of file Joc.\+java.
+Definition at line 382 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -608,7 +836,8 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

@@ -16,9 +16,9 @@ var class_meteorit =
     [ "puntVertexMesProper", "class_meteorit.html#a685d6a89435a2fb03f1d8ebdeb70cb14", null ],
     [ "rotar", "class_meteorit.html#a429daccf37f941ac0395a1838f0991a2", null ],
     [ "situarAlCostatMesProper", "class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091", null ],
-    [ "angleVelocitat_", "class_meteorit.html#aac671cdd1a62add36c52e0bbacea02a7", null ],
-    [ "mida_", "class_meteorit.html#a7041d52c0df04f993a84cddfc80718c8", null ],
-    [ "nVertexs_", "class_meteorit.html#a06345b40c0fb7045c79252b686040295", null ],
-    [ "poligon_", "class_meteorit.html#ac3feb84c72de283df0167b858f9eceef", null ],
-    [ "velocitat_", "class_meteorit.html#a216cca6026aa22f55aa162311b1e6530", null ]
+    [ "angleVelocitat_", "class_meteorit.html#ae642e495aeb2d78122cb2ae550dde61b", null ],
+    [ "mida_", "class_meteorit.html#a8edd607e17be6537c15ab04bfd29dc52", null ],
+    [ "nVertexs_", "class_meteorit.html#a3b015faa09e271a0e54de95d1c9716c6", null ],
+    [ "poligon_", "class_meteorit.html#a1dd8a11e4ec8c806ee66a50773daeaf7", null ],
+    [ "velocitat_", "class_meteorit.html#a6d567bfb1f4d118c6c36c7bff76ec28a", null ]
 ];
