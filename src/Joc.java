@@ -13,60 +13,121 @@ import java.awt.geom.Area;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.awt.Shape;
+import java.util.concurrent.TimeUnit;
 
-//Mòdul que gestiona la lògica, la física i la interfície del joc.
-//El Joc conté quatre tipus d'elements:
-//	- Nau: Nau pròpia controlada per l'usuari.
-//	- NauEnemiga: Nau controlada per la màquina (AI).
-//	- Meteorits: Objectes controlats per la màquina, que van a la deriva.
-//	- RaigLasers: raig disparat per Nau i NauEnemiga, que destrueix Meteorits i Naus.
+/// @brief Mòdul que gestiona la lògica, la física i la interfície del joc.
+///El Joc conté quatre tipus d'elements:
+///	- Nau: Nau pròpia controlada per l'usuari.
+///	- NauEnemiga: Nau controlada per la màquina (AI).
+///	- Meteorits: Objectes controlats per la màquina, que van a la deriva.
+///	- RaigLasers: raig disparat per Nau i NauEnemiga, que destrueix Meteorits i Naus.
 //
-//Funcionament general del Joc:
-//Nau:
-//	- Rota sobre si mateixa. Té un coet propulsor que l'impulsa endavant.
-//	- Quan abandoni l'espai visible per l'usuari, per algun dels costats de la finestra, apareixerà pel costat invers, conservant el moviment que portava.
-//	- Té forma de triangle isòsceles.
-//	- Si s'acaben les vides de la Nau, la partida s'ha acabat.
-//	- Un cop s'ha començat a moure en una direcció, es continua movent en aquesta direcció durant un temps determinat mentre l'usuari no intervingui, simulant 
-//	  la ingravidesa de l'espai, i al mateix temps, facilitant el control de la nau.
-//
-//NauEnemiga:
-//	- Hi ha una NauEnemiga que intenta, per qualsevol mitjà (disparant i col·lisionant), destruir la nau de l'usuari. 
-//	- Té el mateix comportament que la Nau espacial controlada per l'usuari.
-//	- Excepte: 
-//		- L'objectiu d'aquesta nau és destruir la nau de l'usuari.
-//		- Per a destruir la nau de l'usuari dispara rajos làser i la persegueix.
-//
-//	- La Nau i la NauEnemiga poden disparar RajosLaser.
-//
-//RaigLaser:
-//	- Els RaigLaser poden col·lisionar amb Meteorits o amb les Naus.
-//
-//Meteorit:
-//	- És un objecte que es mou amb una velocitat i direcció pseudoaleatòries (entre un rang determinat)
-//	- Té una forma d'un polígon irregular, pseudoaleatòria
-//	- Els Meteorits no col·lisionen entre si, s'atravessen.
-//	- Quan un Meteorit gran col·lisiona amb un RaigLaser o una Nau, es divideix en dos Meteorits petits.
-//	- Si xoca contra una nau, destrueix la nau amb la qual ha xocat.
-//	- Quan un Meteorit petit col·lisiona amb un RaigLaser o una Nau, aquest desapareix.
-//
-//Descripció general:
-//Inicialment, hi ha meteorits grans dispersats per tot l'espai i la nau enemiga a prop d'algun extrem de l'espai. La nau controlada per l'usuari està al centre
-//i cap meteorit està a sobre seu. Hi ha un límit definit de meteorits que poden estar dins l'espai del joc. Quan es comença, hi ha un número determinat de meteorits grans, 
-//que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou. 
-//
-//Només hi ha una nau enemiga a l'espai. Cada vegada que sigui destruïda, n'apareix una de nova. 
-//
-//El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, 
-//segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts. 
-//Els controls són els següents:
-//	- W: impulsar cap endavant
-//	- A: rotar cap a l'esquerra
-//	- D: rotar cap a la dreta
-//	- Espai: disparar rajos làser
-//	- ESC: sortir del joc
+///Funcionament general del Joc:
+///Nau:
+///	- Rota sobre si mateixa. Té un coet propulsor que l'impulsa endavant.
+///	- Quan abandoni l'espai visible per l'usuari, per algun dels costats de la finestra, apareixerà pel costat invers, conservant el moviment que portava.
+///	- Té forma de triangle isòsceles.
+///	- Si s'acaben les vides de la Nau, la partida s'ha acabat.
+///	- Un cop s'ha començat a moure en una direcció, es continua movent en aquesta direcció durant un temps determinat mentre l'usuari no intervingui, simulant 
+///	  la ingravidesa de l'espai, i al mateix temps, facilitant el control de la nau.
+///
+///NauEnemiga:
+///	- Hi ha una NauEnemiga que intenta, per qualsevol mitjà (disparant i col·lisionant), destruir la nau de l'usuari. 
+///	- Té el mateix comportament que la Nau espacial controlada per l'usuari.
+///	- Excepte: 
+///		- L'objectiu d'aquesta nau és destruir la nau de l'usuari.
+///		- Per a destruir la nau de l'usuari dispara rajos làser i la persegueix.
+///
+///	- La Nau i la NauEnemiga poden disparar RajosLaser.
+///
+///RaigLaser:
+///	- Els RaigLaser poden col·lisionar amb Meteorits o amb les Naus.
+///
+///Meteorit:
+///	- És un objecte que es mou amb una velocitat i direcció pseudoaleatòries (entre un rang determinat)
+///	- Té una forma d'un polígon irregular, pseudoaleatòria
+///	- Els Meteorits no col·lisionen entre si, s'atravessen.
+///	- Quan un Meteorit gran col·lisiona amb un RaigLaser o una Nau, es divideix en dos Meteorits petits.
+///	- Si xoca contra una nau, destrueix la nau amb la qual ha xocat.
+///	- Quan un Meteorit petit col·lisiona amb un RaigLaser o una Nau, aquest desapareix.
+///
+///Descripció general:
+///Inicialment, hi ha meteorits grans dispersats per tot l'espai i la nau enemiga a prop d'algun extrem de l'espai. La nau controlada per l'usuari està al centre
+///i cap meteorit està a sobre seu. Hi ha un límit definit de meteorits que poden estar dins l'espai del joc. Quan es comença, hi ha un número determinat de meteorits grans, 
+///que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou. 
+///
+///Només hi ha una nau enemiga a l'espai. Cada vegada que sigui destruïda, n'apareix una de nova. 
+///
+///El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, 
+///segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts. 
+///Els controls són els següents:
+///	- W: impulsar cap endavant
+///	- A: rotar cap a l'esquerra
+///	- D: rotar cap a la dreta
+///	- Espai: disparar rajos làser
+///	- ESC: sortir del joc
 
 public class Joc {
+	/// @var int amplada_ 
+	/// @brief Amplada de la pantalla
+	
+	/// @var int altura_
+	/// @brief Altura de la pantalla
+	
+	/// @var Nau n_
+	/// @brief Nau controlada pel jugador, de color verd
+	
+	/// @var NauEnemiga ne_
+	/// @brief Nau controlada per AI, de color vermell
+	
+	/// @var DibuixadorAsteroides d_
+	/// @brief Dibuixa per pantalla els objectes del Joc
+	
+	/// @var LinkedList<Meteorit> meteorits_
+	/// @brief Conté els Meteorits de la partida
+	
+	/// @var LinkedList<RaigLaser> rajosLaserNau_
+	/// @brief Conté els RaigLaser disparats per la Nau n_
+	
+	/// @var LinkedList<RaigLaser> rajosLaserNE_
+	/// @brief Conté els RaigLaser disparats per la NauEnemiga ne_
+	
+	/// @var Calendar tempsRaigEnemiga_
+	/// @brief Moment en què s'ha disparat l'últim RaigLaser de la NauEnemiga ne_
+	
+	/// @var Calendar tempsRaigJugador_
+	/// @brief Moment en què s'ha disparat l'últim RaigLaser de la Nau n_
+	
+	/// @var Calendar tempsNauEnemiga_
+	/// @brief Serveix per a controlar la estada de la NauEnemiga dins el joc, fent que esperi 5 segons a tornar a aparèixer
+	
+	/// @var int nVides_
+	/// @brief Conté les vides restants de la Nau n_
+	
+	/// @var int puntuacio_
+	/// @brief Conté la puntuació obtinguda durant el Joc
+	
+	/// @var boolean sortir_
+	/// @brief Diu si s'ha de sortir del programa
+	
+	/// @var boolean partidaAcabada_
+	/// @brief Diu si s'ha acabat la partida (el programa encara queda obert)
+	
+	/// @var boolean inhibirNau_
+	/// @brief Diu si la Nau està protegida de col·lisions
+	
+	/// @var boolean disparar_
+	/// @brief Diu si la Nau ha de disparar
+	
+	/// @var boolean rotarEsquerra_
+	/// @brief Diu si la Nau ha de rotar cap a l'esquerra
+	
+	/// @var boolean rotarDreta_
+	/// @brief Diu si la Nau ha de rotar cap a la dreta
+	
+	/// @var boolean accelerar_
+	/// @brief Diu si la Nau ha d'accelerar
+	
 	
 	int amplada_;
 	int altura_;
@@ -85,6 +146,8 @@ public class Joc {
 	int puntuacio_;
 	
 	boolean sortir_;
+	boolean partidaAcabada_;
+	boolean inhibirNau_;
 	boolean disparar_;
 	boolean rotarEsquerra_, rotarDreta_, accelerar_;
 	
@@ -95,11 +158,11 @@ public class Joc {
 		j.jugar();
 	}
 	
-	//Pre: amplada >= 800 i altura >= 600
-	//Post: s'ha creat una nova partida en un espai d'amplada x altura
+	/// @pre  amplada >= 800 i altura >= 600
+	/// @post s'ha creat una nova partida en un espai d'amplada*altura
 	Joc(int amplada, int altura) throws Exception {
 		
-		sortir_ = disparar_ = rotarEsquerra_ = rotarDreta_ = accelerar_ = false;
+		inhibirNau_ = partidaAcabada_ = sortir_ = disparar_ = rotarEsquerra_ = rotarDreta_ = accelerar_ = false;
 		
 		meteorits_ = new LinkedList<Meteorit>();
 		rajosLaserNau_ = new LinkedList<RaigLaser>();
@@ -128,8 +191,8 @@ public class Joc {
 		puntuacio_ = 0; 
 	}
 	
-	//Pre: --
-	//Post: es comença a jugar la partida
+	/// @pre  --
+	/// @post es comença a jugar la partida
 	public void jugar() throws Exception {
 		
 		File so = new File("../res/piu.wav");
@@ -140,8 +203,10 @@ public class Joc {
 		generarMeteoritsInicials();
 		
 		while (!sortir_) {
-			actualitzar();
-			d_.dibuixar(puntuacio_);
+			if (!partidaAcabada_) {
+				actualitzar();
+				d_.dibuixar(puntuacio_);
+			}
 			Thread.sleep(10);
 		}
 		
@@ -149,8 +214,8 @@ public class Joc {
 		
 	}
 	
-	//Pre: --
-	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 8, evitant que estiguin sobre la Nau
+	/// @pre  --
+	/// @post afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 8, evitant que estiguin sobre la Nau
 	private void generarMeteoritsInicials() throws Exception {
 		while (meteorits_.size() < 8) {
 			Random rand = new Random();
@@ -167,8 +232,8 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 10, i els fa sortir per les bandes de la pantalla
+	/// @pre  --
+	/// @post afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 8, i els fa sortir per les bandes de la pantalla
 	private void generarMeteorits() throws Exception {
 		while (meteorits_.size() < 8) {
 			Random rand = new Random();
@@ -179,8 +244,8 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: actualitza l'estat del joc, generant meteorits, movent els elements i tractant les col·lisions
+	/// @pre  --
+	/// @post actualitza l'estat del joc, generant meteorits, movent els elements i tractant les col·lisions
 	private void actualitzar() throws Exception {
 		
 		generarMeteorits(); //Generem Meteorits
@@ -194,10 +259,10 @@ public class Joc {
 		tractarColisions(); //Tractem les possibles col·lisions
 	}
 	
-	//Pre: --
-	//Post: si la Nau ha de disparar, dispara i afegeix el RaigLaser a la llista de RaigLaser del Joc, fent el mateix amb la NauEnemiga
+	/// @pre  --
+	/// @post si la Nau ha de disparar, dispara i afegeix el RaigLaser a la llista de RaigLaser del Joc, fent el mateix amb la NauEnemiga
 	private void dispararNaus() throws Exception {
-		if (disparar_) {
+		if (disparar_ && !inhibirNau_) {
 			Calendar tempsActual = new GregorianCalendar();
 			if (tempsActual.getTimeInMillis() - tempsRaigJugador_.getTimeInMillis() > 441) {
 				tempsRaigJugador_ = new GregorianCalendar();
@@ -224,8 +289,8 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: mou les Naus del Joc
+	/// @pre  --
+	/// @post mou les Naus del Joc
 	private void moureNaus() throws Exception {
 		
 		//Tractem el moviment de la Nau
@@ -238,7 +303,6 @@ public class Joc {
 		
 		if (accelerar_)
 			n_.propulsarEndavant();
-		
 		n_.moure(amplada_,altura_); //Movem la Nau
 		if (ne_ != null)
 			ne_.moure(amplada_,altura_); //Movem la NauEnemiga
@@ -258,12 +322,12 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: mou els Meteorits i els RajosLaser del Joc
+	/// @pre  --
+	/// @post mou els Meteorits i els RajosLaser del Joc
 	private void moureMeteoritsIRajosLaser() throws Exception {
 		Iterator<RaigLaser> it = rajosLaserNau_.iterator();
 		
-		while (it.hasNext()){ //Iterem per tots els RajosLaser de la Nau per a moure'ls
+		while (it.hasNext()) { //Iterem per tots els RajosLaser de la Nau per a moure'ls
 			RaigLaser r = it.next();
 			if (!r.gastat())
 				r.moure(amplada_, altura_);
@@ -275,7 +339,7 @@ public class Joc {
 		
 		it = rajosLaserNE_.iterator();
 		
-		while (it.hasNext()){ //Iterem per tots els RajosLaser de la NauEnemiga per a moure'ls
+		while (it.hasNext()) { //Iterem per tots els RajosLaser de la NauEnemiga per a moure'ls
 			RaigLaser r = it.next();
 			if (!r.gastat())
 				r.moure(amplada_, altura_);
@@ -289,8 +353,8 @@ public class Joc {
 			m.moure(amplada_, altura_);
 	}
 	
-	//Pre: --
-	//Post: tracta les col·lisions entre els objectes del Joc
+	/// @pre  --
+	/// @post tracta les col·lisions entre els objectes del Joc
 	private void tractarColisions() throws Exception {
 		
 		//Col·lisions Nau - NauEnemiga
@@ -299,34 +363,49 @@ public class Joc {
 		//Col·lisions Nau i NauEnemiga amb RaigLaser
 		tractarColisionsNausRajosLaser();
 		
-		
 		//Col·lisions Nau i NauEnemiga amb Meteorit
 		tractarColisionsNausMeteorit();
 		
-		
-		//Col·lisions RaigLaser - Meteorit
+		//Col·lisions RaigLaser de la Nau - Meteorit
 		tractarColisionsRaigLaserNauMeteorit();
 		
-		//Col·lisions RaigLaser - Meteorit
+		//Col·lisions RaigLaser de la NauEnemiga - Meteorit
 		tractarColisionsRaigLaserNEMeteorit();
 		
 	}
 	
-	//Pre: --
-	//Post: si la nau està viva es centra la nau i se li resta una vida, altrament no fa res (de moment). Si té 0 vides, mor.
+	/// @pre  --
+	/// @post si la nau està viva es centra la nau i se li resta una vida, altrament s'acaba la partida i es mostra un missatge. Si té 0 vides, mor.
 	private void xocarNauJugador() throws Exception {
-		if (n_.esViva()){
+		//DE MOMENT NO MOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		if (n_.esViva()) {
+			d_.elimina(n_);
+			Calendar c = new GregorianCalendar();
+			Calendar tempsActual = new GregorianCalendar();
+			while (tempsActual.getTimeInMillis() - c.getTimeInMillis() < 1000) {
+				tempsActual = new GregorianCalendar();
+				inhibirNau_ = true;
+				actualitzar();
+				d_.dibuixar(puntuacio_);
+				Thread.sleep(10);
+			}
+			d_.afegir(n_);
 			n_.reanimar();
 			n_.centrar(amplada_, altura_);
+			inhibirNau_ = false;
 			nVides_--;
+			/*if (nVides_ == 0)
+				n_.morir();*/
 		}
-		//if (nVides_ == 0) 
-		//	n_.morir();
-		//FALTA MOSTRAR ALGUN MISSATGE AL MORIR I ACABAR LA PARTIDA
+		/*else { 
+			//d_.partidaAcabada();
+			partidaAcabada_ = true;
+		}*/
+		//FALTA MOSTRAR ALGUN MISSATGE AL ACABAR LA PARTIDA
 	}
 	
-	//Pre: --
-	//Post: posiciona la NauEnemiga en un lloc pseudoaleatori dins l'espai de joc.
+	/// @pre  --
+	/// @post la NauEnemiga desapareix del Joc durant 5 segons, la puntuació incrementa 100 punts
 	private void xocarNauEnemiga() throws Exception {
 		puntuacio_ += 100;
 		d_.elimina(ne_);
@@ -334,10 +413,10 @@ public class Joc {
 		tempsNauEnemiga_ = new GregorianCalendar();
 	}
 	
-	//Pre: --
-	//Post: si les naus colisionen la Nau del jugador es centra i la NauEnemiga es canvia de lloc altrament no fa res
+	/// @pre  --
+	/// @post si les naus colisionen la Nau del jugador es centra, la NauEnemiga desapareix durant 5 segons i s'actualitza la puntuació, altrament no fa res
 	private void tractarColisionsEntreNaus() throws Exception {
-		if (ne_!=null) {
+		if (ne_!=null && !inhibirNau_) {
 			Area n = new Area(n_.obtenirShape());
 			Area ne = new Area(ne_.obtenirShape());
 			n.intersect(ne);
@@ -348,9 +427,9 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: els RaigLaser de la Nau que hagin col·lisionat amb un Meteorit s'han eliminat i 
-	//	els Meteorits s'han dividit o bé eliminat segons la seva mida, s'ha actualitzat la puntuació
+	/// @pre  --
+	/// @post els RaigLaser de la Nau que hagin col·lisionat amb un Meteorit s'han eliminat i 
+	///	els Meteorits s'han dividit o bé eliminat segons la seva mida, s'ha actualitzat la puntuació
 	private void tractarColisionsRaigLaserNauMeteorit() throws Exception {
 		Iterator<RaigLaser> it = rajosLaserNau_.iterator();
 		while (it.hasNext()) {
@@ -365,8 +444,8 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: els RaigLaser que hagin col·lisionat amb un Meteorit s'han eliminat i els Meteorits 
+	/// @pre  --
+	/// @post els RaigLaser que hagin col·lisionat amb un Meteorit s'han eliminat i els Meteorits 
 	// 	s'han dividit o bé eliminat segons la seva mida
 	private void tractarColisionsRaigLaserNEMeteorit() throws Exception {
 		Iterator<RaigLaser> it = rajosLaserNE_.iterator();
@@ -383,8 +462,8 @@ public class Joc {
 	}
 	
 	
-	//Pre: --
-	//Post: retorna si l'Area a ha colisionat amb algun Meteorit
+	/// @pre  --
+	/// @post retorna si l'Area a ha colisionat amb algun Meteorit i actualitza la puntuació
 	private boolean tractarColisionsAmbMeteorits(Area a, boolean puntuar) throws Exception {
 		boolean haXocat = false;
 		LinkedList<Meteorit> meteoritsNous_ = new LinkedList<Meteorit>();
@@ -417,14 +496,16 @@ public class Joc {
 		return haXocat;
 	}
 	
-	//Pre: --
-	//Post: si la Nau del jugador ha xocat amb algun Meteorit, aquesta es centra i perd una vida, i el Meteorit es divideix o desapareix segons la mida
-	//	si la NauEnemiga ha xocat amb algun Meteorit, aquesta es canvia de lloc aleatòriament i el Meteorit es divideix o desapareix segons la mida
+	/// @pre  --
+	/// @post si la Nau del jugador ha xocat amb algun Meteorit, aquesta es centra i perd una vida, i el Meteorit es divideix o desapareix segons la mida
+	///	si la NauEnemiga ha xocat amb algun Meteorit, aquesta es canvia de lloc aleatòriament i el Meteorit es divideix o desapareix segons la mida
 	private void tractarColisionsNausMeteorit() throws Exception {
-		Area n = new Area(n_.obtenirShape());
-		boolean haXocatNau = tractarColisionsAmbMeteorits(n, true);
-		if (haXocatNau) 
-			xocarNauJugador();
+		if (!inhibirNau_) {
+			Area n = new Area(n_.obtenirShape());
+			boolean haXocatNau = tractarColisionsAmbMeteorits(n, true);
+			if (haXocatNau) 
+				xocarNauJugador();
+		}
 		
 		if (ne_ != null) {
 			Area ne = new Area(ne_.obtenirShape());
@@ -434,15 +515,16 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: si la Nau del jugador ha xocat amb algun RaigLaser, aquesta es centra i perd una vida, i el RaigLaser desapareix
-	//	si la NauEnemiga ha xocat amb algun RaigLaser, aquesta desapareix i torna a aparèixer al cap de 10 segons, i el RaigLaser desapareix
+	/// @pre  --
+	/// @post si la Nau del jugador ha xocat amb algun RaigLaser, aquesta es centra i perd una vida, i el RaigLaser desapareix
+	///	si la NauEnemiga ha xocat amb algun RaigLaser, aquesta desapareix i torna a aparèixer al cap de 10 segons, i el RaigLaser desapareix
 	private void tractarColisionsNausRajosLaser() throws Exception {
-		Area n = new Area(n_.obtenirShape());
-		boolean haXocatNau = tractarColisionsAmbRajosLaser(n);
-		if (haXocatNau)
-			xocarNauJugador();
-		
+		if (!inhibirNau_) {
+			Area n = new Area(n_.obtenirShape());
+			boolean haXocatNau = tractarColisionsAmbRajosLaser(n);
+			if (haXocatNau)
+				xocarNauJugador();
+		}
 		if (ne_ != null) { //Si la nau enemiga existeix
 			Area ne = new Area(ne_.obtenirShape());
 			boolean haXocatNE = tractarColisionsAmbRajosLaser(ne);
@@ -451,8 +533,8 @@ public class Joc {
 		}
 	}
 	
-	//Pre: --
-	//Post: si a ha xocat amb algun RaigLaser, retorna cert i elimina el RaigLaser, altrament retorna fals
+	/// @pre  --
+	/// @post si a ha xocat amb algun RaigLaser, retorna cert i elimina el RaigLaser, altrament retorna fals
 	private boolean tractarColisionsAmbRajosLaser(Area a) throws Exception {
 		boolean haXocat = false;
 		
@@ -485,6 +567,7 @@ public class Joc {
 		return haXocat;
 	}
 	
+	///KeyListener per a actualitzar els booleans segons les pulsacions del teclat
 	public class MyKeyListener implements KeyListener {
 		
 		public void keyTyped(KeyEvent e) {}
