@@ -16,6 +16,7 @@ import java.awt.Shape;
 import java.util.concurrent.TimeUnit;
 
 /// @brief Mòdul que gestiona la lògica, la física i la interfície del joc.
+///
 ///El Joc conté quatre tipus d'elements:
 ///	- Nau: Nau pròpia controlada per l'usuari.
 ///	- NauEnemiga: Nau controlada per la màquina (AI).
