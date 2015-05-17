@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "Asteroides", "index.html", [
+    [ "Descripció Asteroides", "index.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],

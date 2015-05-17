@@ -8,5 +8,6 @@ var searchData=
   ['distancia',['distancia',['../class_nau.html#a53690b8a1f0ceb5e0b4573d1c81314c3',1,'Nau']]],
   ['distrecorreguda_5f',['distRecorreguda_',['../class_raig_laser.html#aecdc87070f24e6116db8f89d61d75b3a',1,'RaigLaser']]],
   ['dividir',['dividir',['../class_meteorit.html#aa4b891941b6ef30774a45d6965266170',1,'Meteorit']]],
-  ['divisible',['divisible',['../class_meteorit.html#ab7f4539dc26a5026d8978918620db253',1,'Meteorit']]]
+  ['divisible',['divisible',['../class_meteorit.html#ab7f4539dc26a5026d8978918620db253',1,'Meteorit']]],
+  ['descripció_20asteroides',['Descripció Asteroides',['../index.html',1,'']]]
 ];
