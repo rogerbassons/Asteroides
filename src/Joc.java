@@ -15,6 +15,8 @@ import java.util.Calendar;
 import java.awt.Shape;
 import java.util.concurrent.TimeUnit;
 
+/// @mainpage Descripció Asteroides
+///
 /// @brief Mòdul que gestiona la lògica, la física i la interfície del joc.
 ///
 /// El Joc conté quatre tipus d'elements:
