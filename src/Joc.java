@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 ///	- NauEnemiga: Nau controlada per la màquina (AI).
 ///	- Meteorits: Objectes controlats per la màquina, que van a la deriva.
 ///	- RaigLasers: raig disparat per Nau i NauEnemiga, que destrueix Meteorits i Naus.
-//
+///
 /// Funcionament general del Joc:
 /// ----------------------------
 /// Nau:
