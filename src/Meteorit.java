@@ -11,7 +11,7 @@ import java.util.Random;
 ///
 /// Comportament bàsic:
 /// ------------------
-///Apareix en la posició donada al constructor, coordenada (x,y)
+///	- Apareix en la posició donada al constructor, coordenada (x,y)
 ///	- Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria
 ///	- És controlat per la màquina
 ///	- Segons la mida (1 o 2) serà gran o petit, respectivament
@@ -21,10 +21,11 @@ import java.util.Random;
 ///
 /// Supòsits sobre l'area(a) on es mou el Meteorit:
 /// ----------------------------------------------
-///     Té mida fixa i no canvia mentre existeix el Meteorit
-///     És un pla amb:
+///	Té mida fixa i no canvia mentre existeix el Meteorit. 
+///
+///	És un pla amb:
 ///         - un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)
-///        - un eix vertical Y que augmenta de dalt a baix (a baix és més)
+///         - un eix vertical Y que augmenta de dalt a baix (a baix és més)
 ///
 
 public class Meteorit implements ObjecteJoc {
