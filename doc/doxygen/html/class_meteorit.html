@@ -176,7 +176,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a1dd8a11e4ec8c806ee66a50773daeaf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Camí geomètric que forma un polígon irregular tancat (pot contenir quatre formes diferents) i dues mides.  <a href="#a1dd8a11e4ec8c806ee66a50773daeaf7">More...</a><br /></td></tr>
 <tr class="separator:a1dd8a11e4ec8c806ee66a50773daeaf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8edd607e17be6537c15ab04bfd29dc52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteorit.html#a8edd607e17be6537c15ab04bfd29dc52">mida_</a></td></tr>
-<tr class="memdesc:a8edd607e17be6537c15ab04bfd29dc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Val 1 si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> és gran i 2 si és petit.  <a href="#a8edd607e17be6537c15ab04bfd29dc52">More...</a><br /></td></tr>
+<tr class="memdesc:a8edd607e17be6537c15ab04bfd29dc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica la mida del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> 1 -&gt; gran 2 -&gt; petit.  <a href="#a8edd607e17be6537c15ab04bfd29dc52">More...</a><br /></td></tr>
 <tr class="separator:a8edd607e17be6537c15ab04bfd29dc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d567bfb1f4d118c6c36c7bff76ec28a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteorit.html#a6d567bfb1f4d118c6c36c7bff76ec28a">velocitat_</a></td></tr>
 <tr class="memdesc:a6d567bfb1f4d118c6c36c7bff76ec28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mòdul del vector velocitat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>.  <a href="#a6d567bfb1f4d118c6c36c7bff76ec28a">More...</a><br /></td></tr>
@@ -193,18 +193,18 @@ Private Attributes</h2></td></tr>
 <h2>Comportament bàsic: </h2>
 <ul>
 <li>Apareix en la posició donada al constructor, coordenada (x,y)</li>
-<li>Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria</li>
+<li>Es mou en una direcció i velocitat fixes, la velocitat i la direcció són donades al constructor</li>
 <li>És controlat per la màquina</li>
 <li>Segons la mida (1 o 2) serà gran o petit, respectivament</li>
 <li>Quan un <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> es crea, té mida 1 (gran) i es rota el polígon un angle aleatori</li>
 <li>Si és un <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> gran, pot ser destruit en dos Meteorits de forma i direcció aleatòries, de mida petita</li>
-<li>Si es destrueix un meteorit petit, desapareix</li>
+<li>Si es destrueix un <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> petit, desapareix</li>
 </ul>
-<h2>Supòsits sobre l'area(a) on es mou el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>: </h2>
+<h2>Supòsits sobre l'àrea(a) on es mou el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>: </h2>
 <p>Té mida fixa i no canvia mentre existeix el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>.</p>
 <p>És un pla amb:</p><ul>
-<li>un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)</li>
-<li>un eix vertical Y que augmenta de dalt a baix (a baix és més) </li>
+<li>Un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)</li>
+<li>Un eix vertical Y que augmenta de dalt a baix (a baix és més) </li>
 </ul>
 
 <p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00031">31</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
@@ -253,7 +253,7 @@ Private Attributes</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> té una velocitat v, una direcció angle i una mida m, està situat a (x,y) </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00055">55</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00057">57</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -294,7 +294,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="interface_objecte_joc.html#a0d472e898df5faf145a2480ab51e3ef8">ObjecteJoc</a>.</p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00370">370</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00372">372</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -313,7 +313,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> és gran </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> s'ha reduit a petit i es situa al centre del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> inicial, es retorna un altre <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> també de mida petita amb forma i direcció aleatòries, situat també al centre del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> inicial, l'angle de velocitat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> retornat és diferent en 45 graus com a mínim respecte l'angle de velocitat de m </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00188">188</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00190">190</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -350,7 +350,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> és divisible </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00210">210</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00212">212</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -403,7 +403,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>la mida és 1 o 2 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> conté el dibuix 1, 2, 3 o 4 segons forma, aplicant-li la seva mida </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00133">133</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00135">135</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -448,9 +448,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>diu si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> ha sortit de l'area amplada*altura </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>diu si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> ha sortit de l'àrea amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00267">267</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00269">269</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -498,7 +498,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Desplaça el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> a la posició(p) determinada per totes les velocitats del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> Si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>, situat a la posició p, està totalment fora de l'area amplada*altura llavors el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> es teletransporta al marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta) </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00218">218</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00220">220</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -532,9 +532,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>retorna una taula(t) que conte els punts del poligon coordenada (t[i],t[i+1]) per i = 0 fins al nombre de vèrtexs*2-2 increment 2 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>retorna una taula(t) que conte els punts del polígon coordenada (t[i],t[i+1]) per i = 0 fins al nombre de vèrtexs*2-2 increment 2 </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00352">352</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00354">354</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -562,7 +562,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna el polígon del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00377">377</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00379">379</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -598,7 +598,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del centre del polígon </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00316">316</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00318">318</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -652,9 +652,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del poligon més llunya al centre de l'area amplada*altura </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del polígon més llunyà al centre de l'àrea amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00298">298</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00300">300</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -700,7 +700,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna el punt més allunyat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> respecte punt </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00107">107</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00109">109</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -754,9 +754,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del poligon més proper al centre de l'area amplada*altura </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del polígon més proper al centre de l'àrea amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00280">280</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00282">282</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -804,7 +804,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna la distància entre el punt (x,y) i el punt més proper del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00333">333</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00335">335</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -841,7 +841,7 @@ Here is the call graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>rota el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> un angle graus </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00125">125</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00127">127</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -880,7 +880,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>situa el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> a la banda de la pantalla més propera d'on es troba el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. L'àrea de la pantalla és amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00074">74</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00076">76</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -923,7 +923,7 @@ Here is the caller graph for this function:</div>
 
 <p>Angle_ del vector velocitat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00050">50</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00052">52</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -945,9 +945,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Val 1 si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> és gran i 2 si és petit. </p>
+<p>Indica la mida del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> 1 -&gt; gran 2 -&gt; petit. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00048">48</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00050">50</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -971,7 +971,7 @@ Here is the caller graph for this function:</div>
 
 <p>Nombre de vèrtexs que té el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00051">51</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00053">53</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -995,7 +995,7 @@ Here is the caller graph for this function:</div>
 
 <p>Camí geomètric que forma un polígon irregular tancat (pot contenir quatre formes diferents) i dues mides. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00047">47</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00049">49</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1019,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mòdul del vector velocitat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00049">49</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00051">51</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -1032,7 +1032,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_meteorit.html">Meteorit</a></li>
-    <li class="footer">Generated on Tue May 19 2015 19:09:53 for Asteroides by
+    <li class="footer">Generated on Tue May 19 2015 21:05:55 for Asteroides by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

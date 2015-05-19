@@ -67,7 +67,7 @@ double\mbox{[}$\,$\mbox{]} \hyperlink{class_meteorit_a237af5bb28238c5e76d1cea55b
 Path2\+D \hyperlink{class_meteorit_a1dd8a11e4ec8c806ee66a50773daeaf7}{poligon\+\_\+}
 \begin{DoxyCompactList}\small\item\em Camí geomètric que forma un polígon irregular tancat (pot contenir quatre formes diferents) i dues mides. \end{DoxyCompactList}\item 
 int \hyperlink{class_meteorit_a8edd607e17be6537c15ab04bfd29dc52}{mida\+\_\+}
-\begin{DoxyCompactList}\small\item\em Val 1 si el \hyperlink{class_meteorit}{Meteorit} és gran i 2 si és petit. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Indica la mida del \hyperlink{class_meteorit}{Meteorit} 1 -\/$>$ gran 2 -\/$>$ petit. \end{DoxyCompactList}\item 
 double \hyperlink{class_meteorit_a6d567bfb1f4d118c6c36c7bff76ec28a}{velocitat\+\_\+}
 \begin{DoxyCompactList}\small\item\em Mòdul del vector velocitat del \hyperlink{class_meteorit}{Meteorit}. \end{DoxyCompactList}\item 
 double \hyperlink{class_meteorit_ae642e495aeb2d78122cb2ae550dde61b}{angle\+Velocitat\+\_\+}
@@ -84,22 +84,22 @@ int \hyperlink{class_meteorit_a3b015faa09e271a0e54de95d1c9716c6}{n\+Vertexs\+\_\
 
 \begin{DoxyItemize}
 \item Apareix en la posició donada al constructor, coordenada (x,y)
-\item Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria
+\item Es mou en una direcció i velocitat fixes, la velocitat i la direcció són donades al constructor
 \item És controlat per la màquina
 \item Segons la mida (1 o 2) serà gran o petit, respectivament
 \item Quan un \hyperlink{class_meteorit}{Meteorit} es crea, té mida 1 (gran) i es rota el polígon un angle aleatori
 \item Si és un \hyperlink{class_meteorit}{Meteorit} gran, pot ser destruit en dos Meteorits de forma i direcció aleatòries, de mida petita
-\item Si es destrueix un meteorit petit, desapareix
+\item Si es destrueix un \hyperlink{class_meteorit}{Meteorit} petit, desapareix
 \end{DoxyItemize}
 
-\subsubsection*{Supòsits sobre l\textquotesingle{}area(a) on es mou el \hyperlink{class_meteorit}{Meteorit}\+: }
+\subsubsection*{Supòsits sobre l\textquotesingle{}àrea(a) on es mou el \hyperlink{class_meteorit}{Meteorit}\+: }
 
 Té mida fixa i no canvia mentre existeix el \hyperlink{class_meteorit}{Meteorit}.
 
 És un pla amb\+:
 \begin{DoxyItemize}
-\item un eix horitzontal X que augmenta d\textquotesingle{}esquerra a dreta (dreta és més)
-\item un eix vertical Y que augmenta de dalt a baix (a baix és més) 
+\item Un eix horitzontal X que augmenta d\textquotesingle{}esquerra a dreta (dreta és més)
+\item Un eix vertical Y que augmenta de dalt a baix (a baix és més) 
 \end{DoxyItemize}
 
 Definition at line 31 of file Meteorit.\+java.
@@ -126,7 +126,7 @@ el \hyperlink{class_meteorit}{Meteorit} té una velocitat v, una direcció angle
 \end{DoxyPostcond}
 
 
-Definition at line 55 of file Meteorit.\+java.
+Definition at line 57 of file Meteorit.\+java.
 
 
 
@@ -172,7 +172,7 @@ Implements \hyperlink{interface_objecte_joc_a0d472e898df5faf145a2480ab51e3ef8}{O
 
 
 
-Definition at line 370 of file Meteorit.\+java.
+Definition at line 372 of file Meteorit.\+java.
 
 \hypertarget{class_meteorit_aa4b891941b6ef30774a45d6965266170}{}\index{Meteorit@{Meteorit}!dividir@{dividir}}
 \index{dividir@{dividir}!Meteorit@{Meteorit}}
@@ -189,7 +189,7 @@ el \hyperlink{class_meteorit}{Meteorit} s\textquotesingle{}ha reduit a petit i e
 \end{DoxyPostcond}
 
 
-Definition at line 188 of file Meteorit.\+java.
+Definition at line 190 of file Meteorit.\+java.
 
 
 
@@ -228,7 +228,7 @@ retorna si el \hyperlink{class_meteorit}{Meteorit} és divisible
 \end{DoxyPostcond}
 
 
-Definition at line 210 of file Meteorit.\+java.
+Definition at line 212 of file Meteorit.\+java.
 
 
 
@@ -258,7 +258,7 @@ el \hyperlink{class_meteorit}{Meteorit} conté el dibuix 1, 2, 3 o 4 segons form
 \end{DoxyPostcond}
 
 
-Definition at line 133 of file Meteorit.\+java.
+Definition at line 135 of file Meteorit.\+java.
 
 
 
@@ -283,11 +283,11 @@ Here is the caller graph for this function\+:\nopagebreak
 amplada $>$ 0 i altura $>$ 0 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-diu si el \hyperlink{class_meteorit}{Meteorit} ha sortit de l\textquotesingle{}area amplada$\ast$altura 
+diu si el \hyperlink{class_meteorit}{Meteorit} ha sortit de l\textquotesingle{}àrea amplada$\ast$altura 
 \end{DoxyPostcond}
 
 
-Definition at line 267 of file Meteorit.\+java.
+Definition at line 269 of file Meteorit.\+java.
 
 
 
@@ -327,7 +327,7 @@ Desplaça el \hyperlink{class_meteorit}{Meteorit} a la posició(p) determinada p
 \end{DoxyPostcond}
 
 
-Definition at line 218 of file Meteorit.\+java.
+Definition at line 220 of file Meteorit.\+java.
 
 
 
@@ -351,11 +351,11 @@ Here is the call graph for this function\+:\nopagebreak
 -- 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-retorna una taula(t) que conte els punts del poligon coordenada (t\mbox{[}i\mbox{]},t\mbox{[}i+1\mbox{]}) per i = 0 fins al nombre de vèrtexs$\ast$2-\/2 increment 2 
+retorna una taula(t) que conte els punts del polígon coordenada (t\mbox{[}i\mbox{]},t\mbox{[}i+1\mbox{]}) per i = 0 fins al nombre de vèrtexs$\ast$2-\/2 increment 2 
 \end{DoxyPostcond}
 
 
-Definition at line 352 of file Meteorit.\+java.
+Definition at line 354 of file Meteorit.\+java.
 
 
 
@@ -383,7 +383,7 @@ retorna el polígon del \hyperlink{class_meteorit}{Meteorit}
 \end{DoxyPostcond}
 
 
-Definition at line 377 of file Meteorit.\+java.
+Definition at line 379 of file Meteorit.\+java.
 
 
 
@@ -411,7 +411,7 @@ retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordena
 \end{DoxyPostcond}
 
 
-Definition at line 316 of file Meteorit.\+java.
+Definition at line 318 of file Meteorit.\+java.
 
 
 
@@ -447,11 +447,11 @@ Here is the caller graph for this function\+:\nopagebreak
 amplada $>$ 0 i altura $>$ 0 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordenades x i y del punt del poligon més llunya al centre de l\textquotesingle{}area amplada$\ast$altura 
+retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordenades x i y del punt del polígon més llunyà al centre de l\textquotesingle{}àrea amplada$\ast$altura 
 \end{DoxyPostcond}
 
 
-Definition at line 298 of file Meteorit.\+java.
+Definition at line 300 of file Meteorit.\+java.
 
 
 
@@ -490,7 +490,7 @@ retorna el punt més allunyat del \hyperlink{class_meteorit}{Meteorit} respecte 
 \end{DoxyPostcond}
 
 
-Definition at line 107 of file Meteorit.\+java.
+Definition at line 109 of file Meteorit.\+java.
 
 
 
@@ -526,11 +526,11 @@ Here is the caller graph for this function\+:\nopagebreak
 amplada $>$ 0 i altura $>$ 0 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordenades x i y del punt del poligon més proper al centre de l\textquotesingle{}area amplada$\ast$altura 
+retorna una taula t on t\mbox{[}0\mbox{]} i t\mbox{[}1\mbox{]} són les coordenades x i y del punt del polígon més proper al centre de l\textquotesingle{}àrea amplada$\ast$altura 
 \end{DoxyPostcond}
 
 
-Definition at line 280 of file Meteorit.\+java.
+Definition at line 282 of file Meteorit.\+java.
 
 
 
@@ -570,7 +570,7 @@ retorna la distància entre el punt (x,y) i el punt més proper del \hyperlink{c
 \end{DoxyPostcond}
 
 
-Definition at line 333 of file Meteorit.\+java.
+Definition at line 335 of file Meteorit.\+java.
 
 
 
@@ -598,7 +598,7 @@ rota el \hyperlink{class_meteorit}{Meteorit} un angle graus
 \end{DoxyPostcond}
 
 
-Definition at line 125 of file Meteorit.\+java.
+Definition at line 127 of file Meteorit.\+java.
 
 
 
@@ -627,7 +627,7 @@ situa el \hyperlink{class_meteorit}{Meteorit} a la banda de la pantalla més pro
 \end{DoxyPostcond}
 
 
-Definition at line 74 of file Meteorit.\+java.
+Definition at line 76 of file Meteorit.\+java.
 
 
 
@@ -663,18 +663,18 @@ Angle\+\_\+ del vector velocitat del \hyperlink{class_meteorit}{Meteorit}.
 
 
 
-Definition at line 50 of file Meteorit.\+java.
+Definition at line 52 of file Meteorit.\+java.
 
 \hypertarget{class_meteorit_a8edd607e17be6537c15ab04bfd29dc52}{}\index{Meteorit@{Meteorit}!mida\+\_\+@{mida\+\_\+}}
 \index{mida\+\_\+@{mida\+\_\+}!Meteorit@{Meteorit}}
 \subsubsection[{mida\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int Meteorit.\+mida\+\_\+\hspace{0.3cm}{\ttfamily [private]}}\label{class_meteorit_a8edd607e17be6537c15ab04bfd29dc52}
 
 
-Val 1 si el \hyperlink{class_meteorit}{Meteorit} és gran i 2 si és petit. 
+Indica la mida del \hyperlink{class_meteorit}{Meteorit} 1 -\/$>$ gran 2 -\/$>$ petit. 
 
 
 
-Definition at line 48 of file Meteorit.\+java.
+Definition at line 50 of file Meteorit.\+java.
 
 \hypertarget{class_meteorit_a3b015faa09e271a0e54de95d1c9716c6}{}\index{Meteorit@{Meteorit}!n\+Vertexs\+\_\+@{n\+Vertexs\+\_\+}}
 \index{n\+Vertexs\+\_\+@{n\+Vertexs\+\_\+}!Meteorit@{Meteorit}}
@@ -685,7 +685,7 @@ Nombre de vèrtexs que té el \hyperlink{class_meteorit}{Meteorit}.
 
 
 
-Definition at line 51 of file Meteorit.\+java.
+Definition at line 53 of file Meteorit.\+java.
 
 \hypertarget{class_meteorit_a1dd8a11e4ec8c806ee66a50773daeaf7}{}\index{Meteorit@{Meteorit}!poligon\+\_\+@{poligon\+\_\+}}
 \index{poligon\+\_\+@{poligon\+\_\+}!Meteorit@{Meteorit}}
@@ -696,7 +696,7 @@ Camí geomètric que forma un polígon irregular tancat (pot contenir quatre for
 
 
 
-Definition at line 47 of file Meteorit.\+java.
+Definition at line 49 of file Meteorit.\+java.
 
 \hypertarget{class_meteorit_a6d567bfb1f4d118c6c36c7bff76ec28a}{}\index{Meteorit@{Meteorit}!velocitat\+\_\+@{velocitat\+\_\+}}
 \index{velocitat\+\_\+@{velocitat\+\_\+}!Meteorit@{Meteorit}}
@@ -707,7 +707,7 @@ Mòdul del vector velocitat del \hyperlink{class_meteorit}{Meteorit}.
 
 
 
-Definition at line 49 of file Meteorit.\+java.
+Definition at line 51 of file Meteorit.\+java.
 
 
 
