@@ -17,13 +17,13 @@ import java.util.concurrent.TimeUnit;
 
 /// @mainpage Descripció Asteroides
 ///
-/// @brief Mòdul que gestiona la lògica, la física i la interfície del joc.
+/// @brief Controla una Nau a l'espai evitant i atacant Meteorits i Naus Enemigues
 ///
 /// El Joc conté quatre tipus d'elements:
 ///	- Nau: Nau pròpia controlada per l'usuari.
 ///	- NauEnemiga: Nau controlada per la màquina (AI).
-///	- Meteorits: Objectes controlats per la màquina, que van a la deriva.
-///	- RaigLasers: raig disparat per Nau i NauEnemiga, que destrueix Meteorits i Naus.
+///	- Meteorit: Objectes controlats per la màquina, que van a la deriva.
+///	- RaigLaser: Raig disparat per Nau i NauEnemiga, que destrueix Meteorits i Naus.
 ///
 /// Funcionament general del Joc:
 /// ----------------------------
@@ -57,15 +57,20 @@ import java.util.concurrent.TimeUnit;
 ///
 /// Descripció general:
 /// ------------------
-/// Inicialment, hi ha meteorits grans dispersats per tot l'espai i la nau enemiga a prop d'algun extrem de l'espai. La nau controlada per l'usuari està al centre
-/// i cap meteorit està a sobre seu. Hi ha un límit definit de meteorits que poden estar dins l'espai del joc. Quan es comença, hi ha un número determinat de meteorits grans, 
-/// que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou. 
+/// Inicialment, hi ha diversos Meteorit grans dispersats per tot l'espai i la NauEnemiga a prop d'algun extrem de l'espai. La Nau controlada per l'usuari està al centre.
+/// Hi ha un màxim de nombre de Meteorit  que poden estar dins l'espai del joc al mateix temps. Quan es comença, hi ha un número determinat de meteorits grans, que es va
+/// augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou. 
 ///
-/// Només hi ha una nau enemiga a l'espai. Cada vegada que sigui destruïda, n'apareix una de nova. 
+/// Quan la Nau es destrueix i encara té vides, llavors tarda 5 segons a reapareixer.
+/// Només hi ha una NauEnemiga a l'espai. Cada vegada que sigui destruïda, despres de 5 segons n'apareix una de nova. 
 ///
-/// El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, 
-/// segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts. 
-/// Els controls són els següents:
+/// El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva
+/// puntuació, segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts.
+///
+/// Quan s'acaben les vides de la Nau. És mostra "Game Over" juntament amb la puntuació.
+///
+/// Controls:
+/// --------
 ///	- W: impulsar cap endavant
 ///	- A: rotar cap a l'esquerra
 ///	- D: rotar cap a la dreta
@@ -74,10 +79,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Joc {
 	/// @var int amplada_ 
-	/// @brief Amplada de la pantalla
+	/// @brief Amplada de l'espai del Joc
 	
 	/// @var int altura_
-	/// @brief Altura de la pantalla
+	/// @brief Altura de l'espai del Joc
 	
 	/// @var Nau n_
 	/// @brief Nau controlada pel jugador, de color verd
@@ -98,19 +103,22 @@ public class Joc {
 	/// @brief Conté els RaigLaser disparats per la NauEnemiga ne_
 	
 	/// @var Calendar tempsRaigEnemiga_
-	/// @brief Moment en què s'ha disparat l'últim RaigLaser de la NauEnemiga ne_
+	/// @brief Instant de temps en què s'ha disparat l'últim RaigLaser de la NauEnemiga ne_
 	
-	/// @var Calendar tempsRaigJugador_
-	/// @brief Moment en què s'ha disparat l'últim RaigLaser de la Nau n_
+	/// @var Calendar tempsRaigNau_
+	/// @brief Instant de temps en què s'ha disparat l'últim RaigLaser de la Nau n_
 	
 	/// @var Calendar tempsNauEnemiga_
-	/// @brief Serveix per a controlar la estada de la NauEnemiga dins el joc, fent que esperi 5 segons a tornar a aparèixer
+	/// @brief Instant de temps en el qual la NauEnemiga ha mort
+
+	/// @var Calendar tempsNau_
+	/// @brief Instant de temps en el qual la Nau ha mort
 	
 	/// @var int nVides_
-	/// @brief Conté les vides restants de la Nau n_
+	/// @brief vides restants de la Nau n_
 	
 	/// @var int puntuacio_
-	/// @brief Conté la puntuació obtinguda durant el Joc
+	/// @brief Puntuació de l'usuari
 	
 	/// @var boolean sortir_
 	/// @brief Diu si s'ha de sortir del programa
@@ -119,7 +127,7 @@ public class Joc {
 	/// @brief Diu si s'ha acabat la partida (el programa encara queda obert)
 	
 	/// @var boolean inhibirNau_
-	/// @brief Diu si la Nau està protegida de col·lisions
+	/// @brief Diu si la Nau està protegida de col·lisions, no es pot controlar i no es pot mostrar
 	
 	/// @var boolean disparar_
 	/// @brief Diu si la Nau ha de disparar
@@ -132,6 +140,9 @@ public class Joc {
 	
 	/// @var boolean accelerar_
 	/// @brief Diu si la Nau ha d'accelerar
+
+	/// @var Clip piu_
+	/// @brief So que es reprodueix quan es dispara un RaigLaser
 	
 	
 	int amplada_;
@@ -144,7 +155,7 @@ public class Joc {
 	LinkedList<RaigLaser> rajosLaserNE_;
 	
 	Calendar tempsRaigEnemiga_;
-	Calendar tempsRaigJugador_;
+	Calendar tempsRaigNau_;
 	Calendar tempsNauEnemiga_;
 	Calendar tempsNau_;
 	
@@ -165,7 +176,7 @@ public class Joc {
 	}
 	
 	/// @pre  amplada >= 800 i altura >= 600
-	/// @post s'ha creat una nova partida en un espai d'amplada*altura
+	/// @post s'ha creat Joc amb un espai d'amplada*altura
 	Joc(int amplada, int altura) throws Exception {
 		
 		inhibirNau_ = partidaAcabada_ = sortir_ = disparar_ = rotarEsquerra_ = rotarDreta_ = accelerar_ = false;
@@ -190,7 +201,7 @@ public class Joc {
 		
 		
 		tempsRaigEnemiga_ = new GregorianCalendar();
-		tempsRaigJugador_ = new GregorianCalendar();
+		tempsRaigNau_ = new GregorianCalendar();
 		tempsNauEnemiga_ = new GregorianCalendar();
 		tempsNau_ = new GregorianCalendar();
 		
@@ -199,7 +210,7 @@ public class Joc {
 	}
 	
 	/// @pre  --
-	/// @post es comença a jugar la partida
+	/// @post Mentre no és surti del Joc. Captura l'entrada de l'usuari, actualitza el moviment dels objectes del joc i mostra-ho per pantalla
 	public void jugar() throws Exception {
 		
 		File so = new File("../res/piu.wav");
@@ -212,11 +223,10 @@ public class Joc {
 		actualitzar();
 		while (!sortir_) {
 			if (!partidaAcabada_) {
-				
 				d_.dibuixar(puntuacio_);
 				actualitzar();
+				Thread.sleep(10);
 			}
-			Thread.sleep(10);
 		}
 
 		
@@ -226,7 +236,8 @@ public class Joc {
 	}
 	
 	/// @pre  --
-	/// @post afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 8, evitant que estiguin sobre la Nau
+	/// @post afegeix a posicions aleatories el nombre de meteorits necessaris al Joc, perquè hi hagi un total de 8 Meteorits
+	///       Cap Meteorit colisiona amb la Nau 
 	private void generarMeteoritsInicials() throws Exception {
 		while (meteorits_.size() < 8) {
 			Random rand = new Random();
@@ -244,7 +255,7 @@ public class Joc {
 	}
 	
 	/// @pre  --
-	/// @post afegeix Meteorits al DibuixadorAsteroides i al Joc, fins a un màxim de 8, i els fa sortir per les bandes de la pantalla
+	/// @post afegeix el nombre de meteorits necessaris als marges de l'espai del Joc, perquè hi hagi un total de 8 Meteorits
 	private void generarMeteorits() throws Exception {
 		while (meteorits_.size() < 8) {
 			Random rand = new Random();
@@ -256,61 +267,27 @@ public class Joc {
 	}
 	
 	/// @pre  --
-	/// @post actualitza l'estat del joc, generant meteorits, movent els elements i tractant les col·lisions
+	/// @post actualitza l'estat del joc, generant meteorits i  movent les Naus, Meteorits i Raigs Laser (tractant les col·lisions)
+	///       Si han passat més de 5 segons respecte l'última vegada que la Nau ha mort llavors l'afageix al Joc.
 	private void actualitzar() throws Exception {
 		
 		generarMeteorits(); //Generem Meteorits
 		
-		moureNaus(); //Movem tots els objectes
-		
-		dispararNaus(); //Disparen les Naus (si cal)
+		moureDispararNaus(); //Movem tots els objectes
 		
 		moureMeteoritsIRajosLaser(); //Movem els RajosLaser i els Meteorits
 		
 		tractarColisions(); //Tractem les possibles col·lisions
 
-		Calendar t = new GregorianCalendar();
-		if (inhibirNau_ && t.getTimeInMillis() - tempsNau_.getTimeInMillis() > 1000) {
-			inhibirNau_ = false;
-			d_.afegir(n_);
-		}
-	}
-	
-	/// @pre  --
-	/// @post si la Nau ha de disparar, dispara i afegeix el RaigLaser a la llista de RaigLaser del Joc, fent el mateix amb la NauEnemiga
-	private void dispararNaus() throws Exception {
-		if (disparar_ && !inhibirNau_) {
-			Calendar tempsActual = new GregorianCalendar();
-			if (tempsActual.getTimeInMillis() - tempsRaigJugador_.getTimeInMillis() > 441) {
-				tempsRaigJugador_ = new GregorianCalendar();
-				piu_.setFramePosition(0);
-				piu_.start();
-				RaigLaser r = n_.disparar();
-				rajosLaserNau_.add(r);
-				d_.afegir(r);
-			}
-		}
 		
-		if (ne_ != null) {
-			RaigLaser ra = ne_.atacarNau(n_,meteorits_);
-			if (ra!=null) {
-				Calendar tempsActual = new GregorianCalendar();
-				if (tempsActual.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
-					tempsRaigEnemiga_ = new GregorianCalendar();
-					piu_.setFramePosition(0);
-					piu_.start();
-					d_.afegir(ra);
-					rajosLaserNE_.add(ra);
-				}
-			}
-		}
 	}
-	
+
 	/// @pre  --
-	/// @post mou les Naus del Joc
-	private void moureNaus() throws Exception {
+	/// @post mou NauEnemiga i Nau en el Joc i si disparen llavors afageix els RaigLaser que disparen al Joc
+	private void moureDispararNaus() throws Exception {
 		
 		//Tractem el moviment de la Nau
+		Calendar t = new GregorianCalendar();
 		if (!inhibirNau_) {
 			if (rotarDreta_)
 				n_.rotarDreta();
@@ -321,10 +298,31 @@ public class Joc {
 			if (accelerar_)
 				n_.propulsarEndavant();
 			n_.moure(amplada_,altura_); //Movem la Nau
+
+			if (disparar_ && t.getTimeInMillis() - tempsRaigNau_.getTimeInMillis() > 441) {
+				tempsRaigNau_ = new GregorianCalendar();
+				piu_.setFramePosition(0);
+				piu_.start();
+				RaigLaser r = n_.disparar();
+				rajosLaserNau_.add(r);
+				d_.afegir(r);
+			}
+			
+		} else if (t.getTimeInMillis() - tempsNau_.getTimeInMillis() > 1000) {
+			inhibirNau_ = false;
+			d_.afegir(n_);
 		}
 		
 		
 		if (ne_ != null) {
+			RaigLaser ra = ne_.atacarNau(n_,meteorits_);
+			if (ra != null && t.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
+				tempsRaigEnemiga_ = new GregorianCalendar();
+				piu_.setFramePosition(0);
+				piu_.start();
+				d_.afegir(ra);
+				rajosLaserNE_.add(ra);
+			}
 			ne_.moure(amplada_,altura_); //Movem la NauEnemiga
 		} else { //Si no és viva
 			Calendar tempsActual = new GregorianCalendar();
