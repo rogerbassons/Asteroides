@@ -225,8 +225,8 @@ public class Joc {
 			if (!partidaAcabada_) {
 				d_.dibuixar(puntuacio_);
 				actualitzar();
-				Thread.sleep(10);
 			}
+			Thread.sleep(10);
 		}
 
 		
