@@ -1,12 +1,7 @@
 <map id="Meteorit.puntMesAllunyat" name="Meteorit.puntMesAllunyat">
-<area shape="rect" id="node2" href="$class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="239,107,433,149"/>
-<area shape="rect" id="node3" href="$class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="481,115,636,141"/>
-<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="684,115,795,141"/>
-<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="881,35,957,61"/>
-<area shape="rect" id="node7" href="$class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="843,115,996,141"/>
-<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1111,5,1187,32"/>
-<area shape="rect" id="node8" href="$class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1044,56,1255,83"/>
-<area shape="rect" id="node10" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1061,107,1237,149"/>
-<area shape="rect" id="node11" href="$class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1061,173,1237,214"/>
-<area shape="rect" id="node9" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1303,148,1445,175"/>
+<area shape="rect" id="node2" href="$class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="239,5,433,47"/>
+<area shape="rect" id="node3" href="$class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="481,13,636,39"/>
+<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="684,13,795,39"/>
+<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="843,13,919,39"/>
+<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="967,13,1043,39"/>
 </map>

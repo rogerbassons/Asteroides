@@ -1,13 +1,10 @@
 <map id="Joc.tractarColisionsAmbMeteorits" name="Joc.tractarColisionsAmbMeteorits">
-<area shape="rect" id="node2" href="$class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="313,173,431,200"/>
-<area shape="rect" id="node9" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="943,223,1119,265"/>
-<area shape="rect" id="node11" href="$class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="505,278,676,319"/>
-<area shape="rect" id="node12" href="$class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="287,334,457,375"/>
-<area shape="rect" id="node3" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="535,96,646,123"/>
-<area shape="rect" id="node4" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="763,5,839,32"/>
-<area shape="rect" id="node6" href="$class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="724,136,877,163"/>
-<area shape="rect" id="node5" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="993,5,1069,32"/>
-<area shape="rect" id="node7" href="$class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="925,107,1136,133"/>
-<area shape="rect" id="node10" href="$class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="943,158,1119,199"/>
-<area shape="rect" id="node8" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1184,199,1327,225"/>
+<area shape="rect" id="node2" href="$class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="511,5,684,32"/>
+<area shape="rect" id="node6" href="$class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="289,38,460,79"/>
+<area shape="rect" id="node8" href="$class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="289,103,460,145"/>
+<area shape="rect" id="node9" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="287,169,463,210"/>
+<area shape="rect" id="node3" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="732,49,843,76"/>
+<area shape="rect" id="node4" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="891,49,967,76"/>
+<area shape="rect" id="node5" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1015,49,1091,76"/>
+<area shape="rect" id="node7" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="526,92,669,119"/>
 </map>

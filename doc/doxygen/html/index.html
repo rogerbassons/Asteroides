@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Asteroides: Descripció Asteroides</title>
+<title>Asteroides: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -98,60 +98,15 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Descripció Asteroides </div>  </div>
+<div class="title">Asteroides Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Mòdul que gestiona la lògica, la física i la interfície del joc.El <a class="el" href="class_joc.html">Joc</a> conté quatre tipus d'elements:</p><ul>
-<li><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>: <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> pròpia controlada per l'usuari.</li>
-<li><a class="el" href="class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. ">NauEnemiga</a>: <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> controlada per la màquina (AI).</li>
-<li>Meteorits: Objectes controlats per la màquina, que van a la deriva.</li>
-<li>RaigLasers: raig disparat per <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> i <a class="el" href="class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. ">NauEnemiga</a>, que destrueix Meteorits i Naus.</li>
-</ul>
-<h2>Funcionament general del <a class="el" href="class_joc.html">Joc</a>: </h2>
-<p><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>:</p><ul>
-<li>Rota sobre si mateixa. Té un coet propulsor que l'impulsa endavant.</li>
-<li>Quan abandoni l'espai visible per l'usuari, per algun dels costats de la finestra, apareixerà pel costat invers, conservant el moviment que portava.</li>
-<li>Té forma de triangle isòsceles.</li>
-<li>Si s'acaben les vides de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>, la partida s'ha acabat.</li>
-<li>Un cop s'ha començat a moure en una direcció, es continua movent en aquesta direcció durant un temps determinat mentre l'usuari no intervingui, simulant la ingravidesa de l'espai, i al mateix temps, facilitant el control de la nau.</li>
-</ul>
-<p><a class="el" href="class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. ">NauEnemiga</a>:</p><ul>
-<li>Hi ha una <a class="el" href="class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. ">NauEnemiga</a> que intenta, per qualsevol mitjà (disparant i col·lisionant), destruir la nau de l'usuari.</li>
-<li>Té el mateix comportament que la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> espacial controlada per l'usuari.</li>
-<li>Excepte:<ul>
-<li>L'objectiu d'aquesta nau és destruir la nau de l'usuari.</li>
-<li>Per a destruir la nau de l'usuari dispara rajos làser i la persegueix.</li>
-</ul>
-</li>
-<li>La <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> i la <a class="el" href="class_nau_enemiga.html" title="Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. ">NauEnemiga</a> poden disparar RajosLaser.</li>
-</ul>
-<p><a class="el" href="class_raig_laser.html" title="És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit...">RaigLaser</a>:</p><ul>
-<li>Els <a class="el" href="class_raig_laser.html" title="És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit...">RaigLaser</a> poden col·lisionar amb Meteorits o amb les Naus.</li>
-</ul>
-<p><a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>:</p><ul>
-<li>És un objecte que es mou amb una velocitat i direcció pseudoaleatòries (entre un rang determinat)</li>
-<li>Té una forma d'un polígon irregular, pseudoaleatòria</li>
-<li>Els Meteorits no col·lisionen entre si, s'atravessen.</li>
-<li>Quan un <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> gran col·lisiona amb un <a class="el" href="class_raig_laser.html" title="És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit...">RaigLaser</a> o una <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>, es divideix en dos Meteorits petits.</li>
-<li>Si xoca contra una nau, destrueix la nau amb la qual ha xocat.</li>
-<li>Quan un <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> petit col·lisiona amb un <a class="el" href="class_raig_laser.html" title="És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit...">RaigLaser</a> o una <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>, aquest desapareix.</li>
-</ul>
-<h2>Descripció general: </h2>
-<p>Inicialment, hi ha meteorits grans dispersats per tot l'espai i la nau enemiga a prop d'algun extrem de l'espai. La nau controlada per l'usuari està al centre i cap meteorit està a sobre seu. Hi ha un límit definit de meteorits que poden estar dins l'espai del joc. Quan es comença, hi ha un número determinat de meteorits grans, que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou.</p>
-<p>Només hi ha una nau enemiga a l'espai. Cada vegada que sigui destruïda, n'apareix una de nova.</p>
-<p>El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts. Els controls són els següents:</p><ul>
-<li>W: impulsar cap endavant</li>
-<li>A: rotar cap a l'esquerra</li>
-<li>D: rotar cap a la dreta</li>
-<li>Espai: disparar rajos làser</li>
-<li>ESC: sortir del joc </li>
-</ul>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 17 2015 16:07:01 for Asteroides by
+    <li class="footer">Generated on Tue May 19 2015 19:09:53 for Asteroides by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

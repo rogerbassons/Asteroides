@@ -15,11 +15,9 @@ import java.util.Calendar;
 import java.awt.Shape;
 import java.util.concurrent.TimeUnit;
 
-/// @mainpage Descripció Asteroides
-///
 /// @brief Controla una Nau a l'espai evitant i atacant Meteorits i Naus Enemigues
 ///
-/// El Joc conté quatre tipus d'elements:
+/// El Joc conté quatre tipus d'ObjecteJoc:
 ///	- Nau: Nau pròpia controlada per l'usuari.
 ///	- NauEnemiga: Nau controlada per la màquina (AI).
 ///	- Meteorit: Objectes controlats per la màquina, que van a la deriva.

@@ -1,17 +1,11 @@
 <map id="Nau.rotarDreta" name="Nau.rotarDreta">
-<area shape="rect" id="node2" href="$class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="688,57,807,84"/>
-<area shape="rect" id="node11" href="$class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f" title="NauEnemiga.alinearse" alt="" coords="172,129,339,156"/>
-<area shape="rect" id="node3" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1060,115,1171,141"/>
-<area shape="rect" id="node4" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1257,35,1333,61"/>
-<area shape="rect" id="node6" href="$class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="1219,115,1372,141"/>
-<area shape="rect" id="node5" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1487,5,1563,32"/>
-<area shape="rect" id="node7" href="$class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1420,56,1631,83"/>
-<area shape="rect" id="node9" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1437,107,1613,149"/>
-<area shape="rect" id="node10" href="$class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1437,173,1613,214"/>
-<area shape="rect" id="node8" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1679,148,1821,175"/>
-<area shape="rect" id="node12" href="$class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f" title="NauEnemiga.apuntaDispara" alt="" coords="398,104,601,131"/>
-<area shape="rect" id="node15" href="$class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18" title="NauEnemiga.movimentObjectiu" alt="" coords="387,155,612,181"/>
-<area shape="rect" id="node16" href="$class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a" title="NauEnemiga.evitarMeteorits" alt="" coords="397,205,601,232"/>
-<area shape="rect" id="node13" href="$class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7" title="NauEnemiga.atacarNau" alt="" coords="660,152,835,179"/>
-<area shape="rect" id="node14" href="$class_joc.html#a82b3c98f504183b2ade08ae6f7fbbdce" title="Joc.dispararNaus" alt="" coords="883,145,1012,172"/>
+<area shape="rect" id="node2" href="$class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="883,5,1056,32"/>
+<area shape="rect" id="node6" href="$class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f" title="NauEnemiga.alinearse" alt="" coords="172,56,339,83"/>
+<area shape="rect" id="node3" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1104,5,1215,32"/>
+<area shape="rect" id="node4" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1263,5,1339,32"/>
+<area shape="rect" id="node5" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1387,5,1463,32"/>
+<area shape="rect" id="node7" href="$class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f" title="NauEnemiga.apuntaDispara" alt="" coords="398,31,601,57"/>
+<area shape="rect" id="node9" href="$class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18" title="NauEnemiga.movimentObjectiu" alt="" coords="387,81,612,108"/>
+<area shape="rect" id="node10" href="$class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a" title="NauEnemiga.evitarMeteorits" alt="" coords="397,132,601,159"/>
+<area shape="rect" id="node8" href="$class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7" title="NauEnemiga.atacarNau" alt="" coords="660,56,835,83"/>
 </map>

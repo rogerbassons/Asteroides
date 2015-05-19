@@ -1,12 +1,7 @@
 <map id="Nau.haSortit" name="Nau.haSortit">
-<area shape="rect" id="node2" href="$class_nau.html#a8dc46f91e02910b92bfad9b798f6552c" title="Nau.moure" alt="" coords="156,115,251,141"/>
-<area shape="rect" id="node3" href="$class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="299,115,417,141"/>
-<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="465,115,576,141"/>
-<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="663,35,739,61"/>
-<area shape="rect" id="node7" href="$class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="624,115,777,141"/>
-<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="893,5,969,32"/>
-<area shape="rect" id="node8" href="$class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="825,56,1036,83"/>
-<area shape="rect" id="node10" href="$class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="843,107,1019,149"/>
-<area shape="rect" id="node11" href="$class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="843,173,1019,214"/>
-<area shape="rect" id="node9" href="$class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1084,148,1227,175"/>
+<area shape="rect" id="node2" href="$class_nau.html#a8dc46f91e02910b92bfad9b798f6552c" title="Nau.moure" alt="" coords="156,5,251,32"/>
+<area shape="rect" id="node3" href="$class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="299,5,472,32"/>
+<area shape="rect" id="node4" href="$class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="520,5,631,32"/>
+<area shape="rect" id="node5" href="$class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="679,5,755,32"/>
+<area shape="rect" id="node6" href="$class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="803,5,879,32"/>
 </map>

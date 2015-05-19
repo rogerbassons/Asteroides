@@ -191,7 +191,8 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents. També pot tenir dues mides, gran o petit. </p>
 <h2>Comportament bàsic: </h2>
-<p>Apareix en la posició donada al constructor, coordenada (x,y)</p><ul>
+<ul>
+<li>Apareix en la posició donada al constructor, coordenada (x,y)</li>
 <li>Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria</li>
 <li>És controlat per la màquina</li>
 <li>Segons la mida (1 o 2) serà gran o petit, respectivament</li>
@@ -200,12 +201,13 @@ Private Attributes</h2></td></tr>
 <li>Si es destrueix un meteorit petit, desapareix</li>
 </ul>
 <h2>Supòsits sobre l'area(a) on es mou el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>: </h2>
-<p>Té mida fixa i no canvia mentre existeix el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> És un pla amb:</p><ul>
+<p>Té mida fixa i no canvia mentre existeix el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>.</p>
+<p>És un pla amb:</p><ul>
 <li>un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)</li>
+<li>un eix vertical Y que augmenta de dalt a baix (a baix és més) </li>
 </ul>
-<p>un eix vertical Y que augmenta de dalt a baix (a baix és més) </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00030">30</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00031">31</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9dcc96793a206baab2cc5aa5141a30f5"></a>
 <div class="memitem">
@@ -251,7 +253,7 @@ Private Attributes</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> té una velocitat v, una direcció angle i una mida m, està situat a (x,y) </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00054">54</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00055">55</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -267,7 +269,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5_icgraph.png" border="0" usemap="#class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5_icgraph" alt=""/></div>
 <map name="class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5_icgraph" id="class_meteorit_a9dcc96793a206baab2cc5aa5141a30f5_icgraph">
-<area shape="rect" id="node2" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="185,253,301,280"/><area shape="rect" id="node3" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="349,253,583,280"/><area shape="rect" id="node4" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="657,173,775,200"/><area shape="rect" id="node11" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1287,223,1463,265"/><area shape="rect" id="node13" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="849,278,1020,319"/><area shape="rect" id="node14" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="631,334,801,375"/><area shape="rect" id="node5" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="879,96,990,123"/><area shape="rect" id="node6" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1107,5,1183,32"/><area shape="rect" id="node8" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="1068,136,1221,163"/><area shape="rect" id="node7" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1337,5,1413,32"/><area shape="rect" id="node9" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1269,107,1480,133"/><area shape="rect" id="node12" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1287,158,1463,199"/><area shape="rect" id="node10" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1528,199,1671,225"/></map>
+<area shape="rect" id="node2" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="185,79,301,105"/><area shape="rect" id="node3" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="349,79,583,105"/><area shape="rect" id="node4" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="855,5,1028,32"/><area shape="rect" id="node8" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="633,38,804,79"/><area shape="rect" id="node10" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="633,103,804,145"/><area shape="rect" id="node11" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="631,169,807,210"/><area shape="rect" id="node5" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1076,49,1187,76"/><area shape="rect" id="node6" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1235,49,1311,76"/><area shape="rect" id="node7" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1359,49,1435,76"/><area shape="rect" id="node9" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="870,92,1013,119"/></map>
 </div>
 </p>
 
@@ -292,7 +294,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="interface_objecte_joc.html#a0d472e898df5faf145a2480ab51e3ef8">ObjecteJoc</a>.</p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00369">369</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00370">370</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -311,7 +313,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> és gran </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> s'ha reduit a petit i es situa al centre del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> inicial, es retorna un altre <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> també de mida petita amb forma i direcció aleatòries, situat també al centre del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> inicial, l'angle de velocitat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> retornat és diferent en 45 graus com a mínim respecte l'angle de velocitat de m </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00187">187</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00188">188</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -327,7 +329,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_aa4b891941b6ef30774a45d6965266170_icgraph.png" border="0" usemap="#class_meteorit_aa4b891941b6ef30774a45d6965266170_icgraph" alt=""/></div>
 <map name="class_meteorit_aa4b891941b6ef30774a45d6965266170_icgraph" id="class_meteorit_aa4b891941b6ef30774a45d6965266170_icgraph">
-<area shape="rect" id="node2" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="169,253,403,280"/><area shape="rect" id="node3" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="477,173,595,200"/><area shape="rect" id="node10" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1107,223,1283,265"/><area shape="rect" id="node12" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="669,278,840,319"/><area shape="rect" id="node13" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="451,334,621,375"/><area shape="rect" id="node4" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="699,96,810,123"/><area shape="rect" id="node5" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="927,5,1003,32"/><area shape="rect" id="node7" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="888,136,1041,163"/><area shape="rect" id="node6" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1157,5,1233,32"/><area shape="rect" id="node8" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1089,107,1300,133"/><area shape="rect" id="node11" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1107,158,1283,199"/><area shape="rect" id="node9" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1348,199,1491,225"/></map>
+<area shape="rect" id="node2" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="169,79,403,105"/><area shape="rect" id="node3" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="675,5,848,32"/><area shape="rect" id="node7" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="453,38,624,79"/><area shape="rect" id="node9" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="453,103,624,145"/><area shape="rect" id="node10" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="451,169,627,210"/><area shape="rect" id="node4" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="896,49,1007,76"/><area shape="rect" id="node5" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1055,49,1131,76"/><area shape="rect" id="node6" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1179,49,1255,76"/><area shape="rect" id="node8" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="690,92,833,119"/></map>
 </div>
 </p>
 
@@ -348,14 +350,14 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> és divisible </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00209">209</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00210">210</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_ab7f4539dc26a5026d8978918620db253_icgraph.png" border="0" usemap="#class_meteorit_ab7f4539dc26a5026d8978918620db253_icgraph" alt=""/></div>
 <map name="class_meteorit_ab7f4539dc26a5026d8978918620db253_icgraph" id="class_meteorit_ab7f4539dc26a5026d8978918620db253_icgraph">
-<area shape="rect" id="node2" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="183,253,416,280"/><area shape="rect" id="node3" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="490,173,609,200"/><area shape="rect" id="node10" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1120,223,1296,265"/><area shape="rect" id="node12" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="683,278,853,319"/><area shape="rect" id="node13" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="464,334,635,375"/><area shape="rect" id="node4" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="713,96,823,123"/><area shape="rect" id="node5" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="940,5,1016,32"/><area shape="rect" id="node7" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="901,136,1055,163"/><area shape="rect" id="node6" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1170,5,1246,32"/><area shape="rect" id="node8" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1103,107,1313,133"/><area shape="rect" id="node11" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1120,158,1296,199"/><area shape="rect" id="node9" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1361,199,1504,225"/></map>
+<area shape="rect" id="node2" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="183,79,416,105"/><area shape="rect" id="node3" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="688,5,861,32"/><area shape="rect" id="node7" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="467,38,637,79"/><area shape="rect" id="node9" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="467,103,637,145"/><area shape="rect" id="node10" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="464,169,640,210"/><area shape="rect" id="node4" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="909,49,1020,76"/><area shape="rect" id="node5" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1068,49,1144,76"/><area shape="rect" id="node6" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1192,49,1268,76"/><area shape="rect" id="node8" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="703,92,846,119"/></map>
 </div>
 </p>
 
@@ -401,14 +403,14 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>la mida és 1 o 2 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> conté el dibuix 1, 2, 3 o 4 segons forma, aplicant-li la seva mida </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00132">132</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00133">133</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_a0bc8468013d85caed1efe51b98397069_icgraph.png" border="0" usemap="#class_meteorit_a0bc8468013d85caed1efe51b98397069_icgraph" alt=""/></div>
 <map name="class_meteorit_a0bc8468013d85caed1efe51b98397069_icgraph" id="class_meteorit_a0bc8468013d85caed1efe51b98397069_icgraph">
-<area shape="rect" id="node2" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="220,277,352,304"/><area shape="rect" id="node3" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="400,252,516,279"/><area shape="rect" id="node4" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="564,252,797,279"/><area shape="rect" id="node5" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="871,173,990,200"/><area shape="rect" id="node12" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1501,223,1677,265"/><area shape="rect" id="node14" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="1064,278,1235,319"/><area shape="rect" id="node15" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="845,333,1016,374"/><area shape="rect" id="node6" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1094,96,1205,123"/><area shape="rect" id="node7" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1321,5,1397,32"/><area shape="rect" id="node9" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="1283,136,1436,163"/><area shape="rect" id="node8" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1551,5,1627,32"/><area shape="rect" id="node10" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1484,107,1695,133"/><area shape="rect" id="node13" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1501,158,1677,199"/><area shape="rect" id="node11" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1743,199,1885,225"/></map>
+<area shape="rect" id="node2" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="220,53,352,80"/><area shape="rect" id="node3" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="400,79,516,105"/><area shape="rect" id="node4" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="564,79,797,105"/><area shape="rect" id="node5" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="1069,5,1243,32"/><area shape="rect" id="node9" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="848,38,1019,79"/><area shape="rect" id="node11" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="848,103,1019,145"/><area shape="rect" id="node12" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="845,169,1021,210"/><area shape="rect" id="node6" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1291,49,1401,76"/><area shape="rect" id="node7" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1449,49,1525,76"/><area shape="rect" id="node8" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1573,49,1649,76"/><area shape="rect" id="node10" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1085,92,1227,119"/></map>
 </div>
 </p>
 
@@ -448,7 +450,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>diu si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> ha sortit de l'area amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00266">266</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00267">267</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -496,7 +498,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Desplaça el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> a la posició(p) determinada per totes les velocitats del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> Si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>, situat a la posició p, està totalment fora de l'area amplada*altura llavors el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> es teletransporta al marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta) </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00217">217</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00218">218</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -532,14 +534,14 @@ Here is the call graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula(t) que conte els punts del poligon coordenada (t[i],t[i+1]) per i = 0 fins al nombre de vèrtexs*2-2 increment 2 </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00351">351</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00352">352</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_a237af5bb28238c5e76d1cea55b4457b6_icgraph.png" border="0" usemap="#class_meteorit_a237af5bb28238c5e76d1cea55b4457b6_icgraph" alt=""/></div>
 <map name="class_meteorit_a237af5bb28238c5e76d1cea55b4457b6_icgraph" id="class_meteorit_a237af5bb28238c5e76d1cea55b4457b6_icgraph">
-<area shape="rect" id="node2" href="class_meteorit.html#a353fa1242e850f582f792605167e58e7" title="Meteorit.puntMesAllunyat" alt="" coords="276,124,461,151"/><area shape="rect" id="node13" href="class_meteorit.html#ac447d4590c8de8fd6153402a512adee2" title="Meteorit.haSortit" alt="" coords="303,229,434,256"/><area shape="rect" id="node15" href="class_meteorit.html#ab63300b6281833f51f228bf8fb49c035" title="Meteorit.puntProperAlCentre\lDeArea" alt="" coords="266,281,471,322"/><area shape="rect" id="node16" href="class_meteorit.html#aec4418bf83baf51641639ef97407b03f" title="Meteorit.puntLlunyaAlCentre\lDeArea" alt="" coords="267,346,471,387"/><area shape="rect" id="node17" href="class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="270,179,467,205"/><area shape="rect" id="node24" href="class_meteorit.html#a685d6a89435a2fb03f1d8ebdeb70cb14" title="Meteorit.puntVertexMesProper" alt="" coords="260,412,477,439"/><area shape="rect" id="node3" href="class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="525,115,720,157"/><area shape="rect" id="node4" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="971,123,1126,149"/><area shape="rect" id="node5" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1462,123,1573,149"/><area shape="rect" id="node6" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1689,5,1765,32"/><area shape="rect" id="node8" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="1651,145,1804,172"/><area shape="rect" id="node7" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1919,5,1995,32"/><area shape="rect" id="node9" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1852,107,2063,133"/><area shape="rect" id="node11" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1869,223,2045,265"/><area shape="rect" id="node12" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1869,158,2045,199"/><area shape="rect" id="node10" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="2111,199,2253,225"/><area shape="rect" id="node14" href="class_meteorit.html#af23ae6e1b16f750542711547cbe4957c" title="Meteorit.moure" alt="" coords="562,288,683,315"/><area shape="rect" id="node18" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="557,232,689,259"/><area shape="rect" id="node19" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="768,228,884,255"/><area shape="rect" id="node20" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="932,228,1165,255"/><area shape="rect" id="node21" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="1239,175,1358,201"/><area shape="rect" id="node22" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="1432,278,1603,319"/><area shape="rect" id="node23" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="1213,334,1384,375"/></map>
+<area shape="rect" id="node2" href="class_meteorit.html#a353fa1242e850f582f792605167e58e7" title="Meteorit.puntMesAllunyat" alt="" coords="276,188,461,215"/><area shape="rect" id="node8" href="class_meteorit.html#ac447d4590c8de8fd6153402a512adee2" title="Meteorit.haSortit" alt="" coords="303,5,434,32"/><area shape="rect" id="node10" href="class_meteorit.html#ab63300b6281833f51f228bf8fb49c035" title="Meteorit.puntProperAlCentre\lDeArea" alt="" coords="266,57,471,98"/><area shape="rect" id="node11" href="class_meteorit.html#aec4418bf83baf51641639ef97407b03f" title="Meteorit.puntLlunyaAlCentre\lDeArea" alt="" coords="267,122,471,163"/><area shape="rect" id="node12" href="class_meteorit.html#a8d316ea738e82c4c9b2e02bc787e8bdc" title="Meteorit.puntCentrePoligon" alt="" coords="270,239,467,265"/><area shape="rect" id="node21" href="class_meteorit.html#a685d6a89435a2fb03f1d8ebdeb70cb14" title="Meteorit.puntVertexMesProper" alt="" coords="260,289,477,316"/><area shape="rect" id="node3" href="class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="525,177,720,218"/><area shape="rect" id="node4" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="971,184,1126,211"/><area shape="rect" id="node5" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1659,235,1769,261"/><area shape="rect" id="node6" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1817,235,1893,261"/><area shape="rect" id="node7" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1941,235,2017,261"/><area shape="rect" id="node9" href="class_meteorit.html#af23ae6e1b16f750542711547cbe4957c" title="Meteorit.moure" alt="" coords="562,64,683,91"/><area shape="rect" id="node13" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="557,243,689,269"/><area shape="rect" id="node14" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="768,293,884,320"/><area shape="rect" id="node15" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="932,293,1165,320"/><area shape="rect" id="node16" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="1437,235,1611,261"/><area shape="rect" id="node17" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="1216,286,1387,327"/><area shape="rect" id="node19" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="1216,351,1387,393"/><area shape="rect" id="node20" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1213,417,1389,458"/><area shape="rect" id="node18" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1453,325,1595,352"/></map>
 </div>
 </p>
 
@@ -560,14 +562,14 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna el polígon del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00376">376</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00377">377</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b_icgraph.png" border="0" usemap="#class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b_icgraph" alt=""/></div>
 <map name="class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b_icgraph" id="class_meteorit_a31192464dbdc8e1bac9ae57c87ac6e2b_icgraph">
-<area shape="rect" id="node2" href="class_joc.html#ab4169a454c9b3b6b6030fd785483a15d" title="Joc.generarMeteoritsInicials" alt="" coords="719,25,915,52"/><area shape="rect" id="node5" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="219,223,452,249"/><area shape="rect" id="node3" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1001,5,1077,32"/><area shape="rect" id="node4" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1231,5,1307,32"/><area shape="rect" id="node6" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="526,135,645,161"/><area shape="rect" id="node11" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1181,223,1357,265"/><area shape="rect" id="node13" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="731,274,902,315"/><area shape="rect" id="node14" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="500,331,671,373"/><area shape="rect" id="node7" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="761,96,872,123"/><area shape="rect" id="node8" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="963,136,1116,163"/><area shape="rect" id="node9" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1164,107,1375,133"/><area shape="rect" id="node12" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1181,158,1357,199"/><area shape="rect" id="node10" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1423,199,1565,225"/></map>
+<area shape="rect" id="node2" href="class_joc.html#ab4169a454c9b3b6b6030fd785483a15d" title="Joc.generarMeteoritsInicials" alt="" coords="724,5,920,32"/><area shape="rect" id="node5" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="219,115,452,141"/><area shape="rect" id="node3" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1127,31,1203,57"/><area shape="rect" id="node4" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1251,31,1327,57"/><area shape="rect" id="node6" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="735,56,909,83"/><area shape="rect" id="node8" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="503,107,673,149"/><area shape="rect" id="node10" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="503,173,673,214"/><area shape="rect" id="node11" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="500,238,676,279"/><area shape="rect" id="node7" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="968,56,1079,83"/><area shape="rect" id="node9" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="751,148,893,175"/></map>
 </div>
 </p>
 
@@ -596,7 +598,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del centre del polígon </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00315">315</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00316">316</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -612,7 +614,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc_icgraph.png" border="0" usemap="#class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc_icgraph" alt=""/></div>
 <map name="class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc_icgraph" id="class_meteorit_a8d316ea738e82c4c9b2e02bc787e8bdc_icgraph">
-<area shape="rect" id="node2" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="251,130,383,157"/><area shape="rect" id="node3" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="470,130,586,157"/><area shape="rect" id="node16" href="class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="431,224,625,265"/><area shape="rect" id="node4" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="673,130,907,157"/><area shape="rect" id="node5" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="981,181,1099,207"/><area shape="rect" id="node12" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1611,123,1787,164"/><area shape="rect" id="node14" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="1173,5,1344,47"/><area shape="rect" id="node15" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="955,64,1125,105"/><area shape="rect" id="node6" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1203,231,1314,258"/><area shape="rect" id="node7" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1431,275,1507,302"/><area shape="rect" id="node9" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="1392,214,1545,241"/><area shape="rect" id="node8" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1661,305,1737,331"/><area shape="rect" id="node10" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1593,254,1804,281"/><area shape="rect" id="node13" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1611,188,1787,229"/><area shape="rect" id="node11" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1852,163,1995,190"/><area shape="rect" id="node17" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="713,231,867,258"/></map>
+<area shape="rect" id="node2" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="251,108,383,134"/><area shape="rect" id="node3" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="470,108,586,134"/><area shape="rect" id="node13" href="class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="431,215,625,256"/><area shape="rect" id="node4" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="673,105,907,132"/><area shape="rect" id="node5" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="1179,18,1352,45"/><area shape="rect" id="node9" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="957,32,1128,74"/><area shape="rect" id="node11" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="957,98,1128,139"/><area shape="rect" id="node12" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="955,163,1131,204"/><area shape="rect" id="node6" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1400,105,1511,132"/><area shape="rect" id="node7" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1559,105,1635,132"/><area shape="rect" id="node8" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1683,105,1759,132"/><area shape="rect" id="node10" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1194,105,1337,132"/><area shape="rect" id="node14" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="713,228,867,254"/></map>
 </div>
 </p>
 
@@ -652,7 +654,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del poligon més llunya al centre de l'area amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00297">297</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00298">298</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -698,7 +700,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna el punt més allunyat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> respecte punt </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00106">106</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00107">107</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -714,7 +716,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_a353fa1242e850f582f792605167e58e7_icgraph.png" border="0" usemap="#class_meteorit_a353fa1242e850f582f792605167e58e7_icgraph" alt=""/></div>
 <map name="class_meteorit_a353fa1242e850f582f792605167e58e7_icgraph" id="class_meteorit_a353fa1242e850f582f792605167e58e7_icgraph">
-<area shape="rect" id="node2" href="class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="239,107,433,149"/><area shape="rect" id="node3" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="481,115,636,141"/><area shape="rect" id="node4" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="684,115,795,141"/><area shape="rect" id="node5" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="881,35,957,61"/><area shape="rect" id="node7" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="843,115,996,141"/><area shape="rect" id="node6" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1111,5,1187,32"/><area shape="rect" id="node8" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1044,56,1255,83"/><area shape="rect" id="node10" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1061,107,1237,149"/><area shape="rect" id="node11" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1061,173,1237,214"/><area shape="rect" id="node9" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1303,148,1445,175"/></map>
+<area shape="rect" id="node2" href="class_meteorit.html#ab1e8e957f4ba216253d211523f2b3091" title="Meteorit.situarAlCostatMes\lProper" alt="" coords="239,5,433,47"/><area shape="rect" id="node3" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="481,13,636,39"/><area shape="rect" id="node4" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="684,13,795,39"/><area shape="rect" id="node5" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="843,13,919,39"/><area shape="rect" id="node6" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="967,13,1043,39"/></map>
 </div>
 </p>
 
@@ -754,7 +756,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del poligon més proper al centre de l'area amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00279">279</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00280">280</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -802,7 +804,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna la distància entre el punt (x,y) i el punt més proper del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00332">332</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00333">333</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -839,14 +841,14 @@ Here is the call graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>rota el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> un angle graus </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00124">124</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00125">125</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_a429daccf37f941ac0395a1838f0991a2_icgraph.png" border="0" usemap="#class_meteorit_a429daccf37f941ac0395a1838f0991a2_icgraph" alt=""/></div>
 <map name="class_meteorit_a429daccf37f941ac0395a1838f0991a2_icgraph" id="class_meteorit_a429daccf37f941ac0395a1838f0991a2_icgraph">
-<area shape="rect" id="node2" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="164,253,296,280"/><area shape="rect" id="node3" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="344,253,460,280"/><area shape="rect" id="node4" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="508,253,741,280"/><area shape="rect" id="node5" href="class_joc.html#a9b0d8fa2d2613d958dc8bf650ae78a34" title="Joc.moureNaus" alt="" coords="815,173,934,200"/><area shape="rect" id="node12" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="1445,223,1621,265"/><area shape="rect" id="node14" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="1008,278,1179,319"/><area shape="rect" id="node15" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="789,334,960,375"/><area shape="rect" id="node6" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1038,96,1149,123"/><area shape="rect" id="node7" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1265,5,1341,32"/><area shape="rect" id="node9" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="1227,136,1380,163"/><area shape="rect" id="node8" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1495,5,1571,32"/><area shape="rect" id="node10" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="1428,107,1639,133"/><area shape="rect" id="node13" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="1445,158,1621,199"/><area shape="rect" id="node11" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1687,199,1829,225"/></map>
+<area shape="rect" id="node2" href="class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5" title="Meteorit.Meteorit" alt="" coords="164,79,296,105"/><area shape="rect" id="node3" href="class_meteorit.html#aa4b891941b6ef30774a45d6965266170" title="Meteorit.dividir" alt="" coords="344,79,460,105"/><area shape="rect" id="node4" href="class_joc.html#a16b0be1ee6298106946df8150044f667" title="Joc.tractarColisionsAmbMeteorits" alt="" coords="508,79,741,105"/><area shape="rect" id="node5" href="class_joc.html#a5e56bca64b024955afe5269cbc79ca79" title="Joc.moureDispararNaus" alt="" coords="1013,5,1187,32"/><area shape="rect" id="node9" href="class_joc.html#a9a3116242cc69985726f4825be70a9b5" title="Joc.tractarColisionsRaig\lLaserNauMeteorit" alt="" coords="792,38,963,79"/><area shape="rect" id="node11" href="class_joc.html#af717aa44d1134343a67fc08374c3af45" title="Joc.tractarColisionsRaig\lLaserNEMeteorit" alt="" coords="792,103,963,145"/><area shape="rect" id="node12" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="789,169,965,210"/><area shape="rect" id="node6" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="1235,49,1345,76"/><area shape="rect" id="node7" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="1393,49,1469,76"/><area shape="rect" id="node8" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="1517,49,1593,76"/><area shape="rect" id="node10" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1029,92,1171,119"/></map>
 </div>
 </p>
 
@@ -878,7 +880,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>situa el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> a la banda de la pantalla més propera d'on es troba el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. L'àrea de la pantalla és amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00073">73</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00074">74</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -894,7 +896,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteorit_ab1e8e957f4ba216253d211523f2b3091_icgraph.png" border="0" usemap="#class_meteorit_ab1e8e957f4ba216253d211523f2b3091_icgraph" alt=""/></div>
 <map name="class_meteorit_ab1e8e957f4ba216253d211523f2b3091_icgraph" id="class_meteorit_ab1e8e957f4ba216253d211523f2b3091_icgraph">
-<area shape="rect" id="node2" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="248,115,403,141"/><area shape="rect" id="node3" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="451,115,561,141"/><area shape="rect" id="node4" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="648,35,724,61"/><area shape="rect" id="node6" href="class_joc.html#a471c58ad94b7a8732a6b3e4695f2a691" title="Joc.xocarNauJugador" alt="" coords="609,115,763,141"/><area shape="rect" id="node5" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="878,5,954,32"/><area shape="rect" id="node7" href="class_joc.html#abc5db47ede50ddeccb50b2872d05cb6c" title="Joc.tractarColisionsEntreNaus" alt="" coords="811,56,1021,83"/><area shape="rect" id="node9" href="class_joc.html#acf31c665e8f734f15f40f8e6792e8bba" title="Joc.tractarColisionsNaus\lMeteorit" alt="" coords="828,107,1004,149"/><area shape="rect" id="node10" href="class_joc.html#a9ccc5adec1e7efdd6c01ba393d3686c6" title="Joc.tractarColisionsNaus\lRajosLaser" alt="" coords="828,173,1004,214"/><area shape="rect" id="node8" href="class_joc.html#a1be330c10f1e2ee06f696e0a0bdec7c7" title="Joc.tractarColisions" alt="" coords="1069,148,1212,175"/></map>
+<area shape="rect" id="node2" href="class_joc.html#afb711913c78395c05839c3f775792beb" title="Joc.generarMeteorits" alt="" coords="248,13,403,39"/><area shape="rect" id="node3" href="class_joc.html#aafe85787281ae19be9ee44aabc5c116c" title="Joc.actualitzar" alt="" coords="451,13,561,39"/><area shape="rect" id="node4" href="class_joc.html#aa5da4464cac2dc81f26430ac16fa7029" title="Joc.jugar" alt="" coords="609,13,685,39"/><area shape="rect" id="node5" href="class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29" title="Joc.main" alt="" coords="733,13,809,39"/></map>
 </div>
 </p>
 
@@ -921,7 +923,7 @@ Here is the caller graph for this function:</div>
 
 <p>Angle_ del vector velocitat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00049">49</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00050">50</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -945,7 +947,7 @@ Here is the caller graph for this function:</div>
 
 <p>Val 1 si el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a> és gran i 2 si és petit. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00047">47</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00048">48</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -969,7 +971,7 @@ Here is the caller graph for this function:</div>
 
 <p>Nombre de vèrtexs que té el <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00050">50</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00051">51</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -993,7 +995,7 @@ Here is the caller graph for this function:</div>
 
 <p>Camí geomètric que forma un polígon irregular tancat (pot contenir quatre formes diferents) i dues mides. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00046">46</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00047">47</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -1017,7 +1019,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mòdul del vector velocitat del <a class="el" href="class_meteorit.html" title="És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents...">Meteorit</a>. </p>
 
-<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00048">48</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
+<p>Definition at line <a class="el" href="_meteorit_8java_source.html#l00049">49</a> of file <a class="el" href="_meteorit_8java_source.html">Meteorit.java</a>.</p>
 
 </div>
 </div>
@@ -1030,7 +1032,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_meteorit.html">Meteorit</a></li>
-    <li class="footer">Generated on Sun May 17 2015 16:07:01 for Asteroides by
+    <li class="footer">Generated on Tue May 19 2015 19:09:53 for Asteroides by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
