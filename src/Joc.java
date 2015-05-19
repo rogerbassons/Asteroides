@@ -211,7 +211,7 @@ public class Joc {
 	/// @post Mentre no és surti del Joc. Captura l'entrada de l'usuari, actualitza el moviment dels objectes del joc i mostra-ho per pantalla
 	public void jugar() throws Exception {
 		
-		File so = new File("../res/piu.wav");
+		File so = new File("res/piu.wav");
 		AudioInputStream a = AudioSystem.getAudioInputStream(so);
 		piu_ = AudioSystem.getClip();
 		piu_.open(a);
