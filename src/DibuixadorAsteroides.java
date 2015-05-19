@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.Iterator;
 import java.awt.event.KeyListener;
 import java.awt.Font;
+import java.awt.FontMetrics;
 
 /// @brief Dibuixa multiples ObjecteJoc a una finestra
 ///
@@ -109,9 +110,11 @@ public class DibuixadorAsteroides {
 		BufferStrategy buff = c_.getBufferStrategy();
 		Graphics g = buff.getDrawGraphics();
 		g.clearRect(0,0,amplada_,altura_);
+
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 20)); 
 		g.drawString(Integer.toString(puntuacio),amplada_ / 34,altura_ / 15);
+		
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		
@@ -120,6 +123,40 @@ public class DibuixadorAsteroides {
 			it.next().dibuixar(g2);
 		}
 		
+		if(!buff.contentsLost()) {
+			buff.show();
+		}
+		g.dispose();
+	}
+
+	/// @pre finestra creada
+	/// @post dibuixa a la superficie de la finestra del DibuixaAsteroides puntuacio al marge esquerre superior.
+	public void dibuixarPuntuacio(int puntuacio) {
+		BufferStrategy buff = c_.getBufferStrategy();
+		Graphics g = buff.getDrawGraphics();
+	
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 20)); 
+		g.drawString(Integer.toString(puntuacio),amplada_ / 34,altura_ / 15);
+			
+		if(!buff.contentsLost()) {
+			buff.show();
+		}
+		g.dispose();
+	}
+
+	/// @pre finestra creada
+	/// @post pinta a la superficie de la finestra del DibuixaAsteroides amb el color de fons i mostra m de color blanc
+	public void mostrarMissatge(String m) {
+		BufferStrategy buff = c_.getBufferStrategy();
+		Graphics g = buff.getDrawGraphics();
+		g.clearRect(0,0,amplada_,altura_);
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+		FontMetrics fm = g.getFontMetrics( g.getFont() );
+		int width = fm.stringWidth(m);
+		g.drawString(m,amplada_ / 2 - width / 2 ,altura_ / 2);
+			
 		if(!buff.contentsLost()) {
 			buff.show();
 		}

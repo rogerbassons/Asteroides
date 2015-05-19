@@ -146,6 +146,7 @@ public class Joc {
 	Calendar tempsRaigEnemiga_;
 	Calendar tempsRaigJugador_;
 	Calendar tempsNauEnemiga_;
+	Calendar tempsNau_;
 	
 	int nVides_;
 	int puntuacio_;
@@ -191,6 +192,7 @@ public class Joc {
 		tempsRaigEnemiga_ = new GregorianCalendar();
 		tempsRaigJugador_ = new GregorianCalendar();
 		tempsNauEnemiga_ = new GregorianCalendar();
+		tempsNau_ = new GregorianCalendar();
 		
 		nVides_ = 3;
 		puntuacio_ = 0; 
@@ -206,14 +208,18 @@ public class Joc {
 		piu_.open(a);
 		
 		generarMeteoritsInicials();
-		
+
+		actualitzar();
 		while (!sortir_) {
 			if (!partidaAcabada_) {
-				actualitzar();
+				
 				d_.dibuixar(puntuacio_);
+				actualitzar();
 			}
 			Thread.sleep(10);
 		}
+
+		
 		
 		d_.tancarFinestra();
 		
@@ -262,6 +268,12 @@ public class Joc {
 		moureMeteoritsIRajosLaser(); //Movem els RajosLaser i els Meteorits
 		
 		tractarColisions(); //Tractem les possibles col·lisions
+
+		Calendar t = new GregorianCalendar();
+		if (inhibirNau_ && t.getTimeInMillis() - tempsNau_.getTimeInMillis() > 1000) {
+			inhibirNau_ = false;
+			d_.afegir(n_);
+		}
 	}
 	
 	/// @pre  --
@@ -299,20 +311,22 @@ public class Joc {
 	private void moureNaus() throws Exception {
 		
 		//Tractem el moviment de la Nau
-		if (rotarDreta_)
-			n_.rotarDreta();
-		else if (rotarEsquerra_)
-			n_.rotarEsquerra();
-		else
-			n_.pararRotacio();
+		if (!inhibirNau_) {
+			if (rotarDreta_)
+				n_.rotarDreta();
+			else if (rotarEsquerra_)
+				n_.rotarEsquerra();
+			else
+				n_.pararRotacio();
+			if (accelerar_)
+				n_.propulsarEndavant();
+			n_.moure(amplada_,altura_); //Movem la Nau
+		}
 		
-		if (accelerar_)
-			n_.propulsarEndavant();
-		n_.moure(amplada_,altura_); //Movem la Nau
-		if (ne_ != null)
+		
+		if (ne_ != null) {
 			ne_.moure(amplada_,altura_); //Movem la NauEnemiga
-
-		else { //Si no és viva
+		} else { //Si no és viva
 			Calendar tempsActual = new GregorianCalendar();
 			if (tempsActual.getTimeInMillis() - tempsNauEnemiga_.getTimeInMillis() > 5000) { //Mirem si han passat 5 segons des de la última mort
 				Random rand = new Random();
@@ -382,31 +396,20 @@ public class Joc {
 	/// @pre  --
 	/// @post si la nau està viva es centra la nau i se li resta una vida, altrament s'acaba la partida i es mostra un missatge. Si té 0 vides, mor.
 	private void xocarNauJugador() throws Exception {
-		//DE MOMENT NO MOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if (n_.esViva()) {
+			tempsNau_ = new GregorianCalendar();
 			d_.elimina(n_);
-			Calendar c = new GregorianCalendar();
-			Calendar tempsActual = new GregorianCalendar();
-			while (tempsActual.getTimeInMillis() - c.getTimeInMillis() < 1000) {
-				tempsActual = new GregorianCalendar();
-				inhibirNau_ = true;
-				actualitzar();
-				d_.dibuixar(puntuacio_);
-				Thread.sleep(10);
-			}
-			d_.afegir(n_);
 			n_.reanimar();
 			n_.centrar(amplada_, altura_);
-			inhibirNau_ = false;
+			inhibirNau_ = true;
 			nVides_--;
-			/*if (nVides_ == 0)
-				n_.morir();*/
+			if (nVides_ == 0) {
+				n_.morir();
+				partidaAcabada_ = true;
+				d_.mostrarMissatge("GAME OVER");
+				d_.dibuixarPuntuacio(puntuacio_);
+			}
 		}
-		/*else { 
-			//d_.partidaAcabada();
-			partidaAcabada_ = true;
-		}*/
-		//FALTA MOSTRAR ALGUN MISSATGE AL ACABAR LA PARTIDA
 	}
 	
 	/// @pre  --
