@@ -8,7 +8,8 @@ import java.util.Random;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
-import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
 import java.awt.geom.Area;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
@@ -211,7 +212,7 @@ public class Joc {
 	/// @post Mentre no és surti del Joc. Captura l'entrada de l'usuari, actualitza el moviment dels objectes del joc i mostra-ho per pantalla
 	public void jugar() throws Exception {
 		
-		File so = new File("res/piu.wav");
+		URL so = getClass().getResource("/res/piu.wav");
 		AudioInputStream a = AudioSystem.getAudioInputStream(so);
 		piu_ = AudioSystem.getClip();
 		piu_.open(a);
