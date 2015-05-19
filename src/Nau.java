@@ -7,7 +7,7 @@ import java.awt.geom.Point2D; //calcular la distancia entre dos punts
 import java.awt.Graphics2D;
 import java.awt.Color;
 
-/// @brief És una nau espacial triangular isòsceles que  es mou dins d'un espai definit
+/// @brief És una nau espacial triangular isòsceles que es mou dins d'un espai definit
 ///
 /// La Nau és capaç de:
 ///    - rotar sobre si mateixa
@@ -16,18 +16,18 @@ import java.awt.Color;
 ///
 /// Comportament bàsic:
 /// ------------------
-///     La Nau rota un angle definit(sempre es el mateix).
+///     La Nau rota un angle definit(sempre és el mateix).
 ///
 ///     Quan la Nau es propulsa endavant, la velocitat s'augmenta en la direcció i sentit que té (fins la seva velocitat màxima).
-///     Si la Nau està en moviment(alguna velocitat != 0), es frena el seu moviment degut a una resistencia.
+///     Si la Nau està en moviment(alguna velocitat != 0), es frena el seu moviment degut a una resistència.
 ///
 ///     La Nau té una vida, cada vegada que es destrueix(explota) mort. Es pot reanimar.
 ///
-///     Degut a que la Nau es mou pot sortir d'una area(a) definida. Als parametres del mètode moure(int amplada, int altura) queda definida a.
+///     Degut a que la Nau es mou pot sortir d'una àrea(a) definida. Als parametres del mètode moure(int amplada, int altura) queda definida a.
 ///     En el cas que la Nau es mogui totalment fora de a, la Nau es teletransporta al marge/costat invers del qual ha sortit(superior, inferior,
 ///     esquerra, dreta).
 ///
-/// Supòsits sobre l'area(a) on es mou la Nau:
+/// Supòsits sobre l'àrea(a) on es mou la Nau:
 /// -----------------------------------------
 ///     Té mida fixa i no canvia durant la vida de la Nau
 ///
@@ -38,33 +38,32 @@ import java.awt.Color;
 /// Altres:
 /// -------
 ///     Els mètodes propulsarEndavant(), rotarEsquerra(), rotarDreta(), pararRotacio() no mouen la Nau per si sols. Són com els comandaments
-///     de la Nau amb la difrencia que despres d'actuar sobre aquests comandaments s'ha de cridar el metode moure(int amplada, int altura)
+///     de la Nau amb la diferència que després d'actuar sobre aquests comandaments s'ha de cridar el mètode moure(int amplada, int altura)
 ///     per a desplaçar la Nau segons les modificacions/actuacions sobre els comandaments.
 ///
 ///     Excepte el constructor i el mètode esViva(), la Nau ha d'estar viva per poder utilitzar els altres mètodes.
 
 public class Nau implements ObjecteJoc {
 	/// @var Path2D triangle_
-	/// @brief camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
+	/// @brief Camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau)
 
 	/// @var int nombrePunts_ 
-	/// @brief nombre de punts que té el triangle_
+	/// @brief Nombre de punts que té el triangle_
 	
 	/// @var int l_ 
-	/// @brief llargada de la Nau
+	/// @brief Llargada de la Nau
 	
 	/// @var Color c_ 
 	/// @brief Color de la Nau
 	
 	/// @var int angle_ 
-	/// @brief angle que forma la Nau respecte l'eix horitzontal
+	/// @brief Angle que forma la Nau respecte l'eix horitzontal
 	
 	/// @var boolean viva_
-	/// @brief defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
-
+	/// @brief Defineix l'estat de la Nau. Cert -> Nau viva, Fals-> Nau morta
 	
 	/// @var double velocitat_  
-	/// @brief Modul del vector velocitat de la Nau
+	/// @brief Mòdul del vector velocitat de la Nau
 	
 	/// @var double angleVelocitat_
 	/// @brief angle_ que tenia la Nau a l'última propulsació
@@ -73,13 +72,13 @@ public class Nau implements ObjecteJoc {
 	/// @brief Velocitat màxima de la Nau
 	
 	/// @var double acceleracio_ 
-	/// @brief Acceleracio amb la qual la velocitat de la nau augmenta o disminueix
+	/// @brief Acceleració amb la qual la velocitat de la nau augmenta o disminueix
 	
 	/// @var int angleRotacio_
 	/// @brief Angle que rota la Nau sobre el seu baricentre(valor fix)
 	
 	/// @var int rotar_
-	/// @brief Defineix si en el metode moure() la Nau ha de rotar sobre els seu baricentre
+	/// @brief Defineix si en el mètode moure() la Nau ha de rotar sobre el seu baricentre
 	/// 0 -> no s'ha de rotar
 	/// 1 -> rotar en el sentit esquerra
 	/// 2 -> rotar en el sentit dret
@@ -140,7 +139,7 @@ public class Nau implements ObjecteJoc {
 	}
 
 	/// @pre Nau viva, amplada > 0 i altura > 0
-	/// @post s'ha centrat el triangle a l'area amplada*altura
+	/// @post s'ha centrat el triangle a l'àrea amplada*altura
 	public void centrar(int amplada, int altura) {
 		double [] t = obtenirCentreTriangle();
 		double centrex = t[0];
@@ -183,7 +182,7 @@ public class Nau implements ObjecteJoc {
 	}
 
 	/// @pre Nau viva
-	/// @post Es frena el moviment de la Nau determinat per una resistencia que és directament proporcional a la velocitat de la Nau.
+	/// @post es frena el moviment de la Nau determinat per una resistència que és directament proporcional a la velocitat de la Nau.
 	private void frenar() {
 		double seguentVelocitat = velocitat_ - acceleracio_ * 0.01;
 		if (seguentVelocitat < 0) {
@@ -205,14 +204,14 @@ public class Nau implements ObjecteJoc {
 	}
 
 	/// @pre Nau viva
-	/// @post la velocitat rotaciona de la Nau és 0 (no rota en cap sentit)
+	/// @post la velocitat rotacional de la Nau és 0 (no rota en cap sentit)
 	public void pararRotacio() {
 		rotar_ = 0;
 	}
 	
 	/// @pre Nau viva, amplada > 0 i altura > 0
-	/// @post Desplaça la Nau a la posició(p) determinada per totes les velocitats de la Nau
-	///      Es frena el seu moviment degut a una resistencia
+	/// @post desplaça la Nau a la posició(p) determinada per totes les velocitats de la Nau
+	///      Es frena el seu moviment degut a una resistència
 	///      Si la Nau, situada a la posició p, està totalment fora de l'area amplada x altura llavors la Nau es teletransporta al
 	///      marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta)
 	public void moure(int amplada, int altura) {
@@ -247,8 +246,8 @@ public class Nau implements ObjecteJoc {
 		// Comprovar si ha sortit de amplada x altura (a)
 		// Si ha sortit:
 		//     Seleccionar el punt(p) del triangle_ més proper de a (últim de sortir)
-		//     Comprovar per quin marge(m) de a ha ha sortit la Nau mitjançant segons p
-		//     Seleccionar el punt(l) del triangle_ més llunya de a (primer de sortir)
+		//     Comprovar per quin marge(m) de a ha ha sortit la Nau segons p
+		//     Seleccionar el punt(l) del triangle_ més llunyà de a (primer de sortir)
 		//     Desplaçar la Nau al marge invers(i) de m de manera que l està exactament a la coordenada del marge i 
 		if (haSortit(amplada,altura)) {
 			double [] p = puntProperAlCentreDeArea(amplada,altura); //unicament per saber per quin marge ha sortit
@@ -259,7 +258,7 @@ public class Nau implements ObjecteJoc {
 			double ly = l[1];
 	
 
-			//coordenades desti del punt més llunya
+			//coordenades desti del punt més llunyà
 			double xdesti = lx;
 			double ydesti = ly;
 			if (py < 0) { // surt pel marge superior
@@ -350,7 +349,7 @@ public class Nau implements ObjecteJoc {
 	}
 
 	/// @pre --
-	/// @post La Nau és viva, apunta cap a dalt, està parada i te la punta superior a la coordenada (a/2)
+	/// @post la Nau és viva, apunta cap a dalt, està parada i té la punta superior a la coordenada (a/2)
 	public void reanimar() {
 		viva_ = true;
 		velocitat_ = 0;
@@ -384,7 +383,7 @@ public class Nau implements ObjecteJoc {
 	}
 
 	/// @pre --
-	/// @post retorna una taula(t[0..nombrePunts_*2-1) que conte els punts del triangle 
+	/// @post retorna una taula(t[0..nombrePunts_*2-1) que conté els punts del triangle 
 	private double [] obtenirPuntsTriangle() {
 		double [] puntsT = new double[nombrePunts_*2];
 		double [] coordenades = new double[6];
@@ -402,7 +401,7 @@ public class Nau implements ObjecteJoc {
 	}
 
 	/// @pre x >= 0 i y >= 0
-	/// @post retorna la distancia entre el centre de la Nau i el punt (x,y)
+	/// @post retorna la distància entre el centre de la Nau i el punt (x,y)
 	protected double distancia(double x, double y) {
 		double [] c = obtenirCentreTriangle();
 		return Math.hypot(Math.abs(c[0] - x), Math.abs(c[1] -y));

@@ -57,16 +57,16 @@ import java.util.concurrent.TimeUnit;
 /// Descripció general:
 /// ------------------
 /// Inicialment, hi ha diversos Meteorit grans dispersats per tot l'espai i la NauEnemiga a prop d'algun extrem de l'espai. La Nau controlada per l'usuari està al centre.
-/// Hi ha un màxim de nombre de Meteorit  que poden estar dins l'espai del joc al mateix temps. Quan es comença, hi ha un número determinat de meteorits grans, que es va
+/// Hi ha un nombre màxim de Meteorit  que poden estar dins l'espai del joc al mateix temps. Quan es comença, hi ha un número determinat de meteorits grans, que es va
 /// augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n'apareix un de nou. 
 ///
-/// Quan la Nau es destrueix i encara té vides, llavors tarda 5 segons a reapareixer.
+/// Quan la Nau es destrueix i encara té vides, llavors tarda 5 segons a reaparèixer.
 /// Només hi ha una NauEnemiga a l'espai. Cada vegada que sigui destruïda, despres de 5 segons n'apareix una de nova. 
 ///
 /// El joc té un sistema de puntuació i de vides. L'usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva
 /// puntuació, segons aquestes ponderacions: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts.
 ///
-/// Quan s'acaben les vides de la Nau. És mostra "Game Over" juntament amb la puntuació.
+/// Quan s'acaben les vides de la Nau, es mostra "Game Over" juntament amb la puntuació.
 ///
 /// Controls:
 /// --------
@@ -114,7 +114,7 @@ public class Joc {
 	/// @brief Instant de temps en el qual la Nau ha mort
 	
 	/// @var int nVides_
-	/// @brief vides restants de la Nau n_
+	/// @brief Vides restants de la Nau n_
 	
 	/// @var int puntuacio_
 	/// @brief Puntuació de l'usuari
@@ -174,7 +174,7 @@ public class Joc {
 		j.jugar();
 	}
 	
-	/// @pre  amplada >= 800 i altura >= 600
+	/// @pre amplada >= 800 i altura >= 600
 	/// @post s'ha creat Joc amb un espai d'amplada*altura
 	Joc(int amplada, int altura) throws Exception {
 		
@@ -208,8 +208,8 @@ public class Joc {
 		puntuacio_ = 0; 
 	}
 	
-	/// @pre  --
-	/// @post Mentre no és surti del Joc. Captura l'entrada de l'usuari, actualitza el moviment dels objectes del joc i mostra-ho per pantalla
+	/// @pre --
+	/// @post mentre no es surti del Joc, captura l'entrada de l'usuari, actualitza el moviment dels objectes del joc i ho mostra per pantalla
 	public void jugar() throws Exception {
 		
 		URL so = getClass().getResource("/res/piu.wav");
@@ -234,8 +234,8 @@ public class Joc {
 		
 	}
 	
-	/// @pre  --
-	/// @post afegeix a posicions aleatories el nombre de meteorits necessaris al Joc, perquè hi hagi un total de 8 Meteorits
+	/// @pre --
+	/// @post afegeix a posicions aleatòries el nombre de meteorits necessaris al Joc, perquè hi hagi un total de 8 Meteorits.
 	///       Cap Meteorit colisiona amb la Nau 
 	private void generarMeteoritsInicials() throws Exception {
 		while (meteorits_.size() < 8) {
@@ -253,7 +253,7 @@ public class Joc {
 		}
 	}
 	
-	/// @pre  --
+	/// @pre --
 	/// @post afegeix el nombre de meteorits necessaris als marges de l'espai del Joc, perquè hi hagi un total de 8 Meteorits
 	private void generarMeteorits() throws Exception {
 		while (meteorits_.size() < 8) {
@@ -265,9 +265,9 @@ public class Joc {
 		}
 	}
 	
-	/// @pre  --
-	/// @post actualitza l'estat del joc, generant meteorits i  movent les Naus, Meteorits i Raigs Laser (tractant les col·lisions)
-	///       Si han passat més de 5 segons respecte l'última vegada que la Nau ha mort llavors l'afageix al Joc.
+	/// @pre --
+	/// @post actualitza l'estat del joc, generant meteorits i movent les Naus, Meteorits i Raigs Laser (tractant les col·lisions)
+	///       Si han passat més de 5 segons respecte l'última vegada que la Nau ha mort llavors l'afegeix al Joc.
 	private void actualitzar() throws Exception {
 		
 		generarMeteorits(); //Generem Meteorits
@@ -281,8 +281,8 @@ public class Joc {
 		
 	}
 
-	/// @pre  --
-	/// @post mou NauEnemiga i Nau en el Joc i si disparen llavors afageix els RaigLaser que disparen al Joc
+	/// @pre --
+	/// @post mou NauEnemiga i Nau en el Joc i si disparen llavors afegeix els RaigLaser que disparen al Joc
 	private void moureDispararNaus() throws Exception {
 		
 		//Tractem el moviment de la Nau
@@ -323,7 +323,7 @@ public class Joc {
 				rajosLaserNE_.add(ra);
 			}
 			ne_.moure(amplada_,altura_); //Movem la NauEnemiga
-		} else { //Si no és viva
+		} else { //Si no existeix
 			Calendar tempsActual = new GregorianCalendar();
 			if (tempsActual.getTimeInMillis() - tempsNauEnemiga_.getTimeInMillis() > 5000) { //Mirem si han passat 5 segons des de la última mort
 				Random rand = new Random();
@@ -338,7 +338,7 @@ public class Joc {
 		}
 	}
 	
-	/// @pre  --
+	/// @pre --
 	/// @post mou els Meteorits i els RajosLaser del Joc
 	private void moureMeteoritsIRajosLaser() throws Exception {
 		Iterator<RaigLaser> it = rajosLaserNau_.iterator();
@@ -369,7 +369,7 @@ public class Joc {
 			m.moure(amplada_, altura_);
 	}
 	
-	/// @pre  --
+	/// @pre --
 	/// @post tracta les col·lisions entre els objectes del Joc
 	private void tractarColisions() throws Exception {
 		
@@ -390,7 +390,7 @@ public class Joc {
 		
 	}
 	
-	/// @pre  --
+	/// @pre --
 	/// @post si la nau està viva es centra la nau i se li resta una vida, altrament s'acaba la partida i es mostra un missatge. Si té 0 vides, mor.
 	private void xocarNauJugador() throws Exception {
 		if (n_.esViva()) {
@@ -419,7 +419,7 @@ public class Joc {
 	}
 	
 	/// @pre  --
-	/// @post si les naus colisionen la Nau del jugador es centra, la NauEnemiga desapareix durant 5 segons i s'actualitza la puntuació, altrament no fa res
+	/// @post si les naus col·lisionen la Nau del jugador es centra, la NauEnemiga desapareix durant 5 segons i s'actualitza la puntuació, altrament no fa res
 	private void tractarColisionsEntreNaus() throws Exception {
 		if (ne_!=null && !inhibirNau_) {
 			Area n = new Area(n_.obtenirShape());

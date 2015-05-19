@@ -16,21 +16,21 @@ import java.awt.geom.AffineTransform;
 ///	- Si sobrepassa un dels marges de la pantalla apareix pel costat oposat en la mateixa velocitat i direcció
 ///	- Si recorre més que la distància màxima establerta segons la mida de la pantalla, es gasta
 ///	
-/// Supòsits sobre l'area(a) on es mou el RaigLaser:
+/// Supòsits sobre l'àrea(a) on es mou el RaigLaser:
 /// -----------------------------------------------
 ///	Té una mida i no canvia mentre el RaigLaser no s'ha gastat
 ///
 ///	És un pla amb:
-///		- un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)
-///		- un eix vertical Y que augmenta de dalt a baix (a baix és més)
+///		- Un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)
+///		- Un eix vertical Y que augmenta de dalt a baix (a baix és més)
 ///
 
 public class RaigLaser implements ObjecteJoc {
 	/// @var Ellipse2D cercle_
-	/// @brief el·lipse amb una amplada sempre igual que l'altura que representa el RaigLaser
+	/// @brief El·lipse amb una amplada sempre igual que l'altura que representa el RaigLaser
 	
 	/// @var double mida_
-	/// @brief mida del RaigLaser
+	/// @brief Mida del RaigLaser
 	
 	/// @var double velocitat_
 	/// @brief Mòdul del vector velocitat del RaigLaser
@@ -51,8 +51,8 @@ public class RaigLaser implements ObjecteJoc {
 	private double distRecorreguda_;
 	private double maxDist_;
 
-	/// @pre  mida > 0, velocitat >= 0
-	/// @post  s'ha creat un RaigLaser amb mida, velocitat i angle, també s'ha generat un cercle que representa el RaigLaser,
+	/// @pre mida > 0, velocitat >= 0
+	/// @post s'ha creat un RaigLaser amb mida, velocitat i angle, també s'ha generat un cercle que representa el RaigLaser,
 	///	que està situat a (x,y). La distància recorreguda és 0
 	RaigLaser(double x, double y, double velocitat, double angle, double mida) {
 		
@@ -64,8 +64,8 @@ public class RaigLaser implements ObjecteJoc {
 		cercle_ = new Ellipse2D.Double(x, y, mida_, mida_); //Creem un el·lipse d'igual amplada que altura (cercle)
 	}
 	
-	/// @pre  --
-	/// @post  el RaigLaser s'ha mogut a la seguent posició determinada per la velocitat i el seu angle
+	/// @pre --
+	/// @post el RaigLaser s'ha mogut a la seguent posició determinada per la velocitat i el seu angle
 	///	si surt fora de l'àrea apareix en el costat oposat del que ha sortit
 	public void moure(int amplada, int altura) {
 		
@@ -111,14 +111,14 @@ public class RaigLaser implements ObjecteJoc {
 		}
 	}
 	
-	/// @pre  --
-	/// @post  retorna si distància recorreguda > distància màxima que pot recòrrer el RaigLaser
+	/// @pre --
+	/// @post retorna si distància recorreguda > distància màxima que pot recòrrer el RaigLaser
 	public boolean gastat() {
 		return distRecorreguda_ > maxDist_;
 	}
 	
-	/// @pre  --
-	/// @post  retorna si el RaigLaser ha sortit de l'àrea on es mou
+	/// @pre --
+	/// @post retorna si el RaigLaser ha sortit de l'àrea on es mou
 	private boolean haSortit(double amplada, double altura) {
 		double x = cercle_.getX();
 		double y = cercle_.getY();
@@ -127,16 +127,16 @@ public class RaigLaser implements ObjecteJoc {
 	
 	
 	
-	/// @pre  --
-	/// @post  dibuixa el RaigLaser blanc a g2
+	/// @pre --
+	/// @post dibuixa el RaigLaser blanc a g2
 	public void dibuixar(Graphics2D g2) {
 		g2.setPaint(Color.WHITE);
 		g2.fill(cercle_);
 		g2.draw(cercle_);
 	}
 	
-	/// @pre  --
-	/// @post  retorna la Shape del RaigLaser
+	/// @pre --
+	/// @post retorna la Shape del RaigLaser
 	public Shape obtenirShape() {
 		return cercle_;
 	}

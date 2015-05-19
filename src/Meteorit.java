@@ -12,20 +12,20 @@ import java.util.Random;
 /// Comportament bàsic:
 /// ------------------
 ///	- Apareix en la posició donada al constructor, coordenada (x,y)
-///	- Es mou en una direcció i velocitat fixes, la velocitat és donada al constructor, la direcció és aleatòria
+///	- Es mou en una direcció i velocitat fixes, la velocitat i la direcció són donades al constructor
 ///	- És controlat per la màquina
 ///	- Segons la mida (1 o 2) serà gran o petit, respectivament
 ///	- Quan un Meteorit es crea, té mida 1 (gran) i es rota el polígon un angle aleatori
 ///	- Si és un Meteorit gran, pot ser destruit en dos Meteorits de forma i direcció aleatòries, de mida petita
-///	- Si es destrueix un meteorit petit, desapareix
+///	- Si es destrueix un Meteorit petit, desapareix
 ///
-/// Supòsits sobre l'area(a) on es mou el Meteorit:
+/// Supòsits sobre l'àrea(a) on es mou el Meteorit:
 /// ----------------------------------------------
 ///	Té mida fixa i no canvia mentre existeix el Meteorit. 
 ///
 ///	És un pla amb:
-///         - un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)
-///         - un eix vertical Y que augmenta de dalt a baix (a baix és més)
+///         - Un eix horitzontal X que augmenta d'esquerra a dreta (dreta és més)
+///         - Un eix vertical Y que augmenta de dalt a baix (a baix és més)
 ///
 
 public class Meteorit implements ObjecteJoc {
@@ -33,7 +33,9 @@ public class Meteorit implements ObjecteJoc {
 	/// @brief Camí geomètric que forma un polígon irregular tancat (pot contenir quatre formes diferents) i dues mides 
 	
 	/// @var int mida_
-	/// @brief Val 1 si el Meteorit és gran i 2 si és petit
+	/// @brief Indica la mida del Meteorit 
+	/// 1 -> gran 
+	/// 2 -> petit
 	
 	/// @var double velocitat_
 	/// @brief Mòdul del vector velocitat del Meteorit
@@ -227,7 +229,7 @@ public class Meteorit implements ObjecteJoc {
 		// Si ha sortit:
 		//     Seleccionar el punt(p) del poligon_ més proper de a (últim de sortir)
 		//     Comprovar per quin marge(m) de a ha ha sortit el Meteorit segons p
-		//     Seleccionar el punt(l) del poligon_ més llunya de a (primer de sortir)
+		//     Seleccionar el punt(l) del poligon_ més llunyà de a (primer de sortir)
 		//     Desplaçar el Meteorit al marge invers(i) de m de manera que l està exactament a la coordenada del marge i 
 		if (haSortit(amplada,altura)) {
 			double [] p = puntProperAlCentreDeArea(amplada,altura); //unicament per saber per quin marge ha sortit
@@ -238,7 +240,7 @@ public class Meteorit implements ObjecteJoc {
 			double ly = l[1];
 	
 
-			//coordenades desti del punt més llunya
+			//coordenades desti del punt més llunyà
 			double xdesti = lx;
 			double ydesti = ly;
 			if (py < 0) { // surt pel marge superior
@@ -263,7 +265,7 @@ public class Meteorit implements ObjecteJoc {
 	}
 
 	/// @pre amplada > 0 i altura > 0
-	/// @post diu si el Meteorit ha sortit de l'area amplada*altura
+	/// @post diu si el Meteorit ha sortit de l'àrea amplada*altura
 	private boolean haSortit(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsPoligon();
 		boolean hiHaUnPuntDins = false;
@@ -276,7 +278,7 @@ public class Meteorit implements ObjecteJoc {
 	}
 
 	/// @pre amplada > 0 i altura > 0
-	/// @post retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del poligon més proper al centre de l'area amplada*altura
+	/// @post retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del polígon més proper al centre de l'àrea amplada*altura
 	private double [] puntProperAlCentreDeArea(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsPoligon();
 		double x = puntsT[0];
@@ -294,7 +296,7 @@ public class Meteorit implements ObjecteJoc {
 	}
 
 	/// @pre amplada > 0 i altura > 0
-	/// @post retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del poligon més llunya al centre de l'area amplada*altura
+	/// @post retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del polígon més llunyà al centre de l'àrea amplada*altura
 	private double [] puntLlunyaAlCentreDeArea(int amplada, int altura) {
 		double [] puntsT = obtenirPuntsPoligon();
 		double x = puntsT[0];
@@ -347,7 +349,7 @@ public class Meteorit implements ObjecteJoc {
 	}
 	
 	/// @pre --
-	/// @post retorna una taula(t) que conte els punts del poligon
+	/// @post retorna una taula(t) que conte els punts del polígon
 	///      coordenada (t[i],t[i+1]) per i = 0 fins al nombre de vèrtexs*2-2 increment 2
 	private double [] obtenirPuntsPoligon() {
 		double [] puntsT = new double[nVertexs_*2]; 

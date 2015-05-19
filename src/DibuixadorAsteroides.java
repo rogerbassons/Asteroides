@@ -12,32 +12,32 @@ import java.awt.event.KeyListener;
 import java.awt.Font;
 import java.awt.FontMetrics;
 
-/// @brief Dibuixa multiples ObjecteJoc a una finestra
+/// @brief Dibuixa múltiples ObjecteJoc a una finestra
 ///
-/// La finestra(f) s'ha de crear amb crearFinestra(). f té una mida, un color de fons i un titol determinat.
+/// La finestra(f) s'ha de crear amb crearFinestra(). f té una mida, un color de fons i un títol determinat.
 ///
 /// Es pot afegir un KeyListener a f
 ///
 /// Es poden afegir ObjecteJoc a DibuixadorAsteroides. Aquests ObjecteJoc es dibuixaran a f
 ///
-/// La finestra es pot tornar a crear tantes vegades com es desitji, pero nomes s'utilitza la ultima
+/// La finestra es pot tornar a crear tantes vegades com es desitgi, però només s'utilitza la última
 /// que s'ha creat. La finestra es pot tancar en qualsevol moment.
 
 public class DibuixadorAsteroides {
 	/// @var JFrame f_
-	/// @brief finestra principal
+	/// @brief Finestra principal
 	
 	/// @var Canvas c_
-	/// @brief superficie on es dibuixa
+	/// @brief Superfície on es dibuixa
 
 	/// @var LinkedList<ObjecteJoc> lo_
-	/// @brief llista d'ObjecteJoc
+	/// @brief Llista d'ObjecteJoc
 
 	/// @var int amplada_
-	/// @brief amplada de c_
+	/// @brief Amplada de c_
 
 	/// @var int altura_
-	/// @brief altura de c_
+	/// @brief Altura de c_
 
 	private JFrame f_;
 	private Canvas c_; 
@@ -54,8 +54,8 @@ public class DibuixadorAsteroides {
 	}
 
 	/// @pre --
-	/// @post crea una finestra per al DibuixaAsteroides amb una superficie amplada x altura, el color de fons es _fons_
-	///      i el titol és t
+	/// @post crea una finestra per al DibuixaAsteroides amb una superfície amplada x altura, el color de fons es _fons_
+	///      i el títol és t
 	public void crearFinestra(int amplada, int altura, Color fons, String t) {
 		amplada_ = amplada;
 		altura_ = altura;
@@ -81,7 +81,7 @@ public class DibuixadorAsteroides {
 	}
 
 	/// @pre ---
-	/// @post Si oj no era al DibuixadorAsteroides llavors l'afageix altrament no fa res
+	/// @post Si oj no era al DibuixadorAsteroides llavors l'afegeix, altrament no fa res
 	public void afegir(ObjecteJoc oj) {
 		if (oj != null && !lo_.contains(oj)) {
 			lo_.add(oj);
@@ -97,7 +97,7 @@ public class DibuixadorAsteroides {
 	}
 
 	/// @pre ---
-	/// @post afageix l a la finestra del DibuixaAsteroides
+	/// @post afegeix l a la finestra del DibuixaAsteroides
 	public void afegirKeyListener(KeyListener l) {
 		f_.addKeyListener(l);
 	}
@@ -105,7 +105,7 @@ public class DibuixadorAsteroides {
 
 	/// @pre finestra creada
 	/// @post pinta a la superficie de la finestra del DibuixaAsteroides amb el color de fons i pinta tots els ObjecteJoc
-	///       que s'han afegit al DibuixaAsteroides. També mostra puntuacio al costat esquerre superior.
+	///       que s'han afegit al DibuixaAsteroides. També mostra puntuació al costat esquerre superior.
 	public void dibuixar(int puntuacio) {
 		BufferStrategy buff = c_.getBufferStrategy();
 		Graphics g = buff.getDrawGraphics();
@@ -130,7 +130,7 @@ public class DibuixadorAsteroides {
 	}
 
 	/// @pre finestra creada
-	/// @post dibuixa a la superficie de la finestra del DibuixaAsteroides puntuacio al marge esquerre superior.
+	/// @post dibuixa a la superfície de la finestra del DibuixaAsteroides puntuació al marge esquerre superior.
 	public void dibuixarPuntuacio(int puntuacio) {
 		BufferStrategy buff = c_.getBufferStrategy();
 		Graphics g = buff.getDrawGraphics();
@@ -146,7 +146,7 @@ public class DibuixadorAsteroides {
 	}
 
 	/// @pre finestra creada
-	/// @post pinta a la superficie de la finestra del DibuixaAsteroides amb el color de fons i mostra m de color blanc
+	/// @post pinta a la superfície de la finestra del DibuixaAsteroides amb el color de fons i mostra m de color blanc
 	public void mostrarMissatge(String m) {
 		BufferStrategy buff = c_.getBufferStrategy();
 		Graphics g = buff.getDrawGraphics();
