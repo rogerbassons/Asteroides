@@ -1,88 +1,128 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="56cm" height="26cm" viewBox="-24 128 1118 520" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="61cm" height="28cm" viewBox="-92 4 1206 554" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
-    <rect style="fill: #ffffff" x="360" y="319" width="248.7" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="360" y="319" width="248.7" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="484.35" y="338">Nau</text>
-    <rect style="fill: #ffffff" x="360" y="347" width="248.7" height="132"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="360" y="347" width="248.7" height="132"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="361">+Nau(l:int,a:int,x:int,y:int)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="377">+propulsarEndavant(): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="393">+rotarEsquerra(): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="409">+rotarDreta(): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="425">+moure(): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="441">+dispararRaigLaser(): RaigLaser</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="457">+morir(): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="473">+teVides(): boolean const</text>
+    <rect style="fill: #ffffff" x="360" y="317.458" width="302.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="360" y="317.458" width="302.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="511.3" y="336.458">Nau</text>
+    <rect style="fill: #ffffff" x="360" y="345.458" width="302.6" height="212"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="360" y="345.458" width="302.6" height="212"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="359.458">+Nau(l:int,c:Color)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="375.458">+centrar(amplada:int,altura:int): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="391.458">+propulsarEndavant(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="407.458">+rotarEsquerra(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="423.458">+rotarDreta(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="439.458">+pararRotacio(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="455.458">+moure(amplada:int,altura:int): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="471.458">+disparar(): RaigLaser</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="487.458">+morir(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="503.458">+esViva(): boolean const</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="519.458">+reanimar(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="535.458">+dibuixar(g2:Graphics2D): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="363" y="551.458">+obtenirShape(): Shape const</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="349" y="599" width="271.8" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="349" y="599" width="271.8" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="484.9" y="618">NauEnemiga</text>
-    <rect style="fill: #ffffff" x="349" y="627" width="271.8" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="349" y="627" width="271.8" height="20"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="352" y="641">+atacarNau(n:Nau,d:int): RaigLaser</text>
+    <rect style="fill: #ffffff" x="702.949" y="466.117" width="410.4" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="702.949" y="466.117" width="410.4" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="908.149" y="485.117">NauEnemiga</text>
+    <rect style="fill: #ffffff" x="702.949" y="494.117" width="410.4" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="702.949" y="494.117" width="410.4" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="705.949" y="508.117">+NauEnemiga(l:int,c:Color,x:double,y:double)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="705.949" y="524.117">+atacarNau(n:Nau,lm:LinkedList&lt;Meteorit&gt;): RaigLaser</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="484.35,498.246 484.35,547.505 484.9,547.505 484.9,599 "/>
-    <polygon style="fill: #ffffff" points="492.35,498.246 484.35,482.246 476.35,498.246 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="492.35,498.246 484.35,482.246 476.35,498.246 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="681.845,437.458 908.149,437.458 908.149,466.117 "/>
+    <polygon style="fill: #ffffff" points="681.845,429.458 665.845,437.458 681.845,445.458 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="681.845,429.458 665.845,437.458 681.845,445.458 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="760" y="324" width="333.4" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="760" y="324" width="333.4" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="926.7" y="343">Meteorit</text>
-    <rect style="fill: #ffffff" x="760" y="352" width="333.4" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="760" y="352" width="333.4" height="20"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="763" y="366">+Meteorit(x:int,y:int,dx:int,dy:int,m:int)</text>
+    <rect style="fill: #ffffff" x="585" y="8" width="441.2" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="585" y="8" width="441.2" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="805.6" y="27">Meteorit</text>
+    <rect style="fill: #ffffff" x="585" y="36" width="441.2" height="148"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="585" y="36" width="441.2" height="148"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="50">+Meteorit(velocitat:double,angle:double,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="66">          mida:int,double:int,y:double)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="82">+moure(amplada:int,altura:int): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="98">+situarAlCostatMesProper(amplada:int,altura:int): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="114">+dividir(): Meteorit</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="130">+divisible(): boolean const</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="146">+puntVertexMesProper(x:double,y:double): double [] const</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="162">+dibuixar(g2:Graphics2D): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="588" y="178">+obtenirShape(): Shape const</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="711.7" y="395.25" width="341.1" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="711.7" y="395.25" width="341.1" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="882.25" y="414.25">RaigLaser</text>
-    <rect style="fill: #ffffff" x="711.7" y="423.25" width="341.1" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="711.7" y="423.25" width="341.1" height="20"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="714.7" y="437.25">+RaigLaser(x:int,y:int,dx:int,dy:int,r:int)</text>
+    <rect style="fill: #ffffff" x="689.58" y="266.62" width="371.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="689.58" y="266.62" width="371.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="875.53" y="285.62">RaigLaser</text>
+    <rect style="fill: #ffffff" x="689.58" y="294.62" width="371.9" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="689.58" y="294.62" width="371.9" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="692.58" y="308.62">+RaigLaser(x:int,y:int,velocitat:int,angle:int,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="692.58" y="324.62">           mida:int)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="692.58" y="340.62">+moure(amplada:int,altura:int): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="692.58" y="356.62">+gastat(): boolean const</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="692.58" y="372.62">+dibuixar(g2:Graphics2D): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="692.58" y="388.62">+obtenirShape(): Shape const</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="372" y="129.75" width="225.6" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="372" y="129.75" width="225.6" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="484.8" y="148.75">Joc</text>
-    <rect style="fill: #ffffff" x="372" y="157.75" width="225.6" height="36"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="372" y="157.75" width="225.6" height="36"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="375" y="171.75">+Joc(amplada:int,altura:int)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="375" y="187.75">+jugar(): void</text>
+    <rect style="fill: #ffffff" x="-9" y="106.75" width="225.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-9" y="106.75" width="225.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="103.8" y="125.75">Joc</text>
+    <rect style="fill: #ffffff" x="-9" y="134.75" width="225.6" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-9" y="134.75" width="225.6" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-6" y="148.75">+Joc(amplada:int,altura:int)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-6" y="164.75">+jugar(): void</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="-22.3" y="351.25" width="279.5" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-22.3" y="351.25" width="279.5" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="117.45" y="370.25">Dibuixador</text>
-    <rect style="fill: #ffffff" x="-22.3" y="379.25" width="279.5" height="68"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-22.3" y="379.25" width="279.5" height="68"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-19.3" y="393.25">+Dibuixador(amplada:int,altura:int)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-19.3" y="409.25">+dibuixar(n:Nau): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-19.3" y="425.25">+dibuixar(m:Meteorit): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-19.3" y="441.25">+dibuixar(r:RaigLaser): void</text>
+    <rect style="fill: #ffffff" x="-90.3" y="318.25" width="387.3" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-90.3" y="318.25" width="387.3" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="103.35" y="337.25">DibuixadorAsteroides</text>
+    <rect style="fill: #ffffff" x="-90.3" y="346.25" width="387.3" height="164"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-90.3" y="346.25" width="387.3" height="164"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="360.25">+DibuixadorAsteroides()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="376.25">+crearFinestra(amplada:int,altura:int,fons:Color,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="392.25">               t:String): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="408.25">+afegir(oj:ObjecteJoc): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="424.25">+elimina(oj:ObjecteJoc): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="440.25">+afegirKeyListener(l:KeyListener): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="456.25">+dibuixar(puntuacio:int): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="472.25">+dibuixarPuntuacio(puntuacio:int): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="488.25">+mostrarMissatge(m:String): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-87.3" y="504.25">+tancarFinestra(): void</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="258.209,399.25 304.6,399.25 304.6,399 352.287,399 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="339.64,404 355.64,399 339.64,394 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="298.006,414.25 324.498,414.25 324.498,437.458 352.285,437.458 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="339.638,442.458 355.638,437.458 339.638,432.458 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="372,167.75 117.45,167.75 117.45,344.545 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="112.45,331.897 117.45,347.897 122.45,331.897 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="103.8,170.75 103.8,240.5 103.35,240.5 103.35,311.545 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="98.35,298.897 103.35,314.897 108.35,298.897 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="484.8,193.75 484.8,251.87 484.35,251.87 484.35,311.285 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="479.35,298.637 484.35,314.637 489.35,298.637 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="216.6,120.75 414.393,120.75 414.393,165.398 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="409.393,152.751 414.393,168.751 419.393,152.751 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="597.6,143.75 674.8,143.75 674.8,338 753.295,338 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="740.647,343 756.647,338 740.647,333 "/>
+    <rect style="fill: #ffffff" x="316.993" y="172.103" width="194.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="316.993" y="172.103" width="194.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="414.393" y="191.103">ObjecteJoc</text>
+    <rect style="fill: #ffffff" x="316.993" y="200.103" width="194.8" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="316.993" y="200.103" width="194.8" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="319.993" y="214.103">+dibuixar(g2:Graphics2D)</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="597.6,167.75 650.65,167.75 650.65,409.25 704.995,409.25 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="692.347,414.25 708.347,409.25 692.347,404.25 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="566.764,22 540.396,22 540.396,186.103 511.793,186.103 "/>
+    <polygon style="fill: #ffffff" points="566.764,30 582.764,22 566.764,14 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="566.764,30 582.764,22 566.764,14 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="875.53,248.384 875.53,210.103 511.793,210.103 "/>
+    <polygon style="fill: #ffffff" points="867.53,248.384 875.53,264.384 883.53,248.384 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="867.53,248.384 875.53,264.384 883.53,248.384 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="511.3,299.222 511.3,260.781 414.393,260.781 414.393,220.103 "/>
+    <polygon style="fill: #ffffff" points="503.3,299.222 511.3,315.222 519.3,299.222 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="503.3,299.222 511.3,315.222 519.3,299.222 "/>
   </g>
 </svg>

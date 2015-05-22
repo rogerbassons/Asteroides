@@ -54,7 +54,7 @@ public class Meteorit implements ObjecteJoc {
 	
 	/// @pre --
 	/// @post el Meteorit té una velocitat v, una direcció angle i una mida m, està situat a (x,y)
-	public Meteorit(double velocitat, double angle, int mida, double x, double y) {
+	Meteorit(double velocitat, double angle, int mida, double x, double y) {
 		//Crear polígon
 		mida_ = mida;
 		angleVelocitat_ = angle;
