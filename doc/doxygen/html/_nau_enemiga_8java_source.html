@@ -125,151 +125,152 @@ $(document).ready(function(){initNavTree('_nau_enemiga_8java_source.html','');})
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="class_nau.html#ad397487e3dc0062cc71fdfc4c562e347">triangle_</a>.transform(a);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7">   43</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="class_raig_laser.html">RaigLaser</a> <a class="code" href="class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7">atacarNau</a>(<a class="code" href="class_nau.html">Nau</a> n, LinkedList&lt;Meteorit&gt; lm) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_raig_laser.html">RaigLaser</a> r = null;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">evitarMeteorits</a>(lm)) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordtype">double</span> [] pos = n.<a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_nau.html#a53690b8a1f0ceb5e0b4573d1c81314c3">distancia</a>(pos[0],pos[1]) &lt;= <a class="code" href="class_nau.html#a67c5417119c7e520e1876a919119867d">l_</a> * 10) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                r = <a class="code" href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">apuntaDispara</a>(n);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <a class="code" href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">movimentObjectiu</a>(pos);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> r;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">   59</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="class_raig_laser.html">RaigLaser</a> <a class="code" href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">apuntaDispara</a>(<a class="code" href="class_nau.html">Nau</a> n) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="class_raig_laser.html">RaigLaser</a> r = null;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">int</span> angle = <a class="code" href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">angleApuntarMoviment</a>(n);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(angle);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> (Math.abs(<a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> - angle) &lt;= 1) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            r = <a class="code" href="class_nau.html#a7449b7bf128a70e305bc85781ee833f2">disparar</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> r;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7">   45</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="class_raig_laser.html">RaigLaser</a> <a class="code" href="class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7">atacarNau</a>(<a class="code" href="class_nau.html">Nau</a> n, LinkedList&lt;Meteorit&gt; lm) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="class_raig_laser.html">RaigLaser</a> r = null;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_nau.html#a5f603c39df04907891d3e56467df0cf0">pararRotacio</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">evitarMeteorits</a>(lm) &amp;&amp; n != null) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">double</span> [] pos = n.<a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_nau.html#a53690b8a1f0ceb5e0b4573d1c81314c3">distancia</a>(pos[0],pos[1]) &lt;= <a class="code" href="class_nau.html#a67c5417119c7e520e1876a919119867d">l_</a> * 10) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                r = <a class="code" href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">apuntaDispara</a>(n);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <a class="code" href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">movimentObjectiu</a>(pos);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> r;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">   62</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="class_raig_laser.html">RaigLaser</a> <a class="code" href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">apuntaDispara</a>(<a class="code" href="class_nau.html">Nau</a> n) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="class_raig_laser.html">RaigLaser</a> r = null;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">int</span> angle = <a class="code" href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">angleApuntarMoviment</a>(n);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(angle);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (Math.abs(<a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> - angle) &lt;= 1) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            r = <a class="code" href="class_nau.html#a7449b7bf128a70e305bc85781ee833f2">disparar</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">   75</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(<span class="keywordtype">int</span> a) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">int</span> dif = <a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> - a;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span> (a &gt; 270 &amp;&amp; <a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> &lt; 90) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <a class="code" href="class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46">rotarDreta</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> &gt; 270 &amp;&amp; a &lt; 90) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <a class="code" href="class_nau.html#ae4f82160603f5b5c2108c34adcd781ab">rotarEsquerra</a>();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dif &gt; 0) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46">rotarDreta</a>();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dif &lt; 0) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="class_nau.html#ae4f82160603f5b5c2108c34adcd781ab">rotarEsquerra</a>();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="class_nau.html#a5f603c39df04907891d3e56467df0cf0">pararRotacio</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">   92</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(<span class="keywordtype">double</span> [] p) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">double</span> [] ce = <a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">double</span> angle = 180 / Math.PI * Math.atan2(-(p[1] - ce[1]), p[0] - ce[0]);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">// angle és l&#39;angle respecte l&#39;eix horitzontal que va de la Nau Enemiga a la Nau n</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">// -180 &lt; angle &lt;= 180</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">if</span> (angle &lt; 0) {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            angle = 360 + angle;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">// 0 &lt;= angle &lt; 360</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)angle;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">  108</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">angleApuntarMoviment</a>(<a class="code" href="class_nau.html">Nau</a> n) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">double</span> [] cn = n.<a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">double</span> [] ce = <a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">double</span> dist = Math.hypot(Math.abs(cn[0] - ce[0]), Math.abs(cn[1] - ce[1]));</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">double</span> temps = dist / <a class="code" href="class_nau.html#a1400505da3bafa2056c8e542a7811b33">velocitatRaig_</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">double</span> [] previsio = preveurePosicio(n, temps);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">double</span> angle = <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(previsio);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)angle;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">double</span> [] preveurePosicio(<a class="code" href="class_nau.html">Nau</a> n, <span class="keywordtype">double</span> temps) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordtype">double</span> dx = temps * n.<a class="code" href="class_nau.html#ac1151817b8deaed7c77ceba3141b86e5">velocitat_</a>*Math.cos(Math.toRadians(n.<a class="code" href="class_nau.html#aa2ee3693a5f2a95449e0310f34d9fad4">angleVelocitat_</a>));</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">double</span> dy = temps * n.<a class="code" href="class_nau.html#ac1151817b8deaed7c77ceba3141b86e5">velocitat_</a>*-Math.sin(Math.toRadians(n.<a class="code" href="class_nau.html#aa2ee3693a5f2a95449e0310f34d9fad4">angleVelocitat_</a>));</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordtype">double</span> [] t = n.<a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">double</span> centrex = t[0];</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">double</span> centrey = t[1];</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">double</span> [] previsio = {centrex + dx, centrey + dy};</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span> previsio;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">  137</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">movimentObjectiu</a>(<span class="keywordtype">double</span> [] pos) {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordtype">int</span> angle = <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(pos);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(angle);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <a class="code" href="class_nau.html#af1f11339142c177a9a48990349fdf801">propulsarEndavant</a>();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">  145</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">boolean</span> <a class="code" href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">evitarMeteorits</a>(LinkedList&lt;Meteorit&gt; lm) {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">double</span> [] c = <a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordtype">double</span> [] v = null;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">double</span> distMin = <a class="code" href="class_nau.html#a67c5417119c7e520e1876a919119867d">l_</a> * 2;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        Iterator&lt;Meteorit&gt; it = lm.iterator();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">while</span> (it.hasNext()) {</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keywordtype">double</span> [] aux = it.next().puntVertexMesProper(c[0],c[1]);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="keywordtype">double</span> distAct = <a class="code" href="class_nau.html#a53690b8a1f0ceb5e0b4573d1c81314c3">distancia</a>(aux[0],aux[1]);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">if</span> (distAct &lt; distMin) {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                v = aux;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                distMin = distAct;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">if</span> (v != null) {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordtype">int</span> angle = <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(v);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            angle += 180;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">if</span> (angle &gt;= 360) {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                angle -= 360;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(angle);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <a class="code" href="class_nau.html#af1f11339142c177a9a48990349fdf801">propulsarEndavant</a>();</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> v != null;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
-<div class="ttc" id="class_nau_enemiga_html_a645365e0a3c5eb29cf31d56dcb76120f"><div class="ttname"><a href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">NauEnemiga.apuntaDispara</a></div><div class="ttdeci">RaigLaser apuntaDispara(Nau n)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00059">NauEnemiga.java:59</a></div></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> r;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">   78</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(<span class="keywordtype">int</span> a) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">int</span> dif = <a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> - a;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> (a &gt; 270 &amp;&amp; <a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> &lt; 90) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46">rotarDreta</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">angle_</a> &gt; 270 &amp;&amp; a &lt; 90) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="class_nau.html#ae4f82160603f5b5c2108c34adcd781ab">rotarEsquerra</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dif &gt; 0) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46">rotarDreta</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dif &lt; 0) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <a class="code" href="class_nau.html#ae4f82160603f5b5c2108c34adcd781ab">rotarEsquerra</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="class_nau.html#a5f603c39df04907891d3e56467df0cf0">pararRotacio</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">   95</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(<span class="keywordtype">double</span> [] p) {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">double</span> [] ce = <a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">double</span> angle = 180 / Math.PI * Math.atan2(-(p[1] - ce[1]), p[0] - ce[0]);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">// angle és l&#39;angle respecte l&#39;eix horitzontal que va de la Nau Enemiga a la Nau n</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">// -180 &lt; angle &lt;= 180</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span> (angle &lt; 0) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            angle = 360 + angle;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">// 0 &lt;= angle &lt; 360</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)angle;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">  111</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">int</span> <a class="code" href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">angleApuntarMoviment</a>(<a class="code" href="class_nau.html">Nau</a> n) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">double</span> [] cn = n.<a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">double</span> [] ce = <a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordtype">double</span> dist = Math.hypot(Math.abs(cn[0] - ce[0]), Math.abs(cn[1] - ce[1]));</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">double</span> temps = dist / <a class="code" href="class_nau.html#a1400505da3bafa2056c8e542a7811b33">velocitatRaig_</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">double</span> [] previsio = preveurePosicio(n, temps);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordtype">double</span> angle = <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(previsio);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)angle;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">double</span> [] preveurePosicio(<a class="code" href="class_nau.html">Nau</a> n, <span class="keywordtype">double</span> temps) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordtype">double</span> dx = temps * n.<a class="code" href="class_nau.html#ac1151817b8deaed7c77ceba3141b86e5">velocitat_</a>*Math.cos(Math.toRadians(n.<a class="code" href="class_nau.html#aa2ee3693a5f2a95449e0310f34d9fad4">angleVelocitat_</a>));</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">double</span> dy = temps * n.<a class="code" href="class_nau.html#ac1151817b8deaed7c77ceba3141b86e5">velocitat_</a>*-Math.sin(Math.toRadians(n.<a class="code" href="class_nau.html#aa2ee3693a5f2a95449e0310f34d9fad4">angleVelocitat_</a>));</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">double</span> [] t = n.<a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">double</span> centrex = t[0];</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">double</span> centrey = t[1];</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordtype">double</span> [] previsio = {centrex + dx, centrey + dy};</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">return</span> previsio;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">  140</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">movimentObjectiu</a>(<span class="keywordtype">double</span> [] pos) {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordtype">int</span> angle = <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(pos);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(angle);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <a class="code" href="class_nau.html#af1f11339142c177a9a48990349fdf801">propulsarEndavant</a>();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">  148</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">boolean</span> <a class="code" href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">evitarMeteorits</a>(LinkedList&lt;Meteorit&gt; lm) {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">double</span> [] c = <a class="code" href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">obtenirCentreTriangle</a>();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordtype">double</span> [] v = null;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">double</span> distMin = <a class="code" href="class_nau.html#a67c5417119c7e520e1876a919119867d">l_</a> * 2;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        Iterator&lt;Meteorit&gt; it = lm.iterator();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">while</span> (it.hasNext()) {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordtype">double</span> [] aux = it.next().puntVertexMesProper(c[0],c[1]);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keywordtype">double</span> distAct = <a class="code" href="class_nau.html#a53690b8a1f0ceb5e0b4573d1c81314c3">distancia</a>(aux[0],aux[1]);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">if</span> (distAct &lt; distMin) {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                v = aux;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                distMin = distAct;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span> (v != null) {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordtype">int</span> angle = <a class="code" href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">angleApuntar</a>(v);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            angle += 180;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="keywordflow">if</span> (angle &gt;= 360) {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                angle -= 360;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <a class="code" href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">alinearse</a>(angle);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <a class="code" href="class_nau.html#af1f11339142c177a9a48990349fdf801">propulsarEndavant</a>();</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">return</span> v != null;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
+<div class="ttc" id="class_nau_enemiga_html_a645365e0a3c5eb29cf31d56dcb76120f"><div class="ttname"><a href="class_nau_enemiga.html#a645365e0a3c5eb29cf31d56dcb76120f">NauEnemiga.apuntaDispara</a></div><div class="ttdeci">RaigLaser apuntaDispara(Nau n)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00062">NauEnemiga.java:62</a></div></div>
 <div class="ttc" id="class_nau_html_a2ef947c89a39ad2e5593c9b63aefda46"><div class="ttname"><a href="class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46">Nau.rotarDreta</a></div><div class="ttdeci">void rotarDreta()</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00202">Nau.java:202</a></div></div>
 <div class="ttc" id="class_nau_html_a67c5417119c7e520e1876a919119867d"><div class="ttname"><a href="class_nau.html#a67c5417119c7e520e1876a919119867d">Nau.l_</a></div><div class="ttdeci">int l_</div><div class="ttdoc">Llargada de la Nau. </div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00091">Nau.java:91</a></div></div>
-<div class="ttc" id="class_nau_enemiga_html_ac93ff33b14f809511681cc190a74158a"><div class="ttname"><a href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">NauEnemiga.evitarMeteorits</a></div><div class="ttdeci">boolean evitarMeteorits(LinkedList&lt; Meteorit &gt; lm)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00145">NauEnemiga.java:145</a></div></div>
-<div class="ttc" id="class_nau_enemiga_html_a2a5186aec773bd4015427a92b073e7e7"><div class="ttname"><a href="class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7">NauEnemiga.atacarNau</a></div><div class="ttdeci">RaigLaser atacarNau(Nau n, LinkedList&lt; Meteorit &gt; lm)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00043">NauEnemiga.java:43</a></div></div>
+<div class="ttc" id="class_nau_enemiga_html_ac93ff33b14f809511681cc190a74158a"><div class="ttname"><a href="class_nau_enemiga.html#ac93ff33b14f809511681cc190a74158a">NauEnemiga.evitarMeteorits</a></div><div class="ttdeci">boolean evitarMeteorits(LinkedList&lt; Meteorit &gt; lm)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00148">NauEnemiga.java:148</a></div></div>
+<div class="ttc" id="class_nau_enemiga_html_a2a5186aec773bd4015427a92b073e7e7"><div class="ttname"><a href="class_nau_enemiga.html#a2a5186aec773bd4015427a92b073e7e7">NauEnemiga.atacarNau</a></div><div class="ttdeci">RaigLaser atacarNau(Nau n, LinkedList&lt; Meteorit &gt; lm)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00045">NauEnemiga.java:45</a></div></div>
 <div class="ttc" id="class_nau_html_a53690b8a1f0ceb5e0b4573d1c81314c3"><div class="ttname"><a href="class_nau.html#a53690b8a1f0ceb5e0b4573d1c81314c3">Nau.distancia</a></div><div class="ttdeci">double distancia(double x, double y)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00405">Nau.java:405</a></div></div>
 <div class="ttc" id="class_nau_html_af8082681fcfd3613ee23597b9c525a7f"><div class="ttname"><a href="class_nau.html#af8082681fcfd3613ee23597b9c525a7f">Nau.obtenirCentreTriangle</a></div><div class="ttdeci">double[] obtenirCentreTriangle()</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00370">Nau.java:370</a></div></div>
 <div class="ttc" id="class_nau_enemiga_html"><div class="ttname"><a href="class_nau_enemiga.html">NauEnemiga</a></div><div class="ttdoc">Nau que té la capacitat d&#39;atacar a una Nau i evitar Meteorit. </div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00023">NauEnemiga.java:23</a></div></div>
 <div class="ttc" id="class_nau_html_a5f603c39df04907891d3e56467df0cf0"><div class="ttname"><a href="class_nau.html#a5f603c39df04907891d3e56467df0cf0">Nau.pararRotacio</a></div><div class="ttdeci">void pararRotacio()</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00208">Nau.java:208</a></div></div>
 <div class="ttc" id="class_nau_html_ad397487e3dc0062cc71fdfc4c562e347"><div class="ttname"><a href="class_nau.html#ad397487e3dc0062cc71fdfc4c562e347">Nau.triangle_</a></div><div class="ttdeci">Path2D triangle_</div><div class="ttdoc">Camí geomètric que sempre forma un triangle isòceles(representa gràficament la Nau) ...</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00089">Nau.java:89</a></div></div>
-<div class="ttc" id="class_nau_enemiga_html_a2c21f20dc2290a11315bdd16328815c7"><div class="ttname"><a href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">NauEnemiga.angleApuntarMoviment</a></div><div class="ttdeci">int angleApuntarMoviment(Nau n)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00108">NauEnemiga.java:108</a></div></div>
+<div class="ttc" id="class_nau_enemiga_html_a2c21f20dc2290a11315bdd16328815c7"><div class="ttname"><a href="class_nau_enemiga.html#a2c21f20dc2290a11315bdd16328815c7">NauEnemiga.angleApuntarMoviment</a></div><div class="ttdeci">int angleApuntarMoviment(Nau n)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00111">NauEnemiga.java:111</a></div></div>
 <div class="ttc" id="class_raig_laser_html"><div class="ttname"><a href="class_raig_laser.html">RaigLaser</a></div><div class="ttdoc">És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit...</div><div class="ttdef"><b>Definition:</b> <a href="_raig_laser_8java_source.html#l00028">RaigLaser.java:28</a></div></div>
-<div class="ttc" id="class_nau_enemiga_html_a02842fe904d67a4ff7b55d5606a30f91"><div class="ttname"><a href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">NauEnemiga.angleApuntar</a></div><div class="ttdeci">int angleApuntar(double[] p)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00092">NauEnemiga.java:92</a></div></div>
+<div class="ttc" id="class_nau_enemiga_html_a02842fe904d67a4ff7b55d5606a30f91"><div class="ttname"><a href="class_nau_enemiga.html#a02842fe904d67a4ff7b55d5606a30f91">NauEnemiga.angleApuntar</a></div><div class="ttdeci">int angleApuntar(double[] p)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00095">NauEnemiga.java:95</a></div></div>
 <div class="ttc" id="class_nau_html_a7bdee12f00bd2087872ff3018144799e"><div class="ttname"><a href="class_nau.html#a7bdee12f00bd2087872ff3018144799e">Nau.angle_</a></div><div class="ttdeci">int angle_</div><div class="ttdoc">Angle que forma la Nau respecte l&#39;eix horitzontal. </div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00093">Nau.java:93</a></div></div>
 <div class="ttc" id="class_nau_html_ae4f82160603f5b5c2108c34adcd781ab"><div class="ttname"><a href="class_nau.html#ae4f82160603f5b5c2108c34adcd781ab">Nau.rotarEsquerra</a></div><div class="ttdeci">void rotarEsquerra()</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00196">Nau.java:196</a></div></div>
 <div class="ttc" id="class_nau_html_af1f11339142c177a9a48990349fdf801"><div class="ttname"><a href="class_nau.html#af1f11339142c177a9a48990349fdf801">Nau.propulsarEndavant</a></div><div class="ttdeci">void propulsarEndavant()</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00175">Nau.java:175</a></div></div>
 <div class="ttc" id="class_nau_html_aa2ee3693a5f2a95449e0310f34d9fad4"><div class="ttname"><a href="class_nau.html#aa2ee3693a5f2a95449e0310f34d9fad4">Nau.angleVelocitat_</a></div><div class="ttdeci">double angleVelocitat_</div><div class="ttdoc">angle_ que tenia la Nau a l&#39;última propulsació </div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00097">Nau.java:97</a></div></div>
-<div class="ttc" id="class_nau_enemiga_html_a293dc01f263e42b1b0125e30bf634a18"><div class="ttname"><a href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">NauEnemiga.movimentObjectiu</a></div><div class="ttdeci">void movimentObjectiu(double[] pos)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00137">NauEnemiga.java:137</a></div></div>
+<div class="ttc" id="class_nau_enemiga_html_a293dc01f263e42b1b0125e30bf634a18"><div class="ttname"><a href="class_nau_enemiga.html#a293dc01f263e42b1b0125e30bf634a18">NauEnemiga.movimentObjectiu</a></div><div class="ttdeci">void movimentObjectiu(double[] pos)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00140">NauEnemiga.java:140</a></div></div>
 <div class="ttc" id="class_nau_html_ac1151817b8deaed7c77ceba3141b86e5"><div class="ttname"><a href="class_nau.html#ac1151817b8deaed7c77ceba3141b86e5">Nau.velocitat_</a></div><div class="ttdeci">double velocitat_</div><div class="ttdoc">Mòdul del vector velocitat de la Nau. </div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00096">Nau.java:96</a></div></div>
 <div class="ttc" id="class_nau_html_a1400505da3bafa2056c8e542a7811b33"><div class="ttname"><a href="class_nau.html#a1400505da3bafa2056c8e542a7811b33">Nau.velocitatRaig_</a></div><div class="ttdeci">double velocitatRaig_</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00103">Nau.java:103</a></div></div>
 <div class="ttc" id="class_nau_html"><div class="ttname"><a href="class_nau.html">Nau</a></div><div class="ttdoc">És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. </div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00046">Nau.java:46</a></div></div>
 <div class="ttc" id="class_nau_html_a7449b7bf128a70e305bc85781ee833f2"><div class="ttname"><a href="class_nau.html#a7449b7bf128a70e305bc85781ee833f2">Nau.disparar</a></div><div class="ttdeci">RaigLaser disparar()</div><div class="ttdef"><b>Definition:</b> <a href="_nau_8java_source.html#l00165">Nau.java:165</a></div></div>
-<div class="ttc" id="class_nau_enemiga_html_a1ffe6a0da4d399be284a7901a9c5d99f"><div class="ttname"><a href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">NauEnemiga.alinearse</a></div><div class="ttdeci">void alinearse(int a)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00075">NauEnemiga.java:75</a></div></div>
+<div class="ttc" id="class_nau_enemiga_html_a1ffe6a0da4d399be284a7901a9c5d99f"><div class="ttname"><a href="class_nau_enemiga.html#a1ffe6a0da4d399be284a7901a9c5d99f">NauEnemiga.alinearse</a></div><div class="ttdeci">void alinearse(int a)</div><div class="ttdef"><b>Definition:</b> <a href="_nau_enemiga_8java_source.html#l00078">NauEnemiga.java:78</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_nau_enemiga_8java.html">NauEnemiga.java</a></li>
-    <li class="footer">Generated on Tue May 19 2015 21:05:55 for Asteroides by
+    <li class="footer">Generated on Fri May 22 2015 09:19:01 for Asteroides by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
