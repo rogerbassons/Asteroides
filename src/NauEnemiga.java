@@ -39,11 +39,13 @@ public class NauEnemiga extends Nau {
 	}
 
 	/// @pre NauEnemiga viva
-	/// @post la NauEnemiga evita el Meteorit més proper de lm o ataca a n
+	/// @post la NauEnemiga evita el Meteorit més proper de lm
+	///       si no hi ha cap Meteorit proper llavors ataca a n
+	///       si n és null llavors únicament evita meteorits
 	public RaigLaser atacarNau(Nau n, LinkedList<Meteorit> lm) {
 		RaigLaser r = null;
 
-		if (!evitarMeteorits(lm)) {
+		if (!evitarMeteorits(lm) && n != null) {
 			double [] pos = n.obtenirCentreTriangle();
 			if (distancia(pos[0],pos[1]) <= l_ * 10) {
 				r = apuntaDispara(n);
