@@ -45,6 +45,7 @@ public class NauEnemiga extends Nau {
 	public RaigLaser atacarNau(Nau n, LinkedList<Meteorit> lm) {
 		RaigLaser r = null;
 
+		pararRotacio();
 		if (!evitarMeteorits(lm) && n != null) {
 			double [] pos = n.obtenirCentreTriangle();
 			if (distancia(pos[0],pos[1]) <= l_ * 10) {
