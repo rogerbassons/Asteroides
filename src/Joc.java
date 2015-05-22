@@ -314,7 +314,12 @@ public class Joc {
 		
 		
 		if (ne_ != null) {
-			RaigLaser ra = ne_.atacarNau(n_,meteorits_);
+                        RaigLaser ra = null;
+                        if (!inhibirNau_) {
+                                RaigLaser ra = ne_.atacarNau(n_,meteorits_);
+                        } else {
+                                RaigLaser ra = ne_.atacarNau(null,meteorits_);
+                                }
 			if (ra != null && t.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
 				tempsRaigEnemiga_ = new GregorianCalendar();
 				piu_.setFramePosition(0);
