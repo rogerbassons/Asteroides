@@ -5,11 +5,6 @@ import java.util.LinkedList;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Random;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import java.io.InputStream;
-import java.net.URL;
 import java.awt.geom.Area;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
@@ -140,11 +135,7 @@ public class Joc {
         /// @var boolean accelerar_
         /// @brief Diu si la Nau ha d'accelerar
         
-        /// @var Clip piu_
-        /// @brief So que es reprodueix quan es dispara un RaigLaser
-        
-        
-        int amplada_;
+	int amplada_;
         int altura_;
         Nau n_;
         NauEnemiga ne_;
@@ -167,9 +158,7 @@ public class Joc {
         boolean disparar_;
         boolean rotarEsquerra_, rotarDreta_, accelerar_;
         
-        Clip piu_;
-        
-        public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
                 Joc j = new Joc(1024, 768);
                 j.jugar();
         }
@@ -212,12 +201,7 @@ public class Joc {
         /// @post mentre no es surti del Joc, captura l'entrada de l'usuari, actualitza el moviment dels objectes del joc i ho mostra per pantalla
         public void jugar() throws Exception {
                 
-                URL so = getClass().getResource("/res/piu.wav");
-                AudioInputStream a = AudioSystem.getAudioInputStream(so);
-                piu_ = AudioSystem.getClip();
-                piu_.open(a);
-                
-                generarMeteoritsInicials();
+		generarMeteoritsInicials();
                 
                 actualitzar();
                 while (!sortir_) {
@@ -300,9 +284,7 @@ public class Joc {
                         
                         if (disparar_ && t.getTimeInMillis() - tempsRaigNau_.getTimeInMillis() > 441) {
                                 tempsRaigNau_ = new GregorianCalendar();
-                                piu_.setFramePosition(0);
-                                piu_.start();
-                                RaigLaser r = n_.disparar();
+				RaigLaser r = n_.disparar();
                                 rajosLaserNau_.add(r);
                                 d_.afegir(r);
                         }
@@ -322,9 +304,7 @@ public class Joc {
                         }
                         if (ra != null && t.getTimeInMillis() - tempsRaigEnemiga_.getTimeInMillis() > 1000) {
                                 tempsRaigEnemiga_ = new GregorianCalendar();
-                                piu_.setFramePosition(0);
-                                piu_.start();
-                                d_.afegir(ra);
+				d_.afegir(ra);
                                 rajosLaserNE_.add(ra);
                         }
                         ne_.moure(amplada_,altura_); //Movem la NauEnemiga
