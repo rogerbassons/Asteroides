@@ -2,11 +2,6 @@
 \label{class_joc}\index{Joc@{Joc}}
 
 
-Controla una \hyperlink{class_nau}{Nau} a l\textquotesingle{}espai evitant i atacant Meteorits i Naus Enemigues.  
-
-
-
-
 Collaboration diagram for Joc\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -65,79 +60,9 @@ boolean \hyperlink{class_joc_ac94f4a327797f506171f0db74b3feaee}{tractar\+Colisio
 
 
 \subsection{Detailed Description}
-Controla una \hyperlink{class_nau}{Nau} a l\textquotesingle{}espai evitant i atacant Meteorits i Naus Enemigues. 
-
-\begin{DoxyAuthor}{Author}
-Miquel Farreras Casamort
-\end{DoxyAuthor}
-El \hyperlink{class_joc}{Joc} conté quatre tipus d\textquotesingle{}\hyperlink{interface_objecte_joc}{Objecte\+Joc}\+:
-\begin{DoxyItemize}
-\item \hyperlink{class_nau}{Nau}\+: \hyperlink{class_nau}{Nau} pròpia controlada per l\textquotesingle{}usuari.
-\item \hyperlink{class_nau_enemiga}{Nau\+Enemiga}\+: \hyperlink{class_nau}{Nau} controlada per la màquina (A\+I).
-\item \hyperlink{class_meteorit}{Meteorit}\+: Objectes controlats per la màquina, que van a la deriva.
-\item \hyperlink{class_raig_laser}{Raig\+Laser}\+: Raig disparat per \hyperlink{class_nau}{Nau} i \hyperlink{class_nau_enemiga}{Nau\+Enemiga}, que destrueix Meteorits i Naus.
-\end{DoxyItemize}
-
-\subsubsection*{Funcionament general del \hyperlink{class_joc}{Joc}\+: }
-
-\hyperlink{class_nau}{Nau}\+:
-\begin{DoxyItemize}
-\item Rota sobre si mateixa. Té un coet propulsor que l\textquotesingle{}impulsa endavant.
-\item Quan abandoni l\textquotesingle{}espai visible per l\textquotesingle{}usuari, per algun dels costats de la finestra, apareixerà pel costat invers, conservant el moviment que portava.
-\item Té forma de triangle isòsceles.
-\item Si s\textquotesingle{}acaben les vides de la \hyperlink{class_nau}{Nau}, la partida s\textquotesingle{}ha acabat.
-\item Un cop s\textquotesingle{}ha començat a moure en una direcció, es continua movent en aquesta direcció durant un temps determinat mentre l\textquotesingle{}usuari no intervingui, simulant la ingravidesa de l\textquotesingle{}espai, i al mateix temps, facilitant el control de la nau.
-\end{DoxyItemize}
-
-\hyperlink{class_nau_enemiga}{Nau\+Enemiga}\+:
-\begin{DoxyItemize}
-\item Hi ha una \hyperlink{class_nau_enemiga}{Nau\+Enemiga} que intenta, per qualsevol mitjà (disparant i col·lisionant), destruir la nau de l\textquotesingle{}usuari.
-\item Té el mateix comportament que la \hyperlink{class_nau}{Nau} espacial controlada per l\textquotesingle{}usuari.
-\item Excepte\+:
-\begin{DoxyItemize}
-\item L\textquotesingle{}objectiu d\textquotesingle{}aquesta nau és destruir la nau de l\textquotesingle{}usuari.
-\item Per a destruir la nau de l\textquotesingle{}usuari dispara rajos làser i la persegueix.
-\end{DoxyItemize}
-\item La \hyperlink{class_nau}{Nau} i la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} poden disparar Rajos\+Laser.
-\end{DoxyItemize}
-
-\hyperlink{class_raig_laser}{Raig\+Laser}\+:
-\begin{DoxyItemize}
-\item Els \hyperlink{class_raig_laser}{Raig\+Laser} poden col·lisionar amb Meteorits o amb les Naus.
-\end{DoxyItemize}
-
-\hyperlink{class_meteorit}{Meteorit}\+:
-\begin{DoxyItemize}
-\item És un objecte que es mou amb una velocitat i direcció pseudoaleatòries (entre un rang determinat)
-\item Té una forma d\textquotesingle{}un polígon irregular, pseudoaleatòria
-\item Els Meteorits no col·lisionen entre si, s\textquotesingle{}atravessen.
-\item Quan un \hyperlink{class_meteorit}{Meteorit} gran col·lisiona amb un \hyperlink{class_raig_laser}{Raig\+Laser} o una \hyperlink{class_nau}{Nau}, es divideix en dos Meteorits petits.
-\item Si xoca contra una nau, destrueix la nau amb la qual ha xocat.
-\item Quan un \hyperlink{class_meteorit}{Meteorit} petit col·lisiona amb un \hyperlink{class_raig_laser}{Raig\+Laser} o una \hyperlink{class_nau}{Nau}, aquest desapareix.
-\end{DoxyItemize}
-
-\subsubsection*{Descripció general\+: }
-
-Inicialment, hi ha diversos \hyperlink{class_meteorit}{Meteorit} grans dispersats per tot l\textquotesingle{}espai i la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} a prop d\textquotesingle{}algun extrem de l\textquotesingle{}espai. La \hyperlink{class_nau}{Nau} controlada per l\textquotesingle{}usuari està al centre. Hi ha un nombre màxim de \hyperlink{class_meteorit}{Meteorit} que poden estar dins l\textquotesingle{}espai del joc al mateix temps. Quan es comença, hi ha un número determinat de meteorits grans, que es va augmentant fins al límit. A partir de llavors, cada vegada que es destrueixi un meteorit n\textquotesingle{}apareix un de nou.
-
-Quan la \hyperlink{class_nau}{Nau} es destrueix i encara té vides, llavors tarda 5 segons a reaparèixer. Només hi ha una \hyperlink{class_nau_enemiga}{Nau\+Enemiga} a l\textquotesingle{}espai. Cada vegada que sigui destruïda, despres de 5 segons n\textquotesingle{}apareix una de nova.
-
-El joc té un sistema de puntuació i de vides. L\textquotesingle{}usuari sempre comença amb 3 vides i 0 punts. A mesura que va destruint meteorits i naus enemigues, augmenta la seva puntuació, segons aquestes ponderacions\+: meteorit gran 50 punts, meteorit petit 20 punts, nau enemiga 100 punts.
-
-Quan s\textquotesingle{}acaben les vides de la \hyperlink{class_nau}{Nau}, es mostra \char`\"{}\+Game Over\char`\"{} juntament amb la puntuació.
-
-\subsubsection*{Controls\+: }
 
 
-\begin{DoxyItemize}
-\item W\+: impulsar cap endavant
-\item A\+: rotar cap a l\textquotesingle{}esquerra
-\item D\+: rotar cap a la dreta
-\item Espai\+: disparar rajos làser
-\item E\+S\+C\+: sortir del joc 
-\end{DoxyItemize}
-
-Definition at line 75 of file Joc.\+java.
+Definition at line 76 of file Joc.\+java.
 
 
 
@@ -157,12 +82,11 @@ actualitza l\textquotesingle{}estat del joc, generant meteorits i movent les Nau
 \end{DoxyPostcond}
 
 
-Definition at line 256 of file Joc.\+java.
+Definition at line 257 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -197,7 +121,7 @@ afegeix el nombre de meteorits necessaris als marges de l\textquotesingle{}espai
 \end{DoxyPostcond}
 
 
-Definition at line 243 of file Joc.\+java.
+Definition at line 244 of file Joc.\+java.
 
 
 
@@ -236,7 +160,7 @@ afegeix a posicions aleatòries el nombre de meteorits necessaris al \hyperlink{
 \end{DoxyPostcond}
 
 
-Definition at line 225 of file Joc.\+java.
+Definition at line 226 of file Joc.\+java.
 
 
 
@@ -275,7 +199,7 @@ mentre no es surti del \hyperlink{class_joc}{Joc}, captura l\textquotesingle{}en
 \end{DoxyPostcond}
 
 
-Definition at line 203 of file Joc.\+java.
+Definition at line 204 of file Joc.\+java.
 
 
 
@@ -308,7 +232,7 @@ Here is the caller graph for this function\+:\nopagebreak
 ) throws Exception\hspace{0.3cm}{\ttfamily [static]}}\label{class_joc_a54cbe41c97ce7489f7b0cc62217a7d29}
 
 
-Definition at line 162 of file Joc.\+java.
+Definition at line 163 of file Joc.\+java.
 
 
 
@@ -336,12 +260,11 @@ mou \hyperlink{class_nau_enemiga}{Nau\+Enemiga} i \hyperlink{class_nau}{Nau} en 
 \end{DoxyPostcond}
 
 
-Definition at line 271 of file Joc.\+java.
+Definition at line 272 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -376,7 +299,7 @@ mou els Meteorits i els Rajos\+Laser del \hyperlink{class_joc}{Joc}
 \end{DoxyPostcond}
 
 
-Definition at line 329 of file Joc.\+java.
+Definition at line 330 of file Joc.\+java.
 
 
 
@@ -415,12 +338,11 @@ tracta les col·lisions entre els objectes del \hyperlink{class_joc}{Joc}
 \end{DoxyPostcond}
 
 
-Definition at line 360 of file Joc.\+java.
+Definition at line 361 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -456,12 +378,11 @@ retorna si l\textquotesingle{}Area a ha colisionat amb algun \hyperlink{class_me
 \end{DoxyPostcond}
 
 
-Definition at line 458 of file Joc.\+java.
+Definition at line 459 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -496,7 +417,7 @@ si a ha xocat amb algun \hyperlink{class_raig_laser}{Raig\+Laser}, retorna cert 
 \end{DoxyPostcond}
 
 
-Definition at line 529 of file Joc.\+java.
+Definition at line 530 of file Joc.\+java.
 
 
 
@@ -535,7 +456,7 @@ si les naus col·lisionen la \hyperlink{class_nau}{Nau} del jugador es centra, l
 \end{DoxyPostcond}
 
 
-Definition at line 409 of file Joc.\+java.
+Definition at line 410 of file Joc.\+java.
 
 
 
@@ -574,12 +495,11 @@ si la \hyperlink{class_nau}{Nau} del jugador ha xocat amb algun \hyperlink{class
 \end{DoxyPostcond}
 
 
-Definition at line 493 of file Joc.\+java.
+Definition at line 494 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -614,7 +534,7 @@ si la \hyperlink{class_nau}{Nau} del jugador ha xocat amb algun \hyperlink{class
 \end{DoxyPostcond}
 
 
-Definition at line 512 of file Joc.\+java.
+Definition at line 513 of file Joc.\+java.
 
 
 
@@ -653,12 +573,11 @@ els \hyperlink{class_raig_laser}{Raig\+Laser} de la \hyperlink{class_nau}{Nau} q
 \end{DoxyPostcond}
 
 
-Definition at line 424 of file Joc.\+java.
+Definition at line 425 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -693,12 +612,11 @@ els \hyperlink{class_raig_laser}{Raig\+Laser} que hagin col·lisionat amb un \hy
 \end{DoxyPostcond}
 
 
-Definition at line 441 of file Joc.\+java.
+Definition at line 442 of file Joc.\+java.
 
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -733,7 +651,7 @@ la \hyperlink{class_nau_enemiga}{Nau\+Enemiga} desapareix del \hyperlink{class_j
 \end{DoxyPostcond}
 
 
-Definition at line 400 of file Joc.\+java.
+Definition at line 401 of file Joc.\+java.
 
 
 
@@ -772,7 +690,7 @@ si la nau està viva es centra la nau i se li resta una vida, altrament s\textqu
 \end{DoxyPostcond}
 
 
-Definition at line 381 of file Joc.\+java.
+Definition at line 382 of file Joc.\+java.
 
 
 

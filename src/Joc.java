@@ -10,7 +10,8 @@ import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.awt.Shape;
 import java.util.concurrent.TimeUnit;
-
+/// @mainpage
+///
 /// @brief Controla una Nau a l'espai evitant i atacant Meteorits i Naus Enemigues
 /// @author Miquel Farreras Casamort
 ///
