@@ -11,7 +11,8 @@ Detalls d'execució
 
 El codi és compatible amb java-7 i java-8. Però si s'utilitza el java 7 runtime
 el moviment dels objectes del joc és més lent i poden aparèixer artefactes
-visuals. Per tant, és recomanable utilitzar el java-8 per executar el jar.
+visuals. Si s'utilitza el java-8 per executar el jar no apareixen artefactes visuals
+i el moviment és més ràpid..
 A builds/ hi han dos carpetes java7/ i java8/ on hi han un jar compilat amb
 java7 i amb java8 respectivament.
 
