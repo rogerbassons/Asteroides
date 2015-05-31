@@ -2,7 +2,7 @@ var searchData=
 [
   ['main',['main',['../class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29',1,'Joc']]],
   ['maxdist_5f',['maxDist_',['../class_raig_laser.html#a950579f9b8aec21d629287044a7a65e7',1,'RaigLaser']]],
-  ['meteorit',['Meteorit',['../class_meteorit.html',1,'Meteorit'],['../class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5',1,'Meteorit.Meteorit()']]],
+  ['meteorit',['Meteorit',['../class_meteorit.html',1,'']]],
   ['meteorit_2ejava',['Meteorit.java',['../_meteorit_8java.html',1,'']]],
   ['mida_5f',['mida_',['../class_meteorit.html#a8edd607e17be6537c15ab04bfd29dc52',1,'Meteorit.mida_()'],['../class_raig_laser.html#ac18a272d02d6d090eebee561f05c1a0a',1,'RaigLaser.mida_()']]],
   ['morir',['morir',['../class_nau.html#a988c429432b7913e54522c0ab456a7ff',1,'Nau']]],

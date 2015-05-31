@@ -229,6 +229,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>És una nau espacial triangular isòsceles que es mou dins d'un espai definit. </p>
+<dl class="section author"><dt>Author</dt><dd>Roger Bassons Renart</dd></dl>
 <p>La <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> és capaç de:</p><ul>
 <li>rotar sobre si mateixa</li>
 <li>propulsar-se endavant</li>
@@ -249,7 +250,7 @@ Private Attributes</h2></td></tr>
 <p>Els mètodes <a class="el" href="class_nau.html#af1f11339142c177a9a48990349fdf801">propulsarEndavant()</a>, <a class="el" href="class_nau.html#ae4f82160603f5b5c2108c34adcd781ab">rotarEsquerra()</a>, <a class="el" href="class_nau.html#a2ef947c89a39ad2e5593c9b63aefda46">rotarDreta()</a>, <a class="el" href="class_nau.html#a5f603c39df04907891d3e56467df0cf0">pararRotacio()</a> no mouen la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> per si sols. Són com els comandaments de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> amb la diferència que després d'actuar sobre aquests comandaments s'ha de cridar el mètode <a class="el" href="class_nau.html#a8dc46f91e02910b92bfad9b798f6552c">moure(int amplada, int altura)</a> per a desplaçar la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> segons les modificacions/actuacions sobre els comandaments.</p>
 <p>Excepte el constructor i el mètode <a class="el" href="class_nau.html#ab7c4afa8c53657cf189d3f013dcf5ab5">esViva()</a>, la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> ha d'estar viva per poder utilitzar els altres mètodes. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00046">46</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00047">47</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a973eef3d7c7996553002b538481eadd6"></a>
 <div class="memitem">
@@ -277,7 +278,7 @@ Private Attributes</h2></td></tr>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva, amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>s'ha centrat el triangle a l'àrea amplada*altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00143">143</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00144">144</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -317,7 +318,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="interface_objecte_joc.html#a0d472e898df5faf145a2480ab51e3ef8">ObjecteJoc</a>.</p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00412">412</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00413">413</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -336,7 +337,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> dispara un <a class="el" href="class_raig_laser.html" title="És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit...">RaigLaser</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00165">165</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00166">166</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -392,7 +393,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>x &gt;= 0 i y &gt;= 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna la distància entre el centre de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> i el punt (x,y) </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00405">405</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00406">406</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -429,7 +430,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Diu si la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> és viva </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00347">347</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00348">348</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -465,7 +466,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>es frena el moviment de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> determinat per una resistència que és directament proporcional a la velocitat de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00186">186</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00187">187</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -512,7 +513,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>diu si la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> ha sortit de l'area amplada x altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00287">287</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00288">288</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -557,7 +558,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna la llargada de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00379">379</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00380">380</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -594,7 +595,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> mort(RIP) </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00338">338</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00339">339</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -633,7 +634,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva, amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>desplaça la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> a la posició(p) determinada per totes les velocitats de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> Es frena el seu moviment degut a una resistència Si la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>, situada a la posició p, està totalment fora de l'area amplada x altura llavors la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> es teletransporta al marge/costat invers del qual ha sortit(superior, inferior, esquerra, dreta) </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00217">217</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00218">218</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -678,7 +679,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del baricentre del triangle que forma la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>, respectivament </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00370">370</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00371">371</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -723,7 +724,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula(t[0..nombrePunts_*2-1) que conté els punts del triangle </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00387">387</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00388">388</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -751,7 +752,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna el polígon de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00419">419</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00420">420</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -779,7 +780,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>la velocitat rotacional de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> és 0 (no rota en cap sentit) </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00208">208</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00209">209</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -807,7 +808,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>s'augmenta la velocitat de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> en el sentit en el que apunta </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00175">175</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00176">176</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -854,7 +855,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del triangle(que forma la Nau) més llunya al centre de l'area amplada x altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00320">320</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00321">321</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -910,7 +911,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>amplada &gt; 0 i altura &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>retorna una taula t on t[0] i t[1] són les coordenades x i y del punt del triangle(que forma la Nau) més proper al centre de l'area amplada x altura </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00302">302</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00303">303</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -947,7 +948,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd>&ndash; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> és viva, apunta cap a dalt, està parada i té la punta superior a la coordenada (a/2) </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00353">353</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00354">354</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -975,7 +976,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>la velocitat rotacional de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> és màxima en el sentit de les agulles del rellotge </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00202">202</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00203">203</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1003,7 +1004,7 @@ Here is the caller graph for this function:</div>
 <dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>la velocitat rotacional de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> és màxima en el sentit contrari de les agulles del rellotge </dd></dl>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00196">196</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00197">197</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1037,7 +1038,7 @@ Here is the caller graph for this function:</div>
 
 <p>Acceleració amb la qual la velocitat de la nau augmenta o disminueix. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00099">99</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00100">100</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1061,7 +1062,7 @@ Here is the caller graph for this function:</div>
 
 <p>Angle que forma la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> respecte l'eix horitzontal. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00093">93</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00094">94</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1085,7 +1086,7 @@ Here is the caller graph for this function:</div>
 
 <p>Angle que rota la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> sobre el seu baricentre(valor fix) </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00100">100</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00101">101</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1109,7 +1110,7 @@ Here is the caller graph for this function:</div>
 
 <p>angle_ que tenia la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> a l'última propulsació </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00097">97</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00098">98</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1133,7 +1134,7 @@ Here is the caller graph for this function:</div>
 
 <p>Color de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00092">92</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00093">93</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1157,7 +1158,7 @@ Here is the caller graph for this function:</div>
 
 <p>Llargada de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00091">91</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00092">92</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1181,7 +1182,7 @@ Here is the caller graph for this function:</div>
 
 <p>Nombre de punts que té el triangle_. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00090">90</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00091">91</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1205,7 +1206,7 @@ Here is the caller graph for this function:</div>
 
 <p>Defineix si en el mètode <a class="el" href="class_nau.html#a8dc46f91e02910b92bfad9b798f6552c">moure()</a> la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> ha de rotar sobre el seu baricentre 0 -&gt; no s'ha de rotar 1 -&gt; rotar en el sentit esquerra 2 -&gt; rotar en el sentit dret. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00101">101</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00102">102</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1229,7 +1230,7 @@ Here is the caller graph for this function:</div>
 
 <p>Camí geomètric que sempre forma un triangle isòceles(representa gràficament la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>) </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00089">89</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00090">90</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1254,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mòdul del vector velocitat de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00096">96</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00097">97</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1277,7 +1278,7 @@ Here is the caller graph for this function:</div>
 
 <p>Velocitat màxima de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00098">98</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00099">99</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1299,7 +1300,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00103">103</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00104">104</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1323,7 +1324,7 @@ Here is the caller graph for this function:</div>
 
 <p>Defineix l'estat de la <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a>. Cert -&gt; <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> viva, Fals-&gt; <a class="el" href="class_nau.html" title="És una nau espacial triangular isòsceles que es mou dins d&#39;un espai definit. ">Nau</a> morta. </p>
 
-<p>Definition at line <a class="el" href="_nau_8java_source.html#l00094">94</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
+<p>Definition at line <a class="el" href="_nau_8java_source.html#l00095">95</a> of file <a class="el" href="_nau_8java_source.html">Nau.java</a>.</p>
 
 </div>
 </div>
@@ -1336,7 +1337,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_nau.html">Nau</a></li>
-    <li class="footer">Generated on Fri May 22 2015 09:19:03 for Asteroides by
+    <li class="footer">Generated on Sun May 31 2015 19:45:23 for Asteroides by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

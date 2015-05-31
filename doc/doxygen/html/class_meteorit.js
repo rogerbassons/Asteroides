@@ -1,6 +1,5 @@
 var class_meteorit =
 [
-    [ "Meteorit", "class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5", null ],
     [ "dibuixar", "class_meteorit.html#a28f9530c5db8c8a192b272b8bd1114d2", null ],
     [ "dividir", "class_meteorit.html#aa4b891941b6ef30774a45d6965266170", null ],
     [ "divisible", "class_meteorit.html#ab7f4539dc26a5026d8978918620db253", null ],

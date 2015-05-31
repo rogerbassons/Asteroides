@@ -1,7 +1,6 @@
 var searchData=
 [
   ['main',['main',['../class_joc.html#a54cbe41c97ce7489f7b0cc62217a7d29',1,'Joc']]],
-  ['meteorit',['Meteorit',['../class_meteorit.html#a9dcc96793a206baab2cc5aa5141a30f5',1,'Meteorit']]],
   ['morir',['morir',['../class_nau.html#a988c429432b7913e54522c0ab456a7ff',1,'Nau']]],
   ['mostrarmissatge',['mostrarMissatge',['../class_dibuixador_asteroides.html#aeff674b652f4c56d95ecd1dd12a1c4e9',1,'DibuixadorAsteroides']]],
   ['moure',['moure',['../class_meteorit.html#af23ae6e1b16f750542711547cbe4957c',1,'Meteorit.moure()'],['../class_nau.html#a8dc46f91e02910b92bfad9b798f6552c',1,'Nau.moure()'],['../class_raig_laser.html#af35092ef77217fb1aa4ff956cc5dfa55',1,'RaigLaser.moure()']]],
