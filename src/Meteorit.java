@@ -8,6 +8,7 @@ import java.awt.geom.Point2D;
 import java.util.Random;
 
 /// @brief És un meteorit amb forma de polígon irregular que pot tenir quatre tipus de formes diferents. També pot tenir dues mides, gran o petit
+/// @author Miquel Farreras Casamort
 ///
 /// Comportament bàsic:
 /// ------------------

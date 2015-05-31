@@ -8,7 +8,8 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 
 /// @brief És una nau espacial triangular isòsceles que es mou dins d'un espai definit
-///
+/// @author Roger Bassons Renart
+/// 
 /// La Nau és capaç de:
 ///    - rotar sobre si mateixa
 ///    - propulsar-se endavant

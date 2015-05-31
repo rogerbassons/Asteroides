@@ -1,6 +1,7 @@
 import java.awt.Graphics2D;
 
 /// @brief Un Objecte del joc que es dibuixa a un Graphics2D
+/// @author Roger Bassons Renart
 
 public interface ObjecteJoc {
 	/// @pre --

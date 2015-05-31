@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 /// @brief Nau que té la capacitat d'atacar a una Nau i evitar Meteorit
+/// @author Roger Bassons Renart
 ///
 /// Comportament:
 /// -------------
