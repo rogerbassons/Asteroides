@@ -5,6 +5,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.AffineTransform;
 
 /// @brief És un raig làser amb forma circular disparat per una Nau, que es mou dins un espai definit
+/// @author Miquel Farreras Casamort
 ///
 /// Comportament bàsic:
 /// ------------------

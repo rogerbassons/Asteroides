@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 
 /// @brief Dibuixa múltiples ObjecteJoc a una finestra
+/// @author Roger Bassons Renart
 ///
 /// La finestra(f) s'ha de crear amb crearFinestra(). f té una mida, un color de fons i un títol determinat.
 ///

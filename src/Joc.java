@@ -12,6 +12,7 @@ import java.awt.Shape;
 import java.util.concurrent.TimeUnit;
 
 /// @brief Controla una Nau a l'espai evitant i atacant Meteorits i Naus Enemigues
+/// @author Miquel Farreras Casamort
 ///
 /// El Joc conté quatre tipus d'ObjecteJoc:
 ///	- Nau: Nau pròpia controlada per l'usuari.
